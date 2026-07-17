@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================================
+       META TAGS — Core document metadata, SEO, and browser config
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>Managed IT & Infrastructure Services | MTT Consulting</title>
+  <meta name="description" content="Proactive managed IT and infrastructure services from MTT Consulting. 24/7 monitoring, help desk support, patch management, vendor coordination, and 99.9% uptime SLA for mid-market organizations." />
+  <meta name="keywords" content="managed IT services, IT infrastructure management, 24/7 IT monitoring, help desk support, co-managed IT, patch management, server management, IT outsourcing, managed services provider, MTT Consulting" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="MTT Consulting" />
+  <link rel="canonical" href="https://www.callmtt.com/services/managed-it" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <meta name="theme-color" content="#000000" />
+
+  <!-- ============================================================
+       OPEN GRAPH TAGS — Social sharing metadata for Facebook, LinkedIn, etc.
+       ============================================================ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Managed IT & Infrastructure Services | MTT Consulting" />
+  <meta property="og:description" content="Proactive managed IT and infrastructure services with 24/7 monitoring, help desk support, and 99.9% uptime SLA for mid-market organizations." />
+  <meta property="og:url" content="https://www.callmtt.com/services/managed-it" />
+  <meta property="og:site_name" content="MTT Consulting" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- ============================================================
+       TWITTER CARD — Twitter/X sharing metadata with large image format
+       ============================================================ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Managed IT & Infrastructure Services | MTT Consulting" />
+  <meta name="twitter:description" content="Proactive managed IT and infrastructure services with 24/7 monitoring, help desk support, and 99.9% uptime SLA for mid-market organizations." />
+
+  <!-- ============================================================
+       STRUCTURED DATA — JSON-LD schema.org Service markup
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Managed IT & Infrastructure",
+    "description": "Proactive managed IT and infrastructure services including 24/7 monitoring, help desk support, patch management, vendor coordination, and co-managed IT for mid-market organizations.",
+    "provider": {
+      "@type": "Organization",
+      "name": "MTT Consulting",
+      "url": "https://www.callmtt.com",
+      "telephone": "+1-469-635-2155",
+      "email": "info@callmtt.com",
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "addressRegion": "TX",
+          "addressLocality": "Collin County",
+          "addressCountry": "US"
+        },
+        {
+          "@type": "PostalAddress",
+          "addressRegion": "CA",
+          "addressLocality": "Orange County",
+          "addressCountry": "US"
+        }
+      ]
+    },
+    "serviceType": "Managed IT Services",
+    "areaServed": {
+      "@type": "Country",
+      "name": "United States"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Managed IT Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "24/7 Monitoring & Alerting" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Patch Management & Updates" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Help Desk & User Support (Tier 1-3)" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Server & Workstation Lifecycle Management" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Co-Managed IT" } }
+      ]
+    }
+  }
+  </script>
+
+  <!-- ============================================================
+       STRUCTURED DATA (JSON-LD) — BreadcrumbList
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.callmtt.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.callmtt.com/#services"},
+      {"@type": "ListItem", "position": 3, "name": "Managed IT & Infrastructure", "item": "https://www.callmtt.com/services/managed-it.html"}
+    ]
+  }
+  </script>
+
+  <!-- ============================================================
+       FONT LOADING — Google Fonts preconnect and Space Grotesk font family
+       ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" /></noscript>
+
+  <!-- ============================================================
+       EMBEDDED STYLES — All page styles inlined for performance
+       ============================================================ -->
+  <style>
+    /* ── Design Tokens ─────────────────────────────────────── */
+    :root {
+      --bg: #000000;
+      --bg-elevated: #0a0a0a;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f5f5f5;
+      --border: rgba(255,255,255,0.08);
+      --border-hover: rgba(196,90,26,0.35);
+      --text: #eae6df;
+      --text-secondary: #9c9890;
+      --text-dim: #625e58;
+      --card-text: #1a1a1a;
+      --card-text-secondary: #555555;
+      --card-text-dim: #888888;
+      --card-border: rgba(230,230,230,0.15);
+      --accent: #c45a1a;
+      --accent-light: #d96b2a;
+      --accent-dark: #a44a12;
+      --accent-glow: rgba(196,90,26,0.22);
+      --green: #5a8a72;
+      --blue: #4a7c9b;
+      --purple: #7c6cc0;
+      --white: #eae6df;
+      --shadow-lg: 0 24px 64px rgba(0,0,0,0.5);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.3);
+      --shadow-sm: 0 2px 12px rgba(0,0,0,0.2);
+      --shadow-glow: 0 0 30px rgba(196,90,26,0.08);
+      --max-w: 1200px;
+      --article-w: 820px;
+      --radius-lg: 14px;
+      --radius-md: 10px;
+      --radius-sm: 8px;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Space Grotesk', sans-serif;
+      --font-ui: 'Space Grotesk', sans-serif;
+      --transition: 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* ── Reset & Base ──────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.72;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    .container { width: min(var(--max-w), calc(100% - 40px)); margin: 0 auto; position: relative; z-index: 1; }
+
+    .highlight {
+      background: linear-gradient(135deg, #c45a1a, #d96b2a, #d96b2a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── Scroll Progress Bar ────────────────────────────────── */
+    .scroll-progress {
+      position: fixed; top: 0; left: 0; height: 3px; z-index: 200;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      width: 0%; transition: width 0.1s linear;
+    }
+
+    /* ── Buttons ───────────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px 26px; border-radius: var(--radius-sm); border: 1px solid transparent;
+      font-family: var(--font-display); font-weight: 700; font-size: 0.9rem;
+      cursor: pointer; transition: all var(--transition); white-space: nowrap;
+    }
+    .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 4px 20px rgba(196,90,26,0.25), 0 1px 4px rgba(196,90,26,0.15); }
+    .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(196,90,26,0.30), 0 2px 8px rgba(196,90,26,0.20); }
+    .btn-ghost { background: transparent; border-color: rgba(255,245,230,0.12); color: var(--text); }
+    .btn-ghost:hover { background: rgba(255,245,230,0.06); border-color: var(--border-hover); }
+    .btn-sm { padding: 10px 18px; font-size: 0.924rem; }
+
+    /* ── Header & Navigation ──────────────────────────────── */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(24px) saturate(1.6);
+      -webkit-backdrop-filter: blur(24px) saturate(1.6);
+      background: rgba(13,13,13,0.92);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 20px rgba(0,0,0,0.4);
+    }
+    .nav-bar { display: flex; align-items: center; justify-content: space-between; min-height: 68px; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-family: var(--font-display); font-weight: 800; font-size: 1.12rem; }
+    .brand-icon {
+      width: 42px; height: 42px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(196,90,26,0.20), rgba(196,90,26,0.08));
+      border: 1px solid rgba(196,90,26,0.25);
+      display: grid; place-items: center; flex-shrink: 0;
+      box-shadow: 0 0 16px rgba(196,90,26,0.10);
+    }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-links a { color: var(--text-secondary); font-size: 0.946rem; font-weight: 500; padding: 8px 14px; border-radius: var(--radius-sm); transition: color var(--transition), background var(--transition); }
+    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.04); }
+    .nav-links a.active { color: var(--accent-light); }
+    .nav-right { display: flex; align-items: center; gap: 14px; }
+    .nav-phone { color: var(--text-secondary); font-size: 0.946rem; font-weight: 600; font-family: var(--font-display); }
+    .hamburger { display: none; background: none; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 8px; cursor: pointer; color: var(--text); }
+    .hamburger svg { display: block; }
+    .mobile-menu { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(13,13,13,0.98); backdrop-filter: blur(24px); flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; color: var(--text); padding: 12px 24px; }
+    .mobile-close { position: absolute; top: 20px; right: 20px; background: none; border: none; color: var(--text); cursor: pointer; }
+
+    /* ── Service Hero ─────────────────────────────────────── */
+    .article-hero {
+      padding: 64px 0 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .article-hero-inner {
+      max-width: var(--article-w);
+      margin: 0 auto;
+    }
+    .article-category {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.10em; padding: 5px 14px; border-radius: 999px;
+      background: rgba(74,124,155,0.12); color: var(--blue);
+      margin-bottom: 20px;
+    }
+    .article-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 18px;
+    }
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 640px;
+    }
+
+    /* ── Article Body & Content ─────────────────────────────── */
+    .article-wrapper {
+      padding: 48px 0 80px;
+    }
+    .article-card {
+      max-width: var(--article-w);
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: clamp(28px, 5vw, 48px);
+      box-shadow: var(--shadow-lg);
+      color: var(--card-text);
+    }
+    .article-card h2 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--card-text);
+      margin: 48px 0 16px;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+    .article-card h2:first-child { margin-top: 0; }
+    .article-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--card-text);
+      margin: 32px 0 12px;
+      line-height: 1.3;
+    }
+    .article-card p {
+      font-size: 1.02rem;
+      line-height: 1.8;
+      color: var(--card-text-secondary);
+      margin-bottom: 18px;
+    }
+    .article-card p strong {
+      color: var(--card-text);
+      font-weight: 600;
+    }
+    .article-card ul, .article-card ol {
+      list-style: none;
+      margin: 0 0 20px 0;
+      padding: 0;
+    }
+    .article-card ul li, .article-card ol li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 10px;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--card-text-secondary);
+    }
+    .article-card ul li::before {
+      content: '';
+      position: absolute; left: 0; top: 11px;
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--accent);
+      opacity: 0.7;
+    }
+    .article-card ol {
+      counter-reset: ol-counter;
+    }
+    .article-card ol li {
+      counter-increment: ol-counter;
+    }
+    .article-card ol li::before {
+      content: counter(ol-counter) '.';
+      position: absolute; left: 0; top: 0;
+      font-weight: 700; color: var(--accent);
+      font-size: 0.95rem;
+    }
+
+    /* Blockquote */
+    .article-card blockquote {
+      border-left: 4px solid var(--accent);
+      margin: 28px 0;
+      padding: 20px 24px;
+      background: rgba(196,90,26,0.04);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .article-card blockquote p {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--card-text);
+      margin-bottom: 0;
+      font-style: italic;
+    }
+
+    /* Section Divider */
+    .section-divider {
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(196,90,26,0.25), transparent);
+      margin: 48px 0;
+    }
+
+    /* Key Takeaway / Highlight Box */
+    .takeaway-box {
+      background: #f8f6f3;
+      border: 1px solid rgba(196,90,26,0.15);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin: 28px 0;
+    }
+    .takeaway-box .takeaway-label {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.10em;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .takeaway-box p {
+      margin-bottom: 0;
+      font-size: 0.95rem;
+    }
+
+    /* Tech Partners Grid */
+    .tech-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0;
+    }
+    .tech-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: #f4f2ef;
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--card-text);
+      transition: all var(--transition);
+    }
+    .tech-tag:hover {
+      background: rgba(196,90,26,0.08);
+      border-color: rgba(196,90,26,0.2);
+    }
+
+    /* Timeline / Onboarding */
+    .timeline {
+      margin: 24px 0;
+      padding: 0;
+    }
+    .timeline-item {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 24px;
+      position: relative;
+      padding-left: 0;
+    }
+    .timeline-item::before {
+      content: none;
+    }
+    .timeline-marker {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      display: grid; place-items: center;
+      font-family: var(--font-display); font-weight: 800; font-size: 0.78rem;
+      color: #fff; flex-shrink: 0;
+      box-shadow: 0 4px 16px rgba(196,90,26,0.25);
+    }
+    .timeline-content h4 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--card-text);
+      margin-bottom: 4px;
+    }
+    .timeline-content p {
+      font-size: 0.95rem;
+      margin-bottom: 0;
+    }
+
+    /* SLA Grid */
+    .sla-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .sla-card {
+      background: #f8f6f3;
+      border: 1px solid rgba(196,90,26,0.10);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      text-align: center;
+    }
+    .sla-value {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+    .sla-label {
+      font-size: 0.84rem;
+      color: var(--card-text-secondary);
+      font-weight: 500;
+    }
+
+    /* ── CTA Banner ────────────────────────────────────────── */
+    .article-cta {
+      background: linear-gradient(135deg, rgba(196,90,26,0.08), rgba(196,90,26,0.03));
+      border: 1px solid rgba(196,90,26,0.18);
+      border-radius: var(--radius-md);
+      padding: 36px;
+      margin: 48px 0 0;
+      text-align: center;
+    }
+    .article-cta h3 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--card-text);
+      margin: 0 0 10px;
+    }
+    .article-cta p {
+      color: var(--card-text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      max-width: 55ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .article-cta .btn-primary {
+      font-size: 0.92rem;
+    }
+
+    /* ── Footer ────────────────────────────────────────────── */
+    .footer { padding: 32px 0; }
+    .footer-row {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 20px; flex-wrap: wrap; color: var(--text-dim); font-size: 0.924rem;
+    }
+    .footer-row a { color: var(--text-secondary); transition: color var(--transition); }
+    .footer-row a:hover { color: var(--accent-light); }
+
+    /* Back Link */
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.86rem; font-weight: 500; color: var(--text-secondary);
+      margin-bottom: 24px; transition: color var(--transition);
+    }
+    .back-link:hover { color: var(--accent-light); }
+
+    #meshCanvas {
+      position: fixed; top: 0; right: 0; width: 60%; height: 100%;
+      z-index: 0; pointer-events: none; opacity: 0.4;
+    }
+
+    /* ── Scroll Reveal ────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Responsive Breakpoints ────────────────────────────── */
+    @media (max-width: 1024px) {
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .nav-phone { display: none; }
+    }
+    @media (max-width: 640px) {
+      .article-hero { padding: 40px 0 32px; }
+      .sla-grid { grid-template-columns: 1fr; }
+      .timeline-item { flex-direction: column; gap: 10px; }
+    }
+    .brand-logo { height: 100px; width: auto; max-width: 380px; object-fit: contain; flex-shrink: 0; mix-blend-mode: screen; transition: opacity 0.25s ease; }
+    .brand-logo--footer { height: 132px; max-width: 460px; }
+      .brand-text { font-size: 1.485rem; font-weight: 800; color: var(--text-primary, #fff); letter-spacing: -0.01em; }
+    .brand-text-sub { font-size: 1.485rem; font-weight: 700; color: var(--accent, #c45a1a); letter-spacing: -0.01em; }
+    /* Scroll margin for fixed header */
+    section { scroll-margin-top: 80px; }
+    /* Accessibility & Performance */
+    ::selection { background: rgba(196,90,26,0.3); color: #F0EDE8; }
+    *:focus-visible { outline: 2px solid #C45A1A; outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ============================================================
+       MOBILE MENU — Full-screen overlay navigation for small screens
+       ============================================================ -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')" aria-label="Close">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <a href="../index.html">Home</a>
+    <a href="../index.html#services">Services</a>
+    <a href="../index.html#solutions">Solutions</a>
+    <a href="../index.html#industries">Industries</a>
+    <a href="../index.html#why-mtt">Team</a>
+    <a href="../blog/">Blog</a>
+    <a href="../index.html#contact">Contact</a>
+    <a href="tel:4696352155" class="btn btn-primary btn-sm" style="margin-top:12px">Call 469-635-2155</a>
+  </div>
+
+  <!-- ============================================================
+       HEADER & NAVIGATION — Sticky top bar with glassmorphism effect
+       ============================================================ -->
+  <header>
+    <div class="container nav-bar">
+      <a href="../index.html" class="brand" aria-label="MTT Consulting home">
+        <span class="brand-text">MTT</span><span class="brand-text-sub">Consulting</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="../index.html#services" class="active">Services</a>
+        <a href="../index.html#solutions">Solutions</a>
+        <a href="../index.html#industries">Industries</a>
+        <a href="../index.html#why-mtt">Team</a>
+        <a href="../blog/">Blog</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <div class="nav-right">
+        <a href="tel:4696352155" class="nav-phone">469-635-2155</a>
+        <a class="btn btn-primary btn-sm" href="../index.html#contact">Book a Consultation</a>
+        <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============================================================
+         SERVICE HERO — Category badge, title, and subtitle
+         ============================================================ -->
+    <section class="article-hero">
+      <div class="container">
+        <div class="article-hero-inner">
+          <a href="../index.html#services" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3l-5 5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Back to Services
+          </a>
+          <span class="article-category">Infrastructure</span>
+          <h1>Managed IT &amp; Infrastructure</h1>
+          <p class="hero-subtitle">Proactive IT operations that keep your business running, your users productive, and your leadership focused on growth &mdash; not troubleshooting.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SERVICE CONTENT — Main content in a white card container
+         ============================================================ -->
+    <section class="article-wrapper">
+      <div class="container">
+        <article class="article-card">
+
+          <!-- Section 1: Beyond Break-Fix -->
+          <div class="reveal">
+            <h2>Beyond Break-Fix: Proactive IT Operations</h2>
+
+            <p>Most organizations start their IT journey in reactive mode: something breaks, someone calls, and a technician scrambles to fix it. This break-fix approach might feel manageable at first, but the hidden costs compound quickly &mdash; lost productivity during outages, security gaps from missed patches, and executive time wasted on firefighting instead of strategy.</p>
+
+            <p>The shift to proactive IT operations changes the equation entirely. <strong>Rather than waiting for systems to fail, we monitor, maintain, and optimize your infrastructure continuously</strong> &mdash; identifying and resolving issues before they impact your team. The result is fewer disruptions, lower total cost of ownership, and an IT environment that scales with your business rather than holding it back.</p>
+
+            <blockquote>
+              <p>Reactive IT costs more in downtime, lost productivity, and emergency vendor fees than proactive management ever will. The most expensive outage is the one you could have prevented.</p>
+            </blockquote>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Section 2: What Our Managed IT Covers -->
+          <div class="reveal">
+            <h2>What Our Managed IT Covers</h2>
+
+            <p>Our managed IT services provide comprehensive coverage across every layer of your technology environment. Every engagement is tailored to your organization's size, complexity, and industry requirements.</p>
+
+            <ul>
+              <li><strong>24/7 Monitoring &amp; Alerting:</strong> Continuous surveillance of servers, network devices, endpoints, and critical applications with real-time alerts and automated escalation workflows. We see the problem before your users do.</li>
+              <li><strong>Patch Management &amp; Updates:</strong> Systematic testing, scheduling, and deployment of OS patches, firmware updates, and application updates across your environment &mdash; with rollback procedures for every change.</li>
+              <li><strong>Help Desk &amp; User Support (Tier 1&ndash;3):</strong> Full-spectrum support from password resets and connectivity issues to complex infrastructure troubleshooting. Our tiered model ensures the right expertise is applied to every ticket.</li>
+              <li><strong>Server &amp; Workstation Lifecycle Management:</strong> Procurement guidance, provisioning, imaging, deployment, warranty tracking, and end-of-life planning for all hardware assets.</li>
+              <li><strong>Documentation &amp; Runbooks:</strong> Comprehensive documentation of your IT environment, standard operating procedures, and runbooks that ensure continuity and reduce dependency on tribal knowledge.</li>
+              <li><strong>Vendor Coordination &amp; Escalation:</strong> We serve as your single point of contact for all technology vendors &mdash; managing support tickets, license renewals, warranty claims, and escalations so you don't have to.</li>
+            </ul>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Section 3: Co-Managed IT -->
+          <div class="reveal">
+            <h2>Co-Managed IT: Augmenting Your Existing Team</h2>
+
+            <p>Not every organization needs to fully outsource IT. Many of our clients have capable internal teams that need strategic reinforcement &mdash; not replacement. Our co-managed IT model is built for this exact scenario.</p>
+
+            <p>Whether your team needs <strong>after-hours coverage</strong> to avoid burnout, <strong>specialized skills</strong> for complex projects like cloud migrations or security hardening, or simply <strong>additional depth</strong> during peak periods, co-managed IT gives you the flexibility to scale support without adding permanent headcount.</p>
+
+            <p>We integrate directly with your internal team's tools and workflows, extending their reach rather than creating parallel processes. Your IT staff retains ownership and strategic control while gaining a bench of experienced engineers they can call on when it matters most.</p>
+
+            <div class="takeaway-box">
+              <span class="takeaway-label">Best For</span>
+              <p>Organizations with 1&ndash;5 internal IT staff who need Tier 3 escalation support, after-hours monitoring, or project-based expertise without the overhead of additional full-time hires.</p>
+            </div>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Section 4: Our Infrastructure Stack -->
+          <div class="reveal">
+            <h2>Our Infrastructure Stack</h2>
+
+            <p>We are vendor-agnostic in our recommendations but deep in our expertise. Our team holds certifications and production experience across the platforms that power modern mid-market infrastructure.</p>
+
+            <div class="tech-grid">
+              <span class="tech-tag">Cisco</span>
+              <span class="tech-tag">Fortinet</span>
+              <span class="tech-tag">Palo Alto Networks</span>
+              <span class="tech-tag">Microsoft 365</span>
+              <span class="tech-tag">Microsoft Azure</span>
+              <span class="tech-tag">Veeam</span>
+              <span class="tech-tag">Dell Technologies</span>
+              <span class="tech-tag">HPE</span>
+            </div>
+
+            <p>We select and architect solutions based on your requirements, budget, and existing environment &mdash; not on which vendor offers us the best margin. Every recommendation comes with a clear rationale, alternative options considered, and total cost of ownership analysis.</p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Section 5: Service Level Commitments -->
+          <div class="reveal">
+            <h2>Service Level Commitments</h2>
+
+            <p>We back our managed IT services with measurable, contractual commitments that hold us accountable for the outcomes that matter to your business.</p>
+
+            <div class="sla-grid">
+              <div class="sla-card">
+                <div class="sla-value">99.9%</div>
+                <div class="sla-label">Uptime SLA</div>
+              </div>
+              <div class="sla-card">
+                <div class="sla-value">15 min</div>
+                <div class="sla-label">Critical Response Time</div>
+              </div>
+              <div class="sla-card">
+                <div class="sla-value">Monthly</div>
+                <div class="sla-label">Performance Reporting</div>
+              </div>
+              <div class="sla-card">
+                <div class="sla-value">Quarterly</div>
+                <div class="sla-label">Business Reviews</div>
+              </div>
+            </div>
+
+            <p>Monthly reports provide visibility into ticket volume, resolution times, system health trends, and security posture. Quarterly business reviews go deeper &mdash; aligning IT performance with your strategic objectives and identifying opportunities for optimization or cost reduction.</p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Section 6: Onboarding Process -->
+          <div class="reveal">
+            <h2>Onboarding Process</h2>
+
+            <p>Transitioning to a new managed IT provider can feel disruptive. Our structured onboarding process is designed to minimize risk and ensure a smooth handoff with zero downtime.</p>
+
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-marker">W1</div>
+                <div class="timeline-content">
+                  <h4>Week 1&ndash;2: Discovery &amp; Documentation</h4>
+                  <p>Full environment audit, network mapping, asset inventory, credential collection, vendor account transfers, and stakeholder interviews to understand your operations inside and out.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-marker">W3</div>
+                <div class="timeline-content">
+                  <h4>Week 3&ndash;4: Tool Deployment &amp; Monitoring Setup</h4>
+                  <p>RMM agent deployment, monitoring thresholds configured, alerting workflows established, backup verification, and help desk integration with your team's communication tools.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-marker">M2</div>
+                <div class="timeline-content">
+                  <h4>Month 2: Stabilization</h4>
+                  <p>Active monitoring and rapid response to inherited issues, SLA baseline establishment, runbook refinement, and knowledge transfer sessions with your internal stakeholders.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-marker">M3</div>
+                <div class="timeline-content">
+                  <h4>Month 3+: Optimization</h4>
+                  <p>Proactive improvement recommendations, cost optimization analysis, technology roadmap development, and transition from stabilization to continuous improvement.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================================
+               CTA BANNER — Call-to-action for managed IT consultation
+               ============================================================ -->
+          <div class="article-cta reveal">
+            <h3>Ready for IT That Just Works?</h3>
+            <p>Schedule a complimentary consultation and we will assess your current IT environment, identify gaps, and outline a managed services plan tailored to your organization.</p>
+            <a href="../index.html#contact" class="btn btn-primary">Book a Consultation</a>
+          </div>
+
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       FOOTER — Copyright, navigation links, and contact info
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container footer-row">
+      <div>&copy; 2026 MTT Consulting. vCIO advisory, AI governance, cybersecurity, and managed IT services nationwide.</div>
+      <div>Offices in Collin County, TX &amp; Orange County, CA &middot; <a href="mailto:info@callmtt.com">info@callmtt.com</a> &middot; <a href="tel:4696352155">469-635-2155</a></div>
+      <div><a href="/privacy-policy.html">Privacy Policy</a> &middot; <a href="/terms-of-service.html">Terms of Service</a> &middot; <a href="/sitemap.xml">Sitemap</a></div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT — Page interactivity and animations
+       ============================================================ -->
+  <script>
+    // --- Scroll Progress Bar ---
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      document.getElementById('scrollProgress').style.width = progress + '%';
+    });
+
+    // --- Scroll Reveal ---
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => revealObserver.observe(el));
+  </script>
+
+  <!-- ============================================================
+       BACKGROUND CANVAS — Animated particle mesh rendered via JS
+       ============================================================ -->
+  <canvas id="meshCanvas"></canvas>
+  <script>
+  (function(){
+    const c=document.getElementById('meshCanvas');if(!c)return;
+    const ctx=c.getContext('2d');
+    let w,h,pts=[];
+    function resize(){w=c.width=c.offsetWidth*devicePixelRatio;h=c.height=c.offsetHeight*devicePixelRatio;ctx.scale(devicePixelRatio,devicePixelRatio);}
+    resize();window.addEventListener('resize',resize);
+    for(let i=0;i<60;i++)pts.push({x:Math.random()*c.offsetWidth,y:Math.random()*c.offsetHeight,vx:(Math.random()-0.5)*0.3,vy:(Math.random()-0.5)*0.3});
+    function draw(){
+      ctx.clearRect(0,0,c.offsetWidth,c.offsetHeight);
+      pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>c.offsetWidth)p.vx*=-1;if(p.y<0||p.y>c.offsetHeight)p.vy*=-1;});
+      for(let i=0;i<pts.length;i++){
+        for(let j=i+1;j<pts.length;j++){
+          const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+          if(d<120){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle='rgba(196,90,26,'+(1-d/120)*0.15+')';ctx.stroke();}
+        }
+        ctx.beginPath();ctx.arc(pts[i].x,pts[i].y,1.5,0,Math.PI*2);ctx.fillStyle='rgba(196,90,26,0.3)';ctx.fill();
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+  </script>
+
+</body>
+</html>

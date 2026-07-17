@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================================
+       META TAGS — Core document metadata, SEO, and browser config
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>Cloud & Microsoft 365 Services | MTT Consulting</title>
+  <meta name="description" content="Expert cloud architecture, Microsoft 365 optimization, multi-cloud strategy, and FinOps services. MTT Consulting helps businesses reduce cloud costs 20-35% while increasing resilience and security." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="MTT Consulting" />
+  <meta name="keywords" content="cloud consulting, Microsoft 365 optimization, Azure migration, multi-cloud strategy, FinOps, cloud cost management, Zero Trust, cloud security, MTT Consulting" />
+  <link rel="canonical" href="https://www.callmtt.com/services/cloud-microsoft-365.html" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <meta name="theme-color" content="#0b0b0a" />
+
+  <!-- ============================================================
+       OPEN GRAPH TAGS — Social sharing metadata
+       ============================================================ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Cloud & Microsoft 365 Services | MTT Consulting" />
+  <meta property="og:description" content="Expert cloud architecture, Microsoft 365 optimization, multi-cloud strategy, and FinOps services for growing businesses." />
+  <meta property="og:url" content="https://www.callmtt.com/services/cloud-microsoft-365.html" />
+  <meta property="og:site_name" content="MTT Consulting" />
+
+  <!-- ============================================================
+       TWITTER CARD — Twitter/X sharing metadata
+       ============================================================ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cloud & Microsoft 365 Services | MTT Consulting" />
+  <meta name="twitter:description" content="Expert cloud architecture, Microsoft 365 optimization, multi-cloud strategy, and FinOps services for growing businesses." />
+
+  <!-- ============================================================
+       FONT LOADING — Google Fonts preconnect and Space Grotesk
+       ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" /></noscript>
+
+  <!-- ============================================================
+       STRUCTURED DATA — JSON-LD schema.org Service markup
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Cloud & Microsoft 365 Services",
+    "provider": {
+      "@type": "Organization",
+      "name": "MTT Consulting",
+      "url": "https://www.callmtt.com",
+      "telephone": "+1-469-635-2155",
+      "email": "info@callmtt.com",
+      "address": [
+        { "@type": "PostalAddress", "addressLocality": "Collin County", "addressRegion": "TX", "addressCountry": "US" },
+        { "@type": "PostalAddress", "addressLocality": "Orange County", "addressRegion": "CA", "addressCountry": "US" }
+      ]
+    },
+    "description": "Expert cloud architecture, Microsoft 365 optimization, multi-cloud strategy, migration services, FinOps, and cloud security for mid-market businesses.",
+    "serviceType": ["Cloud Consulting", "Microsoft 365 Optimization", "Cloud Migration", "FinOps", "Cloud Security"],
+    "areaServed": "US",
+    "url": "https://www.callmtt.com/services/cloud-microsoft-365.html"
+  }
+  </script>
+
+  <!-- ============================================================
+       STRUCTURED DATA (JSON-LD) — BreadcrumbList
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.callmtt.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.callmtt.com/#services"},
+      {"@type": "ListItem", "position": 3, "name": "Cloud & Microsoft 365", "item": "https://www.callmtt.com/services/cloud-microsoft-365.html"}
+    ]
+  }
+  </script>
+
+  <!-- ============================================================
+       EMBEDDED STYLES — All page styles inlined for performance
+       ============================================================ -->
+  <style>
+    /* ── Design Tokens ─────────────────────────────────────── */
+    :root {
+      --bg: #000000;
+      --bg-elevated: #0a0a0a;
+      --bg-card: #ffffff;
+      --border: rgba(255,255,255,0.08);
+      --border-hover: rgba(196,90,26,0.35);
+      --text: #eae6df;
+      --text-secondary: #9c9890;
+      --text-dim: #625e58;
+      --card-text: #1a1a1a;
+      --card-text-secondary: #555555;
+      --accent: #c45a1a;
+      --accent-light: #d96b2a;
+      --accent-dark: #a44a12;
+      --accent-glow: rgba(196,90,26,0.22);
+      --white: #eae6df;
+      --shadow-lg: 0 24px 64px rgba(0,0,0,0.5);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.3);
+      --shadow-sm: 0 2px 12px rgba(0,0,0,0.2);
+      --shadow-glow: 0 0 30px rgba(196,90,26,0.08);
+      --max-w: 1200px;
+      --article-w: 820px;
+      --radius-lg: 14px;
+      --radius-md: 10px;
+      --radius-sm: 8px;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Space Grotesk', sans-serif;
+      --font-ui: 'Space Grotesk', sans-serif;
+      --transition: 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* ── Reset & Base ──────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.72;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    .container { width: min(var(--max-w), calc(100% - 40px)); margin: 0 auto; position: relative; z-index: 1; }
+
+    /* ── Scroll Progress Bar ────────────────────────────────── */
+    .scroll-progress {
+      position: fixed; top: 0; left: 0; height: 3px; z-index: 999;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      transition: width 0.1s linear;
+    }
+
+    /* ── Scroll Reveal Animations ─────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+
+    /* ── Highlight Text Gradient ──────────────────────────── */
+    .highlight {
+      background: linear-gradient(135deg, #c45a1a, #d96b2a, #d96b2a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── Buttons ───────────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px 26px; border-radius: var(--radius-sm); border: 1px solid transparent;
+      font-family: var(--font-display); font-weight: 700; font-size: 0.9rem;
+      cursor: pointer; transition: all var(--transition); white-space: nowrap;
+    }
+    .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 4px 20px rgba(196,90,26,0.25), 0 1px 4px rgba(196,90,26,0.15); }
+    .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(196,90,26,0.30), 0 2px 8px rgba(196,90,26,0.20); }
+    .btn-ghost { background: transparent; border-color: rgba(255,245,230,0.12); color: var(--text); }
+    .btn-ghost:hover { background: rgba(255,245,230,0.06); border-color: var(--border-hover); }
+    .btn-sm { padding: 10px 18px; font-size: 0.924rem; }
+
+    /* ── Header & Navigation ──────────────────────────────── */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(24px) saturate(1.6);
+      -webkit-backdrop-filter: blur(24px) saturate(1.6);
+      background: rgba(13,13,13,0.92);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 20px rgba(0,0,0,0.4);
+    }
+    .nav-bar { display: flex; align-items: center; justify-content: space-between; min-height: 68px; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-family: var(--font-display); font-weight: 800; font-size: 1.12rem; }
+    .brand-icon {
+      width: 42px; height: 42px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(196,90,26,0.20), rgba(196,90,26,0.08));
+      border: 1px solid rgba(196,90,26,0.25);
+      display: grid; place-items: center; flex-shrink: 0;
+      box-shadow: 0 0 16px rgba(196,90,26,0.10);
+    }
+    .brand-sub { display: block; font-size: 0.62rem; font-weight: 600; color: var(--text-dim); letter-spacing: 0.16em; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-links a { color: var(--text-secondary); font-size: 0.946rem; font-weight: 500; padding: 8px 14px; border-radius: var(--radius-sm); transition: color var(--transition), background var(--transition); }
+    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.04); }
+    .nav-links a.active { color: var(--accent-light); }
+    .nav-right { display: flex; align-items: center; gap: 14px; }
+    .nav-phone { color: var(--text-secondary); font-size: 0.946rem; font-weight: 600; font-family: var(--font-display); }
+    .hamburger { display: none; background: none; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 8px; cursor: pointer; color: var(--text); }
+    .hamburger svg { display: block; }
+    .mobile-menu { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(13,13,13,0.98); backdrop-filter: blur(24px); flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; color: var(--text); padding: 12px 24px; }
+    .mobile-close { position: absolute; top: 20px; right: 20px; background: none; border: none; color: var(--text); cursor: pointer; }
+
+    /* ── Service Hero ─────────────────────────────────────── */
+    .service-hero {
+      padding: 72px 0 56px;
+      border-bottom: 1px solid var(--border);
+    }
+    .service-hero .container {
+      max-width: var(--article-w);
+    }
+    .service-category {
+      display: inline-block; padding: 5px 14px; border-radius: 999px;
+      font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+      background: rgba(74,124,155,0.15); color: #6aa8d0; border: 1px solid rgba(74,124,155,0.25);
+      margin-bottom: 18px;
+    }
+    .service-hero h1 {
+      font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 900; letter-spacing: -0.03em; line-height: 1.14; margin-bottom: 18px;
+    }
+    .service-hero .subtitle {
+      color: var(--text-secondary); font-size: 1.08rem; line-height: 1.7; max-width: 640px;
+    }
+
+    /* ── Article Card ─────────────────────────────────────── */
+    .article-card {
+      max-width: var(--article-w);
+      margin: -1px auto 0;
+      background: var(--bg-card);
+      border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+      padding: 48px 60px 56px;
+      box-shadow: var(--shadow-lg);
+      color: var(--card-text);
+      line-height: 1.8;
+      font-size: 1.02rem;
+    }
+    .article-card p {
+      margin-bottom: 1.4em;
+    }
+    .article-card h2 {
+      font-family: var(--font-display); font-weight: 800; font-size: 1.55rem;
+      letter-spacing: -0.02em; margin: 2.2em 0 0.7em; color: #111;
+      padding-bottom: 8px; border-bottom: 2px solid var(--accent);
+      display: inline-block;
+    }
+    .article-card h2:first-child {
+      margin-top: 0;
+    }
+    .article-card h3 {
+      font-family: var(--font-display); font-weight: 700; font-size: 1.22rem;
+      margin: 1.8em 0 0.6em; color: #222;
+    }
+    .article-card strong { font-weight: 700; color: #111; }
+    .article-card a {
+      color: var(--accent); font-weight: 600; text-decoration: underline;
+      text-decoration-color: rgba(196,90,26,0.3); text-underline-offset: 3px;
+      transition: text-decoration-color var(--transition);
+    }
+    .article-card a:hover { text-decoration-color: var(--accent); }
+    .article-card ul, .article-card ol {
+      list-style: none; margin: 0 0 1.4em 0; padding: 0;
+    }
+    .article-card ul li, .article-card ol li {
+      position: relative; padding-left: 24px; margin-bottom: 8px;
+    }
+    .article-card ul li::before {
+      content: ''; position: absolute; left: 0; top: 11px;
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--accent);
+    }
+    .article-card ol { counter-reset: ol-counter; }
+    .article-card ol li { counter-increment: ol-counter; }
+    .article-card ol li::before {
+      content: counter(ol-counter) '.';
+      position: absolute; left: 0; top: 0;
+      font-weight: 700; color: var(--accent); font-size: 0.95rem;
+    }
+
+    /* ── Blockquote ────────────────────────────────────────── */
+    .article-card blockquote {
+      margin: 1.8em 0; padding: 20px 24px;
+      border-left: 4px solid var(--accent);
+      background: #faf6f1;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-style: italic; color: #333;
+    }
+    .article-card blockquote p { margin-bottom: 0; }
+
+    /* ── CTA Banner ────────────────────────────────────────── */
+    .article-cta {
+      margin: 2.4em 0 0.5em;
+      padding: 32px;
+      background: linear-gradient(135deg, #1a1a1a, #222);
+      border-radius: var(--radius-md);
+      text-align: center;
+      color: #fff;
+    }
+    .article-cta h3 {
+      color: #fff; margin: 0 0 8px; font-size: 1.3rem;
+    }
+    .article-cta p {
+      color: #bbb; margin-bottom: 20px; font-size: 0.95rem;
+    }
+    .article-cta .btn-primary { font-size: 0.95rem; }
+
+    /* ── Footer ────────────────────────────────────────────── */
+    .footer {
+      padding: 32px 0;
+      color: var(--text-dim);
+      font-size: 0.902rem;
+    }
+    .footer-row {
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    }
+    .footer a { color: var(--text-secondary); transition: color var(--transition); }
+    .footer a:hover { color: var(--accent-light); }
+
+    /* ── Background Canvas ─────────────────────────────────── */
+    #meshCanvas {
+      position: fixed; top: 0; right: 0; width: 60%; height: 100%;
+      z-index: 0; pointer-events: none; opacity: 0.4;
+    }
+
+    /* ── Responsive Breakpoints ────────────────────────────── */
+    @media (max-width: 860px) {
+      .article-card { padding: 36px 28px 44px; }
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .nav-phone { display: none; }
+      .footer-row { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .article-card { padding: 28px 20px 36px; }
+      .service-hero { padding: 48px 0 36px; }
+    }
+    .brand-logo { height: 100px; width: auto; max-width: 380px; object-fit: contain; flex-shrink: 0; mix-blend-mode: screen; transition: opacity 0.25s ease; }
+    .brand-logo--footer { height: 132px; max-width: 460px; }
+      .brand-text { font-size: 1.485rem; font-weight: 800; color: var(--text-primary, #fff); letter-spacing: -0.01em; }
+    .brand-text-sub { font-size: 1.485rem; font-weight: 700; color: var(--accent, #c45a1a); letter-spacing: -0.01em; }
+    /* Scroll margin for fixed header */
+    section { scroll-margin-top: 80px; }
+    /* Accessibility & Performance */
+    ::selection { background: rgba(196,90,26,0.3); color: #F0EDE8; }
+    *:focus-visible { outline: 2px solid #C45A1A; outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       SCROLL PROGRESS BAR
+       ============================================================ -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ============================================================
+       HEADER & NAVIGATION — Sticky glassmorphism nav bar
+       ============================================================ -->
+  <header>
+    <div class="container nav-bar">
+      <a href="../index.html" class="brand" aria-label="MTT Consulting home">
+        <span class="brand-text">MTT</span><span class="brand-text-sub">Consulting</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="../index.html#services" class="active">Services</a>
+        <a href="../index.html#solutions">Solutions</a>
+        <a href="../index.html#industries">Industries</a>
+        <a href="../index.html#why-mtt">Team</a>
+        <a href="../blog/">Blog</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <div class="nav-right">
+        <a href="tel:4696352155" class="nav-phone">469-635-2155</a>
+        <a class="btn btn-primary btn-sm" href="../index.html#contact">Book a Consultation</a>
+        <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       MOBILE MENU — Full-screen overlay navigation
+       ============================================================ -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')" aria-label="Close">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <a href="../index.html">Home</a>
+    <a href="../index.html#services">Services</a>
+    <a href="../index.html#solutions">Solutions</a>
+    <a href="../index.html#industries">Industries</a>
+    <a href="../index.html#why-mtt">Team</a>
+    <a href="../blog/">Blog</a>
+    <a href="../index.html#contact">Contact</a>
+  </div>
+
+  <main>
+    <!-- ============================================================
+         SERVICE HERO — Category badge, title, and subtitle
+         ============================================================ -->
+    <section class="service-hero">
+      <div class="container">
+        <span class="service-category reveal">Cloud</span>
+        <h1 class="reveal reveal-d1">Cloud &amp; <span class="highlight">Microsoft 365</span></h1>
+        <p class="subtitle reveal reveal-d2">Strategic cloud architecture and Microsoft ecosystem optimization that reduce cost, increase resilience, and align technology with your business objectives.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SERVICE CONTENT — White article card with service details
+         ============================================================ -->
+    <article class="article-card reveal">
+
+      <h2>Cloud Strategy That Aligns with Business Goals</h2>
+      <p>Cloud is not a destination &mdash; it is a set of architecture decisions that compound over time. Moving workloads to the cloud without a strategy just moves your problems to someone else's data center and adds a monthly bill on top. We approach every cloud engagement by understanding the business outcomes you are trying to achieve first, then designing the infrastructure to support them.</p>
+      <p>That means every recommendation we make ties back to measurable goals: reducing total cost of ownership, improving uptime and disaster recovery posture, accelerating time-to-market for new capabilities, or meeting compliance requirements that your current infrastructure cannot support. Architecture decisions made today determine your operational costs and flexibility for the next three to five years. We make sure those decisions are deliberate.</p>
+
+      <h2>Multi-Cloud Expertise</h2>
+      <p>Azure, AWS, and GCP each have distinct strengths &mdash; and the right answer for your business is rarely "pick one and go all-in." Azure excels in Microsoft-integrated environments and hybrid identity. AWS leads in breadth of services and global infrastructure. GCP is the frontrunner for data analytics, Kubernetes, and machine learning workloads.</p>
+      <p>We help clients develop multi-cloud strategies that play to each platform's strengths without creating operational chaos. That includes workload placement decisions, unified identity and access management across providers, consistent security policies, and centralized cost governance. We also design with portability in mind &mdash; containerization, infrastructure-as-code, and abstraction layers that reduce vendor lock-in and give you leverage in future contract negotiations.</p>
+      <ul>
+        <li><strong>Azure:</strong> Identity, Microsoft 365 integration, hybrid cloud with Azure Arc and Stack HCI</li>
+        <li><strong>AWS:</strong> Compute-heavy workloads, serverless architectures, global-scale deployments</li>
+        <li><strong>GCP:</strong> BigQuery analytics, GKE for Kubernetes, Vertex AI for machine learning</li>
+        <li><strong>Hybrid design:</strong> On-premises workloads connected to cloud services with consistent governance</li>
+      </ul>
+
+      <h2>Microsoft 365 Optimization &amp; Governance</h2>
+      <p>Most Microsoft 365 tenants we audit are running with default configurations that leave security gaps and waste licensing spend. The platform is enormously capable, but it requires deliberate configuration to realize its full value. We harden tenants and optimize deployments across the entire M365 ecosystem.</p>
+      <ul>
+        <li><strong>Tenant hardening:</strong> Disabling legacy authentication protocols, enforcing MFA across all accounts, configuring security defaults and attack surface reduction rules</li>
+        <li><strong>Conditional access policies:</strong> Location-based, device-based, and risk-based access controls that enforce Zero Trust without disrupting legitimate user workflows</li>
+        <li><strong>DLP configuration:</strong> Data Loss Prevention policies across Exchange, SharePoint, OneDrive, and Teams that protect sensitive data from accidental or malicious exfiltration</li>
+        <li><strong>Teams governance:</strong> Naming conventions, expiration policies, guest access controls, and channel architecture that prevent sprawl and maintain organizational clarity</li>
+        <li><strong>SharePoint architecture:</strong> Site structure, permissions models, and information architecture that scale with your organization instead of becoming unmanageable</li>
+        <li><strong>License optimization:</strong> Most clients we work with are overpaying by 20&ndash;35% on Microsoft licensing. We audit assigned vs. consumed licenses, right-size SKUs, and restructure agreements to eliminate waste</li>
+      </ul>
+
+      <blockquote>
+        <p>The difference between a well-governed M365 tenant and a default deployment is not just security &mdash; it is thousands of dollars in wasted licensing and hours of lost productivity every month.</p>
+      </blockquote>
+
+      <h2>Cloud Migration Services</h2>
+      <p>Whether you are moving from on-premises infrastructure to the cloud, migrating between cloud providers, or designing a hybrid architecture, we handle the full lifecycle: assessment, planning, execution, and validation. Every migration starts with a thorough discovery process that maps dependencies, identifies risks, and builds a realistic timeline.</p>
+      <ol>
+        <li><strong>Assessment:</strong> Inventory of existing workloads, dependencies, performance baselines, compliance requirements, and licensing agreements</li>
+        <li><strong>Planning:</strong> Migration wave sequencing, rollback procedures, downtime windows, communication plans, and success criteria for each workload</li>
+        <li><strong>Execution:</strong> Lift-and-shift for legacy systems, re-platforming for workloads that benefit from cloud-native services, and refactoring where the ROI justifies the investment</li>
+        <li><strong>Validation:</strong> Post-migration testing against performance baselines, security posture verification, user acceptance testing, and documentation of the new environment</li>
+      </ol>
+      <p>We have executed migrations across on-premises-to-cloud, cloud-to-cloud, and hybrid scenarios. The methodology is consistent regardless of the source or destination &mdash; because the risks of a poorly planned migration are the same everywhere.</p>
+
+      <h2>FinOps &amp; Cloud Cost Management</h2>
+      <p>Cloud spending has a way of growing faster than the business value it delivers. Without active cost governance, bills drift upward as resources get provisioned and forgotten, development environments run around the clock, and reserved capacity goes unused. Our FinOps practice brings financial accountability to cloud operations.</p>
+      <ul>
+        <li><strong>Right-sizing:</strong> Continuous analysis of compute, storage, and database resources to match provisioned capacity to actual utilization</li>
+        <li><strong>Reserved instances &amp; savings plans:</strong> Identifying workloads with predictable usage patterns and committing to discounted pricing tiers that reduce costs 30&ndash;60%</li>
+        <li><strong>Tagging strategies:</strong> Implementing consistent resource tagging that enables cost allocation by department, project, environment, and owner</li>
+        <li><strong>Monthly cost reviews:</strong> Structured reviews that compare actual spend against forecasts, identify anomalies, and surface optimization opportunities</li>
+        <li><strong>Anomaly alerting:</strong> Automated alerts when spending patterns deviate from baselines, catching runaway costs before they become budget-breaking surprises</li>
+      </ul>
+
+      <h2>Security in the Cloud</h2>
+      <p>Moving to the cloud does not make you more secure by default &mdash; it changes the attack surface and shifts the responsibility model. We design and implement cloud security architectures built on Zero Trust principles, where identity is the new perimeter and every access request is verified regardless of where it originates.</p>
+      <ul>
+        <li><strong>Zero Trust architecture:</strong> Identity-first security model with continuous verification, least-privilege access, and micro-segmentation across cloud environments</li>
+        <li><strong>Identity and access management:</strong> Centralized IAM with Entra ID, AWS IAM, or GCP IAM &mdash; role-based access controls, privileged identity management, and just-in-time access provisioning</li>
+        <li><strong>CASB deployment:</strong> Cloud Access Security Broker configuration to monitor and control SaaS application usage, enforce DLP policies, and detect shadow IT</li>
+        <li><strong>Encryption:</strong> Data encrypted at rest and in transit across all environments, with key management policies that maintain organizational control over cryptographic material</li>
+        <li><strong>Backup &amp; disaster recovery:</strong> Geo-redundant backups, tested recovery procedures, defined RTOs and RPOs, and automated failover for critical workloads</li>
+      </ul>
+
+      <!-- ============================================================
+           CTA BANNER — Call-to-action for cloud strategy consultation
+           ============================================================ -->
+      <div class="article-cta">
+        <h3>Ready to Optimize Your Cloud Strategy?</h3>
+        <p>MTT Consulting delivers vendor-neutral cloud assessments, M365 optimization, and migration services that align your infrastructure with your business goals.</p>
+        <a href="../index.html#contact" class="btn btn-primary">Book a Cloud Consultation</a>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- ============================================================
+       FOOTER — Copyright and contact info
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container footer-row">
+      <div>&copy; 2026 MTT Consulting. vCIO advisory, AI governance, cybersecurity, and managed IT services nationwide.</div>
+      <div>Offices in Collin County, TX &amp; Orange County, CA &middot; <a href="mailto:info@callmtt.com">info@callmtt.com</a> &middot; <a href="tel:4696352155">469-635-2155</a></div>
+      <div><a href="/privacy-policy.html">Privacy Policy</a> &middot; <a href="/terms-of-service.html">Terms of Service</a> &middot; <a href="/sitemap.xml">Sitemap</a></div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT — Scroll reveal, progress bar, and canvas mesh
+       ============================================================ -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // --- Scroll Reveal Animation ---
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+      }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      // --- Scroll Progress Bar ---
+      const scrollProgress = document.getElementById('scrollProgress');
+      window.addEventListener('scroll', () => {
+        const docH = document.documentElement.scrollHeight - window.innerHeight;
+        scrollProgress.style.width = docH > 0 ? (window.scrollY / docH * 100) + '%' : '0%';
+      });
+    });
+  </script>
+
+  <!-- ============================================================
+       BACKGROUND CANVAS — Animated particle mesh
+       ============================================================ -->
+  <canvas id="meshCanvas"></canvas>
+  <script>
+  (function(){
+    const c=document.getElementById('meshCanvas');if(!c)return;
+    const ctx=c.getContext('2d');
+    let w,h,pts=[];
+    function resize(){w=c.width=c.offsetWidth*devicePixelRatio;h=c.height=c.offsetHeight*devicePixelRatio;ctx.scale(devicePixelRatio,devicePixelRatio);}
+    resize();window.addEventListener('resize',resize);
+    for(let i=0;i<60;i++)pts.push({x:Math.random()*c.offsetWidth,y:Math.random()*c.offsetHeight,vx:(Math.random()-0.5)*0.3,vy:(Math.random()-0.5)*0.3});
+    function draw(){
+      ctx.clearRect(0,0,c.offsetWidth,c.offsetHeight);
+      pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>c.offsetWidth)p.vx*=-1;if(p.y<0||p.y>c.offsetHeight)p.vy*=-1;});
+      for(let i=0;i<pts.length;i++){
+        for(let j=i+1;j<pts.length;j++){
+          const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+          if(d<120){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle='rgba(196,90,26,'+(1-d/120)*0.15+')';ctx.stroke();}
+        }
+        ctx.beginPath();ctx.arc(pts[i].x,pts[i].y,1.5,0,Math.PI*2);ctx.fillStyle='rgba(196,90,26,0.3)';ctx.fill();
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+  </script>
+
+</body>
+</html>
