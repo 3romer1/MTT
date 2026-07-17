@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================================
+       META TAGS — Core document metadata, SEO, and browser config
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>AI Readiness: Is Your Infrastructure Prepared for the AI Revolution? | MTT Consulting</title>
+  <meta name="description" content="Before adopting AI tools, mid-market organizations need to assess their data quality, security posture, and infrastructure readiness. Learn the MTT AI Readiness Framework to build a practical roadmap." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Derek Mitchell" />
+  <link rel="canonical" href="https://www.callmtt.com/blog/ai-readiness-infrastructure.html" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <meta name="theme-color" content="#0b0b0a" />
+
+  <!-- ============================================================
+       OPEN GRAPH TAGS — Social sharing metadata for Facebook, LinkedIn, etc.
+       Includes article-specific properties: published time, author, section, tags
+       ============================================================ -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="AI Readiness: Is Your Infrastructure Prepared for the AI Revolution?" />
+  <meta property="og:description" content="A practical guide to assessing data quality, security posture, and infrastructure readiness before adopting AI. Includes the MTT 5-step AI Readiness Framework." />
+  <meta property="og:url" content="https://www.callmtt.com/blog/ai-readiness-infrastructure.html" />
+  <meta property="og:site_name" content="MTT Consulting" />
+  <meta property="article:published_time" content="2026-02-20" />
+  <meta property="article:author" content="Derek Mitchell" />
+  <meta property="article:section" content="AI" />
+  <meta property="article:tag" content="AI readiness" />
+  <meta property="article:tag" content="infrastructure" />
+  <meta property="article:tag" content="data quality" />
+  <meta property="article:tag" content="AI governance" />
+
+  <!-- ============================================================
+       TWITTER CARD — Twitter/X sharing metadata with large image format
+       ============================================================ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Readiness: Is Your Infrastructure Prepared for the AI Revolution?" />
+  <meta name="twitter:description" content="A practical guide to assessing data quality, security posture, and infrastructure readiness before adopting AI." />
+
+  <!-- ============================================================
+       STRUCTURED DATA — JSON-LD schema.org Article markup
+       Provides search engines with headline, author, publisher, and date
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI Readiness: Is Your Infrastructure Prepared for the AI Revolution?",
+    "author": {
+      "@type": "Person",
+      "name": "Derek Mitchell",
+      "jobTitle": "AI & Governance Advisor"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "MTT Consulting",
+      "url": "https://www.callmtt.com"
+    },
+    "datePublished": "2026-02-20",
+    "description": "A practical guide to assessing data quality, security posture, and infrastructure readiness before adopting AI tools.",
+    "mainEntityOfPage": "https://www.callmtt.com/blog/ai-readiness-infrastructure.html"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.callmtt.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.callmtt.com/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "AI Readiness: Infrastructure", "item": "https://www.callmtt.com/blog/ai-readiness-infrastructure.html" }
+    ]
+  }
+  </script>
+
+  <!-- ============================================================
+       FONT LOADING — Google Fonts preconnect and Inter font family
+       Uses preconnect for performance, loads weights 400-800
+       ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" /></noscript>
+
+  <!-- ============================================================
+       EMBEDDED STYLES — All page styles inlined for performance
+       ============================================================ -->
+  <style>
+    /* ── Design Tokens ─────────────────────────────────────── */
+    /* Custom properties for colors, shadows, spacing, typography, and transitions */
+    :root {
+      --bg: #000000;
+      --bg-elevated: #0a0a0a;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f5f5f5;
+      --border: rgba(255,255,255,0.08);
+      --border-hover: rgba(196,90,26,0.35);
+      --text: #eae6df;
+      --text-secondary: #9c9890;
+      --text-dim: #625e58;
+      --card-text: #1a1a1a;
+      --card-text-secondary: #555555;
+      --card-text-dim: #888888;
+      --card-border: rgba(230,230,230,0.15);
+      --accent: #c45a1a;
+      --accent-light: #d96b2a;
+      --accent-dark: #a44a12;
+      --accent-glow: rgba(196,90,26,0.22);
+      --green: #5a8a72;
+      --blue: #4a7c9b;
+      --purple: #7c6cc0;
+      --white: #eae6df;
+      --shadow-lg: 0 24px 64px rgba(0,0,0,0.5);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.3);
+      --shadow-sm: 0 2px 12px rgba(0,0,0,0.2);
+      --shadow-glow: 0 0 30px rgba(196,90,26,0.08);
+      --max-w: 1200px;
+      --radius-lg: 14px;
+      --radius-md: 10px;
+      --radius-sm: 8px;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Space Grotesk', sans-serif;
+      --font-ui: 'Space Grotesk', sans-serif;
+      --transition: 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* ── Reset & Base ──────────────────────────────────────── */
+    /* Box-sizing reset, smooth scrolling, base typography and background */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.72;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    ul, ol { list-style: none; }
+    .container { width: min(var(--max-w), calc(100% - 40px)); margin: 0 auto; position: relative; z-index: 1; }
+
+    /* ── Scroll Reveal Animations ─────────────────────────── */
+    /* Fade-in-up animation classes triggered by IntersectionObserver */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+
+    .highlight {
+      background: linear-gradient(135deg, #c45a1a, #d96b2a, #d96b2a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── Buttons ───────────────────────────────────────────── */
+    /* Primary (gold fill), ghost (transparent border), and small variant */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px 26px; border-radius: var(--radius-sm); border: 1px solid transparent;
+      font-family: var(--font-display); font-weight: 700; font-size: 0.9rem;
+      cursor: pointer; transition: all var(--transition); white-space: nowrap;
+    }
+    .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 4px 20px rgba(196,90,26,0.25), 0 1px 4px rgba(196,90,26,0.15); }
+    .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(196,90,26,0.30), 0 2px 8px rgba(196,90,26,0.20); }
+    .btn-ghost { background: transparent; border-color: rgba(255,245,230,0.12); color: var(--text); }
+    .btn-ghost:hover { background: rgba(255,245,230,0.06); border-color: var(--border-hover); }
+    .btn-sm { padding: 10px 18px; font-size: 0.924rem; }
+    .btn-lg { padding: 16px 36px; font-size: 1rem; }
+
+    /* ── Header & Navigation ──────────────────────────────── */
+    /* Sticky top nav with glassmorphism blur, brand logo, nav links,
+       phone number, CTA button, hamburger toggle, and mobile menu overlay */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(24px) saturate(1.6);
+      -webkit-backdrop-filter: blur(24px) saturate(1.6);
+      background: rgba(13,13,13,0.92);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 20px rgba(0,0,0,0.4);
+    }
+    .nav-bar { display: flex; align-items: center; justify-content: space-between; min-height: 68px; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-family: var(--font-display); font-weight: 800; font-size: 1.12rem; }
+    .brand-icon {
+      width: 42px; height: 42px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(196,90,26,0.20), rgba(196,90,26,0.08));
+      border: 1px solid rgba(196,90,26,0.25);
+      display: grid; place-items: center; flex-shrink: 0;
+      box-shadow: 0 0 16px rgba(196,90,26,0.10);
+    }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-links a { color: var(--text-secondary); font-size: 0.946rem; font-weight: 500; padding: 8px 14px; border-radius: var(--radius-sm); transition: color var(--transition), background var(--transition); }
+    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.04); }
+    .nav-links a.active { color: var(--accent-light); }
+    .nav-right { display: flex; align-items: center; gap: 14px; }
+    .nav-phone { color: var(--text-secondary); font-size: 0.946rem; font-weight: 600; font-family: var(--font-display); }
+    .hamburger { display: none; background: none; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 8px; cursor: pointer; color: var(--text); }
+    .hamburger svg { display: block; }
+    .mobile-menu { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(13,13,13,0.98); backdrop-filter: blur(24px); flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; color: var(--text); padding: 12px 24px; }
+    .mobile-close { position: absolute; top: 20px; right: 20px; background: none; border: none; color: var(--text); cursor: pointer; }
+
+    /* ── Scroll Progress Bar ────────────────────────────────── */
+    /* Fixed top bar showing reading progress; width set by JS on scroll */
+    .scroll-progress {
+      position: fixed; top: 0; left: 0; height: 3px; z-index: 200;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      width: 0%; transition: width 0.1s linear;
+    }
+
+    /* Blog Category Tag */
+    .blog-category {
+      display: inline-block;
+      font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; padding: 4px 10px; border-radius: 999px;
+    }
+    .blog-category.cat-ai { background: rgba(124,108,192,0.12); color: var(--purple); }
+    .blog-category.cat-cloud { background: rgba(74,124,155,0.12); color: var(--blue); }
+    .blog-category.cat-security { background: rgba(90,138,114,0.12); color: var(--green); }
+    .blog-category.cat-strategy { background: rgba(164,74,18,0.12); color: var(--accent-light); }
+
+    /* ── Article Hero ─────────────────────────────────────── */
+    /* Top section with category badge, article title, author info,
+       publish date, and estimated read time */
+    .article-hero {
+      padding: 72px 0 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .article-hero-inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .article-hero .blog-category { margin-bottom: 16px; }
+    .article-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      text-shadow: 0 0 40px rgba(196,90,26,0.12);
+    }
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+    }
+    .article-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .author-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      display: grid; place-items: center;
+      font-size: 0.72rem; font-weight: 700; color: #fff;
+    }
+    .author-info { display: flex; flex-direction: column; }
+    .author-name { font-weight: 600; color: var(--text); font-size: 0.9rem; }
+    .author-title { font-size: 0.78rem; color: var(--text-dim); }
+    .meta-dot { color: var(--text-dim); }
+    .meta-item { display: flex; align-items: center; gap: 5px; }
+    .meta-item svg { flex-shrink: 0; }
+
+    /* ── Article Body & Content ─────────────────────────────── */
+    /* White card container with left accent border; styles for prose,
+       headings, lists, blockquotes, inline links, and bold text */
+    .article-section { padding: 48px 0 80px; }
+    .article-card {
+      max-width: 780px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 48px 56px;
+      color: var(--card-text);
+      box-shadow: var(--shadow-lg);
+    }
+    .article-card h2 {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--card-text);
+      margin: 40px 0 16px;
+      line-height: 1.25;
+    }
+    .article-card h2:first-child { margin-top: 0; }
+    .article-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--card-text);
+      margin: 32px 0 12px;
+      line-height: 1.3;
+    }
+    .article-card p {
+      font-size: 1.02rem;
+      line-height: 1.8;
+      color: #333;
+      margin-bottom: 18px;
+    }
+    .article-card a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .article-card a:hover { color: var(--accent-light); }
+    .article-card strong { color: var(--card-text); font-weight: 700; }
+    .article-card ul, .article-card ol {
+      list-style: none;
+      margin: 0 0 20px 0;
+      padding: 0;
+    }
+    .article-card ul li, .article-card ol li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 10px;
+      font-size: 1.02rem;
+      line-height: 1.8;
+      color: #333;
+    }
+    .article-card ul li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 12px;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .article-card ol { counter-reset: ol-counter; }
+    .article-card ol li { counter-increment: ol-counter; }
+    .article-card ol li::before {
+      content: counter(ol-counter) '.';
+      position: absolute;
+      left: 0; top: 0;
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 1rem;
+    }
+    .article-card blockquote {
+      border-left: 4px solid var(--accent);
+      margin: 28px 0;
+      padding: 20px 24px;
+      background: rgba(196,90,26,0.04);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .article-card blockquote p {
+      font-size: 1.06rem;
+      font-weight: 500;
+      color: #2a2a2a;
+      font-style: italic;
+      margin-bottom: 0;
+    }
+    .article-card hr {
+      border: none;
+      border-top: 1px solid #e5e5e5;
+      margin: 36px 0;
+    }
+
+    /* Step Cards inside article */
+    .step-grid {
+      display: grid;
+      gap: 16px;
+      margin: 24px 0 28px;
+    }
+    .step-item {
+      display: flex;
+      gap: 16px;
+      padding: 18px 20px;
+      background: #f7f5f2;
+      border-radius: var(--radius-sm);
+      border: 1px solid #eae6df;
+    }
+    .step-num {
+      width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      color: #fff; font-weight: 800; font-size: 0.9rem;
+      display: grid; place-items: center;
+      font-family: var(--font-display);
+    }
+    .step-content h4 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--card-text);
+      margin-bottom: 4px;
+    }
+    .step-content p {
+      font-size: 0.92rem;
+      color: var(--card-text-secondary);
+      margin-bottom: 0;
+    }
+
+    /* ── CTA Banner ────────────────────────────────────────── */
+    /* Gradient-bordered call-to-action box with heading, description,
+       and primary button linking to the consultation page */
+    .article-cta {
+      background: linear-gradient(135deg, #1a1a1a, #2a2218);
+      border: 1px solid rgba(196,90,26,0.25);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      margin: 40px 0 0;
+      text-align: center;
+    }
+    .article-cta h3 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #fff;
+      margin: 0 0 8px;
+    }
+    .article-cta p {
+      color: #bbb;
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+      max-width: 50ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .article-cta .btn { text-decoration: none; }
+
+    /* ── Author Bio Card ───────────────────────────────────── */
+    /* Dark elevated card with avatar, name, role, and bio paragraph */
+    .author-bio {
+      max-width: 780px;
+      margin: 32px auto 0;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .author-bio-avatar {
+      width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      display: grid; place-items: center;
+      font-size: 1rem; font-weight: 800; color: #fff;
+      font-family: var(--font-display);
+    }
+    .author-bio-info h4 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+    .author-bio-info .bio-title {
+      font-size: 0.82rem;
+      color: var(--accent-light);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .author-bio-info p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* ── Related Articles Grid ─────────────────────────────── */
+    /* Two-column grid of related post cards with category badges,
+       titles, excerpts, and read-more links */
+    .related-section {
+      max-width: 780px;
+      margin: 48px auto 0;
+    }
+    .related-section h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .related-card {
+      background: var(--bg-card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      transition: all var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+    .related-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .related-card .blog-category { margin-bottom: 10px; }
+    .related-card h4 {
+      font-family: var(--font-display);
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--card-text);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .related-card p {
+      font-size: 0.84rem;
+      color: var(--card-text-secondary);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+    .related-card .read-more {
+      color: var(--accent-light);
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+    .related-card .read-more:hover { color: var(--accent); }
+
+    /* Back Link */
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--text-secondary); font-size: 0.86rem; font-weight: 500;
+      margin-bottom: 24px; transition: color var(--transition);
+    }
+    .back-link:hover { color: var(--accent-light); }
+
+    /* ── Footer ────────────────────────────────────────────── */
+    /* Minimal footer with copyright and contact links */
+    .footer { padding: 32px 0; border-top: 1px solid var(--border); margin-top: 80px; }
+    .footer-row {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 20px; flex-wrap: wrap; color: var(--text-dim); font-size: 0.924rem;
+    }
+    .footer-row a { color: var(--text-secondary); transition: color var(--transition); }
+    .footer-row a:hover { color: var(--accent-light); }
+
+    #meshCanvas {
+      position: fixed; top: 0; right: 0; width: 60%; height: 100%;
+      z-index: 0; pointer-events: none; opacity: 0.4;
+    }
+
+    /* ── Responsive Breakpoints ────────────────────────────── */
+    /* Adjusts layout for tablet and mobile viewports */
+    @media (max-width: 1024px) {
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .nav-phone { display: none; }
+    }
+    @media (max-width: 768px) {
+      .article-card { padding: 32px 28px; }
+      .article-hero { padding: 48px 0 32px; }
+      .related-grid { grid-template-columns: 1fr; }
+      .author-bio { flex-direction: column; align-items: center; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .article-card { padding: 24px 20px; }
+      .article-meta { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .step-item { flex-direction: column; align-items: flex-start; }
+    }
+    .brand-logo { height: 100px; width: auto; max-width: 380px; object-fit: contain; flex-shrink: 0; mix-blend-mode: screen; transition: opacity 0.25s ease; }
+    .brand-logo--footer { height: 132px; max-width: 460px; }
+      .brand-text { font-size: 1.485rem; font-weight: 800; color: var(--text-primary, #fff); letter-spacing: -0.01em; }
+    .brand-text-sub { font-size: 1.485rem; font-weight: 700; color: var(--accent, #c45a1a); letter-spacing: -0.01em; }
+    /* Scroll margin for fixed header */
+    section { scroll-margin-top: 80px; }
+    /* Accessibility & Performance */
+    ::selection { background: rgba(196,90,26,0.3); color: #F0EDE8; }
+    *:focus-visible { outline: 2px solid #C45A1A; outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ============================================================
+       MOBILE MENU — Full-screen overlay navigation for small screens
+       Toggled open/closed via hamburger button in header
+       ============================================================ -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')" aria-label="Close">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <a href="../index.html">Home</a>
+    <a href="../index.html#services">Services</a>
+    <a href="../index.html#solutions">Solutions</a>
+    <a href="../index.html#why-mtt">Team</a>
+    <a href="index.html">Blog</a>
+    <a href="../index.html#contact">Contact</a>
+    <a href="tel:4696352155" class="btn btn-primary btn-sm" style="margin-top:12px">Call 469-635-2155</a>
+  </div>
+
+  <!-- ============================================================
+       HEADER & NAVIGATION — Sticky top bar with glassmorphism effect
+       Contains brand logo, desktop nav links, phone number, CTA button,
+       and hamburger toggle for mobile
+       ============================================================ -->
+  <header>
+    <div class="container nav-bar">
+      <a href="../index.html" class="brand" aria-label="MTT Consulting home">
+        <span class="brand-text">MTT</span><span class="brand-text-sub">Consulting</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html#services">Services</a>
+        <a href="../index.html#solutions">Solutions</a>
+        <a href="../index.html#industries">Industries</a>
+        <a href="../index.html#why-mtt">Team</a>
+        <a href="index.html" class="active">Blog</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <div class="nav-right">
+        <a href="tel:4696352155" class="nav-phone">469-635-2155</a>
+        <a class="btn btn-primary btn-sm" href="../index.html#contact">Book a Consultation</a>
+        <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============================================================
+         ARTICLE HERO — Category badge, title, author avatar/name/role,
+         publish date, and estimated reading time
+         ============================================================ -->
+    <section class="article-hero">
+      <div class="container">
+        <div class="article-hero-inner reveal">
+          <a href="index.html" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Back to Blog
+          </a>
+          <span class="blog-category cat-ai">AI</span>
+          <h1>AI Readiness: Is Your Infrastructure Prepared for the AI Revolution?</h1>
+          <div class="article-meta">
+            <div class="article-author">
+              <div class="author-avatar">DM</div>
+              <div class="author-info">
+                <span class="author-name">Derek Mitchell</span>
+                <span class="author-title">AI &amp; Governance Advisor</span>
+              </div>
+            </div>
+            <span class="meta-dot">&middot;</span>
+            <span class="meta-item">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M5 1v4M11 1v4M2 7h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              February 20, 2026
+            </span>
+            <span class="meta-dot">&middot;</span>
+            <span class="meta-item">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M8 5v3l2.5 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              7 min read
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ARTICLE CONTENT — Main article body in a white card container
+         Contains AI readiness assessment framework and recommendations
+         ============================================================ -->
+    <section class="article-section">
+      <div class="container">
+        <article class="article-card reveal">
+
+          <h2>The AI Adoption Reality Check for Mid-Market Organizations</h2>
+
+          <p>Artificial intelligence is no longer a competitive advantage reserved for Silicon Valley giants and Fortune 500 enterprises. In 2026, AI capabilities are embedded in everything from customer service platforms to supply chain management tools, and every vendor on the market is racing to add "AI-powered" to their feature list. For mid-market organizations &mdash; companies with 100 to 2,000 employees and revenue between $50 million and $1 billion &mdash; the pressure to adopt AI has never been more intense.</p>
+
+          <p>But here is the uncomfortable truth that most AI vendors will not tell you: <strong>the vast majority of AI implementations fail not because the technology is inadequate, but because the underlying infrastructure is unprepared.</strong> According to research from Gartner, nearly 85% of AI projects never make it past the proof-of-concept stage. The primary culprit is not a lack of ambition or budget. It is a fundamental mismatch between what AI requires and what most mid-market IT environments can deliver.</p>
+
+          <blockquote>
+            <p>The organizations that will lead in AI adoption are not the ones with the biggest budgets &mdash; they are the ones with the cleanest data, the most secure pipelines, and the infrastructure discipline to support AI at scale.</p>
+          </blockquote>
+
+          <p>At MTT Consulting, we have guided dozens of mid-market organizations through the AI readiness journey. What we have learned is that AI success depends on a foundation that most companies need to build before they write their first prompt or train their first model. This article lays out the practical framework for assessing and preparing your infrastructure for artificial intelligence.</p>
+
+          <hr />
+
+          <h2>The Infrastructure Foundation: What AI Actually Requires</h2>
+
+          <p>Before you evaluate any AI platform, you need a clear understanding of the infrastructure requirements that differentiate AI workloads from traditional enterprise computing. AI is fundamentally different from running an ERP, hosting a website, or managing email. It demands more from every layer of your technology stack.</p>
+
+          <h3>Compute Resources</h3>
+
+          <p>AI workloads &mdash; particularly machine learning model training and large language model inference &mdash; require substantially more compute power than standard business applications. While you do not necessarily need GPU clusters on-premises (cloud-based AI services have democratized access to compute), you do need to understand your compute requirements and plan accordingly. Key considerations include:</p>
+
+          <ul>
+            <li><strong>Current server utilization rates:</strong> If your existing infrastructure is running at 70% or higher capacity, adding AI workloads without expansion will degrade performance across the board.</li>
+            <li><strong>Cloud readiness:</strong> Most mid-market AI deployments leverage cloud-based AI services (Azure AI, AWS SageMaker, Google Vertex AI). Your ability to consume these services depends on reliable, low-latency cloud connectivity.</li>
+            <li><strong>Edge computing needs:</strong> Some AI use cases &mdash; real-time quality inspection in manufacturing, for example &mdash; require inference at the edge. Assess whether your distributed locations have the compute and network capacity to support local AI processing.</li>
+          </ul>
+
+          <h3>Data Quality and Accessibility</h3>
+
+          <p>Data is the fuel that powers AI, and most organizations are running on contaminated fuel. AI models are only as good as the data they consume, which means your data infrastructure is arguably more important than your compute infrastructure. Consider:</p>
+
+          <ul>
+            <li><strong>Data silos:</strong> If your customer data lives in one system, your operational data in another, and your financial data in a third, AI tools cannot generate the cross-functional insights that deliver real business value.</li>
+            <li><strong>Data freshness:</strong> AI that operates on stale data produces stale results. Evaluate your data pipelines and integration points. Are they real-time, near-real-time, or batch-processed?</li>
+            <li><strong>Data completeness:</strong> Missing fields, inconsistent formats, and duplicate records are AI poison. A single model trained on incomplete data will propagate those gaps into every prediction and recommendation it generates.</li>
+          </ul>
+
+          <h3>Integration Points</h3>
+
+          <p>AI does not operate in isolation. The value of AI comes from its ability to integrate with your existing business workflows &mdash; enriching CRM records, automating procurement decisions, flagging anomalies in financial reporting. Assess the API maturity of your current technology stack. Are your core systems exposing RESTful APIs that AI platforms can consume? Do you have an integration layer (iPaaS) that can orchestrate data flows between AI services and line-of-business applications?</p>
+
+          <hr />
+
+          <h2>Data Readiness Assessment: Is Your Data AI-Ready?</h2>
+
+          <p>If infrastructure is the foundation, data readiness is the cornerstone. We consistently find that data preparation consumes 60 to 80 percent of the total effort in any AI initiative. Organizations that invest in data readiness before selecting AI tools see dramatically faster time-to-value and higher adoption rates.</p>
+
+          <h3>Data Governance</h3>
+
+          <p>Effective AI requires a mature data governance program. This means clear ownership of data assets, documented lineage (where data comes from, how it transforms, where it goes), and enforceable policies for access, retention, and disposal. Without governance, AI projects stall in a quagmire of "whose data is this?" and "can we use this for training?"</p>
+
+          <h3>Data Classification</h3>
+
+          <p>Not all data should be fed into AI models. Personally identifiable information (PII), protected health information (PHI), financial records subject to SOX compliance, and attorney-client privileged communications all have constraints on how they can be processed. A robust data classification scheme &mdash; one that labels data by sensitivity, regulatory category, and permissible use &mdash; is a prerequisite for responsible AI deployment.</p>
+
+          <h3>Data Quality Metrics</h3>
+
+          <p>Establish baseline metrics for the data that will power your AI initiatives. Track completeness (percentage of fields populated), accuracy (validated against source-of-truth systems), consistency (format standardization across systems), and timeliness (data age at point of consumption). Organizations that measure and improve these metrics before launching AI projects report 3x higher success rates in production deployments.</p>
+
+          <hr />
+
+          <h2>Security Considerations: AI-Specific Risks</h2>
+
+          <p>AI introduces an entirely new category of security risks that traditional cybersecurity frameworks were not designed to address. Organizations that bolt AI onto their existing environment without updating their security posture are creating vulnerabilities that adversaries are already learning to exploit.</p>
+
+          <h3>Data Leakage Through AI Services</h3>
+
+          <p>When employees use AI services &mdash; particularly generative AI tools like ChatGPT, Copilot, or Gemini &mdash; they are sending organizational data to third-party infrastructure. Sensitive information entered into prompts, uploaded as documents, or pasted into chat interfaces may be stored, logged, or used for model training by the AI provider. Without clear policies and technical controls, your intellectual property and customer data are one careless prompt away from exposure.</p>
+
+          <h3>Model Poisoning and Adversarial Attacks</h3>
+
+          <p>If you are training or fine-tuning models on your own data, you need to protect the integrity of your training pipeline. Model poisoning &mdash; where an attacker deliberately introduces corrupted data to influence model behavior &mdash; is a growing threat. Secure your data ingestion pipelines, validate training data integrity, and implement monitoring for model drift that could indicate tampering.</p>
+
+          <h3>Shadow AI</h3>
+
+          <p>Perhaps the most urgent AI security risk for mid-market organizations is shadow AI &mdash; employees adopting AI tools without IT knowledge or approval. A 2025 survey found that 68% of enterprise employees use AI tools that their IT department does not know about. Shadow AI creates unmanaged data flows, introduces unvetted third-party risk, and makes compliance virtually impossible. The solution is not to ban AI (that only drives adoption further underground) but to provide approved, governed alternatives and establish clear acceptable use policies.</p>
+
+          <blockquote>
+            <p>Shadow AI is to 2026 what shadow IT was to 2016. You cannot secure what you cannot see, and you cannot govern what you do not acknowledge.</p>
+          </blockquote>
+
+          <hr />
+
+          <h2>Network and Bandwidth Requirements</h2>
+
+          <p>AI workloads place significant demands on network infrastructure that many mid-market organizations underestimate. Sending large datasets to cloud AI services, retrieving inference results in real time, and synchronizing model updates across distributed locations all require robust, low-latency connectivity.</p>
+
+          <p>Evaluate your current network against these AI-specific requirements:</p>
+
+          <ul>
+            <li><strong>Bandwidth headroom:</strong> AI data transfers can be bursty and voluminous. Ensure your internet circuits and WAN links have at least 30% headroom above current peak utilization.</li>
+            <li><strong>Latency sensitivity:</strong> Real-time AI applications (chatbots, fraud detection, dynamic pricing) require sub-100ms round-trip times to cloud AI endpoints. Test latency to your target AI provider regions.</li>
+            <li><strong>QoS policies:</strong> Implement quality-of-service rules that prioritize AI traffic appropriately. AI inference requests that time out create a poor user experience and erode adoption.</li>
+            <li><strong>Redundancy:</strong> If AI becomes embedded in business-critical workflows, your network connectivity to AI services needs the same redundancy you would apply to any critical dependency &mdash; diverse carriers, automatic failover, and SLA-backed uptime guarantees.</li>
+          </ul>
+
+          <hr />
+
+          <h2>The MTT AI Readiness Framework: A 5-Step Assessment</h2>
+
+          <p>Based on our experience guiding mid-market organizations through AI adoption, we have developed a structured five-step framework that produces an actionable readiness scorecard and prioritized roadmap.</p>
+
+          <div class="step-grid">
+            <div class="step-item">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h4>Infrastructure Inventory and Capacity Assessment</h4>
+                <p>We map your current compute, storage, network, and cloud environment against AI workload requirements. This produces a gap analysis that identifies where your infrastructure supports AI today and where investment is needed.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h4>Data Maturity Evaluation</h4>
+                <p>We assess data governance maturity, classification completeness, quality metrics, and integration architecture. This step identifies the data assets that are AI-ready and the remediation required for those that are not.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <h4>Security and Compliance Gap Analysis</h4>
+                <p>We evaluate your security posture against AI-specific risks, including data leakage controls, acceptable use policies, shadow AI exposure, and regulatory compliance requirements for AI-processed data.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <h4>Use Case Prioritization</h4>
+                <p>Not every AI use case delivers equal value. We work with your leadership team to identify, score, and prioritize AI opportunities based on business impact, feasibility, data readiness, and risk profile.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">5</div>
+              <div class="step-content">
+                <h4>Roadmap Development and Quick-Win Identification</h4>
+                <p>We deliver a phased roadmap that sequences infrastructure investments, data remediation, policy development, and AI deployments. We identify quick wins that can demonstrate value within 30 to 90 days alongside longer-term strategic initiatives.</p>
+              </div>
+            </div>
+          </div>
+
+          <hr />
+
+          <h2>Building Your AI Roadmap: Quick Wins vs. Long-Term Investments</h2>
+
+          <p>One of the biggest mistakes we see mid-market organizations make is treating AI as an all-or-nothing proposition. They either try to boil the ocean with an enterprise-wide AI transformation (which stalls under its own weight) or they dismiss AI as "not ready for us yet" and fall behind competitors who are building capabilities incrementally.</p>
+
+          <p>The right approach is a balanced roadmap that delivers early wins while laying the groundwork for more sophisticated AI capabilities over time.</p>
+
+          <h3>Quick Wins (30 to 90 Days)</h3>
+
+          <ul>
+            <li><strong>Deploy Microsoft Copilot or similar productivity AI</strong> with proper governance guardrails. This puts AI in employees' hands immediately while maintaining IT oversight through admin controls, usage monitoring, and data loss prevention policies.</li>
+            <li><strong>Implement an AI acceptable use policy</strong> that defines approved tools, prohibited data types, and employee responsibilities. This is a zero-cost, high-impact step that reduces shadow AI risk overnight.</li>
+            <li><strong>Automate a single high-volume, low-risk process</strong> &mdash; such as invoice processing, IT ticket classification, or meeting summarization &mdash; to build organizational confidence and demonstrate measurable ROI.</li>
+          </ul>
+
+          <h3>Medium-Term Investments (3 to 12 Months)</h3>
+
+          <ul>
+            <li><strong>Execute data quality remediation</strong> on the datasets that power your highest-priority AI use cases. Clean, deduplicate, standardize, and enrich your core data assets.</li>
+            <li><strong>Implement a data integration layer</strong> that breaks down silos and enables AI tools to access cross-functional data through secure, governed APIs.</li>
+            <li><strong>Upgrade network infrastructure</strong> to support AI traffic patterns, including bandwidth expansion, QoS implementation, and redundant connectivity to cloud AI providers.</li>
+          </ul>
+
+          <h3>Long-Term Strategic Initiatives (12+ Months)</h3>
+
+          <ul>
+            <li><strong>Build custom AI models</strong> trained on your proprietary data for industry-specific use cases that off-the-shelf AI cannot address &mdash; predictive maintenance, demand forecasting, customer churn modeling.</li>
+            <li><strong>Establish an AI Center of Excellence</strong> that centralizes AI governance, talent development, vendor management, and best practice sharing across the organization.</li>
+            <li><strong>Integrate AI into strategic decision-making</strong> &mdash; moving from operational automation to AI-augmented leadership, where data-driven insights inform board-level strategy and capital allocation.</li>
+          </ul>
+
+          <blockquote>
+            <p>AI readiness is not a destination &mdash; it is a capability you build over time. The organizations that start now, even with imperfect infrastructure, will be years ahead of those that wait for conditions to be perfect.</p>
+          </blockquote>
+
+          <hr />
+
+          <h2>Start Your AI Readiness Journey</h2>
+
+          <p>The AI revolution is not coming &mdash; it is here. Every month you delay preparation is a month your competitors are building capabilities, improving efficiency, and capturing market share with AI-driven insights. The question is not whether your organization will adopt AI, but whether you will adopt it deliberately, securely, and on a foundation built for success.</p>
+
+          <p>MTT Consulting's AI Readiness Assessment gives you a clear-eyed view of where you stand today, what you need to address, and a prioritized roadmap for getting there. We bring the infrastructure expertise, security discipline, and strategic perspective that mid-market organizations need to adopt AI with confidence.</p>
+
+          <div style="margin-top:2.5rem;padding:2rem;background:rgba(90,138,114,0.07);border-radius:12px;border-left:4px solid var(--green, #5a8a72);">
+            <h3 style="margin-bottom:1rem;font-size:1.1rem;color:var(--heading, #1a1a1a);">Related MTT Services</h3>
+            <ul style="list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:0.75rem;">
+              <li><a href="../services/ai-governance.html" style="display:inline-block;padding:0.5rem 1.25rem;background:var(--green, #5a8a72);color:#fff;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;">AI Adoption &amp; Governance &rarr;</a></li>
+              <li><a href="../services/managed-it.html" style="display:inline-block;padding:0.5rem 1.25rem;background:var(--green, #5a8a72);color:#fff;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;">Managed IT &amp; Infrastructure &rarr;</a></li>
+            </ul>
+          </div>
+
+          <!-- ============================================================
+               CTA BANNER — Call-to-action for AI readiness consultation
+               ============================================================ -->
+          <div class="article-cta">
+            <h3>Schedule Your AI Readiness Assessment</h3>
+            <p>Get a comprehensive evaluation of your infrastructure, data maturity, and security posture &mdash; with a prioritized roadmap for AI adoption.</p>
+            <a href="../index.html#contact" class="btn btn-primary btn-lg">Book Your Assessment</a>
+          </div>
+
+        </article>
+
+        <!-- ============================================================
+             AUTHOR BIO — Author card with avatar, name, role, and biography
+             ============================================================ -->
+        <div class="author-bio reveal">
+          <div class="author-bio-avatar">DM</div>
+          <div class="author-bio-info">
+            <h4>Derek Mitchell</h4>
+            <div class="bio-title">AI &amp; Governance Advisor, MTT Consulting</div>
+            <p>Derek advises mid-market organizations on AI strategy, governance frameworks, and infrastructure readiness. With over 15 years of experience in enterprise technology and data architecture, he helps business leaders cut through the AI hype and build practical capabilities that deliver measurable results. Derek holds certifications in cloud architecture (Azure, AWS) and data governance (DAMA-CDMP).</p>
+          </div>
+        </div>
+
+        <!-- ============================================================
+             RELATED ARTICLES — Two-column grid of related blog post cards
+             ============================================================ -->
+        <div class="related-section reveal">
+          <h3>Related Articles</h3>
+          <div class="related-grid">
+            <a href="#" class="related-card">
+              <span class="blog-category cat-ai">AI</span>
+              <h4>AI Governance Framework: A Step-by-Step Guide for IT Leaders</h4>
+              <p>Build a practical AI governance framework &mdash; from acceptable use policies to vendor vetting and data classification.</p>
+              <span class="read-more">Read Article &rarr;</span>
+            </a>
+            <a href="#" class="related-card">
+              <span class="blog-category cat-security">Cybersecurity</span>
+              <h4>The CISO's Playbook: Building a Security Culture from the Ground Up</h4>
+              <p>Technical controls are only half the battle. Here's how to build a security-first culture that sticks across your organization.</p>
+              <span class="read-more">Read Article &rarr;</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       FOOTER — Copyright, navigation links, and contact info
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container footer-row">
+      <a href="../index.html" class="brand" style="margin-bottom:8px">
+        <span class="brand-text">MTT</span><span class="brand-text-sub">Consulting</span>
+      </a>
+      <div>&copy; 2026 MTT Consulting. vCIO advisory, AI governance, cybersecurity, and managed IT services nationwide.</div>
+      <div>Offices in Collin County, TX &amp; Orange County, CA &middot; <a href="mailto:info@callmtt.com">info@callmtt.com</a> &middot; <a href="tel:4696352155">469-635-2155</a></div>
+      <div><a href="/privacy-policy.html">Privacy Policy</a> &middot; <a href="/terms-of-service.html">Terms of Service</a> &middot; <a href="/sitemap.xml">Sitemap</a></div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT — Page interactivity and animations
+       ============================================================ -->
+  <script>
+    // --- Scroll Progress Bar ---
+    // Updates the fixed top progress bar width based on vertical scroll position
+    window.addEventListener('scroll', () => {
+      const bar = document.getElementById('scrollProgress');
+      const h = document.documentElement;
+      const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+      bar.style.width = pct + '%';
+    });
+
+    // --- Scroll Reveal Animation ---
+    // Uses IntersectionObserver to add 'visible' class to .reveal elements
+    // as they enter the viewport, triggering CSS fade-in-up transitions
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => revealObserver.observe(el));
+  </script>
+
+<!-- ============================================================
+     BACKGROUND CANVAS — Animated particle mesh rendered via JS
+     Fixed position behind all content, decorative only
+     ============================================================ -->
+<canvas id="meshCanvas"></canvas>
+<script>
+// --- Canvas Mesh Animation ---
+// Creates an animated particle network on the background <canvas> element.
+// 60 floating nodes drift and bounce off edges; lines connect nearby nodes.
+// Uses requestAnimationFrame for a continuous render loop.
+(function(){
+  const c=document.getElementById('meshCanvas');if(!c)return;
+  const ctx=c.getContext('2d');
+  let w,h,pts=[];
+  function resize(){w=c.width=c.offsetWidth*devicePixelRatio;h=c.height=c.offsetHeight*devicePixelRatio;ctx.scale(devicePixelRatio,devicePixelRatio);}
+  resize();window.addEventListener('resize',resize);
+  for(let i=0;i<60;i++)pts.push({x:Math.random()*c.offsetWidth,y:Math.random()*c.offsetHeight,vx:(Math.random()-0.5)*0.3,vy:(Math.random()-0.5)*0.3});
+  function draw(){
+    ctx.clearRect(0,0,c.offsetWidth,c.offsetHeight);
+    pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>c.offsetWidth)p.vx*=-1;if(p.y<0||p.y>c.offsetHeight)p.vy*=-1;});
+    for(let i=0;i<pts.length;i++){
+      for(let j=i+1;j<pts.length;j++){
+        const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<120){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle='rgba(196,90,26,'+(1-d/120)*0.15+')';ctx.stroke();}
+      }
+      ctx.beginPath();ctx.arc(pts[i].x,pts[i].y,1.5,0,Math.PI*2);ctx.fillStyle='rgba(196,90,26,0.3)';ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
+
+</body>
+</html>

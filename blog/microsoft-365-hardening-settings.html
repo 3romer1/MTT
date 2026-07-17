@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================================
+       META TAGS — Core document metadata, SEO, and browser config
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>Microsoft 365 Hardening: The 10 Settings You're Probably Missing | MTT Consulting</title>
+  <meta name="description" content="Most Microsoft 365 tenants ship with default configurations that leave organizations exposed. Discover the 10 critical M365 security settings you need to lock down now." />
+  <meta name="keywords" content="Microsoft 365 hardening, M365 security, Office 365 security settings, MFA, conditional access, anti-phishing, DLP, Safe Links, PIM, mailbox audit logging" />
+  <meta name="author" content="Ryan Park" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.callmtt.com/blog/microsoft-365-hardening-settings.html" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <meta name="theme-color" content="#0b0b0a" />
+
+  <!-- ============================================================
+       OPEN GRAPH TAGS — Social sharing metadata for Facebook, LinkedIn, etc.
+       Includes article-specific properties: published time, author, section
+       ============================================================ -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Microsoft 365 Hardening: The 10 Settings You're Probably Missing" />
+  <meta property="og:description" content="Most M365 tenants ship with default configs that leave your organization exposed. Here are the critical settings to lock down." />
+  <meta property="og:url" content="https://www.callmtt.com/blog/microsoft-365-hardening-settings.html" />
+  <meta property="article:published_time" content="2025-12-18" />
+  <meta property="article:author" content="Ryan Park" />
+  <meta property="article:section" content="Cloud" />
+
+  <!-- ============================================================
+       TWITTER CARD — Twitter/X sharing metadata with large image format
+       ============================================================ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Microsoft 365 Hardening: The 10 Settings You're Probably Missing" />
+  <meta name="twitter:description" content="Most M365 tenants ship with default configs that leave your organization exposed. Here are the critical settings to lock down." />
+
+  <!-- ============================================================
+       FONT LOADING — Google Fonts preconnect and Space Grotesk font family
+       Uses preconnect for performance, loads weights 400-700
+       ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" /></noscript>
+
+  <!-- ============================================================
+       EMBEDDED STYLES — All page styles inlined for performance
+       ============================================================ -->
+  <style>
+    /* ── Design Tokens ─────────────────────────────────────── */
+    /* Custom properties for colors, shadows, spacing, typography, and transitions */
+    :root {
+      --bg: #000000;
+      --bg-elevated: #0a0a0a;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f5f5f5;
+      --border: rgba(255,255,255,0.08);
+      --border-hover: rgba(196,90,26,0.35);
+      --text: #eae6df;
+      --text-secondary: #9c9890;
+      --text-dim: #625e58;
+      --card-text: #1a1a1a;
+      --card-text-secondary: #555555;
+      --card-text-dim: #888888;
+      --card-border: rgba(230,230,230,0.15);
+      --accent: #c45a1a;
+      --accent-light: #d96b2a;
+      --accent-dark: #a44a12;
+      --accent-glow: rgba(196,90,26,0.22);
+      --green: #5a8a72;
+      --blue: #4a7c9b;
+      --purple: #7c6cc0;
+      --white: #eae6df;
+      --shadow-lg: 0 24px 64px rgba(0,0,0,0.5);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.3);
+      --shadow-sm: 0 2px 12px rgba(0,0,0,0.2);
+      --shadow-glow: 0 0 30px rgba(196,90,26,0.08);
+      --max-w: 1200px;
+      --radius-lg: 14px;
+      --radius-md: 10px;
+      --radius-sm: 8px;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Space Grotesk', sans-serif;
+      --font-ui: 'Space Grotesk', sans-serif;
+      --transition: 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* ── Reset & Base ──────────────────────────────────────── */
+    /* Box-sizing reset, smooth scrolling, base typography and background */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.72;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    .container { width: min(var(--max-w), calc(100% - 40px)); margin: 0 auto; position: relative; z-index: 1; }
+
+    .highlight {
+      background: linear-gradient(135deg, #c45a1a, #d96b2a, #d96b2a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── Scroll Progress Bar ────────────────────────────────── */
+    /* Fixed top bar showing reading progress; width set by JS on scroll */
+    .scroll-progress {
+      position: fixed; top: 0; left: 0; height: 3px; z-index: 999;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      width: 0%; transition: width 0.1s linear;
+    }
+
+    /* ── Buttons ───────────────────────────────────────────── */
+    /* Primary (gold fill), ghost (transparent border), and small variant */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px 26px; border-radius: var(--radius-sm); border: 1px solid transparent;
+      font-family: var(--font-display); font-weight: 700; font-size: 0.9rem;
+      cursor: pointer; transition: all var(--transition); white-space: nowrap;
+    }
+    .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 4px 20px rgba(196,90,26,0.25), 0 1px 4px rgba(196,90,26,0.15); }
+    .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(196,90,26,0.30), 0 2px 8px rgba(196,90,26,0.20); }
+    .btn-ghost { background: transparent; border-color: rgba(255,245,230,0.12); color: var(--text); }
+    .btn-ghost:hover { background: rgba(255,245,230,0.06); border-color: var(--border-hover); }
+    .btn-sm { padding: 10px 18px; font-size: 0.924rem; }
+
+    /* ── Header & Navigation ──────────────────────────────── */
+    /* Sticky glassmorphism header with brand, nav links, phone CTA, hamburger */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(24px) saturate(1.6);
+      -webkit-backdrop-filter: blur(24px) saturate(1.6);
+      background: rgba(13,13,13,0.92);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 20px rgba(0,0,0,0.4);
+    }
+    .nav-bar { display: flex; align-items: center; justify-content: space-between; min-height: 68px; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-family: var(--font-display); font-weight: 800; font-size: 1.12rem; }
+    .brand-icon {
+      width: 42px; height: 42px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(196,90,26,0.20), rgba(196,90,26,0.08));
+      border: 1px solid rgba(196,90,26,0.25);
+      display: grid; place-items: center; flex-shrink: 0;
+      box-shadow: 0 0 16px rgba(196,90,26,0.10);
+    }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-links a { color: var(--text-secondary); font-size: 0.946rem; font-weight: 500; padding: 8px 14px; border-radius: var(--radius-sm); transition: color var(--transition), background var(--transition); }
+    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.04); }
+    .nav-links a.active { color: var(--accent-light); }
+    .nav-right { display: flex; align-items: center; gap: 14px; }
+    .nav-phone { color: var(--text-secondary); font-size: 0.946rem; font-weight: 600; font-family: var(--font-display); }
+    .hamburger { display: none; background: none; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 8px; cursor: pointer; color: var(--text); }
+    .hamburger svg { display: block; }
+    .mobile-menu { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(13,13,13,0.98); backdrop-filter: blur(24px); flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; color: var(--text); padding: 12px 24px; }
+    .mobile-close { position: absolute; top: 20px; right: 20px; background: none; border: none; color: var(--text); cursor: pointer; }
+
+    /* ── Article Hero ─────────────────────────────────────── */
+    /* Top-of-page banner with category pill, headline, author avatar & meta */
+    .article-hero {
+      padding: 64px 0 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .article-hero-inner {
+      max-width: var(--article-w);
+      margin: 0 auto;
+    }
+    .article-category {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; padding: 5px 14px; border-radius: 999px;
+      background: rgba(74,124,155,0.12); color: var(--blue);
+      margin-bottom: 20px;
+    }
+    .article-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.7rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+      color: var(--text-secondary); font-size: 0.88rem;
+    }
+    .article-author {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .article-author-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      display: grid; place-items: center;
+      font-size: 0.7rem; font-weight: 700; color: #fff;
+    }
+    .article-author-info { display: flex; flex-direction: column; }
+    .article-author-name { color: var(--text); font-weight: 600; font-size: 0.9rem; }
+    .article-author-role { font-size: 0.78rem; color: var(--text-dim); }
+    .meta-divider { width: 4px; height: 4px; border-radius: 50%; background: var(--text-dim); }
+    .article-date, .article-read-time { color: var(--text-dim); font-size: 0.84rem; }
+
+    /* ── Article Body ─────────────────────────────────────── */
+    /* Main content card: typography, headings, lists, blockquotes, setting numbers */
+    .article-section { padding: 48px 0 80px; }
+    .article-card {
+      max-width: var(--article-w);
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: clamp(28px, 5vw, 56px);
+      box-shadow: var(--shadow-lg);
+      color: var(--card-text);
+      line-height: 1.8;
+      font-size: 1.02rem;
+    }
+    .article-card h2 {
+      font-family: var(--font-display);
+      font-size: 1.55rem; font-weight: 800;
+      color: var(--card-text); margin: 48px 0 16px;
+      letter-spacing: -0.02em; line-height: 1.25;
+    }
+    .article-card h2:first-child { margin-top: 0; }
+    .article-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem; font-weight: 700;
+      color: var(--card-text); margin: 32px 0 12px;
+      letter-spacing: -0.01em; line-height: 1.3;
+    }
+    .article-card h4 {
+      font-family: var(--font-display);
+      font-size: 0.92rem; font-weight: 700;
+      color: var(--accent-dark); margin: 20px 0 8px;
+      text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .article-card p {
+      color: var(--card-text-secondary);
+      margin-bottom: 18px;
+    }
+    .article-card strong { color: var(--card-text); font-weight: 700; }
+    .article-card a { color: var(--accent); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+    .article-card a:hover { color: var(--accent-light); }
+    .article-card ul, .article-card ol {
+      margin: 0 0 20px 24px; color: var(--card-text-secondary);
+    }
+    .article-card ul { list-style: disc; }
+    .article-card ol { list-style: decimal; }
+    .article-card li { margin-bottom: 8px; padding-left: 4px; }
+    .article-card blockquote {
+      border-left: 4px solid var(--accent);
+      margin: 28px 0;
+      padding: 20px 24px;
+      background: rgba(196,90,26,0.04);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-style: italic;
+      color: var(--card-text);
+      font-size: 1.02rem;
+      line-height: 1.7;
+    }
+    .article-card blockquote p { margin-bottom: 0; color: var(--card-text); }
+    .article-card hr {
+      border: none; border-top: 1px solid rgba(0,0,0,0.08);
+      margin: 40px 0;
+    }
+    .setting-number {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 32px; height: 32px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      color: #fff; font-weight: 800; font-size: 0.85rem;
+      margin-right: 10px; flex-shrink: 0; vertical-align: middle;
+    }
+    .article-card .intro-lead {
+      font-size: 1.12rem; color: var(--card-text); line-height: 1.85;
+      margin-bottom: 24px;
+    }
+
+    /* ── Author Bio ──────────────────────────────────────── */
+    /* Card with avatar, name, role, and short bio below the article */
+    .author-bio {
+      max-width: var(--article-w);
+      margin: 0 auto 48px;
+      background: var(--bg-card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      display: flex; gap: 24px; align-items: center;
+      box-shadow: var(--shadow-md);
+    }
+    .author-bio-avatar {
+      width: 72px; height: 72px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      display: grid; place-items: center;
+      font-size: 1.3rem; font-weight: 800; color: #fff;
+    }
+    .author-bio-info h4 {
+      font-family: var(--font-display);
+      font-size: 1.05rem; font-weight: 700; color: var(--card-text);
+      margin-bottom: 4px;
+    }
+    .author-bio-info .author-bio-role {
+      font-size: 0.84rem; color: var(--accent); font-weight: 600; margin-bottom: 8px;
+    }
+    .author-bio-info p {
+      font-size: 0.9rem; color: var(--card-text-secondary); line-height: 1.65;
+    }
+
+    /* ── Related Articles ─────────────────────────────────── */
+    /* 2-column grid of clickable cards linking to other blog posts */
+    .related-section {
+      max-width: var(--article-w);
+      margin: 0 auto; padding-bottom: 80px;
+    }
+    .related-section h3 {
+      font-family: var(--font-display); font-size: 1.3rem; font-weight: 800;
+      margin-bottom: 24px; letter-spacing: -0.02em;
+    }
+    .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .related-card {
+      background: var(--bg-card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      transition: all var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+    .related-card:hover { border-color: var(--border-hover); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .related-card .related-cat {
+      display: inline-block;
+      font-size: 0.66rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; padding: 3px 10px; border-radius: 999px;
+      margin-bottom: 10px;
+    }
+    .related-cat.cat-cloud { background: rgba(74,124,155,0.12); color: var(--blue); }
+    .related-cat.cat-security { background: rgba(90,138,114,0.12); color: var(--green); }
+    .related-card h4 {
+      font-family: var(--font-display); font-size: 0.98rem; font-weight: 700;
+      color: var(--card-text); line-height: 1.3; margin-bottom: 8px;
+    }
+    .related-card p {
+      font-size: 0.84rem; color: var(--card-text-secondary); line-height: 1.55;
+      margin-bottom: 12px;
+    }
+    .related-card .read-more { color: var(--accent-light); font-size: 0.82rem; font-weight: 600; }
+    .related-card .read-more:hover { color: var(--accent); }
+
+    /* ── CTA Section ─────────────────────────────────────── */
+    /* Gold-gradient call-to-action box with heading, copy, and primary button */
+    .cta-section {
+      max-width: var(--article-w);
+      margin: 0 auto 64px;
+      background: linear-gradient(135deg, rgba(196,90,26,0.12), rgba(196,90,26,0.04));
+      border: 1px solid rgba(196,90,26,0.20);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      text-align: center;
+    }
+    .cta-section h3 {
+      font-family: var(--font-display); font-size: 1.4rem; font-weight: 800;
+      margin-bottom: 12px; letter-spacing: -0.02em;
+    }
+    .cta-section p {
+      color: var(--text-secondary); font-size: 0.95rem;
+      max-width: 50ch; margin: 0 auto 24px; line-height: 1.7;
+    }
+
+    /* ── Newsletter Signup ────────────────────────────────── */
+    /* Bordered strip with headline, subtext, and email + subscribe form */
+    .newsletter { padding: 40px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .newsletter-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+    .newsletter h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; }
+    .newsletter p { color: var(--text-secondary); font-size: 0.88rem; }
+    .newsletter-form { display: flex; gap: 8px; }
+    .newsletter-form input {
+      padding: 12px 18px; background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border); border-radius: var(--radius-sm);
+      color: var(--text); font-family: var(--font-body); font-size: 0.88rem;
+      min-width: 260px; outline: none; transition: border-color var(--transition);
+    }
+    .newsletter-form input:focus { border-color: var(--accent); }
+    .newsletter-form input::placeholder { color: var(--text-dim); }
+
+    /* ── Footer ──────────────────────────────────────────── */
+    /* Single-row footer with copyright, office locations, and contact links */
+    .footer { padding: 32px 0; }
+    .footer-row {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 20px; flex-wrap: wrap; color: var(--text-dim); font-size: 0.924rem;
+    }
+    .footer-row a { color: var(--text-secondary); transition: color var(--transition); }
+    .footer-row a:hover { color: var(--accent-light); }
+
+    #meshCanvas {
+      position: fixed; top: 0; right: 0; width: 60%; height: 100%;
+      z-index: 0; pointer-events: none; opacity: 0.4;
+    }
+
+    /* ── Responsive Breakpoints ───────────────────────────── */
+    /* 1024px: collapse nav to hamburger; 640px: stack grids, bio, newsletter */
+    @media (max-width: 1024px) {
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .nav-phone { display: none; }
+    }
+    @media (max-width: 640px) {
+      .article-hero { padding: 48px 0 32px; }
+      .article-meta { gap: 12px; }
+      .related-grid { grid-template-columns: 1fr; }
+      .author-bio { flex-direction: column; text-align: center; }
+      .newsletter-inner { flex-direction: column; align-items: flex-start; }
+      .newsletter-form { flex-direction: column; width: 100%; }
+      .newsletter-form input { min-width: auto; width: 100%; }
+      .cta-section { padding: 32px 24px; }
+    }
+    .brand-logo { height: 100px; width: auto; max-width: 380px; object-fit: contain; flex-shrink: 0; mix-blend-mode: screen; transition: opacity 0.25s ease; }
+    .brand-logo--footer { height: 132px; max-width: 460px; }
+      .brand-text { font-size: 1.485rem; font-weight: 800; color: var(--text-primary, #fff); letter-spacing: -0.01em; }
+    .brand-text-sub { font-size: 1.485rem; font-weight: 700; color: var(--accent, #c45a1a); letter-spacing: -0.01em; }
+    /* Scroll margin for fixed header */
+    section { scroll-margin-top: 80px; }
+    /* Accessibility & Performance */
+    ::selection { background: rgba(196,90,26,0.3); color: #F0EDE8; }
+    *:focus-visible { outline: 2px solid #C45A1A; outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Microsoft 365 Hardening: The 10 Settings You're Probably Missing",
+    "author": {
+      "@type": "Person",
+      "name": "Ryan Park",
+      "jobTitle": "Cloud & Network Engineer"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "MTT Consulting"
+    },
+    "datePublished": "2025-12-18",
+    "description": "Most Microsoft 365 tenants ship with default configurations that leave organizations exposed. Discover the 10 critical M365 security settings you need to lock down now.",
+    "mainEntityOfPage": "https://www.callmtt.com/blog/microsoft-365-hardening-settings.html"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.callmtt.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.callmtt.com/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "Microsoft 365 Hardening Settings", "item": "https://www.callmtt.com/blog/microsoft-365-hardening-settings.html" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ============================================================
+       MOBILE MENU — Full-screen overlay nav for small viewports;
+       toggled open/closed via hamburger & close button
+       ============================================================ -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')" aria-label="Close">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <a href="../index.html">Home</a>
+    <a href="../index.html#services">Services</a>
+    <a href="../index.html#solutions">Solutions</a>
+    <a href="../index.html#why-mtt">Team</a>
+    <a href="index.html">Blog</a>
+    <a href="../index.html#contact">Contact</a>
+    <a href="tel:4696352155" class="btn btn-primary btn-sm" style="margin-top:12px">Call 469-635-2155</a>
+  </div>
+
+  <!-- ============================================================
+       HEADER & NAVIGATION — Sticky glassmorphism bar with brand
+       logo, desktop nav links, phone number, CTA, and hamburger
+       ============================================================ -->
+  <header>
+    <div class="container nav-bar">
+      <a href="../index.html" class="brand" aria-label="MTT Consulting home">
+        <span class="brand-text">MTT</span><span class="brand-text-sub">Consulting</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html#services">Services</a>
+        <a href="../index.html#solutions">Solutions</a>
+        <a href="../index.html#industries">Industries</a>
+        <a href="../index.html#why-mtt">Team</a>
+        <a href="index.html" class="active">Blog</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <div class="nav-right">
+        <a href="tel:4696352155" class="nav-phone">469-635-2155</a>
+        <a class="btn btn-primary btn-sm" href="../index.html#contact">Book a Consultation</a>
+        <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============================================================
+         ARTICLE HERO — Category pill, main headline, author avatar,
+         name, role, publish date, and estimated read time
+         ============================================================ -->
+    <section class="article-hero">
+      <div class="container">
+        <div class="article-hero-inner">
+          <span class="article-category">Cloud</span>
+          <h1>Microsoft 365 Hardening: The 10 Settings You're Probably Missing</h1>
+          <div class="article-meta">
+            <div class="article-author">
+              <div class="article-author-avatar">RP</div>
+              <div class="article-author-info">
+                <span class="article-author-name">Ryan Park</span>
+                <span class="article-author-role">Cloud &amp; Network Engineer</span>
+              </div>
+            </div>
+            <span class="meta-divider"></span>
+            <span class="article-date">December 18, 2025</span>
+            <span class="meta-divider"></span>
+            <span class="article-read-time">7 min read</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ARTICLE BODY — Main content card with introduction, ten
+         numbered hardening settings, bonus hygiene section, and
+         MTT services description
+         ============================================================ -->
+    <section class="article-section">
+      <div class="container">
+        <article class="article-card">
+
+          <h2>Introduction: Why Default M365 Configurations Are Dangerous</h2>
+
+          <p class="intro-lead">Microsoft 365 is the backbone of productivity for millions of businesses worldwide. But here is the uncomfortable truth: the default configuration that ships with every M365 tenant is optimized for ease of use, not security. And that gap between convenient defaults and hardened configuration is exactly where attackers operate.</p>
+
+          <p>In our work with mid-market organizations, we routinely find M365 tenants running with settings that would make any security professional wince. Legacy authentication protocols still enabled. No conditional access policies. Auto-forwarding rules silently siphoning data to external addresses. These are not edge cases &mdash; they are the norm.</p>
+
+          <p>The good news is that most of these vulnerabilities can be closed in a single afternoon. The bad news is that most IT teams never get around to it, either because they do not know the settings exist or because they are worried about disrupting end users. This guide walks through the 10 most commonly missed M365 hardening settings, why each one matters, and exactly how to fix it.</p>
+
+          <blockquote>
+            <p>According to Microsoft's own research, more than 99.9% of compromised accounts did not have multi-factor authentication enabled. The defaults are not protecting you.</p>
+          </blockquote>
+
+          <hr />
+
+          <!-- Setting 1 -->
+          <h3><span class="setting-number">1</span> Enable Security Defaults or Conditional Access</h3>
+
+          <h4>Why it matters</h4>
+          <p>Security Defaults is Microsoft's baseline package of identity security settings, including requiring MFA registration, blocking legacy authentication, and protecting privileged actions. It is designed as a safety net for organizations that have not yet implemented Conditional Access. Yet a surprising number of tenants have Security Defaults disabled &mdash; often because an admin turned them off during initial setup to avoid MFA prompts and never turned them back on.</p>
+
+          <h4>How to fix it</h4>
+          <p>Navigate to <strong>Azure Active Directory &gt; Properties &gt; Manage Security Defaults</strong> and toggle the setting to <strong>Yes</strong>. If your organization has Azure AD Premium P1 or P2 licenses, you should move beyond Security Defaults and implement <strong>Conditional Access policies</strong> instead, which give you granular control over sign-in requirements based on user, device, location, and risk level. At a minimum, create policies that require MFA for all users, block legacy authentication, and require compliant devices for access to sensitive applications.</p>
+
+          <hr />
+
+          <!-- Setting 2 -->
+          <h3><span class="setting-number">2</span> Enforce MFA for All Admin Accounts</h3>
+
+          <h4>Why it matters</h4>
+          <p>Global Administrator accounts are the master keys to your entire M365 environment. A compromised admin account gives an attacker the ability to create new accounts, export data, modify security settings, and cover their tracks. Despite this, we regularly encounter tenants where admin accounts rely on passwords alone &mdash; sometimes simple passwords at that. Even if you have Security Defaults enabled, you should explicitly verify that every account with an admin role has MFA enforced and is using a strong authentication method like a FIDO2 key or the Microsoft Authenticator app with number matching.</p>
+
+          <h4>How to fix it</h4>
+          <p>Go to <strong>Azure AD &gt; Users &gt; Per-user MFA</strong> (or use Conditional Access if available) and confirm that every account assigned a directory role has MFA status set to <strong>Enforced</strong>. Review the list of admin role assignments in <strong>Azure AD &gt; Roles and administrators</strong> and remove any unnecessary role assignments. Implement the principle of least privilege: no one should have Global Administrator as their daily-driver account.</p>
+
+          <hr />
+
+          <!-- Setting 3 -->
+          <h3><span class="setting-number">3</span> Disable Legacy Authentication Protocols</h3>
+
+          <h4>Why it matters</h4>
+          <p>Legacy authentication protocols like POP3, IMAP, SMTP AUTH, and Basic Authentication do not support modern security features such as multi-factor authentication. Attackers know this and specifically target these protocols in password spray and credential stuffing attacks. Even if you have MFA enforced for interactive sign-ins, an attacker who obtains a user's password can authenticate through a legacy protocol and bypass MFA entirely.</p>
+
+          <h4>How to fix it</h4>
+          <p>Create a <strong>Conditional Access policy</strong> that blocks legacy authentication for all users (Azure AD &gt; Security &gt; Conditional Access &gt; New policy). Set the condition to <strong>Client apps &gt; Other clients</strong> and the access control to <strong>Block</strong>. Before enforcing, use the <strong>Report-only</strong> mode and review the sign-in logs to identify any applications or service accounts still relying on legacy protocols, then migrate them to modern authentication. Microsoft has been deprecating Basic Authentication, but tenant-level enforcement ensures nothing slips through.</p>
+
+          <hr />
+
+          <!-- Setting 4 -->
+          <h3><span class="setting-number">4</span> Configure Anti-Phishing Policies in Defender for Office 365</h3>
+
+          <h4>Why it matters</h4>
+          <p>The default anti-phishing policy in Microsoft Defender for Office 365 provides only baseline protection. It does not enable impersonation detection for your executives or key partners, and its thresholds for suspicious messages are set conservatively. Phishing remains the number one initial access vector for business email compromise, and sophisticated attacks that impersonate your CEO or CFO will sail past default configurations.</p>
+
+          <h4>How to fix it</h4>
+          <p>In the <strong>Microsoft 365 Defender portal &gt; Email &amp; collaboration &gt; Policies &amp; rules &gt; Threat policies &gt; Anti-phishing</strong>, create a custom policy. Enable <strong>mailbox intelligence</strong> and <strong>impersonation protection</strong> for your C-suite, finance team, and any employees who handle sensitive transactions. Add your top domains and partner domains to the protected list. Set the phishing email threshold to at least <strong>2 (Aggressive)</strong> and configure actions to quarantine detected messages rather than simply adding a safety tip.</p>
+
+          <hr />
+
+          <!-- Setting 5 -->
+          <h3><span class="setting-number">5</span> Enable Mailbox Audit Logging</h3>
+
+          <h4>Why it matters</h4>
+          <p>Mailbox audit logging records actions taken on mailboxes, including when someone accesses another user's mailbox, sends messages as or on behalf of another user, or deletes items. While Microsoft enabled auditing by default for new tenants starting in 2019, older tenants may still have it disabled, and the default audit actions captured may not be comprehensive enough. Without audit logging, you have no forensic trail if a mailbox is compromised &mdash; you cannot tell what the attacker read, forwarded, or deleted.</p>
+
+          <h4>How to fix it</h4>
+          <p>Verify that unified audit logging is enabled in the <strong>Microsoft Purview compliance portal &gt; Audit</strong>. Then use PowerShell to confirm mailbox-level auditing: run <code>Get-OrganizationConfig | Format-List AuditDisabled</code> and ensure the value is <strong>False</strong>. For critical mailboxes (executives, finance, HR), extend the audit log retention period beyond the default 90 days by assigning an <strong>E5 license or Audit (Premium) add-on</strong>, which provides one-year retention. Review the audit actions being captured and add any missing actions relevant to your compliance needs.</p>
+
+          <hr />
+
+          <!-- Setting 6 -->
+          <h3><span class="setting-number">6</span> Block Auto-Forwarding to External Domains</h3>
+
+          <h4>Why it matters</h4>
+          <p>One of the first things an attacker does after compromising a mailbox is set up an auto-forwarding rule to exfiltrate email to an external address. They do this quietly, and the user rarely notices because the forwarded messages still appear in their inbox. This technique is a hallmark of business email compromise attacks, and it can run for weeks or months before detection. By default, M365 allows users to configure auto-forwarding rules to any address, including external domains.</p>
+
+          <h4>How to fix it</h4>
+          <p>In the <strong>Exchange admin center &gt; Mail flow &gt; Remote domains</strong>, select the default remote domain (*) and set <strong>Automatic forwarding</strong> to <strong>Disabled</strong>. Additionally, create a <strong>mail flow rule (transport rule)</strong> that blocks messages where the message type is "Auto-forward" and the recipient is outside your organization. This provides a belt-and-suspenders approach. Periodically audit existing forwarding rules using PowerShell: <code>Get-Mailbox -ResultSize Unlimited | Where-Object {$_.ForwardingSmtpAddress -ne $null}</code> to catch any rules that were set before the policy was enacted.</p>
+
+          <hr />
+
+          <!-- Setting 7 -->
+          <h3><span class="setting-number">7</span> Configure DLP Policies for Sensitive Data</h3>
+
+          <h4>Why it matters</h4>
+          <p>Data Loss Prevention policies are your safety net against accidental (or intentional) leakage of sensitive information through email, Teams, SharePoint, and OneDrive. Without DLP policies, there is nothing stopping an employee from emailing a spreadsheet containing Social Security numbers, credit card data, or health records to a personal email address. Regulatory frameworks like HIPAA, PCI DSS, and state privacy laws increasingly expect organizations to have technical controls preventing data exfiltration.</p>
+
+          <h4>How to fix it</h4>
+          <p>In the <strong>Microsoft Purview compliance portal &gt; Data loss prevention &gt; Policies</strong>, create policies using Microsoft's built-in templates for common data types: U.S. Financial Data, U.S. PII, Health records, or custom sensitive information types relevant to your industry. Start in <strong>test mode with notifications</strong> to understand what the policy would catch before enforcing it. Configure policy tips that warn users before they share sensitive content, and set up incident reports so your security team receives alerts when DLP rules are triggered.</p>
+
+          <hr />
+
+          <!-- Setting 8 -->
+          <h3><span class="setting-number">8</span> Enable Safe Attachments and Safe Links</h3>
+
+          <h4>Why it matters</h4>
+          <p>Safe Attachments detonates email attachments in a sandbox environment before delivering them to the user, catching zero-day malware that signature-based scanning misses. Safe Links rewrites URLs in emails and Office documents to route clicks through Microsoft's real-time scanning service, protecting users even if a legitimate website is compromised after the email was delivered. Together, these features form a critical layer of defense against phishing and malware. They are included with Defender for Office 365 Plan 1 and above, but they must be explicitly configured.</p>
+
+          <h4>How to fix it</h4>
+          <p>In the <strong>Microsoft 365 Defender portal &gt; Policies &amp; rules &gt; Threat policies</strong>, configure <strong>Safe Attachments</strong> with the action set to <strong>Dynamic Delivery</strong> (which delivers the email body immediately while the attachment is scanned) or <strong>Block</strong> for higher-security environments. For <strong>Safe Links</strong>, enable URL scanning for emails and Microsoft Teams, turn on real-time URL scanning, and enable "Do not allow users to click through to the original URL." Apply these policies to all users, not just executives.</p>
+
+          <hr />
+
+          <!-- Setting 9 -->
+          <h3><span class="setting-number">9</span> Review and Restrict App Registrations and Consent</h3>
+
+          <h4>Why it matters</h4>
+          <p>OAuth consent phishing has emerged as one of the most dangerous attack techniques targeting M365 environments. An attacker tricks a user into granting a malicious third-party application permissions to read their email, access their files, or send messages on their behalf. Because the user explicitly grants consent, no password is stolen and MFA is not triggered. By default, M365 allows users to consent to third-party apps requesting permissions, which means a single click from a deceived user can give an attacker persistent access to your data.</p>
+
+          <h4>How to fix it</h4>
+          <p>In <strong>Azure AD &gt; Enterprise applications &gt; Consent and permissions</strong>, change <strong>User consent for applications</strong> to <strong>Do not allow user consent</strong> or restrict it to verified publishers only. Implement an <strong>admin consent workflow</strong> so that users can request app access and administrators can review and approve requests. Regularly audit existing app registrations and granted permissions in <strong>Azure AD &gt; Enterprise applications</strong> and revoke any suspicious or unnecessary grants. Pay special attention to apps with mail.read, mail.send, or files.readwrite.all permissions.</p>
+
+          <hr />
+
+          <!-- Setting 10 -->
+          <h3><span class="setting-number">10</span> Implement Privileged Identity Management (PIM)</h3>
+
+          <h4>Why it matters</h4>
+          <p>Standing privileged access &mdash; where admin accounts have permanent, always-on elevated permissions &mdash; is a significant security liability. If any one of those accounts is compromised, the attacker immediately has full administrative control. Privileged Identity Management eliminates standing access by making admin role assignments <strong>time-limited and approval-based</strong>. Admins must explicitly activate their role when they need it, and the activation expires after a configured period. This dramatically reduces the window of opportunity for an attacker.</p>
+
+          <h4>How to fix it</h4>
+          <p>PIM requires Azure AD Premium P2 licensing. Navigate to <strong>Azure AD &gt; Identity Governance &gt; Privileged Identity Management</strong> and convert all permanent admin role assignments to <strong>eligible</strong> assignments. Configure activation to require MFA and, for sensitive roles like Global Administrator, require approval from a second administrator. Set the maximum activation duration to the shortest practical period (typically 1&ndash;8 hours). Enable notifications so that all role activations are logged and key stakeholders are alerted when high-privilege roles are activated.</p>
+
+          <hr />
+
+          <!-- Bonus -->
+          <h2>Bonus: Ongoing M365 Security Hygiene</h2>
+
+          <p>Hardening your M365 tenant is not a one-time project. Microsoft continuously updates its platform, new features are added, and your organization's configuration drifts over time as employees come and go, new apps are connected, and policies are modified. To maintain a strong security posture, build these practices into your operational rhythm:</p>
+
+          <ul>
+            <li><strong>Run Microsoft Secure Score monthly.</strong> This built-in tool in the Defender portal benchmarks your tenant against Microsoft's recommended settings and gives you a prioritized list of improvements. Aim for incremental gains each quarter.</li>
+            <li><strong>Review sign-in and audit logs weekly.</strong> Look for anomalous sign-in patterns, impossible travel events, and unfamiliar IP addresses. Azure AD Identity Protection can automate much of this if you have P2 licensing.</li>
+            <li><strong>Conduct quarterly access reviews.</strong> Verify that admin role assignments, guest user access, group memberships, and app permissions are still appropriate. Remove anything that is no longer needed.</li>
+            <li><strong>Test your incident response plan.</strong> Run tabletop exercises that simulate a compromised M365 account. Can your team detect it, contain it, and recover from it within your target timeframes?</li>
+            <li><strong>Stay current on Microsoft security advisories.</strong> Subscribe to the Microsoft 365 Message Center and the Microsoft Security Response Center blog to stay informed about new threats, deprecated features, and configuration changes.</li>
+          </ul>
+
+          <blockquote>
+            <p>Security is not a destination. It is a process of continuous assessment, adjustment, and improvement. The organizations that treat M365 security as an ongoing discipline &mdash; not a project with an end date &mdash; are the ones that stay ahead of attackers.</p>
+          </blockquote>
+
+          <hr />
+
+          <!-- How MTT Helps -->
+          <h2>How MTT Consulting Helps</h2>
+
+          <p>At MTT Consulting, we perform comprehensive <strong>Microsoft 365 hardening assessments</strong> that go beyond a checklist. Our cloud engineering team evaluates your tenant against industry benchmarks, including the CIS Microsoft 365 Foundations Benchmark and Microsoft's own Secure Score recommendations, and delivers a prioritized remediation roadmap tailored to your business context and risk tolerance.</p>
+
+          <p>Our M365 security services include:</p>
+
+          <ul>
+            <li><strong>Tenant Security Assessment:</strong> A full audit of your M365 configuration covering identity, email security, data protection, and device management.</li>
+            <li><strong>Conditional Access Architecture:</strong> Designing and implementing Conditional Access policies that balance security with user experience across your workforce.</li>
+            <li><strong>Managed Security Operations:</strong> Ongoing monitoring and management of your M365 security posture, including alert triage, policy tuning, and incident response.</li>
+            <li><strong>Compliance Alignment:</strong> Configuring DLP, retention policies, eDiscovery, and audit logging to meet HIPAA, PCI DSS, SOC 2, or CMMC requirements.</li>
+          </ul>
+
+          <p>Whether you need a one-time hardening engagement or ongoing managed security for your M365 environment, our team has the expertise to close the gaps that default configurations leave open.</p>
+
+        </article>
+
+        <div style="margin-top:2.5rem;padding:2rem;background:rgba(90,138,114,0.07);border-radius:12px;border-left:4px solid var(--green, #5a8a72);">
+          <h3 style="margin-bottom:1rem;font-size:1.1rem;color:var(--heading, #1a1a1a);">Related MTT Services</h3>
+          <ul style="list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:0.75rem;">
+            <li><a href="../services/cloud-microsoft-365.html" style="display:inline-block;padding:0.5rem 1.25rem;background:var(--green, #5a8a72);color:#fff;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;">Cloud &amp; Microsoft 365 &rarr;</a></li>
+            <li><a href="../services/cybersecurity.html" style="display:inline-block;padding:0.5rem 1.25rem;background:var(--green, #5a8a72);color:#fff;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;">Cybersecurity &amp; Resilience &rarr;</a></li>
+          </ul>
+        </div>
+
+        <!-- ============================================================
+             CTA — Gold-gradient call-to-action box prompting a free
+             Microsoft 365 security assessment
+             ============================================================ -->
+        <div class="cta-section" style="margin-top:48px;">
+          <h3>Get Your M365 Tenant Hardened</h3>
+          <p>Schedule a free Microsoft 365 security assessment with our cloud engineering team. We will identify the gaps and build a remediation plan.</p>
+          <a href="../index.html#contact" class="btn btn-primary">Request a Free Assessment</a>
+        </div>
+
+        <!-- ============================================================
+             AUTHOR BIO — Card with avatar initials, name, role, and
+             short biography for Ryan Park
+             ============================================================ -->
+        <div class="author-bio">
+          <div class="author-bio-avatar">RP</div>
+          <div class="author-bio-info">
+            <h4>Ryan Park</h4>
+            <div class="author-bio-role">Cloud &amp; Network Engineer at MTT Consulting</div>
+            <p>Ryan specializes in Microsoft 365 security, Azure infrastructure, and enterprise network architecture. With certifications across the Microsoft and Cisco ecosystems, he helps mid-market organizations design and secure their cloud environments for performance and compliance.</p>
+          </div>
+        </div>
+
+        <!-- ============================================================
+             RELATED ARTICLES — 2-column grid of cards linking to
+             other blog posts (Azure vs AWS vs GCP, Zero Trust 2026)
+             ============================================================ -->
+        <div class="related-section">
+          <h3>Related Articles</h3>
+          <div class="related-grid">
+            <a href="#" class="related-card">
+              <span class="related-cat cat-cloud">Cloud</span>
+              <h4>Azure vs. AWS vs. GCP: Choosing the Right Cloud for Your Business</h4>
+              <p>A no-hype comparison of the three major cloud platforms from cost structures to compliance capabilities.</p>
+              <span class="read-more">Read Article &rarr;</span>
+            </a>
+            <a href="#" class="related-card">
+              <span class="related-cat cat-security">Cybersecurity</span>
+              <h4>Zero Trust in 2026: A Practical Framework for Mid-Market Organizations</h4>
+              <p>How growing businesses can implement zero-trust architecture without the enterprise price tag.</p>
+              <span class="read-more">Read Article &rarr;</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       NEWSLETTER — Email signup strip with headline, description,
+       and subscribe form
+       ============================================================ -->
+  <section class="newsletter">
+    <div class="container newsletter-inner">
+      <div><h3>Stay Ahead of the Curve</h3><p>Monthly insights on cybersecurity, cloud, AI, and IT strategy &mdash; no spam, just substance.</p></div>
+      <form class="newsletter-form" onsubmit="event.preventDefault()">
+        <input type="email" placeholder="Enter your business email" required />
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER — Copyright line, office locations, email, and phone
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container footer-row">
+      <a href="../index.html" class="brand" style="margin-bottom:8px">
+        <span class="brand-text">MTT</span><span class="brand-text-sub">Consulting</span>
+      </a>
+      <div>&copy; 2026 MTT Consulting. vCIO advisory, AI governance, cybersecurity, and managed IT services nationwide.</div>
+      <div>Offices in Collin County, TX &amp; Orange County, CA &middot; <a href="mailto:info@callmtt.com">info@callmtt.com</a> &middot; <a href="tel:4696352155">469-635-2155</a></div>
+      <div><a href="/privacy-policy.html">Privacy Policy</a> &middot; <a href="/terms-of-service.html">Terms of Service</a> &middot; <a href="/sitemap.xml">Sitemap</a></div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT — Scroll progress bar and canvas mesh animation
+       ============================================================ -->
+  <script>
+    // --- Scroll Progress Bar ---
+    // Updates the fixed top bar width based on how far the user has scrolled
+    window.addEventListener('scroll', () => {
+      const scrollTop = document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const progress = (scrollTop / scrollHeight) * 100;
+      document.getElementById('scrollProgress').style.width = progress + '%';
+    });
+  </script>
+
+<!-- ============================================================
+     BACKGROUND CANVAS — Animated gold mesh particle network fixed
+     to the right 60% of the viewport; decorative only
+     ============================================================ -->
+<canvas id="meshCanvas"></canvas>
+<script>
+// --- Canvas Mesh Animation ---
+// Spawns 60 drifting particles, draws connecting lines when within 120px
+(function(){
+  const c=document.getElementById('meshCanvas');if(!c)return;
+  const ctx=c.getContext('2d');
+  let w,h,pts=[];
+  function resize(){w=c.width=c.offsetWidth*devicePixelRatio;h=c.height=c.offsetHeight*devicePixelRatio;ctx.scale(devicePixelRatio,devicePixelRatio);}
+  resize();window.addEventListener('resize',resize);
+  for(let i=0;i<60;i++)pts.push({x:Math.random()*c.offsetWidth,y:Math.random()*c.offsetHeight,vx:(Math.random()-0.5)*0.3,vy:(Math.random()-0.5)*0.3});
+  function draw(){
+    ctx.clearRect(0,0,c.offsetWidth,c.offsetHeight);
+    pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>c.offsetWidth)p.vx*=-1;if(p.y<0||p.y>c.offsetHeight)p.vy*=-1;});
+    for(let i=0;i<pts.length;i++){
+      for(let j=i+1;j<pts.length;j++){
+        const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<120){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle='rgba(196,90,26,'+(1-d/120)*0.15+')';ctx.stroke();}
+      }
+      ctx.beginPath();ctx.arc(pts[i].x,pts[i].y,1.5,0,Math.PI*2);ctx.fillStyle='rgba(196,90,26,0.3)';ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
+
+</body>
+</html>

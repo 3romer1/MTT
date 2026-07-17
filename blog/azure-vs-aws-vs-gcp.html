@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================================
+       META TAGS — Core document metadata, SEO, and browser config
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>Azure vs. AWS vs. GCP: Choosing the Right Cloud for Your Business | MTT Consulting</title>
+  <meta name="description" content="A no-hype comparison of Azure, AWS, and GCP — from cost structures and compliance capabilities to ecosystem fit. Learn how to choose the right cloud platform for your business." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Ryan Park" />
+  <meta name="keywords" content="Azure vs AWS vs GCP, cloud platform comparison, cloud migration, multi-cloud strategy, cloud cost optimization, MTT Consulting" />
+  <link rel="canonical" href="https://www.callmtt.com/blog/azure-vs-aws-vs-gcp.html" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <meta name="theme-color" content="#0b0b0a" />
+
+  <!-- ============================================================
+       OPEN GRAPH TAGS — Social sharing metadata for Facebook, LinkedIn, etc.
+       Includes article-specific properties: published time, author, section
+       ============================================================ -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Azure vs. AWS vs. GCP: Choosing the Right Cloud for Your Business" />
+  <meta property="og:description" content="A no-hype comparison of the three major cloud platforms — from cost structures to compliance capabilities and ecosystem fit." />
+  <meta property="og:url" content="https://www.callmtt.com/blog/azure-vs-aws-vs-gcp.html" />
+  <meta property="og:site_name" content="MTT Consulting" />
+  <meta property="article:published_time" content="2026-03-15" />
+  <meta property="article:author" content="Ryan Park" />
+  <meta property="article:section" content="Cloud" />
+
+  <!-- ============================================================
+       TWITTER CARD — Twitter/X sharing metadata with large image format
+       ============================================================ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Azure vs. AWS vs. GCP: Choosing the Right Cloud for Your Business" />
+  <meta name="twitter:description" content="A no-hype comparison of the three major cloud platforms — from cost structures to compliance capabilities and ecosystem fit." />
+
+  <!-- ============================================================
+       FONT LOADING — Google Fonts preconnect and Inter font family
+       Uses preconnect for performance, loads weights 400-800
+       ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" /></noscript>
+
+  <!-- ============================================================
+       STRUCTURED DATA — JSON-LD schema.org BlogPosting markup
+       Provides search engines with headline, author, publisher, and date
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Azure vs. AWS vs. GCP: Choosing the Right Cloud for Your Business",
+    "author": { "@type": "Person", "name": "Ryan Park" },
+    "publisher": { "@type": "Organization", "name": "MTT Consulting" },
+    "datePublished": "2026-03-15",
+    "description": "A no-hype comparison of Azure, AWS, and GCP — cost structures, compliance, ecosystem fit, and how to choose the right cloud for your business.",
+    "mainEntityOfPage": "https://www.callmtt.com/blog/azure-vs-aws-vs-gcp.html"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.callmtt.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.callmtt.com/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "Azure vs. AWS vs. GCP", "item": "https://www.callmtt.com/blog/azure-vs-aws-vs-gcp.html" }
+    ]
+  }
+  </script>
+
+  <!-- ============================================================
+       EMBEDDED STYLES — All page styles inlined for performance
+       ============================================================ -->
+  <style>
+    /* ── Design Tokens ─────────────────────────────────────── */
+    /* Custom properties for colors, shadows, spacing, typography, and transitions */
+    :root {
+      --bg: #000000;
+      --bg-elevated: #0a0a0a;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f5f5f5;
+      --border: rgba(255,255,255,0.08);
+      --border-hover: rgba(196,90,26,0.35);
+      --text: #eae6df;
+      --text-secondary: #9c9890;
+      --text-dim: #625e58;
+      --card-text: #1a1a1a;
+      --card-text-secondary: #555555;
+      --card-text-dim: #888888;
+      --card-border: rgba(230,230,230,0.15);
+      --accent: #c45a1a;
+      --accent-light: #d96b2a;
+      --accent-dark: #a44a12;
+      --accent-glow: rgba(196,90,26,0.22);
+      --green: #5a8a72;
+      --blue: #4a7c9b;
+      --purple: #7c6cc0;
+      --white: #eae6df;
+      --shadow-lg: 0 24px 64px rgba(0,0,0,0.5);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.3);
+      --shadow-sm: 0 2px 12px rgba(0,0,0,0.2);
+      --shadow-glow: 0 0 30px rgba(196,90,26,0.08);
+      --max-w: 1200px;
+      --article-w: 780px;
+      --radius-lg: 14px;
+      --radius-md: 10px;
+      --radius-sm: 8px;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Space Grotesk', sans-serif;
+      --font-ui: 'Space Grotesk', sans-serif;
+      --transition: 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* ── Reset & Base ──────────────────────────────────────── */
+    /* Box-sizing reset, smooth scrolling, base typography and background */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.72;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    .container { width: min(var(--max-w), calc(100% - 40px)); margin: 0 auto; position: relative; z-index: 1; }
+
+    /* ── Scroll Progress Bar ────────────────────────────────── */
+    /* Fixed top bar showing reading progress; width set by JS on scroll */
+    .scroll-progress {
+      position: fixed; top: 0; left: 0; height: 3px; z-index: 999;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      transition: width 0.1s linear;
+    }
+
+    /* ── Scroll Reveal Animations ─────────────────────────── */
+    /* Fade-in-up animation classes triggered by IntersectionObserver */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+
+    /* ── Highlight Text Gradient ──────────────────────────── */
+    /* Gold gradient text effect used on accent words in headings */
+    .highlight {
+      background: linear-gradient(135deg, #c45a1a, #d96b2a, #d96b2a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── Buttons ───────────────────────────────────────────── */
+    /* Primary (gold fill), ghost (transparent border), and small variant */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px 26px; border-radius: var(--radius-sm); border: 1px solid transparent;
+      font-family: var(--font-display); font-weight: 700; font-size: 0.9rem;
+      cursor: pointer; transition: all var(--transition); white-space: nowrap;
+    }
+    .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 4px 20px rgba(196,90,26,0.25), 0 1px 4px rgba(196,90,26,0.15); }
+    .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(196,90,26,0.30), 0 2px 8px rgba(196,90,26,0.20); }
+    .btn-ghost { background: transparent; border-color: rgba(255,245,230,0.12); color: var(--text); }
+    .btn-ghost:hover { background: rgba(255,245,230,0.06); border-color: var(--border-hover); }
+    .btn-sm { padding: 10px 18px; font-size: 0.924rem; }
+
+    /* ── Header & Navigation ──────────────────────────────── */
+    /* Sticky top nav with glassmorphism blur, brand logo, nav links,
+       phone number, CTA button, hamburger toggle, and mobile menu overlay */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(24px) saturate(1.6);
+      -webkit-backdrop-filter: blur(24px) saturate(1.6);
+      background: rgba(13,13,13,0.92);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 20px rgba(0,0,0,0.4);
+    }
+    .nav-bar { display: flex; align-items: center; justify-content: space-between; min-height: 68px; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-family: var(--font-display); font-weight: 800; font-size: 1.12rem; }
+    .brand-icon {
+      width: 42px; height: 42px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(196,90,26,0.20), rgba(196,90,26,0.08));
+      border: 1px solid rgba(196,90,26,0.25);
+      display: grid; place-items: center; flex-shrink: 0;
+      box-shadow: 0 0 16px rgba(196,90,26,0.10);
+    }
+    .brand-sub { display: block; font-size: 0.62rem; font-weight: 600; color: var(--text-dim); letter-spacing: 0.16em; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-links a { color: var(--text-secondary); font-size: 0.946rem; font-weight: 500; padding: 8px 14px; border-radius: var(--radius-sm); transition: color var(--transition), background var(--transition); }
+    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.04); }
+    .nav-links a.active { color: var(--accent-light); }
+    .nav-right { display: flex; align-items: center; gap: 14px; }
+    .nav-phone { color: var(--text-secondary); font-size: 0.946rem; font-weight: 600; font-family: var(--font-display); }
+    .hamburger { display: none; background: none; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 8px; cursor: pointer; color: var(--text); }
+    .hamburger svg { display: block; }
+    .mobile-menu { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(13,13,13,0.98); backdrop-filter: blur(24px); flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; color: var(--text); padding: 12px 24px; }
+    .mobile-close { position: absolute; top: 20px; right: 20px; background: none; border: none; color: var(--text); cursor: pointer; }
+
+    /* ── Article Hero ─────────────────────────────────────── */
+    /* Top section with category badge, article title, author info,
+       publish date, and estimated read time */
+    .article-hero {
+      padding: 64px 0 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .article-hero .container {
+      max-width: var(--article-w);
+    }
+    .article-breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.82rem; color: var(--text-dim); margin-bottom: 24px;
+    }
+    .article-breadcrumb a { transition: color var(--transition); }
+    .article-breadcrumb a:hover { color: var(--accent-light); }
+    .article-breadcrumb svg { flex-shrink: 0; }
+    .article-category {
+      display: inline-block; padding: 5px 14px; border-radius: 999px;
+      font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+      background: rgba(74,124,155,0.15); color: #6aa8d0; border: 1px solid rgba(74,124,155,0.25);
+      margin-bottom: 18px;
+    }
+    .article-hero h1 {
+      font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 900; letter-spacing: -0.03em; line-height: 1.18; margin-bottom: 20px;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+      color: var(--text-secondary); font-size: 0.88rem;
+    }
+    .article-author {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .author-avatar-lg {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      display: grid; place-items: center;
+      font-weight: 700; font-size: 0.78rem; color: #fff;
+    }
+    .author-info { display: flex; flex-direction: column; }
+    .author-name { color: var(--text); font-weight: 600; font-size: 0.9rem; }
+    .author-title { font-size: 0.78rem; color: var(--text-dim); }
+    .meta-sep { color: var(--text-dim); }
+
+    /* ── Article Body & Content ─────────────────────────────── */
+    /* White card container for the main article prose; styles for
+       paragraphs, headings, links, lists, and ordered list counters */
+    .article-card {
+      max-width: var(--article-w);
+      margin: -1px auto 0;
+      background: var(--bg-card);
+      border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+      padding: 56px 60px 64px;
+      box-shadow: var(--shadow-lg);
+      color: var(--card-text);
+      line-height: 1.8;
+      font-size: 1.02rem;
+    }
+    .article-card p {
+      margin-bottom: 1.4em;
+    }
+    .article-card h2 {
+      font-family: var(--font-display); font-weight: 800; font-size: 1.55rem;
+      letter-spacing: -0.02em; margin: 2.2em 0 0.7em; color: #111;
+      padding-bottom: 8px; border-bottom: 2px solid var(--accent);
+      display: inline-block;
+    }
+    .article-card h2::after {
+      content: ''; display: block;
+    }
+    .article-card h3 {
+      font-family: var(--font-display); font-weight: 700; font-size: 1.22rem;
+      margin: 1.8em 0 0.6em; color: #222;
+    }
+    .article-card strong { font-weight: 700; color: #111; }
+    .article-card a {
+      color: var(--accent); font-weight: 600; text-decoration: underline;
+      text-decoration-color: rgba(196,90,26,0.3); text-underline-offset: 3px;
+      transition: text-decoration-color var(--transition);
+    }
+    .article-card a:hover { text-decoration-color: var(--accent); }
+    .article-card ul, .article-card ol {
+      list-style: none; margin: 0 0 1.4em 0; padding: 0;
+    }
+    .article-card ul li, .article-card ol li {
+      position: relative; padding-left: 24px; margin-bottom: 8px;
+    }
+    .article-card ul li::before {
+      content: ''; position: absolute; left: 0; top: 11px;
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--accent);
+    }
+    .article-card ol { counter-reset: ol-counter; }
+    .article-card ol li { counter-increment: ol-counter; }
+    .article-card ol li::before {
+      content: counter(ol-counter) '.';
+      position: absolute; left: 0; top: 0;
+      font-weight: 700; color: var(--accent); font-size: 0.95rem;
+    }
+
+    /* ── Blockquote ────────────────────────────────────────── */
+    /* Styled pull-quote with left gold border and warm background */
+    .article-card blockquote {
+      margin: 1.8em 0; padding: 20px 24px;
+      border-left: 4px solid var(--accent);
+      background: #faf6f1;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-style: italic; color: #333;
+    }
+    .article-card blockquote p { margin-bottom: 0; }
+
+    /* ── Comparison Table ──────────────────────────────────── */
+    /* Styled data table for Azure vs AWS vs GCP feature comparison;
+       gold header row, striped body rows, bold first column */
+    .comparison-table {
+      width: 100%; border-collapse: collapse; margin: 1.6em 0 2em;
+      font-size: 0.9rem; line-height: 1.6;
+    }
+    .comparison-table thead th {
+      background: var(--accent); color: #fff;
+      padding: 12px 16px; text-align: left;
+      font-weight: 700; font-size: 0.85rem;
+      text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .comparison-table thead th:first-child { border-radius: var(--radius-sm) 0 0 0; }
+    .comparison-table thead th:last-child { border-radius: 0 var(--radius-sm) 0 0; }
+    .comparison-table tbody td {
+      padding: 12px 16px; border-bottom: 1px solid #eee;
+      vertical-align: top;
+    }
+    .comparison-table tbody tr:last-child td { border-bottom: none; }
+    .comparison-table tbody tr:nth-child(even) { background: #f9f7f4; }
+    .comparison-table tbody td:first-child { font-weight: 600; color: #111; white-space: nowrap; }
+
+    /* ── CTA Banner ────────────────────────────────────────── */
+    /* Dark gradient call-to-action box inside the article card */
+    .article-cta {
+      margin: 2.4em 0 0.5em;
+      padding: 32px;
+      background: linear-gradient(135deg, #1a1a1a, #222);
+      border-radius: var(--radius-md);
+      text-align: center;
+      color: #fff;
+    }
+    .article-cta h3 {
+      color: #fff; margin: 0 0 8px; font-size: 1.3rem;
+    }
+    .article-cta p {
+      color: #bbb; margin-bottom: 20px; font-size: 0.95rem;
+    }
+    .article-cta .btn-primary { font-size: 0.95rem; }
+
+    /* ── Author Bio Card ───────────────────────────────────── */
+    /* Dark elevated card with avatar, name, role, and bio paragraph */
+    .author-bio {
+      max-width: var(--article-w); margin: 48px auto;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px 36px;
+      display: flex; gap: 24px; align-items: flex-start;
+    }
+    .author-bio-avatar {
+      width: 64px; height: 64px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      display: grid; place-items: center;
+      font-weight: 800; font-size: 1.2rem; color: #fff;
+    }
+    .author-bio-content h4 {
+      font-family: var(--font-display); font-weight: 700; font-size: 1.05rem;
+      margin-bottom: 2px;
+    }
+    .author-bio-content .bio-role {
+      color: var(--accent-light); font-size: 0.84rem; font-weight: 600; margin-bottom: 10px;
+    }
+    .author-bio-content p {
+      color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7;
+    }
+
+    /* ── Related Articles Grid ─────────────────────────────── */
+    /* Three-column grid of related post cards with category badges */
+    .related-section {
+      max-width: var(--max-w); margin: 0 auto 64px;
+      padding: 0 20px;
+    }
+    .related-section h3 {
+      font-family: var(--font-display); font-weight: 800; font-size: 1.4rem;
+      margin-bottom: 28px;
+    }
+    .related-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .related-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      transition: all var(--transition);
+    }
+    .related-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-glow);
+    }
+    .related-cat {
+      display: inline-block; padding: 4px 10px; border-radius: 999px;
+      font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+      margin-bottom: 12px;
+    }
+    .cat-cloud { background: rgba(74,124,155,0.15); color: #6aa8d0; }
+    .cat-security { background: rgba(196,90,26,0.12); color: var(--accent-light); }
+    .cat-strategy { background: rgba(90,138,114,0.15); color: #7ab89a; }
+    .cat-ai { background: rgba(124,108,192,0.15); color: #a090e0; }
+    .related-card h4 {
+      font-family: var(--font-display); font-weight: 700; font-size: 1rem;
+      line-height: 1.4; margin-bottom: 10px;
+    }
+    .related-card p {
+      color: var(--text-secondary); font-size: 0.84rem; line-height: 1.65; margin-bottom: 14px;
+    }
+    .related-card .read-more {
+      color: var(--accent-light); font-size: 0.84rem; font-weight: 600;
+      transition: color var(--transition);
+    }
+    .related-card .read-more:hover { color: #fff; }
+
+    /* ── Newsletter Signup ─────────────────────────────────── */
+    /* Email subscription bar with heading, description, and inline form */
+    .newsletter {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 48px 0;
+      background: var(--bg-elevated);
+    }
+    .newsletter-inner {
+      display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;
+    }
+    .newsletter-inner h3 {
+      font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; margin-bottom: 4px;
+    }
+    .newsletter-inner p { color: var(--text-secondary); font-size: 0.9rem; }
+    .newsletter-form { display: flex; gap: 10px; }
+    .newsletter-form input {
+      background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 12px 18px;
+      color: var(--text); font-family: var(--font-body); font-size: 0.9rem;
+      width: 280px; outline: none; transition: border-color var(--transition);
+    }
+    .newsletter-form input:focus { border-color: var(--accent); }
+
+    /* ── Footer ────────────────────────────────────────────── */
+    /* Minimal footer with copyright and contact links */
+    .footer {
+      padding: 32px 0;
+      color: var(--text-dim);
+      font-size: 0.902rem;
+    }
+    .footer-row {
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    }
+    .footer a { color: var(--text-secondary); transition: color var(--transition); }
+    .footer a:hover { color: var(--accent-light); }
+
+    /* ── Background Canvas ─────────────────────────────────── */
+    /* Fixed-position canvas for the animated particle mesh background */
+    #meshCanvas {
+      position: fixed; top: 0; right: 0; width: 60%; height: 100%;
+      z-index: 0; pointer-events: none; opacity: 0.4;
+    }
+
+    /* ── Responsive Breakpoints ────────────────────────────── */
+    /* 860px: Single-col related grid, stack author bio, hide desktop nav */
+    /* 480px: Minimal padding, compact article meta */
+    @media (max-width: 860px) {
+      .article-card { padding: 36px 28px 44px; }
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .nav-phone { display: none; }
+      .related-grid { grid-template-columns: 1fr; }
+      .author-bio { flex-direction: column; align-items: center; text-align: center; }
+      .comparison-table { font-size: 0.8rem; }
+      .comparison-table thead th,
+      .comparison-table tbody td { padding: 8px 10px; }
+      .newsletter-inner { flex-direction: column; text-align: center; }
+      .newsletter-form { flex-direction: column; width: 100%; }
+      .newsletter-form input { width: 100%; }
+      .footer-row { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .article-card { padding: 28px 20px 36px; }
+      .article-hero { padding: 40px 0 32px; }
+      .article-meta { gap: 10px; font-size: 0.8rem; }
+      .meta-sep { display: none; }
+    }
+    .brand-logo { height: 100px; width: auto; max-width: 380px; object-fit: contain; flex-shrink: 0; mix-blend-mode: screen; transition: opacity 0.25s ease; }
+    .brand-logo--footer { height: 132px; max-width: 460px; }
+      .brand-text { font-size: 1.485rem; font-weight: 800; color: var(--text-primary, #fff); letter-spacing: -0.01em; }
+    .brand-text-sub { font-size: 1.485rem; font-weight: 700; color: var(--accent, #c45a1a); letter-spacing: -0.01em; }
+    /* Scroll margin for fixed header */
+    section { scroll-margin-top: 80px; }
+    /* Accessibility & Performance */
+    ::selection { background: rgba(196,90,26,0.3); color: #F0EDE8; }
+    *:focus-visible { outline: 2px solid #C45A1A; outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       SCROLL PROGRESS BAR — Fixed top indicator showing reading progress
+       Width is dynamically set by JavaScript on scroll
+       ============================================================ -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ============================================================
+       HEADER & NAVIGATION — Sticky top bar with glassmorphism effect
+       Contains brand logo, desktop nav links, phone number, CTA button,
+       and hamburger toggle for mobile
+       ============================================================ -->
+  <header>
+    <div class="container nav-bar">
+      <a href="../index.html" class="brand" aria-label="MTT Consulting home">
+        <span class="brand-text">MTT</span><span class="brand-text-sub">Consulting</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html#services">Services</a>
+        <a href="../index.html#solutions">Solutions</a>
+        <a href="../index.html#industries">Industries</a>
+        <a href="index.html" class="active">Blog</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <div class="nav-right">
+        <a href="tel:4696352155" class="nav-phone">469-635-2155</a>
+        <a class="btn btn-primary btn-sm" href="../index.html#contact">Book a Consultation</a>
+        <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       MOBILE MENU — Full-screen overlay navigation for small screens
+       Toggled open/closed via hamburger button in header
+       ============================================================ -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')" aria-label="Close">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <a href="../index.html">Home</a>
+    <a href="../index.html#services">Services</a>
+    <a href="../index.html#solutions">Solutions</a>
+    <a href="index.html">Blog</a>
+    <a href="../index.html#contact">Contact</a>
+  </div>
+
+  <main>
+    <!-- ============================================================
+         ARTICLE HERO — Breadcrumb, category badge, title, author info,
+         publish date, and estimated reading time
+         ============================================================ -->
+    <section class="article-hero">
+      <div class="container">
+        <div class="article-breadcrumb reveal">
+          <a href="index.html">Blog</a>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span>Cloud</span>
+        </div>
+        <span class="article-category reveal reveal-d1">Cloud</span>
+        <h1 class="reveal reveal-d1">Azure vs. AWS vs. GCP: Choosing the Right Cloud for Your Business</h1>
+        <div class="article-meta reveal reveal-d2">
+          <div class="article-author">
+            <div class="author-avatar-lg">RP</div>
+            <div class="author-info">
+              <span class="author-name">Ryan Park</span>
+              <span class="author-title">Cloud &amp; Network Engineer</span>
+            </div>
+          </div>
+          <span class="meta-sep">&middot;</span>
+          <span>March 15, 2026</span>
+          <span class="meta-sep">&middot;</span>
+          <span>6 min read</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ARTICLE CONTENT — Main article body in a white card container
+         Contains cloud platform comparison prose, data tables, and analysis
+         ============================================================ -->
+    <article class="article-card reveal">
+
+      <h2>Why Cloud Choice Matters</h2>
+      <p>Choosing a cloud provider is one of the most consequential technology decisions a business will make. It affects everything from your monthly operating costs and compliance posture to how quickly your engineering team can ship new products. Yet the decision is often made by default &mdash; someone signs up for an AWS free tier, a few workloads migrate over, and suddenly you are locked in before anyone evaluated the alternatives.</p>
+      <p>At MTT Consulting, we see this play out regularly with mid-market companies that have between 50 and 500 employees. They are large enough to need real cloud infrastructure but not so large that they have a dedicated cloud architecture team weighing the options. The result is that cloud selection becomes an afterthought &mdash; and the costs compound over time.</p>
+      <p>This guide breaks down the three dominant platforms &mdash; Microsoft Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP) &mdash; through the lens of what actually matters to growing businesses: integration with your existing stack, cost predictability, compliance requirements, and long-term flexibility.</p>
+
+      <h2>Microsoft Azure: Best for Microsoft-Heavy Environments</h2>
+      <p>If your organization already runs on Microsoft 365, uses Active Directory for identity management, or relies on Windows Server workloads, Azure is the natural first choice. The integration is not just convenient &mdash; it is architectural. Azure Active Directory (now Entra ID) provides single sign-on across your entire Microsoft ecosystem, and licensing bundles through Enterprise Agreements can significantly reduce total cost of ownership.</p>
+
+      <h3>Key Azure Strengths</h3>
+      <ul>
+        <li><strong>Microsoft 365 integration:</strong> Seamless connectivity with Teams, SharePoint, Exchange Online, and Intune. Conditional access policies span both your SaaS and IaaS layers.</li>
+        <li><strong>Hybrid cloud leadership:</strong> Azure Arc and Azure Stack HCI make it the strongest platform for organizations that need to keep some workloads on-premises while extending to the cloud.</li>
+        <li><strong>Enterprise identity:</strong> Entra ID (formerly Azure AD) is the de facto standard for enterprise identity and access management, supporting SAML, OAuth, and SCIM out of the box.</li>
+        <li><strong>Compliance certifications:</strong> Azure holds more compliance certifications than any other cloud provider, including FedRAMP High, CJIS, and ITAR &mdash; critical for government contractors and regulated industries.</li>
+      </ul>
+
+      <blockquote>
+        <p>"For businesses that are already invested in the Microsoft ecosystem, choosing a different cloud provider often means building integration bridges that Azure gives you for free."</p>
+      </blockquote>
+
+      <h3>Where Azure Falls Short</h3>
+      <p>Azure's console experience and documentation have historically lagged behind AWS. The portal can feel overwhelming, and pricing calculators often produce estimates that diverge from actual bills. Azure's open-source and container ecosystem, while improving rapidly, still trails AWS and GCP in maturity for cloud-native development workflows.</p>
+
+      <h2>Amazon Web Services: Best for Scale and Flexibility</h2>
+      <p>AWS remains the market leader for a reason. With the broadest service catalog in the industry &mdash; over 200 fully featured services &mdash; AWS offers a solution for virtually every workload type. It is particularly strong for organizations that value infrastructure-as-code maturity, global availability zone coverage, and a massive ecosystem of third-party tooling and talent.</p>
+
+      <h3>Key AWS Strengths</h3>
+      <ul>
+        <li><strong>Breadth of services:</strong> From Lambda for serverless to SageMaker for machine learning to IoT Greengrass for edge computing, AWS has the deepest catalog across every category.</li>
+        <li><strong>Startup-friendly:</strong> AWS Activate credits, a mature free tier, and the broadest community of developers make it the default choice for startups and fast-growing companies.</li>
+        <li><strong>Global infrastructure:</strong> 33 regions and 105 availability zones (as of early 2026) make AWS the go-to for businesses that need low-latency global deployments.</li>
+        <li><strong>Marketplace ecosystem:</strong> The AWS Marketplace has thousands of pre-built AMIs, containers, and SaaS integrations that accelerate deployment timelines.</li>
+      </ul>
+
+      <h3>Where AWS Falls Short</h3>
+      <p>AWS pricing is notoriously complex. With dozens of billing dimensions per service &mdash; data transfer, API calls, storage classes, provisioned IOPS &mdash; it is easy for bills to surprise even experienced teams. Enterprise support plans are expensive, and the platform's sheer breadth can create decision fatigue for smaller teams trying to choose between three or four services that do similar things.</p>
+
+      <h2>Google Cloud Platform: Best for Data and AI Workloads</h2>
+      <p>GCP has carved out a distinct position as the platform of choice for data-intensive and AI-driven workloads. BigQuery remains the gold standard for serverless data warehousing, Kubernetes was born at Google, and their Vertex AI platform offers some of the most streamlined paths to deploying machine learning models in production.</p>
+
+      <h3>Key GCP Strengths</h3>
+      <ul>
+        <li><strong>Data analytics:</strong> BigQuery's serverless architecture, built-in ML functions, and separation of storage from compute make it the most cost-effective analytics platform at scale.</li>
+        <li><strong>Kubernetes heritage:</strong> Google Kubernetes Engine (GKE) is the most mature and performant managed Kubernetes offering, with features like Autopilot mode that abstract away node management entirely.</li>
+        <li><strong>Machine learning:</strong> Vertex AI, TensorFlow integration, and TPU access provide an end-to-end ML development lifecycle that is hard to match on other platforms.</li>
+        <li><strong>Network performance:</strong> Google's private global fiber network delivers consistently low latency and high throughput, especially for data-heavy workloads.</li>
+      </ul>
+
+      <h3>Where GCP Falls Short</h3>
+      <p>GCP has the smallest enterprise market share of the three, which translates to fewer third-party integrations, fewer certified professionals in the talent market, and occasional gaps in enterprise sales support. Google also has a reputation for deprecating products, which &mdash; fair or not &mdash; gives some enterprise buyers pause when making long-term infrastructure commitments.</p>
+
+      <h2>Cost Comparison: How Pricing Models Differ</h2>
+      <p>Direct cost comparisons between the three platforms are notoriously difficult because each uses different pricing structures, discount mechanisms, and billing granularity. That said, here are the patterns we consistently see when advising clients:</p>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Factor</th>
+            <th>Azure</th>
+            <th>AWS</th>
+            <th>GCP</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Compute Pricing</td>
+            <td>Competitive, especially with hybrid use benefits for Windows Server licenses</td>
+            <td>Extensive instance types; Savings Plans and Reserved Instances offer up to 72% discount</td>
+            <td>Sustained use discounts apply automatically; committed use discounts available</td>
+          </tr>
+          <tr>
+            <td>Data Egress</td>
+            <td>First 100 GB/month free; standard rates after</td>
+            <td>First 100 GB/month free; historically the most expensive at scale</td>
+            <td>Most competitive egress pricing; premium tier and standard tier options</td>
+          </tr>
+          <tr>
+            <td>Storage</td>
+            <td>Blob Storage tiers are cost-effective; integration with M365 adds value</td>
+            <td>S3 is the gold standard with the most granular tiering (Glacier, Deep Archive)</td>
+            <td>Unified storage model; Nearline/Coldline pricing is very competitive</td>
+          </tr>
+          <tr>
+            <td>Enterprise Discounts</td>
+            <td>Enterprise Agreements; significant bundling with M365 and Dynamics</td>
+            <td>Enterprise Discount Program (EDP); volume commitments</td>
+            <td>Committed Use Discounts; less structured enterprise bundling</td>
+          </tr>
+          <tr>
+            <td>Free Tier</td>
+            <td>12 months free + always-free services</td>
+            <td>12 months free + always-free tier (broadest selection)</td>
+            <td>$300 credit for 90 days + always-free tier</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <blockquote>
+        <p>A key insight we share with every client: the cheapest cloud is the one you manage well. Without proper governance, tagging, and right-sizing, any platform will cost you more than it should.</p>
+      </blockquote>
+
+      <h2>Compliance and Security: Which Platform Suits Regulated Industries</h2>
+      <p>For organizations in healthcare, financial services, government contracting, or legal services, compliance is not optional &mdash; it is a gating criterion. Here is how the platforms stack up:</p>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Compliance Area</th>
+            <th>Azure</th>
+            <th>AWS</th>
+            <th>GCP</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>HIPAA</td>
+            <td>Supported with BAA</td>
+            <td>Supported with BAA</td>
+            <td>Supported with BAA</td>
+          </tr>
+          <tr>
+            <td>FedRAMP</td>
+            <td>FedRAMP High (Azure Gov)</td>
+            <td>FedRAMP High (GovCloud)</td>
+            <td>FedRAMP High (Assured Workloads)</td>
+          </tr>
+          <tr>
+            <td>SOC 2 Type II</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>PCI DSS</td>
+            <td>Level 1</td>
+            <td>Level 1</td>
+            <td>Level 1</td>
+          </tr>
+          <tr>
+            <td>CJIS / ITAR</td>
+            <td>Strongest support; Azure Gov is widely adopted</td>
+            <td>Supported in GovCloud</td>
+            <td>Limited availability</td>
+          </tr>
+          <tr>
+            <td>Data Residency</td>
+            <td>Granular region controls; sovereign cloud options</td>
+            <td>Region-level controls; Local Zones for edge</td>
+            <td>Region-level controls; less sovereign options</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong>Bottom line:</strong> All three platforms meet baseline compliance requirements for most industries. Azure and AWS pull ahead for government and defense workloads, while GCP is fully capable for HIPAA, SOC 2, and PCI DSS use cases. The real differentiator is how each platform implements <em>guardrails</em> &mdash; Azure Policy, AWS Config/Control Tower, and GCP Organization Policies &mdash; to enforce compliance at scale.</p>
+
+      <h2>The Hybrid Reality: Why Most Businesses End Up Multi-Cloud</h2>
+      <p>Here is a truth that vendor sales teams will not tell you: most mid-market and enterprise organizations end up running workloads across two or more cloud platforms. This is not always by design &mdash; it often happens through acquisitions, department-level decisions, or SaaS dependencies that pull in different cloud ecosystems.</p>
+      <p>The question is not whether you will use multiple clouds, but whether you will manage that complexity intentionally. A deliberate multi-cloud strategy involves:</p>
+      <ul>
+        <li><strong>Workload placement decisions:</strong> Running M365 and identity on Azure, compute-heavy workloads on AWS, and analytics on GCP &mdash; each playing to its strength.</li>
+        <li><strong>Unified observability:</strong> Tools like Datadog, Grafana Cloud, or Azure Arc that provide a single pane of glass across environments.</li>
+        <li><strong>Consistent security posture:</strong> Applying the same security policies, logging standards, and incident response procedures regardless of which platform hosts a given workload.</li>
+        <li><strong>Cost governance:</strong> Centralized FinOps practices that track spending, enforce tagging, and optimize reserved capacity across all providers.</li>
+      </ul>
+
+      <blockquote>
+        <p>Multi-cloud done wrong is just multi-chaos. The goal is not to use every platform &mdash; it is to use the right platform for each workload while maintaining operational consistency.</p>
+      </blockquote>
+
+      <h2>MTT's Recommendation: How We Help Clients Choose and Migrate</h2>
+      <p>At MTT Consulting, we do not have a preferred cloud vendor. We have a preferred outcome: our clients running on the infrastructure that best fits their business requirements, compliance obligations, budget, and in-house skill sets. Our approach follows a structured framework:</p>
+
+      <ol>
+        <li><strong>Discovery and assessment:</strong> We inventory existing workloads, dependencies, licensing agreements, and compliance requirements. No recommendation is valid without understanding what you are starting with.</li>
+        <li><strong>Workload mapping:</strong> Each application and data set is evaluated against platform strengths. Not everything needs to move &mdash; some workloads are better left on-premises or in their current SaaS form.</li>
+        <li><strong>Cost modeling:</strong> We build detailed 3-year cost models that account for licensing, egress, support plans, and the operational cost of managing each platform. The cheapest compute price is meaningless if you need two additional engineers to manage the infrastructure.</li>
+        <li><strong>Migration execution:</strong> We handle the migration itself &mdash; from lift-and-shift for legacy systems to cloud-native refactoring for applications that benefit from platform-specific services.</li>
+        <li><strong>Ongoing optimization:</strong> Cloud costs and configurations drift over time. Our managed services include continuous right-sizing, security posture monitoring, and quarterly business reviews to ensure your cloud investment is delivering value.</li>
+      </ol>
+
+      <h3>Quick Decision Framework</h3>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>If You...</th>
+            <th>Consider</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Run M365, Active Directory, and Windows Server</td>
+            <td>Azure as your primary platform</td>
+          </tr>
+          <tr>
+            <td>Need the widest service selection and global reach</td>
+            <td>AWS as your primary platform</td>
+          </tr>
+          <tr>
+            <td>Are building data pipelines, ML models, or analytics-first products</td>
+            <td>GCP as your primary platform</td>
+          </tr>
+          <tr>
+            <td>Have strict government compliance requirements (CJIS, ITAR)</td>
+            <td>Azure Government or AWS GovCloud</td>
+          </tr>
+          <tr>
+            <td>Want the simplest committed discount structure</td>
+            <td>GCP with sustained and committed use discounts</td>
+          </tr>
+          <tr>
+            <td>Are already multi-cloud and need governance help</td>
+            <td>Talk to MTT about a unified cloud strategy</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Conclusion</h2>
+      <p>There is no universally "best" cloud platform. Azure excels in Microsoft-integrated environments and hybrid scenarios. AWS leads in breadth of services and global scale. GCP is the frontrunner for data analytics and AI workloads. The right choice depends on your existing technology stack, compliance requirements, team expertise, and long-term business strategy.</p>
+      <p>What matters most is making that choice deliberately &mdash; with a clear understanding of the trade-offs &mdash; rather than drifting into a platform by default and discovering the limitations after you are locked in.</p>
+
+      <div style="margin-top:2.5rem;padding:2rem;background:rgba(90,138,114,0.07);border-radius:12px;border-left:4px solid var(--green, #5a8a72);">
+        <h3 style="margin-bottom:1rem;font-size:1.1rem;color:var(--heading, #1a1a1a);">Related MTT Services</h3>
+        <ul style="list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:0.75rem;">
+          <li><a href="../services/cloud-microsoft-365.html" style="display:inline-block;padding:0.5rem 1.25rem;background:var(--green, #5a8a72);color:#fff;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;">Cloud &amp; Microsoft 365 &rarr;</a></li>
+          <li><a href="../services/managed-it.html" style="display:inline-block;padding:0.5rem 1.25rem;background:var(--green, #5a8a72);color:#fff;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;">Managed IT &amp; Infrastructure &rarr;</a></li>
+        </ul>
+      </div>
+
+      <!-- ============================================================
+           CTA BANNER — Call-to-action for cloud strategy consultation
+           ============================================================ -->
+      <div class="article-cta">
+        <h3>Need Help Choosing the Right Cloud?</h3>
+        <p>MTT Consulting provides vendor-neutral cloud assessments. We will map your workloads, model the costs, and build a migration plan that fits your business &mdash; not a vendor's quota.</p>
+        <a href="../index.html#contact" class="btn btn-primary">Schedule a Cloud Assessment</a>
+      </div>
+
+    </article>
+
+    <!-- ============================================================
+         AUTHOR BIO — Author card with avatar, name, role, and biography
+         ============================================================ -->
+    <div class="author-bio reveal">
+      <div class="author-bio-avatar">RP</div>
+      <div class="author-bio-content">
+        <h4>Ryan Park</h4>
+        <div class="bio-role">Cloud &amp; Network Engineer at MTT Consulting</div>
+        <p>Ryan specializes in cloud architecture, migration strategy, and network infrastructure for mid-market organizations. With certifications across Azure, AWS, and GCP, he brings a vendor-neutral perspective to every engagement. When he is not optimizing cloud environments, he is probably benchmarking yet another Kubernetes deployment.</p>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         RELATED ARTICLES — Three-column grid of related blog post cards
+         ============================================================ -->
+    <section class="related-section reveal">
+      <h3>Related Articles</h3>
+      <div class="related-grid">
+        <a href="#" class="related-card">
+          <span class="related-cat cat-cloud">Cloud</span>
+          <h4>Microsoft 365 Hardening: The 10 Settings You're Probably Missing</h4>
+          <p>Most M365 tenants ship with default configs that leave your organization exposed. Here are the critical settings to lock down.</p>
+          <span class="read-more">Read Article &rarr;</span>
+        </a>
+        <a href="#" class="related-card">
+          <span class="related-cat cat-security">Cybersecurity</span>
+          <h4>Zero Trust in 2026: A Practical Framework for Mid-Market Organizations</h4>
+          <p>How growing businesses can implement a zero-trust architecture without the enterprise price tag or complexity.</p>
+          <span class="read-more">Read Article &rarr;</span>
+        </a>
+        <a href="#" class="related-card">
+          <span class="related-cat cat-strategy">IT Strategy</span>
+          <h4>Why Your Business Needs a Virtual CIO (Even If You Have an IT Team)</h4>
+          <p>The gap between tactical IT management and strategic technology leadership is costing mid-market businesses millions.</p>
+          <span class="read-more">Read Article &rarr;</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       NEWSLETTER CTA — Email subscription section with inline form
+       ============================================================ -->
+  <section class="newsletter">
+    <div class="container newsletter-inner">
+      <div><h3>Stay Ahead of the Curve</h3><p>Monthly insights on cybersecurity, cloud, AI, and IT strategy &mdash; no spam, just substance.</p></div>
+      <form class="newsletter-form" onsubmit="event.preventDefault()">
+        <input type="email" placeholder="Enter your business email" required />
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER — Copyright, navigation links, and contact info
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container footer-row">
+      <a href="../index.html" class="brand" style="margin-bottom:8px">
+        <span class="brand-text">MTT</span><span class="brand-text-sub">Consulting</span>
+      </a>
+      <div>&copy; 2026 MTT Consulting. vCIO advisory, AI governance, cybersecurity, and managed IT services nationwide.</div>
+      <div>Offices in Collin County, TX &amp; Orange County, CA &middot; <a href="mailto:info@callmtt.com">info@callmtt.com</a> &middot; <a href="tel:4696352155">469-635-2155</a></div>
+      <div><a href="/privacy-policy.html">Privacy Policy</a> &middot; <a href="/terms-of-service.html">Terms of Service</a> &middot; <a href="/sitemap.xml">Sitemap</a></div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT — Page interactivity and animations
+       ============================================================ -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // --- Scroll Reveal Animation ---
+      // Uses IntersectionObserver to add 'visible' class to .reveal elements
+      // as they enter the viewport, triggering CSS fade-in-up transitions
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+      }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      // --- Scroll Progress Bar ---
+      // Updates the fixed top progress bar width based on vertical scroll position
+      const scrollProgress = document.getElementById('scrollProgress');
+      window.addEventListener('scroll', () => {
+        const docH = document.documentElement.scrollHeight - window.innerHeight;
+        scrollProgress.style.width = docH > 0 ? (window.scrollY / docH * 100) + '%' : '0%';
+      });
+    });
+  </script>
+
+<!-- ============================================================
+     BACKGROUND CANVAS — Animated particle mesh rendered via JS
+     Fixed position behind all content, decorative only
+     ============================================================ -->
+<canvas id="meshCanvas"></canvas>
+<script>
+// --- Canvas Mesh Animation ---
+// Creates an animated particle network on the background <canvas> element.
+// 60 floating nodes drift and bounce off edges; lines connect nearby nodes.
+// Uses requestAnimationFrame for a continuous render loop.
+(function(){
+  const c=document.getElementById('meshCanvas');if(!c)return;
+  const ctx=c.getContext('2d');
+  let w,h,pts=[];
+  function resize(){w=c.width=c.offsetWidth*devicePixelRatio;h=c.height=c.offsetHeight*devicePixelRatio;ctx.scale(devicePixelRatio,devicePixelRatio);}
+  resize();window.addEventListener('resize',resize);
+  for(let i=0;i<60;i++)pts.push({x:Math.random()*c.offsetWidth,y:Math.random()*c.offsetHeight,vx:(Math.random()-0.5)*0.3,vy:(Math.random()-0.5)*0.3});
+  function draw(){
+    ctx.clearRect(0,0,c.offsetWidth,c.offsetHeight);
+    pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>c.offsetWidth)p.vx*=-1;if(p.y<0||p.y>c.offsetHeight)p.vy*=-1;});
+    for(let i=0;i<pts.length;i++){
+      for(let j=i+1;j<pts.length;j++){
+        const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<120){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle='rgba(196,90,26,'+(1-d/120)*0.15+')';ctx.stroke();}
+      }
+      ctx.beginPath();ctx.arc(pts[i].x,pts[i].y,1.5,0,Math.PI*2);ctx.fillStyle='rgba(196,90,26,0.3)';ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
+
+</body>
+</html>

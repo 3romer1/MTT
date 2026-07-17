@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================================
+       META TAGS — Core document metadata, SEO, and browser config
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>AI Governance Framework: A Step-by-Step Guide for IT Leaders | MTT Consulting</title>
+  <meta name="description" content="Build a practical AI governance framework for your organization. Learn how to create acceptable use policies, data classification, vendor vetting, guardrails, and ongoing monitoring for responsible AI adoption." />
+  <meta name="keywords" content="AI governance framework, AI acceptable use policy, AI data classification, AI vendor vetting, shadow AI, AI compliance, AI governance 2026, responsible AI, AI risk management, IT leadership AI, MTT Consulting" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Derek Mitchell" />
+  <link rel="canonical" href="https://www.callmtt.com/blog/ai-governance-framework-guide" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <meta name="theme-color" content="#0b0b0a" />
+
+  <!-- ============================================================
+       OPEN GRAPH TAGS — Social sharing metadata for Facebook, LinkedIn, etc.
+       Includes article-specific properties: published time, author, section, tags
+       ============================================================ -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="AI Governance Framework: A Step-by-Step Guide for IT Leaders" />
+  <meta property="og:description" content="Build a practical AI governance framework — from acceptable use policies to vendor vetting, data classification, and ongoing monitoring." />
+  <meta property="og:url" content="https://www.callmtt.com/blog/ai-governance-framework-guide" />
+  <meta property="og:site_name" content="MTT Consulting" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="article:published_time" content="2026-01-12T08:00:00Z" />
+  <meta property="article:author" content="Derek Mitchell" />
+  <meta property="article:section" content="AI & Governance" />
+  <meta property="article:tag" content="AI Governance" />
+  <meta property="article:tag" content="IT Leadership" />
+  <meta property="article:tag" content="Risk Management" />
+
+  <!-- ============================================================
+       TWITTER CARD — Twitter/X sharing metadata with large image format
+       ============================================================ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Governance Framework: A Step-by-Step Guide for IT Leaders" />
+  <meta name="twitter:description" content="Build a practical AI governance framework — from acceptable use policies to vendor vetting, data classification, and ongoing monitoring." />
+
+  <!-- ============================================================
+       STRUCTURED DATA — JSON-LD schema.org Article markup
+       Provides search engines with headline, author, publisher, and date
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI Governance Framework: A Step-by-Step Guide for IT Leaders",
+    "description": "Build a practical AI governance framework for your organization covering acceptable use policies, data classification, vendor vetting, guardrails, and ongoing monitoring.",
+    "author": {
+      "@type": "Person",
+      "name": "Derek Mitchell",
+      "jobTitle": "AI & Governance Advisor"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "MTT Consulting",
+      "url": "https://www.callmtt.com"
+    },
+    "datePublished": "2026-01-12",
+    "dateModified": "2026-01-12",
+    "mainEntityOfPage": "https://www.callmtt.com/blog/ai-governance-framework-guide",
+    "articleSection": "AI & Governance",
+    "wordCount": 1800,
+    "keywords": ["AI governance", "AI policy", "data classification", "shadow AI", "AI compliance"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.callmtt.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.callmtt.com/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "AI Governance Framework Guide", "item": "https://www.callmtt.com/blog/ai-governance-framework-guide.html" }
+    ]
+  }
+  </script>
+
+  <!-- ============================================================
+       FONT LOADING — Google Fonts preconnect and Space Grotesk font family
+       Uses preconnect for performance, loads weights 400-700
+       ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" /></noscript>
+
+  <!-- ============================================================
+       EMBEDDED STYLES — All page styles inlined for performance
+       ============================================================ -->
+  <style>
+    /* ── Design Tokens ─────────────────────────────────────── */
+    /* Custom properties for colors, shadows, spacing, typography, and transitions */
+    :root {
+      --bg: #000000;
+      --bg-elevated: #0a0a0a;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f5f5f5;
+      --border: rgba(255,255,255,0.08);
+      --border-hover: rgba(196,90,26,0.35);
+      --text: #eae6df;
+      --text-secondary: #9c9890;
+      --text-dim: #625e58;
+      --card-text: #1a1a1a;
+      --card-text-secondary: #555555;
+      --card-text-dim: #888888;
+      --card-border: rgba(230,230,230,0.15);
+      --accent: #c45a1a;
+      --accent-light: #d96b2a;
+      --accent-dark: #a44a12;
+      --accent-glow: rgba(196,90,26,0.22);
+      --green: #5a8a72;
+      --blue: #4a7c9b;
+      --purple: #7c6cc0;
+      --white: #eae6df;
+      --shadow-lg: 0 24px 64px rgba(0,0,0,0.5);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.3);
+      --shadow-sm: 0 2px 12px rgba(0,0,0,0.2);
+      --shadow-glow: 0 0 30px rgba(196,90,26,0.08);
+      --max-w: 1200px;
+      --radius-lg: 14px;
+      --radius-md: 10px;
+      --radius-sm: 8px;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Space Grotesk', sans-serif;
+      --font-ui: 'Space Grotesk', sans-serif;
+      --transition: 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* ── Reset & Base ──────────────────────────────────────── */
+    /* Box-sizing reset, smooth scrolling, base typography and background */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.72;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    .container { width: min(var(--max-w), calc(100% - 40px)); margin: 0 auto; position: relative; z-index: 1; }
+
+    .highlight {
+      background: linear-gradient(135deg, #c45a1a, #d96b2a, #d96b2a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── Scroll Progress Bar ────────────────────────────────── */
+    /* Fixed top bar showing reading progress; width set by JS on scroll */
+    .scroll-progress {
+      position: fixed; top: 0; left: 0; height: 3px; z-index: 200;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      width: 0%; transition: width 0.1s linear;
+    }
+
+    /* ── Buttons ───────────────────────────────────────────── */
+    /* Primary (gold fill), ghost (transparent border), and small variant */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px 26px; border-radius: var(--radius-sm); border: 1px solid transparent;
+      font-family: var(--font-display); font-weight: 700; font-size: 0.9rem;
+      cursor: pointer; transition: all var(--transition); white-space: nowrap;
+    }
+    .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 4px 20px rgba(196,90,26,0.25), 0 1px 4px rgba(196,90,26,0.15); }
+    .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(196,90,26,0.30), 0 2px 8px rgba(196,90,26,0.20); }
+    .btn-ghost { background: transparent; border-color: rgba(255,245,230,0.12); color: var(--text); }
+    .btn-ghost:hover { background: rgba(255,245,230,0.06); border-color: var(--border-hover); }
+    .btn-sm { padding: 10px 18px; font-size: 0.924rem; }
+
+    /* ── Header & Navigation ──────────────────────────────── */
+    /* Sticky top nav with glassmorphism blur, brand logo, nav links,
+       phone number, CTA button, hamburger toggle, and mobile menu overlay */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(24px) saturate(1.6);
+      -webkit-backdrop-filter: blur(24px) saturate(1.6);
+      background: rgba(13,13,13,0.92);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 20px rgba(0,0,0,0.4);
+    }
+    .nav-bar { display: flex; align-items: center; justify-content: space-between; min-height: 68px; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-family: var(--font-display); font-weight: 800; font-size: 1.12rem; }
+    .brand-icon {
+      width: 42px; height: 42px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(196,90,26,0.20), rgba(196,90,26,0.08));
+      border: 1px solid rgba(196,90,26,0.25);
+      display: grid; place-items: center; flex-shrink: 0;
+      box-shadow: 0 0 16px rgba(196,90,26,0.10);
+    }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-links a { color: var(--text-secondary); font-size: 0.946rem; font-weight: 500; padding: 8px 14px; border-radius: var(--radius-sm); transition: color var(--transition), background var(--transition); }
+    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.04); }
+    .nav-links a.active { color: var(--accent-light); }
+    .nav-right { display: flex; align-items: center; gap: 14px; }
+    .nav-phone { color: var(--text-secondary); font-size: 0.946rem; font-weight: 600; font-family: var(--font-display); }
+    .hamburger { display: none; background: none; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 8px; cursor: pointer; color: var(--text); }
+    .hamburger svg { display: block; }
+    .mobile-menu { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(13,13,13,0.98); backdrop-filter: blur(24px); flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; color: var(--text); padding: 12px 24px; }
+    .mobile-close { position: absolute; top: 20px; right: 20px; background: none; border: none; color: var(--text); cursor: pointer; }
+
+    /* ── Article Hero ─────────────────────────────────────── */
+    /* Top section with category badge, article title, author info,
+       publish date, and estimated read time */
+    .article-hero {
+      padding: 64px 0 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .article-hero-inner {
+      max-width: var(--article-w);
+      margin: 0 auto;
+    }
+    .article-category {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.10em; padding: 5px 14px; border-radius: 999px;
+      background: rgba(124,108,192,0.12); color: var(--purple);
+      margin-bottom: 20px;
+    }
+    .article-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+      color: var(--text-secondary); font-size: 0.88rem;
+    }
+    .article-meta .author-info { display: flex; align-items: center; gap: 10px; }
+    .author-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      display: grid; place-items: center; font-size: 0.7rem; font-weight: 700; color: #fff;
+      flex-shrink: 0;
+    }
+    .author-name { font-weight: 600; color: var(--text); }
+    .author-title { font-size: 0.78rem; color: var(--text-dim); }
+    .meta-sep { color: var(--text-dim); }
+
+    /* ── Article Body & Content ─────────────────────────────── */
+    /* White card container for the main article prose; styles for
+       paragraphs, headings, lists, blockquotes, and inline links */
+    .article-wrapper {
+      padding: 48px 0 80px;
+    }
+    .article-card {
+      max-width: var(--article-w);
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: clamp(28px, 5vw, 56px);
+      box-shadow: var(--shadow-lg);
+      color: var(--card-text);
+    }
+    .article-card h2 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--card-text);
+      margin: 48px 0 16px;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+    .article-card h2:first-child { margin-top: 0; }
+    .article-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--card-text);
+      margin: 32px 0 12px;
+      line-height: 1.3;
+    }
+    .article-card p {
+      font-size: 1.02rem;
+      line-height: 1.8;
+      color: var(--card-text-secondary);
+      margin-bottom: 18px;
+    }
+    .article-card p strong {
+      color: var(--card-text);
+      font-weight: 600;
+    }
+    .article-card ul, .article-card ol {
+      list-style: none;
+      margin: 0 0 20px 0;
+      padding: 0;
+    }
+    .article-card ul li, .article-card ol li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 10px;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--card-text-secondary);
+    }
+    .article-card ul li::before {
+      content: '';
+      position: absolute; left: 0; top: 11px;
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--accent);
+      opacity: 0.7;
+    }
+    .article-card ol {
+      counter-reset: ol-counter;
+    }
+    .article-card ol li {
+      counter-increment: ol-counter;
+    }
+    .article-card ol li::before {
+      content: counter(ol-counter) '.';
+      position: absolute; left: 0; top: 0;
+      font-weight: 700; color: var(--accent);
+      font-size: 0.95rem;
+    }
+
+    /* Blockquote */
+    .article-card blockquote {
+      border-left: 4px solid var(--accent);
+      margin: 28px 0;
+      padding: 20px 24px;
+      background: rgba(196,90,26,0.04);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .article-card blockquote p {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--card-text);
+      margin-bottom: 0;
+      font-style: italic;
+    }
+
+    /* Step Sections */
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 52px 0 20px;
+    }
+    .step-number {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      display: grid; place-items: center;
+      font-family: var(--font-display); font-weight: 800; font-size: 1.2rem;
+      color: #fff; flex-shrink: 0;
+      box-shadow: 0 4px 16px rgba(196,90,26,0.25);
+    }
+    .step-header h2 {
+      margin: 0;
+      font-size: 1.35rem;
+    }
+
+    /* Section Divider */
+    .section-divider {
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(196,90,26,0.25), transparent);
+      margin: 48px 0;
+    }
+
+    /* Key Takeaway Box */
+    .takeaway-box {
+      background: #f8f6f3;
+      border: 1px solid rgba(196,90,26,0.15);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin: 28px 0;
+    }
+    .takeaway-box .takeaway-label {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.10em;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .takeaway-box p {
+      margin-bottom: 0;
+      font-size: 0.95rem;
+    }
+
+    /* ── CTA Banner ────────────────────────────────────────── */
+    /* Gradient-bordered call-to-action box with heading, description,
+       and primary button linking to the consultation page */
+    .article-cta {
+      background: linear-gradient(135deg, rgba(196,90,26,0.08), rgba(196,90,26,0.03));
+      border: 1px solid rgba(196,90,26,0.18);
+      border-radius: var(--radius-md);
+      padding: 36px;
+      margin: 48px 0 0;
+      text-align: center;
+    }
+    .article-cta h3 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--card-text);
+      margin: 0 0 10px;
+    }
+    .article-cta p {
+      color: var(--card-text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      max-width: 55ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .article-cta .btn-primary {
+      font-size: 0.92rem;
+    }
+
+    /* ── Author Bio Card ───────────────────────────────────── */
+    /* Dark elevated card with avatar, name, role, and bio paragraph */
+    .author-bio {
+      max-width: var(--article-w);
+      margin: 0 auto 48px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+    }
+    .author-bio-avatar {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      display: grid; place-items: center;
+      font-family: var(--font-display); font-weight: 800; font-size: 1.2rem;
+      color: #fff; flex-shrink: 0;
+    }
+    .author-bio-content h4 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 2px;
+    }
+    .author-bio-content .author-role {
+      font-size: 0.82rem;
+      color: var(--accent-light);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .author-bio-content p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ── Related Articles Grid ─────────────────────────────── */
+    /* Two-column grid of related post cards with category badges */
+    .related-section {
+      max-width: var(--article-w);
+      margin: 0 auto;
+      padding-bottom: 80px;
+    }
+    .related-section h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .related-card {
+      background: var(--bg-card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      transition: all var(--transition);
+      color: var(--card-text);
+    }
+    .related-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .related-card .r-category {
+      display: inline-block;
+      font-size: 0.66rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; padding: 3px 9px; border-radius: 999px;
+      margin-bottom: 10px;
+    }
+    .r-cat-security { background: rgba(90,138,114,0.12); color: var(--green); }
+    .r-cat-strategy { background: rgba(164,74,18,0.12); color: var(--accent-light); }
+    .r-cat-cloud { background: rgba(74,124,155,0.12); color: var(--blue); }
+    .related-card h4 {
+      font-family: var(--font-display);
+      font-size: 0.98rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 8px;
+      color: var(--card-text);
+    }
+    .related-card .r-meta {
+      font-size: 0.78rem;
+      color: var(--card-text-dim);
+    }
+
+    /* ── Newsletter Signup ─────────────────────────────────── */
+    /* Email subscription bar with heading, description, and inline form */
+    .newsletter { padding: 40px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .newsletter-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+    .newsletter h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; }
+    .newsletter p { color: var(--text-secondary); font-size: 0.88rem; }
+    .newsletter-form { display: flex; gap: 8px; }
+    .newsletter-form input {
+      padding: 12px 18px; background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border); border-radius: var(--radius-sm);
+      color: var(--text); font-family: var(--font-body); font-size: 0.88rem;
+      min-width: 260px; outline: none; transition: border-color var(--transition);
+    }
+    .newsletter-form input:focus { border-color: var(--accent); }
+    .newsletter-form input::placeholder { color: var(--text-dim); }
+
+    /* ── Footer ────────────────────────────────────────────── */
+    /* Minimal footer with copyright and contact links */
+    .footer { padding: 32px 0; }
+    .footer-row {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 20px; flex-wrap: wrap; color: var(--text-dim); font-size: 0.924rem;
+    }
+    .footer-row a { color: var(--text-secondary); transition: color var(--transition); }
+    .footer-row a:hover { color: var(--accent-light); }
+
+    /* Back Link */
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.86rem; font-weight: 500; color: var(--text-secondary);
+      margin-bottom: 24px; transition: color var(--transition);
+    }
+    .back-link:hover { color: var(--accent-light); }
+
+    #meshCanvas {
+      position: fixed; top: 0; right: 0; width: 60%; height: 100%;
+      z-index: 0; pointer-events: none; opacity: 0.4;
+    }
+
+    /* ── Responsive Breakpoints ────────────────────────────── */
+    /* Adjusts layout for tablet and mobile viewports */
+    @media (max-width: 1024px) {
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .nav-phone { display: none; }
+    }
+    @media (max-width: 640px) {
+      .article-hero { padding: 40px 0 32px; }
+      .article-meta { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .related-grid { grid-template-columns: 1fr; }
+      .author-bio { flex-direction: column; align-items: center; text-align: center; }
+      .newsletter-inner { flex-direction: column; align-items: flex-start; }
+      .newsletter-form { flex-direction: column; width: 100%; }
+      .newsletter-form input { min-width: auto; width: 100%; }
+      .step-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+    }
+    .brand-logo { height: 100px; width: auto; max-width: 380px; object-fit: contain; flex-shrink: 0; mix-blend-mode: screen; transition: opacity 0.25s ease; }
+    .brand-logo--footer { height: 132px; max-width: 460px; }
+      .brand-text { font-size: 1.485rem; font-weight: 800; color: var(--text-primary, #fff); letter-spacing: -0.01em; }
+    .brand-text-sub { font-size: 1.485rem; font-weight: 700; color: var(--accent, #c45a1a); letter-spacing: -0.01em; }
+    /* Scroll margin for fixed header */
+    section { scroll-margin-top: 80px; }
+    /* Accessibility & Performance */
+    ::selection { background: rgba(196,90,26,0.3); color: #F0EDE8; }
+    *:focus-visible { outline: 2px solid #C45A1A; outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ============================================================
+       MOBILE MENU — Full-screen overlay navigation for small screens
+       Toggled open/closed via hamburger button in header
+       ============================================================ -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')" aria-label="Close">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <a href="../index.html">Home</a>
+    <a href="../index.html#services">Services</a>
+    <a href="../index.html#solutions">Solutions</a>
+    <a href="../index.html#why-mtt">Team</a>
+    <a href="index.html">Blog</a>
+    <a href="../index.html#contact">Contact</a>
+    <a href="tel:4696352155" class="btn btn-primary btn-sm" style="margin-top:12px">Call 469-635-2155</a>
+  </div>
+
+  <!-- ============================================================
+       HEADER & NAVIGATION — Sticky top bar with glassmorphism effect
+       Contains brand logo, desktop nav links, phone number, CTA button,
+       and hamburger toggle for mobile
+       ============================================================ -->
+  <header>
+    <div class="container nav-bar">
+      <a href="../index.html" class="brand" aria-label="MTT Consulting home">
+        <span class="brand-text">MTT</span><span class="brand-text-sub">Consulting</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html#services">Services</a>
+        <a href="../index.html#solutions">Solutions</a>
+        <a href="../index.html#industries">Industries</a>
+        <a href="../index.html#why-mtt">Team</a>
+        <a href="index.html" class="active">Blog</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <div class="nav-right">
+        <a href="tel:4696352155" class="nav-phone">469-635-2155</a>
+        <a class="btn btn-primary btn-sm" href="../index.html#contact">Book a Consultation</a>
+        <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============================================================
+         ARTICLE HERO — Category badge, title, author avatar/name/role,
+         publish date, and estimated reading time
+         ============================================================ -->
+    <section class="article-hero">
+      <div class="container">
+        <div class="article-hero-inner">
+          <a href="index.html" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3l-5 5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Back to Blog
+          </a>
+          <span class="article-category">AI</span>
+          <h1>AI Governance Framework: A Step-by-Step Guide for IT Leaders</h1>
+          <div class="article-meta">
+            <div class="author-info">
+              <div class="author-avatar">DM</div>
+              <div>
+                <div class="author-name">Derek Mitchell</div>
+                <div class="author-title">AI &amp; Governance Advisor</div>
+              </div>
+            </div>
+            <span class="meta-sep">&middot;</span>
+            <span>January 12, 2026</span>
+            <span class="meta-sep">&middot;</span>
+            <span>10 min read</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ARTICLE CONTENT — Main article body in a white card container
+         Contains AI governance framework guide and step-by-step process
+         ============================================================ -->
+    <section class="article-wrapper">
+      <div class="container">
+        <article class="article-card">
+
+          <h2>Why AI Governance Is Non-Negotiable in 2026</h2>
+
+          <p>Artificial intelligence has moved from the periphery of enterprise technology to its absolute center. In the span of just two years, generative AI tools have embedded themselves into nearly every function of the modern organization &mdash; from marketing copy and customer service scripts to financial modeling, code generation, and strategic planning. The productivity gains are real. But so are the risks.</p>
+
+          <p>For IT leaders, 2026 presents a stark reality: <strong>every organization is now an AI-using organization, whether leadership knows it or not.</strong> Employees are adopting AI tools at a pace that far outstrips the ability of most governance structures to keep up. A recent Gartner study found that 68% of knowledge workers have used generative AI tools for work-related tasks, but only 21% of organizations have a formal policy governing their use. That gap is where risk lives.</p>
+
+          <blockquote>
+            <p>The question is no longer whether your organization uses AI. The question is whether you are governing that use &mdash; or whether your employees are making those decisions for you.</p>
+          </blockquote>
+
+          <p>Without a governance framework, organizations expose themselves to data leakage, intellectual property contamination, regulatory violations, reputational damage, and the propagation of inaccurate AI-generated outputs into critical business decisions. The cost of inaction is no longer hypothetical. We have seen real-world examples of confidential source code leaked through AI chatbots, AI-generated legal filings citing fabricated case law, and insurance claims processed by AI systems that discriminated against protected classes.</p>
+
+          <p>The good news is that building a governance framework does not require an army of compliance officers or a seven-figure consulting engagement. What it does require is a structured, step-by-step approach that addresses policy, data, vendors, outputs, and ongoing monitoring. That is exactly what this guide provides.</p>
+
+          <hr class="section-divider" />
+
+          <!-- STEP 1 -->
+          <div class="step-header">
+            <div class="step-number">1</div>
+            <h2>Establish an AI Acceptable Use Policy</h2>
+          </div>
+
+          <p>The foundation of any AI governance framework is an Acceptable Use Policy (AUP) that clearly defines what employees can and cannot do with AI tools. This is not a theoretical document &mdash; it is the single most important artifact in your governance program because it directly shapes daily behavior across the organization.</p>
+
+          <h3>What Your AUP Must Cover</h3>
+
+          <ul>
+            <li><strong>Approved tools and platforms:</strong> Specify which AI tools are sanctioned for use (e.g., an enterprise ChatGPT license, Microsoft Copilot, specific coding assistants) and make clear that unapproved tools are prohibited for work-related tasks.</li>
+            <li><strong>Permitted use cases:</strong> Define acceptable use categories &mdash; drafting emails, brainstorming, summarizing documents, generating code scaffolds &mdash; and explicitly list prohibited use cases such as processing customer PII, making final hiring decisions, or generating legal or medical advice without expert review.</li>
+            <li><strong>Data input restrictions:</strong> Clearly state what data types may never be entered into AI tools. At a minimum, this should include customer PII, financial records, trade secrets, source code for proprietary systems, employee health records, and any data subject to regulatory obligations like HIPAA or PCI-DSS.</li>
+            <li><strong>Output accountability:</strong> Establish that employees are personally responsible for reviewing and validating any AI-generated output before it is used in business operations, sent to clients, or published externally.</li>
+            <li><strong>Disclosure requirements:</strong> Define when and how employees must disclose that AI tools were used in producing a deliverable, particularly for client-facing work, regulatory filings, or published content.</li>
+          </ul>
+
+          <div class="takeaway-box">
+            <span class="takeaway-label">Key Takeaway</span>
+            <p>Your AUP should be specific enough to guide real decisions but concise enough that employees will actually read it. Aim for 2&ndash;3 pages, not 30. Distribute it alongside mandatory training that includes real-world examples of policy violations and their consequences.</p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- STEP 2 -->
+          <div class="step-header">
+            <div class="step-number">2</div>
+            <h2>Create a Data Classification Framework for AI</h2>
+          </div>
+
+          <p>Your existing data classification framework likely predates the AI era and does not account for the unique risk profile of data being sent to third-party AI models. You need an AI-specific data classification layer that answers one question: <strong>what data can feed AI systems, under what conditions, and with what safeguards?</strong></p>
+
+          <h3>A Practical Classification Model</h3>
+
+          <p>We recommend a four-tier model that maps directly to AI usage permissions:</p>
+
+          <ol>
+            <li><strong>Unrestricted (Green):</strong> Publicly available information, general knowledge queries, non-sensitive internal communications. These can be used freely with approved AI tools.</li>
+            <li><strong>Internal Use (Yellow):</strong> Internal business documents, meeting notes, project plans, non-sensitive operational data. Permitted for use with enterprise-licensed AI tools that have appropriate data processing agreements in place. Prohibited for consumer-grade AI tools.</li>
+            <li><strong>Confidential (Orange):</strong> Customer data, financial records, HR data, competitive intelligence, strategic plans. May only be processed by on-premises or private-instance AI deployments with explicit approval from the data owner and the IT governance committee.</li>
+            <li><strong>Restricted (Red):</strong> Regulated data (HIPAA, PCI, ITAR), trade secrets, source code for critical systems, M&amp;A materials. Prohibited from AI processing in any form. No exceptions without written C-suite approval and legal review.</li>
+          </ol>
+
+          <blockquote>
+            <p>The most common governance failure we see is not that organizations lack data classification &mdash; it is that employees do not know how to apply those classifications in the context of AI tool usage.</p>
+          </blockquote>
+
+          <p>For each classification tier, document specific examples relevant to your industry and your organization. A healthcare company's "Restricted" tier looks very different from a software company's. Train employees not just on the tiers, but on the decision-making process: when in doubt, classify up, not down.</p>
+
+          <hr class="section-divider" />
+
+          <!-- STEP 3 -->
+          <div class="step-header">
+            <div class="step-number">3</div>
+            <h2>Vendor Vetting &amp; Tool Approval Process</h2>
+          </div>
+
+          <p>The AI vendor landscape is evolving at a pace that makes traditional annual procurement reviews inadequate. New tools appear weekly, each with different data handling practices, model training policies, and security postures. Your governance framework needs a streamlined but rigorous vendor evaluation process.</p>
+
+          <h3>Critical Evaluation Criteria</h3>
+
+          <ul>
+            <li><strong>Data retention and training policies:</strong> Does the vendor use your data to train or fine-tune their models? This is the single most important question. Enterprise agreements with OpenAI, Anthropic, and Google typically include opt-out provisions, but consumer-tier products often do not.</li>
+            <li><strong>Data residency and sovereignty:</strong> Where is data processed and stored? For organizations subject to GDPR, state-level privacy laws, or industry-specific regulations, this is a compliance requirement, not a preference.</li>
+            <li><strong>Security certifications:</strong> Require SOC 2 Type II at a minimum. For sensitive use cases, evaluate ISO 27001, FedRAMP (for government-adjacent work), and HITRUST (for healthcare).</li>
+            <li><strong>Sub-processor transparency:</strong> AI vendors frequently rely on third-party infrastructure providers. You need visibility into the entire processing chain, not just the primary vendor.</li>
+            <li><strong>Incident response and breach notification:</strong> What are the vendor's contractual obligations for notifying you of a data breach or security incident? Ensure these align with your own regulatory notification requirements.</li>
+            <li><strong>Model explainability and audit trails:</strong> For high-stakes use cases, can the vendor provide explanations for how outputs were generated? Is there a log of inputs and outputs for audit purposes?</li>
+          </ul>
+
+          <div class="takeaway-box">
+            <span class="takeaway-label">Implementation Tip</span>
+            <p>Create a standardized AI vendor assessment questionnaire that mirrors your existing third-party risk management process but adds AI-specific questions. Assign ownership to your security or procurement team, and establish a target turnaround time of 5&ndash;10 business days for evaluations so that the process does not become a bottleneck that drives employees toward unauthorized tools.</p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- STEP 4 -->
+          <div class="step-header">
+            <div class="step-number">4</div>
+            <h2>Build Guardrails for AI Output</h2>
+          </div>
+
+          <p>AI-generated outputs are probabilistic, not deterministic. They can be impressively coherent while being factually wrong, subtly biased, or legally problematic. Your governance framework must define clear guardrails for how AI outputs are reviewed, validated, and integrated into business operations.</p>
+
+          <h3>Human-in-the-Loop Requirements</h3>
+
+          <p>Not every AI output requires the same level of human oversight. Define a tiered review model based on the risk profile of the output:</p>
+
+          <ul>
+            <li><strong>Low risk (internal drafts, brainstorming, research summaries):</strong> Standard review by the employee who generated the output. No additional approval required.</li>
+            <li><strong>Medium risk (client communications, marketing content, internal reports):</strong> Peer review or manager approval before distribution. AI use should be disclosed to the reviewer.</li>
+            <li><strong>High risk (legal documents, financial analyses, regulatory submissions, medical guidance):</strong> Mandatory subject-matter expert review. AI-generated content should be treated as a first draft that requires expert validation, not as a finished product.</li>
+            <li><strong>Critical risk (board materials, public filings, safety-critical decisions):</strong> AI-generated content is prohibited as the primary source. AI may be used for research or drafting support, but the final deliverable must be independently produced and verified by qualified professionals.</li>
+          </ul>
+
+          <h3>Quality Control Mechanisms</h3>
+
+          <p>Beyond human review, implement systematic quality checks for AI outputs. This includes fact-checking protocols for AI-generated research, plagiarism and IP contamination scanning for AI-generated content, bias audits for AI-assisted decision-making processes, and version control practices that clearly distinguish AI-generated content from human-authored material.</p>
+
+          <blockquote>
+            <p>The goal of guardrails is not to slow down AI adoption &mdash; it is to ensure that the speed AI provides does not come at the cost of accuracy, compliance, or trust.</p>
+          </blockquote>
+
+          <hr class="section-divider" />
+
+          <!-- STEP 5 -->
+          <div class="step-header">
+            <div class="step-number">5</div>
+            <h2>Monitor, Audit &amp; Evolve</h2>
+          </div>
+
+          <p>AI governance is not a one-time project. It is a living program that must adapt as technologies evolve, regulations change, and your organization's AI maturity grows. Build monitoring and audit mechanisms from day one.</p>
+
+          <h3>Ongoing Governance Activities</h3>
+
+          <ul>
+            <li><strong>Quarterly policy reviews:</strong> The AI landscape changes too quickly for annual reviews. Evaluate your AUP, data classification framework, and approved tool list every quarter against new developments.</li>
+            <li><strong>Usage monitoring:</strong> Deploy endpoint monitoring and network analysis to identify which AI tools are being used across the organization, including unauthorized ones. This is not surveillance for its own sake &mdash; it is risk visibility.</li>
+            <li><strong>Incident tracking:</strong> Establish a clear process for reporting and investigating AI-related incidents, whether that is a data leak, an inaccurate AI output that reached a client, or a policy violation.</li>
+            <li><strong>Training refreshers:</strong> Conduct mandatory AI governance training at onboarding and at least annually thereafter. Supplement with targeted communications when significant new tools or policy changes are introduced.</li>
+            <li><strong>Regulatory tracking:</strong> Assign a team member or external advisor to monitor evolving AI regulations at the federal, state, and international level and assess their impact on your governance program.</li>
+          </ul>
+
+          <div class="takeaway-box">
+            <span class="takeaway-label">Governance Metric</span>
+            <p>Track and report on AI governance KPIs including policy acknowledgment rates, approved vs. unauthorized tool usage ratios, incident counts and resolution times, and the number of AI vendor assessments completed. These metrics give leadership visibility into program maturity and areas that need attention.</p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- SHADOW AI -->
+          <h2>Shadow AI: The Hidden Risk You Cannot Ignore</h2>
+
+          <p>Shadow AI is the AI equivalent of shadow IT &mdash; and it is arguably more dangerous. When employees use unauthorized AI tools to process business data, they create risk vectors that your security team cannot see, your legal team cannot assess, and your compliance team cannot audit.</p>
+
+          <p>The drivers of shadow AI are almost always well-intentioned. Employees adopt consumer AI tools because they want to be more productive, because the approved tools are too limited or too slow to access, or because they simply do not realize there is a policy in place. The solution is not punishment &mdash; it is a combination of clear policy, accessible approved alternatives, and monitoring.</p>
+
+          <p><strong>Common shadow AI scenarios we encounter in client engagements:</strong></p>
+
+          <ul>
+            <li>Sales teams pasting customer data into consumer ChatGPT to generate personalized proposals</li>
+            <li>Developers using free-tier coding assistants that retain and learn from submitted code</li>
+            <li>HR staff using AI tools to screen resumes without understanding the bias implications</li>
+            <li>Finance teams uploading spreadsheets containing sensitive financial data to AI analysis tools</li>
+            <li>Marketing teams using AI image generators without verifying intellectual property provenance</li>
+          </ul>
+
+          <p>The most effective countermeasure is providing enterprise-grade AI tools that are genuinely useful and easy to access. When approved tools meet employee needs, the incentive to use unauthorized alternatives drops dramatically. Combine this with DLP (Data Loss Prevention) policies that flag or block data uploads to known consumer AI endpoints.</p>
+
+          <hr class="section-divider" />
+
+          <!-- REGULATORY LANDSCAPE -->
+          <h2>The Regulatory Landscape: What Is Coming in 2026&ndash;2027</h2>
+
+          <p>AI regulation is accelerating globally, and organizations that build governance frameworks now will be significantly better positioned than those scrambling to comply reactively. Here is what IT leaders should be tracking:</p>
+
+          <ul>
+            <li><strong>EU AI Act enforcement:</strong> The EU AI Act's risk-based classification system is now in effect, with enforcement ramping up through 2026. Organizations serving EU customers or employing EU residents must classify their AI use cases by risk tier and implement corresponding requirements.</li>
+            <li><strong>US federal AI guidance:</strong> While comprehensive federal AI legislation remains pending, sector-specific agencies (SEC, FTC, HHS, EEOC) are actively issuing guidance and enforcement actions related to AI use in their jurisdictions.</li>
+            <li><strong>State-level AI laws:</strong> Colorado, Illinois, and California have enacted AI-specific legislation addressing automated decision-making, particularly in employment and insurance contexts. More states are expected to follow in 2026 and 2027.</li>
+            <li><strong>Industry-specific requirements:</strong> Financial services (SEC/FINRA AI guidance), healthcare (HHS AI framework), and government contracting (NIST AI RMF) sectors face additional compliance obligations that overlay general AI governance requirements.</li>
+          </ul>
+
+          <blockquote>
+            <p>Regulatory compliance is a floor, not a ceiling. Organizations that treat governance as a strategic capability &mdash; rather than a compliance obligation &mdash; will gain a competitive advantage in stakeholder trust, risk management, and responsible innovation.</p>
+          </blockquote>
+
+          <hr class="section-divider" />
+
+          <!-- MTT ADVISORY -->
+          <h2>How MTT Consulting Helps Organizations Build AI Governance</h2>
+
+          <p>At MTT Consulting, we work with mid-market organizations across industries to design and implement AI governance frameworks that are practical, enforceable, and aligned with business objectives. Our approach is not theoretical &mdash; we build frameworks that work in the real world, for real teams, with real constraints.</p>
+
+          <p><strong>Our AI Governance Advisory services include:</strong></p>
+
+          <ul>
+            <li><strong>Governance readiness assessment:</strong> We evaluate your current AI usage landscape, identify shadow AI risks, audit existing policies, and benchmark your governance maturity against industry standards.</li>
+            <li><strong>Policy development:</strong> We draft comprehensive AI Acceptable Use Policies, data classification frameworks, and vendor evaluation criteria tailored to your organization's industry, size, and risk profile.</li>
+            <li><strong>Vendor security assessments:</strong> We evaluate AI vendors and tools against security, privacy, and compliance requirements, providing clear approve/deny recommendations with supporting analysis.</li>
+            <li><strong>Training and change management:</strong> We develop and deliver AI governance training programs for all employee levels, from executive leadership to front-line staff.</li>
+            <li><strong>Ongoing advisory:</strong> We provide fractional AI governance advisory services, including quarterly policy reviews, regulatory monitoring, and incident response support.</li>
+          </ul>
+
+          <p>Whether you are starting from zero or looking to mature an existing governance program, our team brings hands-on experience across healthcare, financial services, professional services, manufacturing, and technology sectors.</p>
+
+          <div style="margin-top:2.5rem;padding:2rem;background:rgba(90,138,114,0.07);border-radius:12px;border-left:4px solid var(--green, #5a8a72);">
+            <h3 style="margin-bottom:1rem;font-size:1.1rem;color:var(--heading, #1a1a1a);">Related MTT Services</h3>
+            <ul style="list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:0.75rem;">
+              <li><a href="../services/ai-governance.html" style="display:inline-block;padding:0.5rem 1.25rem;background:var(--green, #5a8a72);color:#fff;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;">AI Adoption &amp; Governance &rarr;</a></li>
+            </ul>
+          </div>
+
+          <!-- ============================================================
+               CTA BANNER — Call-to-action for AI governance consultation
+               ============================================================ -->
+          <div class="article-cta">
+            <h3>Ready to Build Your AI Governance Framework?</h3>
+            <p>Schedule a complimentary 30-minute consultation with our AI governance team. We will assess your current state and outline a practical path forward.</p>
+            <a href="../index.html#contact" class="btn btn-primary">Book a Consultation</a>
+          </div>
+
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         AUTHOR BIO — Author card with avatar, name, role, and biography
+         ============================================================ -->
+    <section>
+      <div class="container">
+        <div class="author-bio">
+          <div class="author-bio-avatar">DM</div>
+          <div class="author-bio-content">
+            <h4>Derek Mitchell</h4>
+            <div class="author-role">AI &amp; Governance Advisor</div>
+            <p>Derek advises IT leaders on responsible AI adoption, governance frameworks, and regulatory preparedness. With over 15 years of experience in IT strategy and risk management across healthcare, financial services, and technology sectors, he helps organizations unlock AI's potential while managing the risks that come with it.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         RELATED ARTICLES — Two-column grid of related blog post cards
+         ============================================================ -->
+    <section>
+      <div class="container">
+        <div class="related-section">
+          <h3>Related Articles</h3>
+          <div class="related-grid">
+            <a href="#" class="related-card">
+              <span class="r-category r-cat-security">Cybersecurity</span>
+              <h4>Zero Trust in 2026: A Practical Framework for Mid-Market Organizations</h4>
+              <div class="r-meta">March 28, 2026 &middot; 8 min read</div>
+            </a>
+            <a href="#" class="related-card">
+              <span class="r-category r-cat-strategy">IT Strategy</span>
+              <h4>Why Your Business Needs a Virtual CIO (Even If You Have an IT Team)</h4>
+              <div class="r-meta">March 1, 2026 &middot; 5 min read</div>
+            </a>
+            <a href="#" class="related-card">
+              <span class="r-category r-cat-cloud">Cloud</span>
+              <h4>Microsoft 365 Hardening: The 10 Settings You&#39;re Probably Missing</h4>
+              <div class="r-meta">December 18, 2025 &middot; 7 min read</div>
+            </a>
+            <a href="#" class="related-card">
+              <span class="r-category r-cat-strategy">IT Strategy</span>
+              <h4>2026 IT Budget Planning: What Growing Businesses Should Prioritize</h4>
+              <div class="r-meta">January 5, 2026 &middot; 5 min read</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       NEWSLETTER CTA — Email subscription section with inline form
+       ============================================================ -->
+  <section class="newsletter">
+    <div class="container newsletter-inner">
+      <div><h3>Stay Ahead of the Curve</h3><p>Monthly insights on cybersecurity, cloud, AI, and IT strategy &mdash; no spam, just substance.</p></div>
+      <form class="newsletter-form" onsubmit="event.preventDefault()">
+        <input type="email" placeholder="Enter your business email" required />
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER — Copyright, navigation links, and contact info
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container footer-row">
+      <a href="../index.html" class="brand" style="margin-bottom:8px">
+        <span class="brand-text">MTT</span><span class="brand-text-sub">Consulting</span>
+      </a>
+      <div>&copy; 2026 MTT Consulting. vCIO advisory, AI governance, cybersecurity, and managed IT services nationwide.</div>
+      <div>Offices in Collin County, TX &amp; Orange County, CA &middot; <a href="mailto:info@callmtt.com">info@callmtt.com</a> &middot; <a href="tel:4696352155">469-635-2155</a></div>
+      <div><a href="/privacy-policy.html">Privacy Policy</a> &middot; <a href="/terms-of-service.html">Terms of Service</a> &middot; <a href="/sitemap.xml">Sitemap</a></div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT — Page interactivity and animations
+       ============================================================ -->
+  <script>
+    // --- Scroll Progress Bar ---
+    // Updates the fixed top progress bar width based on vertical scroll position
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      document.getElementById('scrollProgress').style.width = progress + '%';
+    });
+  </script>
+
+<!-- ============================================================
+     BACKGROUND CANVAS — Animated particle mesh rendered via JS
+     Fixed position behind all content, decorative only
+     ============================================================ -->
+<canvas id="meshCanvas"></canvas>
+<script>
+// --- Canvas Mesh Animation ---
+// Creates an animated particle network on the background <canvas> element.
+// 60 floating nodes drift and bounce off edges; lines connect nearby nodes.
+// Uses requestAnimationFrame for a continuous render loop.
+(function(){
+  const c=document.getElementById('meshCanvas');if(!c)return;
+  const ctx=c.getContext('2d');
+  let w,h,pts=[];
+  function resize(){w=c.width=c.offsetWidth*devicePixelRatio;h=c.height=c.offsetHeight*devicePixelRatio;ctx.scale(devicePixelRatio,devicePixelRatio);}
+  resize();window.addEventListener('resize',resize);
+  for(let i=0;i<60;i++)pts.push({x:Math.random()*c.offsetWidth,y:Math.random()*c.offsetHeight,vx:(Math.random()-0.5)*0.3,vy:(Math.random()-0.5)*0.3});
+  function draw(){
+    ctx.clearRect(0,0,c.offsetWidth,c.offsetHeight);
+    pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>c.offsetWidth)p.vx*=-1;if(p.y<0||p.y>c.offsetHeight)p.vy*=-1;});
+    for(let i=0;i<pts.length;i++){
+      for(let j=i+1;j<pts.length;j++){
+        const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<120){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle='rgba(196,90,26,'+(1-d/120)*0.15+')';ctx.stroke();}
+      }
+      ctx.beginPath();ctx.arc(pts[i].x,pts[i].y,1.5,0,Math.PI*2);ctx.fillStyle='rgba(196,90,26,0.3)';ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
+
+</body>
+</html>

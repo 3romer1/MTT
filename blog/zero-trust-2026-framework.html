@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================================
+       META TAGS — Core document metadata, SEO, and browser config
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>Zero Trust in 2026: A Practical Framework for Mid-Market Organizations | MTT Consulting</title>
+  <meta name="description" content="A practical zero trust framework for mid-market organizations in 2026. Learn identity-first security, device trust, network segmentation, and data protection strategies without enterprise complexity." />
+  <meta name="author" content="Jordan Torres" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.callmtt.com/blog/zero-trust-2026-framework.html" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <meta name="theme-color" content="#0b0b0a" />
+
+  <!-- ============================================================
+       OPEN GRAPH TAGS — Social sharing metadata for Facebook, LinkedIn, etc.
+       Includes article-specific properties: published time, author, section, tags
+       ============================================================ -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Zero Trust in 2026: A Practical Framework for Mid-Market Organizations" />
+  <meta property="og:description" content="A practical zero trust framework for mid-market organizations. Identity-first security, device trust, network segmentation, and data protection without the enterprise price tag." />
+  <meta property="og:url" content="https://www.callmtt.com/blog/zero-trust-2026-framework.html" />
+  <meta property="article:published_time" content="2026-03-28" />
+  <meta property="article:author" content="Jordan Torres" />
+  <meta property="article:section" content="Cybersecurity" />
+  <meta property="article:tag" content="Zero Trust" />
+  <meta property="article:tag" content="Cybersecurity" />
+  <meta property="article:tag" content="Mid-Market" />
+
+  <!-- ============================================================
+       TWITTER CARD — Twitter/X sharing metadata with large image format
+       ============================================================ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Zero Trust in 2026: A Practical Framework for Mid-Market Organizations" />
+  <meta name="twitter:description" content="A practical zero trust framework for mid-market organizations. Identity-first security, device trust, network segmentation, and data protection." />
+
+  <!-- ============================================================
+       FONT LOADING — Google Fonts preconnect and Inter font family
+       Uses preconnect for performance, loads weights 400-800
+       ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" /></noscript>
+
+  <!-- ============================================================
+       EMBEDDED STYLES — All page styles inlined for performance
+       ============================================================ -->
+  <style>
+    /* ── Design Tokens ─────────────────────────────────────── */
+    /* Custom properties for colors, shadows, spacing, typography, and transitions */
+    :root {
+      --bg: #000000;
+      --bg-elevated: #0a0a0a;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f5f5f5;
+      --border: rgba(255,255,255,0.08);
+      --border-hover: rgba(196,90,26,0.35);
+      --text: #eae6df;
+      --text-secondary: #9c9890;
+      --text-dim: #625e58;
+      --card-text: #1a1a1a;
+      --card-text-secondary: #555555;
+      --card-text-dim: #888888;
+      --card-border: rgba(230,230,230,0.15);
+      --accent: #c45a1a;
+      --accent-light: #d96b2a;
+      --accent-dark: #a44a12;
+      --accent-glow: rgba(196,90,26,0.22);
+      --green: #5a8a72;
+      --blue: #4a7c9b;
+      --purple: #7c6cc0;
+      --white: #eae6df;
+      --shadow-lg: 0 24px 64px rgba(0,0,0,0.5);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.3);
+      --shadow-sm: 0 2px 12px rgba(0,0,0,0.2);
+      --shadow-glow: 0 0 30px rgba(196,90,26,0.08);
+      --max-w: 1200px;
+      --radius-lg: 14px;
+      --radius-md: 10px;
+      --radius-sm: 8px;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Space Grotesk', sans-serif;
+      --font-ui: 'Space Grotesk', sans-serif;
+      --transition: 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* ── Reset & Base ──────────────────────────────────────── */
+    /* Box-sizing reset, smooth scrolling, base typography and background */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.72;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    .container { width: min(var(--max-w), calc(100% - 40px)); margin: 0 auto; position: relative; z-index: 1; }
+
+    /* ── Highlight Text Gradient ──────────────────────────── */
+    /* Gold gradient text effect used on accent words in headings */
+    .highlight {
+      background: linear-gradient(135deg, #c45a1a, #d96b2a, #d96b2a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── Buttons ───────────────────────────────────────────── */
+    /* Primary (gold fill), ghost (transparent border), and small variant */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px 26px; border-radius: var(--radius-sm); border: 1px solid transparent;
+      font-family: var(--font-display); font-weight: 700; font-size: 0.9rem;
+      cursor: pointer; transition: all var(--transition); white-space: nowrap;
+    }
+    .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 4px 20px rgba(196,90,26,0.25), 0 1px 4px rgba(196,90,26,0.15); }
+    .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(196,90,26,0.30), 0 2px 8px rgba(196,90,26,0.20); }
+    .btn-ghost { background: transparent; border-color: rgba(255,245,230,0.12); color: var(--text); }
+    .btn-ghost:hover { background: rgba(255,245,230,0.06); border-color: var(--border-hover); }
+    .btn-sm { padding: 10px 18px; font-size: 0.924rem; }
+
+    /* ── Header & Navigation ──────────────────────────────── */
+    /* Sticky top nav with glassmorphism blur, brand logo, nav links,
+       phone number, CTA button, hamburger toggle, and mobile menu overlay */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(24px) saturate(1.6);
+      -webkit-backdrop-filter: blur(24px) saturate(1.6);
+      background: rgba(13,13,13,0.92);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 20px rgba(0,0,0,0.4);
+    }
+    .nav-bar { display: flex; align-items: center; justify-content: space-between; min-height: 68px; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-family: var(--font-display); font-weight: 800; font-size: 1.12rem; }
+    .brand-icon {
+      width: 42px; height: 42px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(196,90,26,0.20), rgba(196,90,26,0.08));
+      border: 1px solid rgba(196,90,26,0.25);
+      display: grid; place-items: center; flex-shrink: 0;
+      box-shadow: 0 0 16px rgba(196,90,26,0.10);
+    }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-links a { color: var(--text-secondary); font-size: 0.946rem; font-weight: 500; padding: 8px 14px; border-radius: var(--radius-sm); transition: color var(--transition), background var(--transition); }
+    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.04); }
+    .nav-links a.active { color: var(--accent-light); }
+    .nav-right { display: flex; align-items: center; gap: 14px; }
+    .nav-phone { color: var(--text-secondary); font-size: 0.946rem; font-weight: 600; font-family: var(--font-display); }
+    .hamburger { display: none; background: none; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 8px; cursor: pointer; color: var(--text); }
+    .hamburger svg { display: block; }
+    .mobile-menu { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(13,13,13,0.98); backdrop-filter: blur(24px); flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; color: var(--text); padding: 12px 24px; }
+    .mobile-close { position: absolute; top: 20px; right: 20px; background: none; border: none; color: var(--text); cursor: pointer; }
+
+    /* ── Scroll Progress Bar ────────────────────────────────── */
+    /* Fixed top bar showing reading progress; width set by JS on scroll */
+    .scroll-progress {
+      position: fixed; top: 0; left: 0; height: 3px; z-index: 999;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      width: 0%; transition: width 0.1s linear;
+    }
+
+    /* ── Breadcrumb Navigation ────────────────────────────── */
+    /* Home > Blog > Article title trail for wayfinding and SEO */
+    .breadcrumb {
+      padding: 20px 0;
+      font-size: 0.82rem;
+      color: var(--text-dim);
+    }
+    .breadcrumb a { color: var(--text-secondary); transition: color var(--transition); }
+    .breadcrumb a:hover { color: var(--accent-light); }
+    .breadcrumb span { margin: 0 8px; }
+
+    /* ── Article Hero ─────────────────────────────────────── */
+    /* Top section with category badge, article title, author info,
+       publish date, and estimated read time */
+    .article-hero {
+      padding: 0 0 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .article-hero-inner {
+      max-width: 780px;
+    }
+    .article-category {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; padding: 5px 14px; border-radius: 999px;
+      background: rgba(90,138,114,0.12); color: var(--green);
+      margin-bottom: 20px;
+    }
+    .article-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      text-shadow: 0 0 40px rgba(196,90,26,0.08);
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+      color: var(--text-secondary); font-size: 0.86rem;
+    }
+    .article-meta .author-info {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .author-avatar-lg {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      display: grid; place-items: center;
+      font-size: 0.72rem; font-weight: 700; color: #fff;
+      flex-shrink: 0;
+    }
+    .author-name { font-weight: 600; color: var(--text); display: block; }
+    .author-title { font-size: 0.78rem; color: var(--text-dim); }
+    .meta-dot { color: var(--text-dim); }
+    .meta-item { display: flex; align-items: center; gap: 6px; color: var(--text-dim); font-size: 0.84rem; }
+    .meta-item svg { flex-shrink: 0; }
+
+    /* ── Article Body & Content ─────────────────────────────── */
+    /* White card container with left accent border; styles for prose,
+       headings, lists (custom bullet/number markers), blockquotes,
+       inline links, bold text, and phase label badges */
+    .article-section { padding: 48px 0 80px; }
+    .article-container {
+      max-width: 780px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--card-border);
+      border-left: 4px solid var(--accent);
+      padding: 48px 56px;
+      box-shadow: var(--shadow-md);
+      color: var(--card-text);
+    }
+    .article-body { line-height: 1.8; font-size: 1.02rem; }
+    .article-body p {
+      margin-bottom: 1.4em;
+      color: var(--card-text-secondary);
+    }
+    .article-body p:first-child {
+      font-size: 1.12rem;
+      color: var(--card-text);
+      line-height: 1.75;
+    }
+    .article-body h2 {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--card-text);
+      margin: 2.2em 0 0.8em;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+    }
+    .article-body h2:first-of-type { margin-top: 1.6em; }
+    .article-body h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--card-text);
+      margin: 1.8em 0 0.6em;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+    .article-body ul, .article-body ol {
+      margin: 0 0 1.4em 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    .article-body ol {
+      counter-reset: ol-counter;
+    }
+    .article-body li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 0.6em;
+      color: var(--card-text-secondary);
+      line-height: 1.7;
+    }
+    .article-body ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .article-body ol li {
+      counter-increment: ol-counter;
+    }
+    .article-body ol li::before {
+      content: counter(ol-counter) ".";
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .article-body blockquote {
+      border-left: 4px solid var(--accent);
+      background: rgba(196,90,26,0.04);
+      padding: 20px 24px;
+      margin: 1.6em 0;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .article-body blockquote p {
+      margin-bottom: 0;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--card-text);
+      line-height: 1.7;
+    }
+    .article-body strong {
+      color: var(--card-text);
+      font-weight: 700;
+    }
+    .article-body a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-color: rgba(196,90,26,0.3);
+      text-underline-offset: 3px;
+      transition: text-decoration-color var(--transition);
+    }
+    .article-body a:hover {
+      text-decoration-color: var(--accent);
+    }
+    .phase-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: rgba(196,90,26,0.10);
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    /* ── Author Bio Card ───────────────────────────────────── */
+    /* Dark elevated card with avatar, name, role, and bio paragraph */
+    .author-bio {
+      max-width: 780px;
+      margin: 32px auto 0;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+    }
+    .author-bio-avatar {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      display: grid; place-items: center;
+      font-size: 1.1rem; font-weight: 700; color: #fff;
+      flex-shrink: 0;
+    }
+    .author-bio-content h4 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .author-bio-content .author-role {
+      font-size: 0.84rem;
+      color: var(--accent-light);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .author-bio-content p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.65;
+    }
+
+    /* ── CTA Banner ────────────────────────────────────────── */
+    /* Gradient-bordered call-to-action box with heading, description,
+       and primary button linking to the consultation page */
+    .article-cta {
+      max-width: 780px;
+      margin: 32px auto 0;
+      background: linear-gradient(135deg, rgba(196,90,26,0.12), rgba(196,90,26,0.04));
+      border: 1px solid rgba(196,90,26,0.25);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      text-align: center;
+    }
+    .article-cta h3 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .article-cta p {
+      color: var(--text-secondary);
+      font-size: 0.94rem;
+      margin-bottom: 24px;
+      max-width: 50ch;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.65;
+    }
+
+    /* ── Related Articles Grid ─────────────────────────────── */
+    /* Two-column grid of related post cards with category badges,
+       titles, excerpts, and read-more links */
+    .related-section {
+      padding: 0 0 80px;
+    }
+    .related-section h2 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 28px;
+      max-width: 780px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .related-grid {
+      max-width: 780px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .related-card {
+      background: var(--bg-card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      transition: all var(--transition);
+      color: var(--card-text);
+    }
+    .related-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .related-card .blog-category {
+      display: inline-block;
+      font-size: 0.66rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; padding: 3px 10px; border-radius: 999px;
+      margin-bottom: 10px;
+    }
+    .blog-category.cat-cloud { background: rgba(74,124,155,0.12); color: var(--blue); }
+    .blog-category.cat-security { background: rgba(90,138,114,0.12); color: var(--green); }
+    .blog-category.cat-ai { background: rgba(124,108,192,0.12); color: var(--purple); }
+    .blog-category.cat-strategy { background: rgba(164,74,18,0.12); color: var(--accent-light); }
+    .related-card h3 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 8px;
+      color: var(--card-text);
+    }
+    .related-card p {
+      font-size: 0.84rem;
+      color: var(--card-text-secondary);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+    .related-card .read-more {
+      color: var(--accent-light);
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: color var(--transition);
+    }
+    .related-card .read-more:hover { color: #d96b2a; }
+
+    /* ── Footer ────────────────────────────────────────────── */
+    /* Minimal footer with copyright, nav links, and contact info */
+    .footer { padding: 32px 0; border-top: 1px solid var(--border); }
+    .footer-row {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 20px; flex-wrap: wrap; color: var(--text-dim); font-size: 0.924rem;
+    }
+    .footer-row a { color: var(--text-secondary); transition: color var(--transition); }
+    .footer-row a:hover { color: var(--accent-light); }
+
+    /* ── Background Canvas ─────────────────────────────────── */
+    /* Fixed-position canvas for the animated particle mesh background */
+    #meshCanvas {
+      position: fixed; top: 0; right: 0; width: 60%; height: 100%;
+      z-index: 0; pointer-events: none; opacity: 0.4;
+    }
+
+    /* ── Responsive Breakpoints ────────────────────────────── */
+    /* 1024px: Hide desktop nav, show hamburger */
+    /* 768px:  Reduce article padding, stack author bio, single-col related grid */
+    /* 480px:  Minimal padding for small screens */
+    @media (max-width: 1024px) {
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .nav-phone { display: none; }
+    }
+    @media (max-width: 768px) {
+      .article-container { padding: 32px 28px; }
+      .author-bio { flex-direction: column; align-items: center; text-align: center; }
+      .related-grid { grid-template-columns: 1fr; }
+      .article-meta { gap: 12px; }
+    }
+    @media (max-width: 480px) {
+      .article-container { padding: 24px 20px; border-left-width: 3px; }
+      .article-cta { padding: 28px 20px; }
+    }
+    .brand-logo { height: 100px; width: auto; max-width: 380px; object-fit: contain; flex-shrink: 0; mix-blend-mode: screen; transition: opacity 0.25s ease; }
+    .brand-logo--footer { height: 132px; max-width: 460px; }
+      .brand-text { font-size: 1.485rem; font-weight: 800; color: var(--text-primary, #fff); letter-spacing: -0.01em; }
+    .brand-text-sub { font-size: 1.485rem; font-weight: 700; color: var(--accent, #c45a1a); letter-spacing: -0.01em; }
+    /* Scroll margin for fixed header */
+    section { scroll-margin-top: 80px; }
+    /* Accessibility & Performance */
+    ::selection { background: rgba(196,90,26,0.3); color: #F0EDE8; }
+    *:focus-visible { outline: 2px solid #C45A1A; outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+
+  <!-- ============================================================
+       STRUCTURED DATA — JSON-LD schema.org Article markup
+       Provides search engines with headline, author, publisher, and date
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Zero Trust in 2026: A Practical Framework for Mid-Market Organizations",
+    "author": {
+      "@type": "Person",
+      "name": "Jordan Torres",
+      "jobTitle": "Security Architect & vCISO"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "MTT Consulting",
+      "url": "https://www.callmtt.com"
+    },
+    "datePublished": "2026-03-28",
+    "description": "A practical zero trust framework for mid-market organizations in 2026.",
+    "mainEntityOfPage": "https://www.callmtt.com/blog/zero-trust-2026-framework.html"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.callmtt.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.callmtt.com/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "Zero Trust in 2026", "item": "https://www.callmtt.com/blog/zero-trust-2026-framework.html" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ============================================================
+       SCROLL PROGRESS BAR — Fixed top indicator showing reading progress
+       Width is dynamically set by JavaScript on scroll
+       ============================================================ -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ============================================================
+       MOBILE MENU — Full-screen overlay navigation for small screens
+       Toggled open/closed via hamburger button in header
+       ============================================================ -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')" aria-label="Close">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <a href="../index.html">Home</a>
+    <a href="../index.html#services">Services</a>
+    <a href="../index.html#solutions">Solutions</a>
+    <a href="../index.html#why-mtt">Team</a>
+    <a href="index.html">Blog</a>
+    <a href="../index.html#contact">Contact</a>
+    <a href="tel:4696352155" class="btn btn-primary btn-sm" style="margin-top:12px">Call 469-635-2155</a>
+  </div>
+
+  <!-- ============================================================
+       HEADER & NAVIGATION — Sticky top bar with glassmorphism effect
+       Contains brand logo, desktop nav links, phone number, CTA button,
+       and hamburger toggle for mobile
+       ============================================================ -->
+  <header>
+    <div class="container nav-bar">
+      <a href="../index.html" class="brand" aria-label="MTT Consulting home">
+        <span class="brand-text">MTT</span><span class="brand-text-sub">Consulting</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html#services">Services</a>
+        <a href="../index.html#solutions">Solutions</a>
+        <a href="../index.html#industries">Industries</a>
+        <a href="../index.html#why-mtt">Team</a>
+        <a href="index.html" class="active">Blog</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <div class="nav-right">
+        <a href="tel:4696352155" class="nav-phone">469-635-2155</a>
+        <a class="btn btn-primary btn-sm" href="../index.html#contact">Book a Consultation</a>
+        <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============================================================
+         BREADCRUMB — Navigation trail: Home > Blog > Article title
+         ============================================================ -->
+    <div class="container breadcrumb">
+      <a href="../index.html">Home</a>
+      <span>/</span>
+      <a href="index.html">Blog</a>
+      <span>/</span>
+      Zero Trust in 2026
+    </div>
+
+    <!-- ============================================================
+         ARTICLE HERO — Category badge, title, author avatar/name/role,
+         publish date, and estimated reading time
+         ============================================================ -->
+    <section class="article-hero">
+      <div class="container">
+        <div class="article-hero-inner">
+          <span class="article-category">Cybersecurity</span>
+          <h1>Zero Trust in 2026: A Practical Framework for <span class="highlight">Mid-Market</span> Organizations</h1>
+          <div class="article-meta">
+            <div class="author-info">
+              <div class="author-avatar-lg">JT</div>
+              <div>
+                <span class="author-name">Jordan Torres</span>
+                <span class="author-title">Security Architect &amp; vCISO</span>
+              </div>
+            </div>
+            <span class="meta-dot">&middot;</span>
+            <span class="meta-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              March 28, 2026
+            </span>
+            <span class="meta-dot">&middot;</span>
+            <span class="meta-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              8 min read
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ARTICLE CONTENT — Main article body in a white card container
+         Contains all prose: introduction, five pillars breakdown,
+         phased roadmap (Phases 1-4), common mistakes, and recommendations
+         ============================================================ -->
+    <section class="article-section">
+      <div class="container">
+        <div class="article-container">
+          <div class="article-body">
+
+            <p>If you lead a mid-market organization&mdash;say 100 to 2,000 employees&mdash;and you still rely on a perimeter-based security model, you are operating on borrowed time. The threat landscape in 2026 has made one thing clear: the network perimeter no longer exists in any meaningful sense. Remote work is permanent. Cloud adoption is accelerating. And attackers are not discriminating by company size. This article lays out a practical, phased framework for implementing zero trust architecture without requiring an enterprise-scale budget or a dedicated security operations center.</p>
+
+            <h2>What Zero Trust Actually Means</h2>
+
+            <p>Zero trust has suffered from years of vendor-driven hype. Every firewall manufacturer, identity provider, and endpoint security vendor has slapped "zero trust" on their marketing materials. So let us cut through the noise.</p>
+
+            <p>Zero trust is not a product. It is not a single technology you can purchase and deploy. It is a security strategy built on one core principle: <strong>never trust, always verify.</strong> Every access request&mdash;whether it originates from inside your network or outside it&mdash;must be authenticated, authorized, and continuously validated before granting access to resources.</p>
+
+            <p>The traditional model assumed that anything inside the corporate network was trustworthy. That assumption was always flawed, but it was manageable when most employees worked from a single office, on company-owned machines, accessing on-premises servers. In 2026, that describes almost no one.</p>
+
+            <blockquote>
+              <p>The question is no longer "should we adopt zero trust?" but "how quickly can we get there without disrupting the business?" For mid-market organizations, the answer is faster and more affordable than most leaders expect.</p>
+            </blockquote>
+
+            <p>The National Institute of Standards and Technology (NIST) Special Publication 800-207 remains the foundational reference for zero trust architecture. But NIST documentation is written for a broad audience including federal agencies. What mid-market organizations need is a practical translation of those principles into actionable steps that match their resources and risk profile.</p>
+
+            <h2>The Five Pillars of Zero Trust for Growing Businesses</h2>
+
+            <p>A useful mental model for zero trust breaks down into five interdependent pillars. You do not need to address all five simultaneously&mdash;in fact, trying to do so is one of the most common mistakes we see. But you need a clear understanding of each one to prioritize effectively.</p>
+
+            <h3>1. Identity</h3>
+            <p>Identity is the new perimeter. Every access decision should start with a verified identity. This means strong authentication (multi-factor at minimum), centralized identity management, conditional access policies, and lifecycle governance. If you cannot confidently answer "who is accessing what, from where, and why?" then identity is your first priority.</p>
+
+            <h3>2. Devices</h3>
+            <p>A verified identity on a compromised device is still a threat vector. Device trust means knowing the health status, patch level, compliance posture, and ownership of every endpoint that touches your resources. This applies to company-owned laptops, BYOD phones, and contractor machines alike.</p>
+
+            <h3>3. Network</h3>
+            <p>Traditional flat networks allow lateral movement once an attacker gains a foothold. Zero trust networking requires segmentation, micro-segmentation where feasible, and encrypted communications between segments. The goal is to limit the blast radius of any single compromise.</p>
+
+            <h3>4. Applications</h3>
+            <p>Applications should be accessed through identity-aware proxies rather than direct network connectivity. Shadow IT should be identified and either sanctioned or blocked. Application-layer controls ensure that even authenticated users only reach the specific resources their role requires.</p>
+
+            <h3>5. Data</h3>
+            <p>Data is ultimately what you are protecting. Classification, encryption at rest and in transit, data loss prevention policies, and access logging are essential. In a zero trust model, data protection is not an afterthought&mdash;it is the objective that every other pillar supports.</p>
+
+            <h2>Building Your Zero Trust Roadmap</h2>
+
+            <p>The organizations that succeed with zero trust are the ones that treat it as a multi-phase journey rather than a single project. Based on our work with dozens of mid-market companies across healthcare, financial services, manufacturing, and professional services, we recommend the following phased approach.</p>
+
+            <h3><span class="phase-label">Phase 1</span> Identity-First Security</h3>
+
+            <p><strong>Timeline: Months 1&ndash;3</strong></p>
+
+            <p>Start here because identity delivers the highest security return for the lowest investment. Most mid-market organizations already have some form of directory services in place, which gives you a foundation to build on.</p>
+
+            <ul>
+              <li><strong>Enforce multi-factor authentication (MFA) everywhere.</strong> Not just for email or VPN&mdash;for every SaaS application, every administrative console, every remote access point. Phishing-resistant MFA (FIDO2 security keys or passkeys) should be the standard for privileged accounts.</li>
+              <li><strong>Consolidate identity into a single provider.</strong> If you are running Active Directory on-premises alongside a separate cloud identity system, unify them. Azure AD (now Entra ID), Okta, or a comparable platform should serve as the single source of truth for all authentication.</li>
+              <li><strong>Implement conditional access policies.</strong> Block or require step-up authentication based on device posture, location, risk score, and the sensitivity of the resource being accessed. A login from a managed device in your office should be treated differently than a login from an unknown device in an unfamiliar geography.</li>
+              <li><strong>Deploy privileged access management (PAM).</strong> Administrative accounts are the highest-value targets for attackers. Just-in-time access, session recording, and credential vaulting for admin accounts should be implemented in this phase.</li>
+              <li><strong>Audit and clean up stale accounts.</strong> Disable former employees, remove orphaned service accounts, and eliminate shared credentials. This sounds basic, but we routinely find organizations with 15&ndash;30% of their accounts belonging to people who no longer work there.</li>
+            </ul>
+
+            <h3><span class="phase-label">Phase 2</span> Device Trust &amp; Endpoint Security</h3>
+
+            <p><strong>Timeline: Months 3&ndash;6</strong></p>
+
+            <p>With identity under control, the next priority is ensuring that the devices accessing your resources are trustworthy.</p>
+
+            <ul>
+              <li><strong>Deploy endpoint detection and response (EDR).</strong> Traditional antivirus is insufficient. Modern EDR platforms provide behavioral analysis, automated response, and forensic capabilities. Solutions like CrowdStrike, SentinelOne, or Microsoft Defender for Endpoint are all viable depending on your environment and budget.</li>
+              <li><strong>Enforce device compliance policies.</strong> Tie device health to access decisions. If a laptop is missing critical patches, has a disabled firewall, or lacks disk encryption, it should be blocked from accessing sensitive resources until remediated. This is where your conditional access policies from Phase 1 gain significant teeth.</li>
+              <li><strong>Establish a device inventory.</strong> You cannot protect what you cannot see. Maintain a real-time inventory of every device that connects to your environment, including personal devices used for work. Mobile device management (MDM) or unified endpoint management (UEM) platforms make this operational.</li>
+              <li><strong>Implement automated patching.</strong> Vulnerability exploitation remains one of the top initial access vectors. Automated patch management for operating systems and third-party applications closes the window attackers exploit.</li>
+            </ul>
+
+            <h3><span class="phase-label">Phase 3</span> Network Segmentation &amp; Micro-Segmentation</h3>
+
+            <p><strong>Timeline: Months 6&ndash;10</strong></p>
+
+            <p>This phase often feels the most daunting for mid-market organizations, but it does not require ripping out your existing infrastructure.</p>
+
+            <ul>
+              <li><strong>Segment critical systems.</strong> At minimum, separate your production environment from your corporate network, isolate payment processing systems, and ensure that IoT devices live on their own VLAN. The goal is to prevent an attacker who compromises a workstation from pivoting directly to your database servers.</li>
+              <li><strong>Implement software-defined networking where possible.</strong> SD-WAN and cloud-native networking tools allow you to create logical segments without deploying new physical hardware. For organizations with multiple sites, this also improves performance and reduces WAN costs.</li>
+              <li><strong>Adopt a deny-by-default firewall posture.</strong> Instead of maintaining allow lists that grow over time, start from a default-deny position and explicitly permit only the traffic flows your applications require. This is more work upfront but dramatically reduces your attack surface.</li>
+              <li><strong>Enable encrypted DNS and east-west traffic inspection.</strong> Internal traffic should not be treated as inherently safe. Encrypted DNS prevents DNS-based exfiltration, and inspecting lateral traffic helps detect compromised systems communicating with each other.</li>
+            </ul>
+
+            <h3><span class="phase-label">Phase 4</span> Application &amp; Data Protection</h3>
+
+            <p><strong>Timeline: Months 10&ndash;14</strong></p>
+
+            <p>With identity, devices, and network controls in place, you can now focus on the most granular layer of protection: the applications and data themselves.</p>
+
+            <ul>
+              <li><strong>Implement a Cloud Access Security Broker (CASB).</strong> A CASB provides visibility into cloud application usage, enforces data loss prevention policies, and detects anomalous behavior across your SaaS portfolio. This is how you address shadow IT with controls rather than just policy.</li>
+              <li><strong>Classify your data.</strong> Not all data requires the same level of protection. Establish a classification scheme (public, internal, confidential, restricted) and apply technical controls accordingly. Automated classification tools reduce the burden on end users.</li>
+              <li><strong>Deploy data loss prevention (DLP) policies.</strong> Prevent sensitive data from leaving your environment via email, file sharing, USB drives, or cloud uploads. Start with your highest-risk data categories and expand coverage over time.</li>
+              <li><strong>Move to application-layer access.</strong> Replace VPN-based access with identity-aware proxies or zero trust network access (ZTNA) solutions. These grant access to specific applications rather than entire network segments, and they verify identity and device posture on every request.</li>
+              <li><strong>Encrypt everything.</strong> Data at rest and in transit should be encrypted as a baseline. For highly sensitive data, consider customer-managed encryption keys and hardware security modules (HSMs) for key management.</li>
+            </ul>
+
+            <h2>Common Mistakes to Avoid</h2>
+
+            <p>Having guided multiple organizations through zero trust adoption, we see the same patterns of failure repeatedly. Learning from these mistakes will save you time, money, and frustration.</p>
+
+            <ul>
+              <li><strong>Trying to do everything at once.</strong> Zero trust is a journey. Organizations that attempt to implement all five pillars simultaneously typically stall within the first quarter because the scope becomes unmanageable. Follow the phased approach and build momentum.</li>
+              <li><strong>Buying a "zero trust platform" and assuming it solves the problem.</strong> No single vendor delivers complete zero trust. You will need a combination of tools, and more importantly, you need the policies, processes, and organizational buy-in to support them.</li>
+              <li><strong>Neglecting user experience.</strong> Security controls that make it harder for people to do their jobs will be circumvented. Every security decision should weigh the impact on productivity. Conditional access, for example, should be invisible to compliant users and only add friction when risk is elevated.</li>
+              <li><strong>Failing to baseline your current state.</strong> Before you implement anything, document your current access patterns, data flows, and security gaps. Without a baseline, you cannot measure progress or demonstrate ROI to leadership.</li>
+              <li><strong>Ignoring third-party and supply chain risk.</strong> Your vendors, contractors, and partners represent extensions of your attack surface. Zero trust must extend to how third parties access your systems, not just how your employees do.</li>
+              <li><strong>Skipping the governance layer.</strong> Zero trust without ongoing governance becomes a snapshot in time rather than a living security posture. Assign ownership, define review cadences, and establish metrics that track maturity over time.</li>
+            </ul>
+
+            <h2>What MTT Consulting Recommends</h2>
+
+            <p>Based on our experience implementing zero trust architectures for mid-market clients, here is what we tell every organization that asks where to start:</p>
+
+            <ul>
+              <li><strong>Run a zero trust readiness assessment.</strong> Before spending a dollar on new technology, understand your current maturity across all five pillars. We conduct these assessments as part of our vCISO advisory engagements, typically delivering findings and a prioritized roadmap within two to three weeks.</li>
+              <li><strong>Start with identity and MFA.</strong> This is non-negotiable. If your organization does not have MFA enforced across all access points today, everything else is secondary. The data consistently shows that MFA alone blocks over 99% of automated account compromise attacks.</li>
+              <li><strong>Align your security investments with business risk.</strong> Not every system needs the same level of protection. A zero trust roadmap should map directly to your most critical business processes and data. We help clients identify their crown jewels and build protection outward from there.</li>
+              <li><strong>Build executive alignment early.</strong> Zero trust touches every department. Without executive sponsorship, you will hit resistance from teams that view new security controls as obstacles. Frame the conversation around business continuity, regulatory compliance, and competitive advantage&mdash;not just threat prevention.</li>
+              <li><strong>Measure and report progress quarterly.</strong> Define metrics for each phase: MFA adoption rate, device compliance percentage, mean time to detect and respond, percentage of applications behind ZTNA. Report these to leadership regularly to maintain support and funding.</li>
+            </ul>
+
+            <blockquote>
+              <p>Zero trust is not about achieving perfection. It is about systematically reducing risk in a way that is proportional to your organization's size, industry, and threat profile. The mid-market organizations that start now&mdash;even with modest steps&mdash;will be materially safer than those still debating the business case in 2027.</p>
+            </blockquote>
+
+            <h2>Conclusion</h2>
+
+            <p>Zero trust is no longer optional for mid-market organizations that handle sensitive data, operate in regulated industries, or simply cannot afford the operational disruption and reputational damage of a breach. The framework outlined above is not theoretical&mdash;it is drawn from real engagements with organizations that share your constraints: limited budgets, lean IT teams, and competing business priorities.</p>
+
+            <p>The path forward does not require replacing your entire infrastructure overnight. It requires a clear-eyed assessment of where you stand today, a phased plan that delivers incremental security improvements, and the discipline to sustain it. Identity is the foundation. Device trust and network segmentation extend it. Application and data protection complete it.</p>
+
+            <p>If your organization is ready to move from discussing zero trust to implementing it, we can help. MTT Consulting provides <strong>vCISO advisory, zero trust assessments, and hands-on implementation support</strong> specifically designed for mid-market organizations. <a href="../index.html#contact">Reach out to start the conversation.</a></p>
+
+          </div>
+        </div>
+
+        <!-- ============================================================
+             AUTHOR BIO — Author card with avatar, name, role, and biography
+             ============================================================ -->
+        <div class="author-bio">
+          <div class="author-bio-avatar">JT</div>
+          <div class="author-bio-content">
+            <h4>Jordan Torres</h4>
+            <div class="author-role">Security Architect &amp; vCISO, MTT Consulting</div>
+            <p>Jordan brings over 15 years of experience in cybersecurity architecture, risk management, and compliance across healthcare, financial services, and manufacturing. As a virtual CISO for MTT Consulting clients, Jordan translates complex security challenges into practical, business-aligned strategies that mid-market organizations can actually execute.</p>
+          </div>
+        </div>
+
+        <div style="margin-top:2.5rem;padding:2rem;background:rgba(90,138,114,0.07);border-radius:12px;border-left:4px solid var(--green, #5a8a72);">
+          <h3 style="margin-bottom:1rem;font-size:1.1rem;color:var(--heading, #1a1a1a);">Related MTT Services</h3>
+          <ul style="list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:0.75rem;">
+            <li><a href="../services/cybersecurity.html" style="display:inline-block;padding:0.5rem 1.25rem;background:var(--green, #5a8a72);color:#fff;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;">Cybersecurity &amp; Resilience &rarr;</a></li>
+          </ul>
+        </div>
+
+        <!-- ============================================================
+             CTA BANNER — Call-to-action for zero trust consultation
+             ============================================================ -->
+        <div class="article-cta">
+          <h3>Ready to Build Your Zero Trust Roadmap?</h3>
+          <p>Our vCISO team can assess your current security posture and deliver a prioritized, phased implementation plan in as little as three weeks.</p>
+          <a href="../index.html#contact" class="btn btn-primary">Schedule a Consultation</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         RELATED ARTICLES — Two-column grid of related blog post cards
+         ============================================================ -->
+    <section class="related-section">
+      <div class="container">
+        <h2>Related Articles</h2>
+        <div class="related-grid">
+          <a href="#" class="related-card">
+            <span class="blog-category cat-cloud">Cloud</span>
+            <h3>Azure vs. AWS vs. GCP: Choosing the Right Cloud for Your Business</h3>
+            <p>A no-hype comparison of the three major cloud platforms &mdash; from cost structures to compliance capabilities.</p>
+            <span class="read-more">Read Article &rarr;</span>
+          </a>
+          <a href="#" class="related-card">
+            <span class="blog-category cat-strategy">IT Strategy</span>
+            <h3>Why Your Business Needs a Virtual CIO (Even If You Have an IT Team)</h3>
+            <p>The gap between tactical IT management and strategic technology leadership is costing mid-market businesses millions.</p>
+            <span class="read-more">Read Article &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       FOOTER — Copyright, navigation links, and phone number
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container footer-row">
+      <a href="../index.html" class="brand" style="margin-bottom:8px">
+        <span class="brand-text">MTT</span><span class="brand-text-sub">Consulting</span>
+      </a>
+      <span>&copy; 2026 MTT Consulting. All rights reserved.</span>
+      <div style="display:flex;gap:20px;">
+        <a href="../index.html#services">Services</a>
+        <a href="../index.html#contact">Contact</a>
+        <a href="tel:4696352155">469-635-2155</a>
+      </div>
+      <div><a href="/privacy-policy.html">Privacy Policy</a> &middot; <a href="/terms-of-service.html">Terms of Service</a> &middot; <a href="/sitemap.xml">Sitemap</a></div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT — Scroll progress bar and canvas mesh animation
+       ============================================================ -->
+  <script>
+    // --- Scroll Progress Bar ---
+    // Updates the fixed top progress bar width based on vertical scroll position
+    window.addEventListener('scroll', () => {
+      const bar = document.getElementById('scrollProgress');
+      const scrolled = window.scrollY;
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      if (height > 0) {
+        bar.style.width = (scrolled / height * 100) + '%';
+      }
+    });
+  </script>
+
+<!-- ============================================================
+     BACKGROUND CANVAS — Animated particle mesh rendered via JS
+     Fixed position behind all content, decorative only
+     ============================================================ -->
+<canvas id="meshCanvas"></canvas>
+<script>
+// --- Canvas Mesh Animation ---
+// Creates an animated particle network on the background <canvas> element.
+// 60 floating nodes drift and bounce off edges; lines connect nearby nodes.
+// Uses requestAnimationFrame for a continuous render loop.
+(function(){
+  const c=document.getElementById('meshCanvas');if(!c)return;
+  const ctx=c.getContext('2d');
+  let w,h,pts=[];
+  function resize(){w=c.width=c.offsetWidth*devicePixelRatio;h=c.height=c.offsetHeight*devicePixelRatio;ctx.scale(devicePixelRatio,devicePixelRatio);}
+  resize();window.addEventListener('resize',resize);
+  for(let i=0;i<60;i++)pts.push({x:Math.random()*c.offsetWidth,y:Math.random()*c.offsetHeight,vx:(Math.random()-0.5)*0.3,vy:(Math.random()-0.5)*0.3});
+  function draw(){
+    ctx.clearRect(0,0,c.offsetWidth,c.offsetHeight);
+    pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>c.offsetWidth)p.vx*=-1;if(p.y<0||p.y>c.offsetHeight)p.vy*=-1;});
+    for(let i=0;i<pts.length;i++){
+      for(let j=i+1;j<pts.length;j++){
+        const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<120){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle='rgba(196,90,26,'+(1-d/120)*0.15+')';ctx.stroke();}
+      }
+      ctx.beginPath();ctx.arc(pts[i].x,pts[i].y,1.5,0,Math.PI*2);ctx.fillStyle='rgba(196,90,26,0.3)';ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
+
+</body>
+</html>

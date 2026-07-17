@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================================
+       META TAGS — charset, viewport, SEO description, keywords,
+       robots, author, canonical URL, favicon, and theme color
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>SD-WAN Deployment: 5 Mistakes That Cost Businesses Thousands | MTT Consulting Blog</title>
+  <meta name="description" content="Avoid the 5 most costly SD-WAN deployment mistakes. Learn why architecture-first planning, application-aware routing, security integration, and phased rollouts are essential for successful SD-WAN migration." />
+  <meta name="keywords" content="SD-WAN deployment mistakes, SD-WAN migration, application-aware routing, SD-WAN security, SD-WAN site survey, SD-WAN rollback plan, SD-WAN consulting, managed SD-WAN services, MTT Consulting, multi-site connectivity" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Ryan Park" />
+  <link rel="canonical" href="https://www.callmtt.com/blog/sd-wan-deployment-mistakes" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <meta name="theme-color" content="#0b0b0a" />
+
+  <!-- ============================================================
+       OPEN GRAPH TAGS — Facebook / LinkedIn share card with article
+       type, title, description, URL, publish time, author, and tags
+       ============================================================ -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="SD-WAN Deployment: 5 Mistakes That Cost Businesses Thousands" />
+  <meta property="og:description" content="Avoid the 5 most costly SD-WAN deployment mistakes. Architecture-first planning, application-aware routing, and phased rollouts are essential." />
+  <meta property="og:url" content="https://www.callmtt.com/blog/sd-wan-deployment-mistakes" />
+  <meta property="og:site_name" content="MTT Consulting" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="article:published_time" content="2026-01-25T08:00:00Z" />
+  <meta property="article:author" content="Ryan Park" />
+  <meta property="article:section" content="Network" />
+  <meta property="article:tag" content="SD-WAN" />
+  <meta property="article:tag" content="Network Architecture" />
+  <meta property="article:tag" content="Multi-Site Connectivity" />
+
+  <!-- ============================================================
+       TWITTER CARD — summary_large_image card with title and
+       description for Twitter/X shares
+       ============================================================ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SD-WAN Deployment: 5 Mistakes That Cost Businesses Thousands" />
+  <meta name="twitter:description" content="Avoid the 5 most costly SD-WAN deployment mistakes businesses make during migration." />
+
+  <!-- ============================================================
+       STRUCTURED DATA (JSON-LD) — Schema.org BlogPosting with
+       headline, author, publisher, dates, section, and word count
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "SD-WAN Deployment: 5 Mistakes That Cost Businesses Thousands",
+    "description": "Avoid the 5 most costly SD-WAN deployment mistakes. Learn why architecture-first planning, application-aware routing, security integration, and phased rollouts are essential.",
+    "author": {
+      "@type": "Person",
+      "name": "Ryan Park",
+      "jobTitle": "Cloud & Network Engineer"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "MTT Consulting",
+      "url": "https://www.callmtt.com"
+    },
+    "datePublished": "2026-01-25",
+    "dateModified": "2026-01-25",
+    "mainEntityOfPage": "https://www.callmtt.com/blog/sd-wan-deployment-mistakes",
+    "articleSection": "Network",
+    "wordCount": 1400
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.callmtt.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.callmtt.com/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "SD-WAN Deployment Mistakes", "item": "https://www.callmtt.com/blog/sd-wan-deployment-mistakes.html" }
+    ]
+  }
+  </script>
+
+  <!-- ============================================================
+       FONT LOADING — Google Fonts preconnect + Space Grotesk 400-700
+       ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" /></noscript>
+
+  <!-- ============================================================
+       EMBEDDED STYLES — All CSS for this single-page article
+       ============================================================ -->
+  <style>
+    /* ── Design Tokens ─────────────────────────────────────── */
+    /* Colors, shadows, sizing, radii, fonts, and transitions  */
+    :root {
+      --bg: #000000;
+      --bg-elevated: #0a0a0a;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f5f5f5;
+      --border: rgba(255,255,255,0.08);
+      --border-hover: rgba(196,90,26,0.35);
+      --text: #eae6df;
+      --text-secondary: #9c9890;
+      --text-dim: #625e58;
+      --card-text: #1a1a1a;
+      --card-text-secondary: #555555;
+      --card-text-dim: #888888;
+      --card-border: rgba(230,230,230,0.15);
+      --accent: #c45a1a;
+      --accent-light: #d96b2a;
+      --accent-dark: #a44a12;
+      --accent-glow: rgba(196,90,26,0.22);
+      --green: #5a8a72;
+      --blue: #4a7c9b;
+      --purple: #7c6cc0;
+      --white: #eae6df;
+      --shadow-lg: 0 24px 64px rgba(0,0,0,0.5);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.3);
+      --shadow-sm: 0 2px 12px rgba(0,0,0,0.2);
+      --shadow-glow: 0 0 30px rgba(196,90,26,0.08);
+      --max-w: 1200px;
+      --radius-lg: 14px;
+      --radius-md: 10px;
+      --radius-sm: 8px;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Space Grotesk', sans-serif;
+      --font-ui: 'Space Grotesk', sans-serif;
+      --transition: 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* ── Reset & Base ──────────────────────────────────────── */
+    /* Box-sizing reset, smooth scroll, body typography, link/list defaults */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.72;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    ul, ol { list-style: none; }
+    .container { width: min(var(--max-w), calc(100% - 40px)); margin: 0 auto; position: relative; z-index: 1; }
+    .article-container { width: min(var(--article-w), calc(100% - 40px)); margin: 0 auto; }
+
+    .highlight {
+      background: linear-gradient(135deg, #c45a1a, #d96b2a, #d96b2a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── Buttons ───────────────────────────────────────────── */
+    /* Primary (gold fill) and ghost (transparent border) variants */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px 26px; border-radius: var(--radius-sm); border: 1px solid transparent;
+      font-family: var(--font-display); font-weight: 700; font-size: 0.9rem;
+      cursor: pointer; transition: all var(--transition); white-space: nowrap;
+    }
+    .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 4px 20px rgba(196,90,26,0.25); }
+    .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(196,90,26,0.30); }
+    .btn-ghost { background: transparent; border-color: rgba(255,245,230,0.12); color: var(--text); }
+    .btn-ghost:hover { background: rgba(255,245,230,0.06); border-color: var(--border-hover); }
+
+    /* ── Header & Navigation ──────────────────────────────── */
+    /* Sticky glassmorphism bar with brand, nav links, phone CTA, hamburger */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(24px) saturate(1.6);
+      -webkit-backdrop-filter: blur(24px) saturate(1.6);
+      background: rgba(13,13,13,0.92);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 20px rgba(0,0,0,0.4);
+    }
+    .nav-bar { display: flex; align-items: center; justify-content: space-between; min-height: 68px; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-family: var(--font-display); font-weight: 800; font-size: 1.12rem; }
+    .brand-icon {
+      width: 42px; height: 42px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(196,90,26,0.20), rgba(196,90,26,0.08));
+      border: 1px solid rgba(196,90,26,0.25);
+      display: grid; place-items: center; flex-shrink: 0;
+      box-shadow: 0 0 16px rgba(196,90,26,0.10);
+    }
+    .brand-sub { display: block; font-size: 0.62rem; font-weight: 600; color: var(--text-dim); letter-spacing: 0.16em; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-links a { color: var(--text-secondary); font-size: 0.946rem; font-weight: 500; padding: 8px 14px; border-radius: var(--radius-sm); transition: color var(--transition), background var(--transition); }
+    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.04); }
+    .nav-links a.active { color: var(--accent-light); }
+    .nav-right { display: flex; align-items: center; gap: 14px; }
+    .nav-phone { color: var(--text-secondary); font-size: 0.946rem; font-weight: 600; font-family: var(--font-display); }
+    .hamburger { display: none; background: none; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 8px; cursor: pointer; color: var(--text); }
+    .hamburger svg { display: block; }
+    .mobile-menu { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(13,13,13,0.98); backdrop-filter: blur(24px); flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; color: var(--text); padding: 12px 24px; }
+    .mobile-close { position: absolute; top: 20px; right: 20px; background: none; border: none; color: var(--text); cursor: pointer; }
+
+    /* ── Scroll Progress Bar ────────────────────────────────── */
+    /* Fixed bar below header showing reading progress; width set by JS */
+    .scroll-progress {
+      position: fixed; top: 68px; left: 0; height: 3px; z-index: 99;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      width: 0%; transition: width 0.1s linear;
+    }
+
+    /* ── Article Hero ─────────────────────────────────────── */
+    /* Top-of-page banner with category pill, headline, author avatar & meta */
+    .article-hero {
+      padding: 72px 0 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .article-hero-inner {
+      max-width: var(--article-w);
+      margin: 0 auto;
+    }
+    .hero-category {
+      display: inline-block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--accent-light); margin-bottom: 16px;
+      padding: 5px 14px; border-radius: 999px;
+      background: rgba(196,90,26,0.12); border: 1px solid rgba(196,90,26,0.20);
+    }
+    .article-hero h1 {
+      font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 900; letter-spacing: -0.04em; line-height: 1.15;
+      margin-bottom: 20px;
+      text-shadow: 0 0 40px rgba(196,90,26,0.12);
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+      color: var(--text-secondary); font-size: 0.88rem;
+    }
+    .article-meta .author-info { display: flex; align-items: center; gap: 10px; }
+    .author-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      display: grid; place-items: center; font-size: 0.72rem; font-weight: 700; color: #fff;
+    }
+    .author-name { font-weight: 600; color: var(--text); }
+    .author-title { font-size: 0.78rem; color: var(--text-dim); }
+    .meta-sep { width: 4px; height: 4px; border-radius: 50%; background: var(--text-dim); }
+    .meta-item { display: flex; align-items: center; gap: 6px; }
+    .meta-item svg { flex-shrink: 0; }
+
+    /* ── Article Body ─────────────────────────────────────── */
+    /* White card with typography, headings, lists, blockquotes, and dividers */
+    .article-body-wrapper {
+      padding: 60px 0 80px;
+    }
+    .article-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: clamp(28px, 5vw, 56px) clamp(24px, 5vw, 52px);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border);
+    }
+    .article-card h2 {
+      font-family: var(--font-display); font-size: 1.55rem; font-weight: 800;
+      color: var(--card-text); letter-spacing: -0.02em; margin: 40px 0 16px;
+      line-height: 1.25;
+    }
+    .article-card h2:first-child { margin-top: 0; }
+    .article-card h3 {
+      font-family: var(--font-display); font-size: 1.2rem; font-weight: 700;
+      color: var(--card-text); margin: 32px 0 12px; line-height: 1.3;
+    }
+    .article-card p {
+      color: var(--card-text-secondary); font-size: 1.02rem; line-height: 1.8;
+      margin-bottom: 18px;
+    }
+    .article-card p:last-child { margin-bottom: 0; }
+    .article-card strong { color: var(--card-text); font-weight: 700; }
+    .article-card a { color: var(--accent); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+    .article-card a:hover { color: var(--accent-light); }
+    .article-card ul, .article-card ol {
+      margin: 16px 0 20px 24px; color: var(--card-text-secondary);
+      font-size: 1.02rem; line-height: 1.8;
+    }
+    .article-card ul { list-style: disc; }
+    .article-card ol { list-style: decimal; }
+    .article-card li { margin-bottom: 8px; padding-left: 4px; }
+    .article-card li::marker { color: var(--accent); }
+
+    /* ── Blockquote ──────────────────────────────────────── */
+    /* Gold left-border callout box for key quotes and insights */
+    .article-card blockquote {
+      border-left: 4px solid var(--accent);
+      background: rgba(196,90,26,0.04);
+      padding: 20px 24px;
+      margin: 28px 0;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .article-card blockquote p {
+      color: var(--card-text); font-weight: 500; font-size: 1.05rem;
+      font-style: italic; margin-bottom: 0; line-height: 1.7;
+    }
+
+    /* ── Mistake Number ──────────────────────────────────── */
+    /* Gold gradient circle with number, paired with mistake heading */
+    .mistake-number {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      color: #fff; font-family: var(--font-display); font-weight: 800;
+      font-size: 1.15rem; margin-right: 12px; vertical-align: middle;
+      flex-shrink: 0;
+    }
+    .mistake-header {
+      display: flex; align-items: center; gap: 14px;
+      margin: 44px 0 16px;
+    }
+    .mistake-header h2 {
+      margin: 0; font-size: 1.4rem;
+    }
+
+    /* ── CTA Section ─────────────────────────────────────── */
+    /* Gold-gradient call-to-action box embedded inside the article card */
+    .article-cta {
+      background: linear-gradient(135deg, rgba(196,90,26,0.10), rgba(196,90,26,0.04));
+      border: 1px solid rgba(196,90,26,0.20);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      margin: 40px 0 8px;
+      text-align: center;
+    }
+    .article-cta h3 {
+      color: var(--card-text); font-size: 1.3rem; font-weight: 800; margin: 0 0 10px;
+    }
+    .article-cta p {
+      color: var(--card-text-secondary); margin-bottom: 20px;
+    }
+
+    /* ── Author Bio Card ──────────────────────────────────── */
+    /* Dark elevated card with avatar, name, role, and full biography */
+    .author-bio {
+      padding: 48px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .bio-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      display: flex; gap: 24px; align-items: flex-start;
+    }
+    .bio-avatar {
+      width: 64px; height: 64px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      display: grid; place-items: center; font-size: 1.2rem; font-weight: 800; color: #fff;
+    }
+    .bio-content h4 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; margin-bottom: 2px; }
+    .bio-role { color: var(--accent-light); font-size: 0.84rem; font-weight: 600; margin-bottom: 10px; }
+    .bio-text { color: var(--text-secondary); font-size: 0.92rem; line-height: 1.7; }
+
+    /* ── Related Articles ─────────────────────────────────── */
+    /* 3-column grid of cards with image placeholder, category, title, excerpt */
+    .related-section {
+      padding: 64px 0 100px;
+    }
+    .related-section h3 {
+      font-family: var(--font-display); font-size: 1.5rem; font-weight: 800;
+      letter-spacing: -0.02em; margin-bottom: 28px;
+    }
+    .related-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    }
+    .related-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+    .related-card:hover { border-color: var(--border-hover); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .related-card-image {
+      background: rgba(196,90,26,0.04);
+      min-height: 130px; display: grid; place-items: center;
+      color: var(--text-dim); font-size: 0.78rem;
+    }
+    .related-card-body { padding: 20px; }
+    .related-card-category {
+      font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--accent); margin-bottom: 8px;
+    }
+    .related-card-body h4 {
+      font-family: var(--font-display); font-size: 1rem; font-weight: 700;
+      color: var(--card-text); line-height: 1.3; margin-bottom: 8px;
+    }
+    .related-card-body p {
+      color: var(--card-text-dim); font-size: 0.82rem; line-height: 1.6;
+    }
+
+    /* ── Footer ──────────────────────────────────────────── */
+    /* 4-column grid footer with brand, service links, resources, contact */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 48px 0 32px;
+      background: var(--bg);
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-brand { font-family: var(--font-display); font-weight: 800; font-size: 1.21rem; margin-bottom: 10px; }
+    .footer-desc { color: var(--text-dim); font-size: 0.924rem; line-height: 1.7; max-width: 280px; }
+    .footer-col h5 { font-family: var(--font-display); font-weight: 700; font-size: 0.902rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-secondary); margin-bottom: 14px; }
+    .footer-col a { display: block; color: var(--text-dim); font-size: 0.946rem; padding: 4px 0; transition: color var(--transition); }
+    .footer-col a:hover { color: var(--accent-light); }
+    .footer-bottom {
+      border-top: 1px solid var(--border); padding-top: 24px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+      color: var(--text-dim); font-size: 0.858rem;
+    }
+
+    /* ── Responsive Breakpoints ───────────────────────────── */
+    /* 900px: collapse nav, 1-col related, 2-col footer; 600px: stack all */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-phone { display: none; }
+      .hamburger { display: block; }
+      .related-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+    }
+    @media (max-width: 600px) {
+      .article-hero h1 { font-size: 1.6rem; }
+      .article-meta { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .meta-sep { display: none; }
+      .bio-card { flex-direction: column; text-align: center; align-items: center; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+    #meshCanvas {
+      position: fixed; top: 0; right: 0; width: 60%; height: 100%;
+      z-index: 0; pointer-events: none; opacity: 0.4;
+    }
+    .brand-logo { height: 100px; width: auto; max-width: 380px; object-fit: contain; flex-shrink: 0; mix-blend-mode: screen; transition: opacity 0.25s ease; }
+    .brand-logo--footer { height: 132px; max-width: 460px; }
+      .brand-text { font-size: 1.485rem; font-weight: 800; color: var(--text-primary, #fff); letter-spacing: -0.01em; }
+    .brand-text-sub { font-size: 1.485rem; font-weight: 700; color: var(--accent, #c45a1a); letter-spacing: -0.01em; }
+    /* Scroll margin for fixed header */
+    section { scroll-margin-top: 80px; }
+    /* Accessibility & Performance */
+    ::selection { background: rgba(196,90,26,0.3); color: #F0EDE8; }
+    *:focus-visible { outline: 2px solid #C45A1A; outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER & NAVIGATION — Sticky glassmorphism bar with brand
+       logo, desktop nav links, phone number, CTA, and hamburger
+       ============================================================ -->
+  <header>
+    <div class="container">
+      <nav class="nav-bar">
+        <a href="../index.html" class="brand" aria-label="MTT Consulting home">
+          <span class="brand-text">MTT</span><span class="brand-text-sub">Consulting</span>
+        </a>
+        <div class="nav-links">
+          <a href="../index.html#services">Services</a>
+          <a href="../index.html#solutions">Solutions</a>
+          <a href="../index.html#industries">Industries</a>
+          <a href="index.html" class="active">Blog</a>
+          <a href="../index.html#contact">Contact</a>
+        </div>
+        <div class="nav-right">
+          <span class="nav-phone">469-635-2155</span>
+          <a href="../index.html#contact" class="btn btn-primary" style="padding:10px 20px;font-size:0.82rem;">Get in Touch</a>
+          <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Open menu">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       MOBILE MENU — Full-screen overlay nav for small viewports;
+       toggled open/closed via hamburger & close button
+       ============================================================ -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')" aria-label="Close menu">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <a href="../index.html">Home</a>
+    <a href="../index.html#services">Services</a>
+    <a href="../index.html#solutions">Solutions</a>
+    <a href="index.html">Blog</a>
+    <a href="../index.html#contact">Contact</a>
+  </div>
+
+  <!-- ============================================================
+       SCROLL PROGRESS — Thin gold bar below header that fills
+       left-to-right as the reader scrolls through the article
+       ============================================================ -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ============================================================
+       ARTICLE HERO — Category pill, main headline, author avatar,
+       name, role, publish date, and estimated read time
+       ============================================================ -->
+  <section class="article-hero">
+    <div class="container">
+      <div class="article-hero-inner">
+        <span class="hero-category">Network</span>
+        <h1>SD-WAN Deployment: 5 Mistakes That Cost Businesses Thousands</h1>
+        <div class="article-meta">
+          <div class="author-info">
+            <div class="author-avatar">RP</div>
+            <div>
+              <div class="author-name">Ryan Park</div>
+              <div class="author-title">Cloud &amp; Network Engineer</div>
+            </div>
+          </div>
+          <div class="meta-sep"></div>
+          <div class="meta-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            January 25, 2026
+          </div>
+          <div class="meta-sep"></div>
+          <div class="meta-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            6 min read
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ARTICLE BODY — Main content card with introduction, five
+       numbered deployment mistakes, MTT methodology, MTT Connect
+       service description, and embedded CTA
+       ============================================================ -->
+  <section class="article-body-wrapper">
+    <div class="article-container">
+      <article class="article-card">
+
+        <h2>The Promise vs. the Reality of SD-WAN</h2>
+
+        <p>Software-defined wide area networking has become one of the most talked-about infrastructure upgrades in enterprise IT. Vendors paint a compelling picture: lower costs than MPLS, improved application performance, centralized management, and built-in redundancy across multiple transport links. For businesses operating across multiple locations, the pitch is almost irresistible.</p>
+
+        <p>But here is the uncomfortable truth that many organizations discover only after they have committed time and budget: <strong>SD-WAN deployments fail far more often than the marketing materials suggest.</strong> According to industry research, nearly 40 percent of SD-WAN projects experience significant delays, budget overruns, or outright failure to meet performance expectations. The technology itself is sound. The problems almost always come down to planning, process, and expertise.</p>
+
+        <p>Over the past several years, the MTT Consulting network engineering team has helped businesses recover from botched SD-WAN rollouts and, more importantly, has guided dozens of organizations through deployments that actually deliver on the technology's promise. These are the five most common and costly mistakes we see, and how to avoid every single one of them.</p>
+
+        <blockquote>
+          <p>SD-WAN is not a product you install. It is an architecture you design. The moment you treat it like a box swap, you have already set yourself up for failure.</p>
+        </blockquote>
+
+        <!-- Mistake 1 -->
+        <div class="mistake-header">
+          <span class="mistake-number">1</span>
+          <h2>Treating SD-WAN as a Simple Hardware Swap</h2>
+        </div>
+
+        <p>This is the single most expensive mistake businesses make, and it happens with alarming frequency. A vendor demonstrates an SD-WAN appliance, the IT team is impressed, and within weeks the organization is placing purchase orders for edge devices without ever stepping back to evaluate the broader architecture.</p>
+
+        <p>SD-WAN is not a router replacement. It is a fundamental shift in how your network routes traffic, enforces policy, and handles failover. Dropping an SD-WAN appliance onto an existing network without rethinking the underlying design is like installing a turbocharger on an engine that has not been tuned to handle the additional power. You might get a short-term performance boost, but you are setting yourself up for cascading problems.</p>
+
+        <p><strong>What an architecture-first approach looks like:</strong></p>
+
+        <ul>
+          <li>Map every application, its traffic pattern, and its sensitivity to latency and jitter before selecting a platform</li>
+          <li>Document your current WAN topology, including every circuit, every failover path, and every routing policy that exists today</li>
+          <li>Define your target state architecture with clear performance benchmarks that can be measured post-deployment</li>
+          <li>Evaluate at least three SD-WAN platforms against your actual traffic profile, not a vendor's demo environment</li>
+          <li>Build a detailed migration plan that accounts for dependencies between sites and applications</li>
+        </ul>
+
+        <p>Organizations that skip this phase typically spend 30 to 50 percent more on remediation after deployment than they would have spent on proper planning from the start. The architecture-first approach adds two to four weeks to your project timeline, but it can save you months of troubleshooting and thousands of dollars in emergency support.</p>
+
+        <!-- Mistake 2 -->
+        <div class="mistake-header">
+          <span class="mistake-number">2</span>
+          <h2>Ignoring Application-Aware Routing Requirements</h2>
+        </div>
+
+        <p>One of SD-WAN's most powerful capabilities is application-aware routing, the ability to identify specific applications in real time and route their traffic across the most appropriate transport link based on performance characteristics. Voice traffic can be steered over the lowest-latency path while bulk file transfers use the broadband connection. This is the feature that makes SD-WAN transformative rather than incremental.</p>
+
+        <p>Yet a surprising number of deployments never configure application-aware policies beyond the vendor defaults. The IT team installs the appliances, verifies basic connectivity, and moves on. The result is an expensive SD-WAN overlay that routes traffic almost identically to the legacy network it replaced.</p>
+
+        <p><strong>Getting application-aware routing right requires deliberate effort:</strong></p>
+
+        <ul>
+          <li><strong>Application discovery:</strong> Run a traffic analysis for at least two weeks before deployment to catalog every application traversing your WAN, including shadow IT services the team may not know about</li>
+          <li><strong>Policy classification:</strong> Group applications into tiers based on business criticality, latency sensitivity, and bandwidth requirements. A typical deployment should define at least four to six distinct policy classes</li>
+          <li><strong>SLA thresholds:</strong> Configure per-application SLA thresholds that trigger automatic path switching. These thresholds must reflect actual application requirements, not arbitrary defaults</li>
+          <li><strong>Ongoing tuning:</strong> Application-aware routing is not a set-and-forget configuration. New applications, changing usage patterns, and circuit performance changes all require periodic policy review</li>
+        </ul>
+
+        <blockquote>
+          <p>We audited one client's SD-WAN deployment and found that 85 percent of their traffic was using a single transport link despite having three available paths. Their application-aware policies had never been configured beyond the factory defaults.</p>
+        </blockquote>
+
+        <!-- Mistake 3 -->
+        <div class="mistake-header">
+          <span class="mistake-number">3</span>
+          <h2>Underestimating Security Integration</h2>
+        </div>
+
+        <p>The convergence of SD-WAN and security is one of the most significant trends in network architecture, and one of the most commonly mishandled. When organizations move from a hub-and-spoke MPLS topology to a direct internet access model with SD-WAN, they fundamentally change their security posture. Traffic that previously backhauled through a centralized firewall stack now breaks out to the internet at every branch location.</p>
+
+        <p>Many businesses deploy SD-WAN appliances without fully accounting for this shift. They assume the built-in firewall capabilities of their SD-WAN platform are sufficient, or they plan to "add security later" once the network is stable. Both approaches leave the organization exposed.</p>
+
+        <p><strong>A properly secured SD-WAN deployment addresses several critical areas:</strong></p>
+
+        <ul>
+          <li><strong>Next-generation firewall integration:</strong> Either through native NGFW capabilities in the SD-WAN platform or through service chaining with a dedicated security stack. The choice depends on your compliance requirements and threat model</li>
+          <li><strong>Encrypted tunnel management:</strong> All SD-WAN overlay traffic must be encrypted, but you also need visibility into encrypted traffic for threat detection. This requires TLS inspection capabilities at appropriate points in the architecture</li>
+          <li><strong>Cloud security broker integration:</strong> With direct internet access at every branch, a cloud access security broker becomes essential for maintaining visibility and control over SaaS application usage</li>
+          <li><strong>Zero trust segmentation:</strong> SD-WAN provides an excellent foundation for microsegmentation across your WAN, but only if segment policies are designed and enforced from day one</li>
+          <li><strong>Centralized security policy management:</strong> Security policies must be managed from the same orchestrator as your network policies. Separate management planes for network and security create gaps that attackers exploit</li>
+        </ul>
+
+        <p>The SASE (Secure Access Service Edge) framework is increasingly the right model for organizations deploying SD-WAN. Rather than treating network and security as separate projects, SASE converges them into a single architecture with unified policy enforcement. If your SD-WAN vendor cannot articulate a clear path to SASE integration, that should be a significant factor in your platform evaluation.</p>
+
+        <!-- Mistake 4 -->
+        <div class="mistake-header">
+          <span class="mistake-number">4</span>
+          <h2>Poor Site Survey and Bandwidth Planning</h2>
+        </div>
+
+        <p>SD-WAN can aggregate multiple transport links and dynamically steer traffic across them, but it cannot create bandwidth that does not exist. This seems obvious, but an astonishing number of SD-WAN deployments are undermined by inadequate site surveys and unrealistic bandwidth assumptions.</p>
+
+        <p>The typical failure pattern looks like this: the project team provisions SD-WAN appliances based on circuit information from their ISP contracts, assumes that advertised bandwidth equals actual available bandwidth, and designs their traffic policies accordingly. When the appliances go live, they discover that the 100 Mbps broadband circuit at the branch office delivers 40 Mbps during business hours, the LTE backup has a 15 GB monthly data cap, and the local network cabling cannot support the throughput the SD-WAN platform requires.</p>
+
+        <p><strong>A thorough site survey for SD-WAN deployment must include:</strong></p>
+
+        <ul>
+          <li><strong>Real-world bandwidth testing:</strong> Test every circuit at every site during peak business hours, not just at 2 AM when the vendor runs their certification test. Measure latency, jitter, and packet loss in addition to raw throughput</li>
+          <li><strong>Physical infrastructure audit:</strong> Verify cabling categories, switch port speeds, power availability, and rack space at every site. SD-WAN appliances with advanced features like deep packet inspection require more power and cooling than the legacy routers they replace</li>
+          <li><strong>ISP contract review:</strong> Examine every circuit contract for data caps, traffic shaping policies, and quality of service guarantees. Some ISPs throttle certain traffic types or impose usage-based billing that can make certain SD-WAN configurations uneconomical</li>
+          <li><strong>Growth capacity planning:</strong> Design bandwidth for 18 to 24 months of projected growth, not just current requirements. SD-WAN makes it easier to add circuits later, but only if the platform and policies are designed to accommodate expansion</li>
+        </ul>
+
+        <blockquote>
+          <p>The cost of a comprehensive site survey across 20 branch locations is typically less than the cost of a single emergency circuit upgrade when a site goes down because its bandwidth was oversubscribed.</p>
+        </blockquote>
+
+        <!-- Mistake 5 -->
+        <div class="mistake-header">
+          <span class="mistake-number">5</span>
+          <h2>No Rollback Plan or Phased Deployment Strategy</h2>
+        </div>
+
+        <p>Perhaps the most dangerous mistake on this list is the "big bang" deployment, where an organization attempts to cut over all sites to the new SD-WAN platform simultaneously. This approach maximizes risk and eliminates your ability to learn from early deployments before committing the entire network.</p>
+
+        <p>When a big bang deployment encounters problems, and it almost always does, the blast radius is the entire organization. Every site, every user, and every application is affected simultaneously. There is no control group, no baseline for comparison, and no safe harbor to fall back to while the team diagnoses the issue. The pressure to restore service leads to hasty decisions that often create additional problems.</p>
+
+        <p><strong>A responsible SD-WAN deployment follows a phased strategy:</strong></p>
+
+        <ul>
+          <li><strong>Pilot phase (2 to 4 sites):</strong> Deploy at a small number of representative sites that cover your major use cases. Run the pilot for at least 30 days with parallel legacy connectivity in place. Measure everything</li>
+          <li><strong>Validation phase:</strong> Analyze pilot data against your target performance benchmarks. Adjust application policies, SLA thresholds, and security configurations based on real-world observations</li>
+          <li><strong>Controlled rollout (waves of 5 to 10 sites):</strong> Deploy in waves with at least one week between each wave. This gives the team time to identify and address issues before they are replicated across additional sites</li>
+          <li><strong>Documented rollback procedures:</strong> Every site deployment must have a tested rollback procedure that can restore legacy connectivity within a defined recovery time objective. If you cannot articulate exactly how to roll back a specific site in under two hours, you are not ready to deploy that site</li>
+          <li><strong>Parallel operation period:</strong> Maintain legacy WAN circuits for at least 60 days after each site is migrated. This provides a safety net during the stabilization period and gives you time to verify that SLA commitments are being met</li>
+        </ul>
+
+        <p>Yes, a phased deployment takes longer than a big bang approach. A typical 30-site deployment will take three to four months instead of three to four weeks. But the difference in risk profile is enormous. Phased deployments succeed. Big bang deployments gamble with your entire network.</p>
+
+        <!-- The Right Way -->
+        <h2>The Right Way: MTT's SD-WAN Deployment Methodology</h2>
+
+        <p>At MTT Consulting, we have developed a structured SD-WAN deployment methodology built on the lessons learned from dozens of enterprise and mid-market deployments across multiple platforms and industries. Our approach is designed to eliminate the five mistakes outlined above while keeping projects on timeline and within budget.</p>
+
+        <p><strong>Our methodology follows four distinct phases:</strong></p>
+
+        <ol>
+          <li><strong>Discovery and Architecture (Weeks 1-3):</strong> Comprehensive traffic analysis, site surveys, application cataloging, security requirements gathering, and target architecture design. Every deployment begins with a detailed architecture document that all stakeholders review and approve</li>
+          <li><strong>Platform Selection and Lab Validation (Weeks 3-5):</strong> Vendor evaluation against documented requirements, proof of concept testing in a lab environment that mirrors your production topology, and detailed cost analysis including ongoing operational expenses</li>
+          <li><strong>Phased Deployment (Weeks 5-16):</strong> Pilot sites, validation, and controlled wave rollouts with parallel legacy connectivity at every stage. Each wave includes documented rollback procedures and success criteria that must be met before proceeding</li>
+          <li><strong>Optimization and Handoff (Weeks 16-20):</strong> Application policy tuning, security posture verification, performance benchmarking, knowledge transfer to your operations team, and comprehensive documentation of the production architecture</li>
+        </ol>
+
+        <p>This methodology consistently delivers SD-WAN deployments that meet or exceed performance targets while staying within five percent of the original project budget. More importantly, it produces networks that your team can confidently operate and evolve long after the initial deployment is complete.</p>
+
+        <!-- MTT Connect -->
+        <h2>How MTT Connect Solves Multi-Site Connectivity Challenges</h2>
+
+        <p>For organizations that need multi-site connectivity without the complexity of managing their own SD-WAN infrastructure, <strong>MTT Connect</strong> provides a fully managed solution. MTT Connect combines SD-WAN technology with our network operations team to deliver enterprise-grade connectivity as a service.</p>
+
+        <p>With MTT Connect, your organization gets:</p>
+
+        <ul>
+          <li>Fully managed SD-WAN with 24/7 monitoring and proactive optimization from our network operations center</li>
+          <li>Integrated security with next-generation firewall, threat detection, and SASE-ready architecture included in every deployment</li>
+          <li>Application-aware routing that is continuously tuned based on real-time traffic analysis and your evolving business requirements</li>
+          <li>Predictable monthly costs that replace the capital expenditure model with a transparent operational expense structure</li>
+          <li>Guaranteed SLAs for application performance, availability, and incident response backed by our engineering team</li>
+        </ul>
+
+        <p>MTT Connect is particularly well suited for businesses with 5 to 100 locations that need the performance benefits of SD-WAN but lack the internal network engineering resources to manage it effectively. We handle the complexity so your team can focus on the work that drives your business forward.</p>
+
+        <div style="margin-top:2.5rem;padding:2rem;background:rgba(90,138,114,0.07);border-radius:12px;border-left:4px solid var(--green, #5a8a72);">
+          <h3 style="margin-bottom:1rem;font-size:1.1rem;color:var(--heading, #1a1a1a);">Related MTT Services</h3>
+          <ul style="list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:0.75rem;">
+            <li><a href="../services/network-sdwan.html" style="display:inline-block;padding:0.5rem 1.25rem;background:var(--green, #5a8a72);color:#fff;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;">Network Architecture &amp; SD-WAN &rarr;</a></li>
+          </ul>
+        </div>
+
+        <!-- CTA -->
+        <div class="article-cta">
+          <h3>Planning an SD-WAN Deployment?</h3>
+          <p>Let our network engineering team evaluate your current WAN architecture and build a deployment plan that avoids these costly mistakes. The initial assessment is on us.</p>
+          <a href="../index.html#contact" class="btn btn-primary">Request a Free WAN Assessment</a>
+        </div>
+
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       AUTHOR BIO — Card with avatar initials, name, role, and
+       full biography for Ryan Park
+       ============================================================ -->
+  <section class="author-bio">
+    <div class="article-container">
+      <div class="bio-card">
+        <div class="bio-avatar">RP</div>
+        <div class="bio-content">
+          <h4>Ryan Park</h4>
+          <div class="bio-role">Cloud &amp; Network Engineer, MTT Consulting</div>
+          <p class="bio-text">Ryan specializes in enterprise network architecture, SD-WAN deployments, and cloud connectivity design. With over a decade of experience across Cisco, Fortinet, and VMware SD-WAN platforms, he has led multi-site deployments for healthcare, financial services, and professional services organizations ranging from 10 to 200 locations. Ryan holds CCNP Enterprise, Fortinet NSE7, and AWS Advanced Networking certifications.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       RELATED ARTICLES — 3-column grid of cards linking to Zero
+       Trust, Hybrid Cloud Networking, and SASE articles
+       ============================================================ -->
+  <section class="related-section">
+    <div class="container">
+      <h3>Related <span class="highlight">Articles</span></h3>
+      <div class="related-grid">
+
+        <a href="zero-trust-2026-framework.html" class="related-card">
+          <div class="related-card-image">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div class="related-card-body">
+            <div class="related-card-category">Cybersecurity</div>
+            <h4>Zero Trust Architecture: A Practical Implementation Guide</h4>
+            <p>Move beyond the buzzword with a step-by-step approach to implementing zero trust in mid-market organizations.</p>
+          </div>
+        </a>
+
+        <a href="azure-vs-aws-vs-gcp.html" class="related-card">
+          <div class="related-card-image">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <div class="related-card-body">
+            <div class="related-card-category">Cloud</div>
+            <h4>Hybrid Cloud Networking: Connecting Azure, AWS, and On-Premises</h4>
+            <p>Design patterns for building reliable, secure connectivity between cloud providers and your data center.</p>
+          </div>
+        </a>
+
+        <a href="microsoft-365-hardening-settings.html" class="related-card">
+          <div class="related-card-image">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="related-card-body">
+            <div class="related-card-category">Network</div>
+            <h4>SASE vs. Traditional Network Security: When to Make the Switch</h4>
+            <p>Evaluating whether your organization is ready for the SASE model and what the migration path looks like.</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER — 4-column grid with brand description, service links,
+       resources, contact info, and bottom copyright bar
+       ============================================================ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="../index.html" class="brand" style="margin-bottom:8px">
+            <span class="brand-text">MTT</span><span class="brand-text-sub">Consulting</span>
+          </a>
+          <p class="footer-desc">Fractional CIO/CISO advisory, AI governance, cybersecurity, and managed IT services for growing businesses. Offices in Texas and California.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Services</h5>
+          <a href="../index.html">vCIO / vCISO Advisory</a>
+          <a href="../index.html">Cybersecurity</a>
+          <a href="../index.html">Cloud &amp; Infrastructure</a>
+          <a href="../index.html">Managed IT</a>
+        </div>
+        <div class="footer-col">
+          <h5>Resources</h5>
+          <a href="index.html">Blog</a>
+          <a href="../index.html#contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <a href="tel:+14696352155">469-635-2155</a>
+          <a href="mailto:info@callmtt.com">info@callmtt.com</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 MTT Consulting. All rights reserved.</span>
+        <span>Frisco, TX &middot; Irvine, CA</span>
+      </div>
+      <div><a href="/privacy-policy.html">Privacy Policy</a> &middot; <a href="/terms-of-service.html">Terms of Service</a> &middot; <a href="/sitemap.xml">Sitemap</a></div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT — Scroll progress bar and canvas mesh animation
+       ============================================================ -->
+  <script>
+    // --- Scroll Progress Bar ---
+    // Updates the fixed bar width based on how far the user has scrolled
+    window.addEventListener('scroll', () => {
+      const docH = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = (window.scrollY / docH) * 100;
+      document.getElementById('scrollProgress').style.width = pct + '%';
+    });
+  </script>
+
+<!-- ============================================================
+     BACKGROUND CANVAS — Animated gold mesh particle network fixed
+     to the right 60% of the viewport; decorative only
+     ============================================================ -->
+<canvas id="meshCanvas"></canvas>
+<script>
+// --- Canvas Mesh Animation ---
+// Spawns 60 drifting particles, draws connecting lines when within 120px
+(function(){
+  const c=document.getElementById('meshCanvas');if(!c)return;
+  const ctx=c.getContext('2d');
+  let w,h,pts=[];
+  function resize(){w=c.width=c.offsetWidth*devicePixelRatio;h=c.height=c.offsetHeight*devicePixelRatio;ctx.scale(devicePixelRatio,devicePixelRatio);}
+  resize();window.addEventListener('resize',resize);
+  for(let i=0;i<60;i++)pts.push({x:Math.random()*c.offsetWidth,y:Math.random()*c.offsetHeight,vx:(Math.random()-0.5)*0.3,vy:(Math.random()-0.5)*0.3});
+  function draw(){
+    ctx.clearRect(0,0,c.offsetWidth,c.offsetHeight);
+    pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>c.offsetWidth)p.vx*=-1;if(p.y<0||p.y>c.offsetHeight)p.vy*=-1;});
+    for(let i=0;i<pts.length;i++){
+      for(let j=i+1;j<pts.length;j++){
+        const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<120){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle='rgba(196,90,26,'+(1-d/120)*0.15+')';ctx.stroke();}
+      }
+      ctx.beginPath();ctx.arc(pts[i].x,pts[i].y,1.5,0,Math.PI*2);ctx.fillStyle='rgba(196,90,26,0.3)';ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
+
+</body>
+</html>

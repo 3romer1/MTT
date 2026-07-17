@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================================
+       META TAGS — Core document metadata, SEO, and browser config
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>Blog & Insights | MTT Consulting — IT Strategy, Cybersecurity & Cloud</title>
+  <meta name="description" content="Expert insights on cybersecurity, cloud strategy, AI governance, managed IT, and technology leadership from MTT Consulting. Practical guidance for growing businesses." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.callmtt.com/blog/" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <meta name="theme-color" content="#0b0b0a" />
+
+  <!-- ============================================================
+       OPEN GRAPH TAGS — Social sharing metadata for Facebook, LinkedIn, etc.
+       ============================================================ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Blog & Insights | MTT Consulting" />
+  <meta property="og:description" content="Expert insights on cybersecurity, cloud strategy, AI governance, and IT leadership." />
+  <meta property="og:url" content="https://www.callmtt.com/blog/" />
+
+  <!-- ============================================================
+       FONT LOADING — Google Fonts preconnect and Inter font family
+       Uses preconnect for performance, loads weights 400-800
+       ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" /></noscript>
+
+  <!-- ============================================================
+       EMBEDDED STYLES — All page styles inlined for performance
+       ============================================================ -->
+  <style>
+    /* ── Design Tokens ─────────────────────────────────────── */
+    /* Custom properties for colors, shadows, spacing, typography, and transitions */
+    :root {
+      --bg: #000000;
+      --bg-elevated: #0a0a0a;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f5f5f5;
+      --border: rgba(255,255,255,0.08);
+      --border-hover: rgba(196,90,26,0.35);
+      --text: #eae6df;
+      --text-secondary: #9c9890;
+      --text-dim: #625e58;
+      --card-text: #1a1a1a;
+      --card-text-secondary: #555555;
+      --card-text-dim: #888888;
+      --card-border: rgba(230,230,230,0.15);
+      --accent: #c45a1a;
+      --accent-light: #d96b2a;
+      --accent-dark: #a44a12;
+      --accent-glow: rgba(196,90,26,0.22);
+      --green: #5a8a72;
+      --blue: #4a7c9b;
+      --purple: #7c6cc0;
+      --white: #eae6df;
+      --shadow-lg: 0 24px 64px rgba(0,0,0,0.5);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.3);
+      --shadow-sm: 0 2px 12px rgba(0,0,0,0.2);
+      --shadow-glow: 0 0 30px rgba(196,90,26,0.08);
+      --max-w: 1200px;
+      --radius-lg: 14px;
+      --radius-md: 10px;
+      --radius-sm: 8px;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Space Grotesk', sans-serif;
+      --font-ui: 'Space Grotesk', sans-serif;
+      --transition: 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* ── Reset & Base ──────────────────────────────────────── */
+    /* Box-sizing reset, smooth scrolling, base typography and background */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.72;
+      overflow-x: hidden;
+    }
+    /* ── Canvas & Global Elements ────────────────────────── */
+    /* Background mesh canvas, scroll progress bar, global element resets */
+    #meshCanvas {
+      position: fixed; top: 0; right: 0; width: 60%; height: 100%;
+      z-index: 0; pointer-events: none; opacity: 0.4;
+    }
+    .scroll-progress { display: none; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    .container { width: min(var(--max-w), calc(100% - 40px)); margin: 0 auto; position: relative; z-index: 1; }
+
+    /* ── Scroll Reveal Animations ─────────────────────────── */
+    /* Fade-in-up animation classes triggered by IntersectionObserver */
+    /* reveal-d1/d2/d3 add staggered transition delays */
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+
+    /* ── Highlight Text Gradient ──────────────────────────── */
+    /* Gold gradient text effect used on accent words in headings */
+    .highlight {
+      background: linear-gradient(135deg, #c45a1a, #d96b2a, #d96b2a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── Buttons ───────────────────────────────────────────── */
+    /* Primary (gold fill), ghost (transparent border), and small variant */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px 26px; border-radius: var(--radius-sm); border: 1px solid transparent;
+      font-family: var(--font-display); font-weight: 700; font-size: 0.9rem;
+      cursor: pointer; transition: all var(--transition); white-space: nowrap;
+    }
+    .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 4px 20px rgba(196,90,26,0.25), 0 1px 4px rgba(196,90,26,0.15); }
+    .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(196,90,26,0.30), 0 2px 8px rgba(196,90,26,0.20); }
+    .btn-ghost { background: transparent; border-color: rgba(255,245,230,0.12); color: var(--text); }
+    .btn-ghost:hover { background: rgba(255,245,230,0.06); border-color: var(--border-hover); }
+    .btn-sm { padding: 10px 18px; font-size: 0.924rem; }
+
+    /* ── Header & Navigation ──────────────────────────────── */
+    /* Sticky top nav with glassmorphism blur, brand logo, nav links,
+       phone number, CTA button, hamburger toggle, and mobile menu overlay */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(24px) saturate(1.6);
+      -webkit-backdrop-filter: blur(24px) saturate(1.6);
+      background: rgba(13,13,13,0.92);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 20px rgba(0,0,0,0.4);
+    }
+    .nav-bar { display: flex; align-items: center; justify-content: space-between; min-height: 68px; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-family: var(--font-display); font-weight: 800; font-size: 1.12rem; }
+    .brand-icon {
+      width: 42px; height: 42px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(196,90,26,0.20), rgba(196,90,26,0.08));
+      border: 1px solid rgba(196,90,26,0.25);
+      display: grid; place-items: center; flex-shrink: 0;
+      box-shadow: 0 0 16px rgba(196,90,26,0.10);
+    }
+    .brand-sub { display: block; font-size: 0.62rem; font-weight: 600; color: var(--text-dim); letter-spacing: 0.16em; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-links a { color: var(--text-secondary); font-size: 0.946rem; font-weight: 500; padding: 8px 14px; border-radius: var(--radius-sm); transition: color var(--transition), background var(--transition); }
+    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.04); }
+    .nav-links a.active { color: var(--accent-light); }
+    .nav-right { display: flex; align-items: center; gap: 14px; }
+    .nav-phone { color: var(--text-secondary); font-size: 0.946rem; font-weight: 600; font-family: var(--font-display); }
+    .hamburger { display: none; background: none; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 8px; cursor: pointer; color: var(--text); }
+    .hamburger svg { display: block; }
+    .mobile-menu { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(13,13,13,0.98); backdrop-filter: blur(24px); flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; color: var(--text); padding: 12px 24px; }
+    .mobile-close { position: absolute; top: 20px; right: 20px; background: none; border: none; color: var(--text); cursor: pointer; }
+
+    /* ── Blog Hero Section ────────────────────────────────── */
+    /* Top hero area with page title and subtitle description */
+    .blog-hero { padding: 72px 0 48px; border-bottom: 1px solid var(--border); }
+    .blog-hero h1 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 900; letter-spacing: -0.04em; margin-bottom: 12px; text-shadow: 0 0 40px rgba(196,90,26,0.12); }
+    .blog-hero p { color: var(--text-secondary); font-size: 1.05rem; max-width: 60ch; line-height: 1.7; }
+    .blog-hero-img { margin-top: 36px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border); position: relative; }
+    .blog-hero-img::after { content: ""; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,0,0,0.35), rgba(0,0,0,0.1)); pointer-events: none; }
+    .blog-hero-img img { width: 100%; height: 320px; object-fit: cover; display: block; }
+
+    /* ── Filter Bar ────────────────────────────────────────── */
+    /* Sticky category filter tabs and search input below the hero;
+       uses glassmorphism backdrop-filter, sticks below the header */
+    .filter-bar { padding: 24px 0; border-bottom: 1px solid var(--border); position: sticky; top: 68px; z-index: 50; background: rgba(13,13,13,0.92); backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4); }
+    .filter-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .filter-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter-tag {
+      padding: 7px 16px; border-radius: 999px; font-size: 0.82rem; font-weight: 600;
+      border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.04);
+      color: var(--text-secondary); cursor: pointer; transition: all var(--transition);
+      font-family: var(--font-display);
+    }
+    .filter-tag:hover, .filter-tag.active { border-color: var(--accent); color: var(--accent-light); background: rgba(196,90,26,0.10); box-shadow: 0 0 12px rgba(196,90,26,0.08); }
+    .search-box {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 0 14px;
+      transition: border-color var(--transition);
+    }
+    .search-box:focus-within { border-color: var(--accent); }
+    .search-box input {
+      background: transparent; border: none; color: var(--text);
+      font-family: var(--font-body); font-size: 0.86rem; padding: 10px 0;
+      outline: none; width: 200px;
+    }
+    .search-box input::placeholder { color: var(--text-dim); }
+    .search-box svg { color: var(--text-dim); flex-shrink: 0; }
+
+    /* ── Blog Grid Layout ──────────────────────────────────── */
+    /* 3-column CSS grid for blog post cards */
+    .blog-section { padding: 48px 0 100px; }
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+    /* ── Featured Post Card ───────────────────────────────── */
+    /* Full-width featured article spanning all grid columns;
+       two-column layout with image/icon area and content area */
+    .featured-post {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all var(--transition);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    }
+    .featured-post:hover { border-color: var(--border-hover); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.5); }
+    .featured-image {
+      background: rgba(196,90,26,0.04);
+      display: grid; place-items: center; min-height: 280px; position: relative;
+      color: var(--text-dim);
+    }
+    .featured-badge {
+      position: absolute; top: 16px; left: 16px;
+      font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; padding: 5px 12px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      color: #fff;
+    }
+    .featured-content { padding: 32px; display: flex; flex-direction: column; justify-content: center; }
+    .featured-content .blog-category { margin-bottom: 8px; }
+    .featured-content h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 12px; letter-spacing: -0.02em; }
+    .featured-content p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px; }
+    .featured-meta { display: flex; align-items: center; gap: 16px; color: var(--text-dim); font-size: 0.8rem; }
+    .featured-meta .author { display: flex; align-items: center; gap: 8px; }
+    .author-avatar {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      display: grid; place-items: center; font-size: 0.6rem; font-weight: 700; color: #fff;
+    }
+
+    /* ── Blog Card Component ───────────────────────────────── */
+    /* Individual blog post card with image area, category badge,
+       date, title, excerpt, read-more link, and read-time indicator */
+    .blog-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all var(--transition);
+      display: flex; flex-direction: column;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    }
+    .blog-card:hover { border-color: var(--border-hover); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.5); }
+    .blog-card-image {
+      background: rgba(196,90,26,0.04);
+      min-height: 160px; display: grid; place-items: center;
+      position: relative; color: var(--text-dim);
+    }
+    .blog-category {
+      display: inline-block;
+      font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; padding: 4px 10px; border-radius: 999px;
+      background: rgba(229,168,48,0.12); color: var(--accent-light);
+    }
+    .blog-category.cat-cloud { background: rgba(74,124,155,0.12); color: var(--blue); }
+    .blog-category.cat-security { background: rgba(90,138,114,0.12); color: var(--green); }
+    .blog-category.cat-ai { background: rgba(124,108,192,0.12); color: var(--purple); }
+    .blog-category.cat-strategy { background: rgba(229,168,48,0.12); color: var(--accent-light); }
+    .blog-category.cat-network { background: rgba(74,124,155,0.12); color: var(--blue); }
+    .blog-card-image .blog-category { position: absolute; top: 12px; left: 12px; }
+    .blog-card-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
+    .blog-date { display: block; font-size: 0.76rem; color: var(--text-dim); margin-bottom: 8px; }
+    .blog-card-body h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; line-height: 1.3; }
+    .blog-card-body p { color: var(--text-secondary); font-size: 0.86rem; line-height: 1.6; margin-bottom: 16px; flex: 1; }
+    .blog-card-footer { display: flex; align-items: center; justify-content: space-between; }
+    .read-more { color: var(--accent-light); font-size: 0.84rem; font-weight: 600; transition: color var(--transition); }
+    .read-more:hover { color: #d96b2a; }
+    .read-time { font-size: 0.76rem; color: var(--text-dim); }
+
+    /* ── Pagination Controls ───────────────────────────────── */
+    /* Centered page number buttons below the blog grid */
+    .pagination { display: flex; justify-content: center; gap: 8px; margin-top: 48px; }
+    .page-btn {
+      width: 40px; height: 40px; border-radius: var(--radius-sm);
+      border: 1px solid var(--border); background: transparent;
+      color: var(--text-secondary); font-family: var(--font-display); font-weight: 600;
+      font-size: 0.88rem; cursor: pointer; transition: all var(--transition);
+      display: grid; place-items: center;
+    }
+    .page-btn:hover, .page-btn.active { border-color: var(--accent); color: var(--accent-light); background: rgba(229,168,48,0.06); }
+
+    /* ── White Card Overrides ─────────────────────────────── */
+    /* Override dark-theme text colors inside white card backgrounds
+       so that headings, body text, and meta info remain legible */
+    /* ===== WHITE CARD OVERRIDES ===== */
+    .featured-post, .blog-card {
+      background: var(--bg-card);
+      border-color: var(--card-border);
+      color: var(--card-text);
+    }
+    .featured-content h2, .blog-card-body h3 {
+      color: var(--card-text);
+    }
+    .featured-content p, .blog-card-body p, .blog-date {
+      color: var(--card-text-secondary);
+    }
+    .featured-meta { color: var(--card-text-dim); }
+    .featured-image { background: #f5f5f5; color: var(--card-text-dim); }
+    .blog-card-image { background: #f5f5f5; color: var(--card-text-dim); }
+    .read-time { color: var(--card-text-dim); }
+    .newsletter-form input {
+      background: rgba(255,255,255,0.06);
+    }
+
+    /* ── Newsletter Signup ─────────────────────────────────── */
+    /* Email subscription bar with heading, description, and inline form */
+    .newsletter { padding: 40px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .newsletter-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+    .newsletter h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; }
+    .newsletter p { color: var(--text-secondary); font-size: 0.88rem; }
+    .newsletter-form { display: flex; gap: 8px; }
+    .newsletter-form input {
+      padding: 12px 18px; background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border); border-radius: var(--radius-sm);
+      color: var(--text); font-family: var(--font-body); font-size: 0.88rem;
+      min-width: 260px; outline: none; transition: border-color var(--transition);
+    }
+    .newsletter-form input:focus { border-color: var(--accent); }
+    .newsletter-form input::placeholder { color: var(--text-dim); }
+
+    /* ── Footer ────────────────────────────────────────────── */
+    /* Minimal footer with copyright, office locations, and contact links */
+    .footer { padding: 32px 0; }
+    .footer-row {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 20px; flex-wrap: wrap; color: var(--text-dim); font-size: 0.924rem;
+    }
+    .footer-row a { color: var(--text-secondary); transition: color var(--transition); }
+    .footer-row a:hover { color: var(--accent-light); }
+
+    /* ── Responsive Breakpoints ────────────────────────────── */
+    /* 1024px: Collapse to 2-col grid, hide desktop nav, show hamburger */
+    /* 640px:  Single-column grid, stack newsletter form vertically */
+    @media (max-width: 1024px) {
+      .blog-grid { grid-template-columns: 1fr 1fr; }
+      .featured-post { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .nav-phone { display: none; }
+    }
+    @media (max-width: 640px) {
+      .blog-grid { grid-template-columns: 1fr; }
+      .newsletter-inner { flex-direction: column; align-items: flex-start; }
+      .newsletter-form { flex-direction: column; width: 100%; }
+      .newsletter-form input { min-width: auto; width: 100%; }
+      .filter-inner { flex-direction: column; align-items: flex-start; }
+      .search-box input { width: 100%; }
+    }
+    .brand-logo { height: 100px; width: auto; max-width: 380px; object-fit: contain; flex-shrink: 0; mix-blend-mode: screen; transition: opacity 0.25s ease; }
+    .brand-logo--footer { height: 132px; max-width: 460px; }
+      .brand-text { font-size: 1.485rem; font-weight: 800; color: var(--text-primary, #fff); letter-spacing: -0.01em; }
+    .brand-text-sub { font-size: 1.485rem; font-weight: 700; color: var(--accent, #c45a1a); letter-spacing: -0.01em; }
+    /* Scroll margin for fixed header */
+    section { scroll-margin-top: 80px; }
+    /* Accessibility & Performance */
+    ::selection { background: rgba(196,90,26,0.3); color: #F0EDE8; }
+    *:focus-visible { outline: 2px solid #C45A1A; outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.callmtt.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.callmtt.com/blog/"}
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ============================================================
+       BACKGROUND CANVAS — Animated particle mesh rendered via JS
+       Fixed position behind all content, decorative only
+       ============================================================ -->
+  <canvas id="meshCanvas"></canvas>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ============================================================
+       MOBILE MENU — Full-screen overlay navigation for small screens
+       Toggled open/closed via hamburger button in header
+       ============================================================ -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')" aria-label="Close">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <a href="../index.html">Home</a>
+    <a href="../index.html#services">Services</a>
+    <a href="../index.html#solutions">Solutions</a>
+    <a href="../index.html#why-mtt">Team</a>
+    <a href="index.html">Blog</a>
+    <a href="../index.html#contact">Contact</a>
+    <a href="tel:4696352155" class="btn btn-primary btn-sm" style="margin-top:12px">Call 469-635-2155</a>
+  </div>
+
+  <!-- ============================================================
+       HEADER & NAVIGATION — Sticky top bar with glassmorphism effect
+       Contains brand logo, desktop nav links, phone number, CTA button,
+       and hamburger toggle for mobile
+       ============================================================ -->
+  <header>
+    <div class="container nav-bar">
+      <a href="../index.html" class="brand" aria-label="MTT Consulting home">
+        <span class="brand-text">MTT</span><span class="brand-text-sub">Consulting</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html#services">Services</a>
+        <a href="../index.html#solutions">Solutions</a>
+        <a href="../index.html#industries">Industries</a>
+        <a href="../index.html#why-mtt">Team</a>
+        <a href="index.html" class="active">Blog</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <div class="nav-right">
+        <a href="tel:4696352155" class="nav-phone">469-635-2155</a>
+        <a class="btn btn-primary btn-sm" href="../index.html#contact">Book a Consultation</a>
+        <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============================================================
+         BLOG HERO — Page title and introductory description
+         Uses scroll-reveal animation on heading and paragraph
+         ============================================================ -->
+    <section class="blog-hero">
+      <div class="container">
+        <h1 class="reveal">Blog & <span class="highlight">Insights</span></h1>
+        <p class="reveal reveal-d1">Expert perspectives on cybersecurity, cloud strategy, AI governance, and IT leadership &mdash; practical guidance for decision-makers at growing businesses.</p>
+        <div class="blog-hero-img reveal reveal-d2">
+          <img src="../images/image5.jpg" alt="IT consulting team analyzing data with holographic digital overlays" loading="lazy" decoding="async" width="900" height="600" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FILTER BAR — Category filter tabs and search input
+         Sticky below header; JS handles filtering posts by category
+         and live search by text content
+         ============================================================ -->
+    <div class="filter-bar">
+      <div class="container filter-inner">
+        <div class="filter-tags">
+          <button class="filter-tag active" data-filter="all">All Posts</button>
+          <button class="filter-tag" data-filter="cybersecurity">Cybersecurity</button>
+          <button class="filter-tag" data-filter="cloud">Cloud</button>
+          <button class="filter-tag" data-filter="ai">AI & Governance</button>
+          <button class="filter-tag" data-filter="strategy">IT Strategy</button>
+          <button class="filter-tag" data-filter="network">Network</button>
+        </div>
+        <div class="search-box">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          <input type="text" placeholder="Search articles..." id="blogSearch" />
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         BLOG GRID — Main content area with all blog post cards
+         Uses CSS Grid (3-col desktop, 2-col tablet, 1-col mobile)
+         Posts carry data-category attributes for JS filtering
+         ============================================================ -->
+    <section class="blog-section">
+      <div class="container">
+        <div class="blog-grid" id="blogGrid">
+
+          <!-- FEATURED POST — Full-width card spanning all columns -->
+          <article class="featured-post reveal" data-category="cybersecurity">
+            <div class="featured-image">
+              <svg width="64" height="64" viewBox="0 0 48 48" fill="none"><path d="M24 6L14 12v12c0 8.33 4.27 16.11 10 18 5.73-1.89 10-9.67 10-18V12L24 6z" stroke="currentColor" stroke-width="2"/><path d="M18 24l4 4 6-8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+              <span class="featured-badge">Featured</span>
+            </div>
+            <div class="featured-content">
+              <span class="blog-category cat-security">Cybersecurity</span>
+              <h2><a href="zero-trust-2026-framework.html" style="color:inherit;text-decoration:none">Zero Trust in 2026: A Practical Framework for Mid-Market Organizations</a></h2>
+              <p>Zero trust isn't just for Fortune 500 companies anymore. Here's how growing businesses can implement a zero-trust architecture &mdash; from identity-first security to micro-segmentation &mdash; without the enterprise price tag or complexity.</p>
+              <div class="featured-meta">
+                <div class="author"><div class="author-avatar">JT</div> Jordan Torres</div>
+                <span>March 28, 2026</span>
+                <span>8 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 2 -->
+          <article class="blog-card reveal reveal-d1" data-category="cloud">
+            <div class="blog-card-image">
+              <svg width="36" height="36" viewBox="0 0 32 32" fill="none"><path d="M8 24h16a7 7 0 10-2-13.54A9 9 0 108 24z" stroke="currentColor" stroke-width="2"/></svg>
+              <span class="blog-category cat-cloud">Cloud</span>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-date">March 15, 2026</span>
+              <h3>Azure vs. AWS vs. GCP: Choosing the Right Cloud for Your Business</h3>
+              <p>A no-hype comparison of the three major cloud platforms &mdash; from cost structures to compliance capabilities and ecosystem fit.</p>
+              <div class="blog-card-footer">
+                <a href="azure-vs-aws-vs-gcp.html" class="read-more">Read Article &rarr;</a>
+                <span class="read-time">6 min</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 3 -->
+          <article class="blog-card reveal reveal-d2" data-category="strategy">
+            <div class="blog-card-image">
+              <svg width="36" height="36" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="10" stroke="currentColor" stroke-width="2"/><path d="M16 6v10l6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <span class="blog-category cat-strategy">IT Strategy</span>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-date">March 1, 2026</span>
+              <h3>Why Your Business Needs a Virtual CIO (Even If You Have an IT Team)</h3>
+              <p>The gap between tactical IT management and strategic technology leadership is costing mid-market businesses millions in missed opportunities.</p>
+              <div class="blog-card-footer">
+                <a href="why-your-business-needs-virtual-cio.html" class="read-more">Read Article &rarr;</a>
+                <span class="read-time">5 min</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 4 -->
+          <article class="blog-card reveal reveal-d3" data-category="ai">
+            <div class="blog-card-image">
+              <svg width="36" height="36" viewBox="0 0 32 32" fill="none"><rect x="6" y="4" width="20" height="24" rx="3" stroke="currentColor" stroke-width="2"/><path d="M12 10h8M12 15h8M12 20h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <span class="blog-category cat-ai">AI</span>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-date">February 20, 2026</span>
+              <h3>AI Readiness: Is Your Infrastructure Prepared for the AI Revolution?</h3>
+              <p>Before adopting AI tools, organizations need to assess their data quality, security posture, and infrastructure readiness.</p>
+              <div class="blog-card-footer">
+                <a href="ai-readiness-infrastructure.html" class="read-more">Read Article &rarr;</a>
+                <span class="read-time">7 min</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 5 -->
+          <article class="blog-card reveal" data-category="cybersecurity">
+            <div class="blog-card-image">
+              <svg width="36" height="36" viewBox="0 0 32 32" fill="none"><path d="M16 4L6 9v7c0 6.5 4.5 12.5 10 14 5.5-1.5 10-7.5 10-14V9L16 4z" stroke="currentColor" stroke-width="2"/></svg>
+              <span class="blog-category cat-security">Cybersecurity</span>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-date">February 8, 2026</span>
+              <h3>The CISO's Playbook: Building a Security Culture from the Ground Up</h3>
+              <p>Technical controls are only half the battle. Here's how to build a security-first culture that sticks across your organization.</p>
+              <div class="blog-card-footer">
+                <a href="ciso-playbook-security-culture.html" class="read-more">Read Article &rarr;</a>
+                <span class="read-time">9 min</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 6 -->
+          <article class="blog-card reveal reveal-d1" data-category="network">
+            <div class="blog-card-image">
+              <svg width="36" height="36" viewBox="0 0 32 32" fill="none"><circle cx="8" cy="16" r="3" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="8" r="3" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="24" r="3" stroke="currentColor" stroke-width="2"/><path d="M11 15l10-6M11 17l10 6" stroke="currentColor" stroke-width="2"/></svg>
+              <span class="blog-category cat-network">Network</span>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-date">January 25, 2026</span>
+              <h3>SD-WAN Deployment: 5 Mistakes That Cost Businesses Thousands</h3>
+              <p>Learn from real-world SD-WAN implementations &mdash; the common pitfalls and how to architect a deployment that actually delivers ROI.</p>
+              <div class="blog-card-footer">
+                <a href="sd-wan-deployment-mistakes.html" class="read-more">Read Article &rarr;</a>
+                <span class="read-time">6 min</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 7 -->
+          <article class="blog-card reveal reveal-d2" data-category="ai">
+            <div class="blog-card-image">
+              <svg width="36" height="36" viewBox="0 0 32 32" fill="none"><path d="M16 4a6 6 0 016 6c0 2.2-1.2 4.2-3 5.2V18h-6v-2.8A6 6 0 0116 4z" stroke="currentColor" stroke-width="2"/><path d="M12 22h8l1.5 6h-11L12 22z" stroke="currentColor" stroke-width="2"/></svg>
+              <span class="blog-category cat-ai">AI</span>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-date">January 12, 2026</span>
+              <h3>AI Governance Framework: A Step-by-Step Guide for IT Leaders</h3>
+              <p>Build a practical AI governance framework &mdash; from acceptable use policies to vendor vetting and data classification.</p>
+              <div class="blog-card-footer">
+                <a href="ai-governance-framework-guide.html" class="read-more">Read Article &rarr;</a>
+                <span class="read-time">10 min</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 8 -->
+          <article class="blog-card reveal reveal-d3" data-category="strategy">
+            <div class="blog-card-image">
+              <svg width="36" height="36" viewBox="0 0 32 32" fill="none"><path d="M4 18h16M6 15l4-4 3.5 2.5 5.5-6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 7h4v4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="blog-category cat-strategy">IT Strategy</span>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-date">January 5, 2026</span>
+              <h3>2026 IT Budget Planning: What Growing Businesses Should Prioritize</h3>
+              <p>A practical guide to allocating IT spend across security, cloud, infrastructure, and innovation initiatives.</p>
+              <div class="blog-card-footer">
+                <a href="2026-it-budget-planning.html" class="read-more">Read Article &rarr;</a>
+                <span class="read-time">5 min</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 9 -->
+          <article class="blog-card reveal" data-category="cloud">
+            <div class="blog-card-image">
+              <svg width="36" height="36" viewBox="0 0 32 32" fill="none"><rect x="3" y="3" width="26" height="26" rx="3" stroke="currentColor" stroke-width="2"/><path d="M10 10h5v5h-5zM17 10h5v5h-5zM10 17h5v5h-5zM17 17h5v5h-5z" stroke="currentColor" stroke-width="1.5"/></svg>
+              <span class="blog-category cat-cloud">Cloud</span>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-date">December 18, 2025</span>
+              <h3>Microsoft 365 Hardening: The 10 Settings You're Probably Missing</h3>
+              <p>Most M365 tenants ship with default configs that leave your organization exposed. Here are the critical settings to lock down.</p>
+              <div class="blog-card-footer">
+                <a href="microsoft-365-hardening-settings.html" class="read-more">Read Article &rarr;</a>
+                <span class="read-time">7 min</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- ============================================================
+             PAGINATION — Page number buttons for navigating blog posts
+             ============================================================ -->
+        <div class="pagination">
+          <button class="page-btn active">1</button>
+          <button class="page-btn">2</button>
+          <button class="page-btn">3</button>
+          <button class="page-btn">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       NEWSLETTER CTA — Email subscription section
+       Inline form with email input and subscribe button
+       ============================================================ -->
+  <section class="newsletter">
+    <div class="container newsletter-inner">
+      <div><h3>Stay Ahead of the Curve</h3><p>Monthly insights on cybersecurity, cloud, AI, and IT strategy &mdash; no spam, just substance.</p></div>
+      <form class="newsletter-form" onsubmit="event.preventDefault()">
+        <input type="email" placeholder="Enter your business email" required />
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER — Copyright notice, office locations, and contact links
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container footer-row">
+      <a href="../index.html" class="brand" style="margin-bottom:8px">
+        <span class="brand-text">MTT</span><span class="brand-text-sub">Consulting</span>
+      </a>
+      <div>&copy; 2026 MTT Consulting. vCIO advisory, AI governance, cybersecurity, and managed IT services nationwide.</div>
+      <div>Offices in Collin County, TX & Orange County, CA &middot; <a href="mailto:info@callmtt.com">info@callmtt.com</a> &middot; <a href="tel:4696352155">469-635-2155</a></div>
+      <div><a href="/privacy-policy.html">Privacy Policy</a> &middot; <a href="/terms-of-service.html">Terms of Service</a> &middot; <a href="/sitemap.xml">Sitemap</a></div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT — Page interactivity and animations
+       ============================================================ -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // --- Scroll Reveal Animation ---
+      // Uses IntersectionObserver to add 'visible' class to .reveal elements
+      // as they enter the viewport, triggering CSS fade-in-up transitions
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+      }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      // --- Category Filter ---
+      // Filters blog cards by data-category attribute when filter tabs are clicked;
+      // toggles active state on the selected tab and shows/hides matching posts
+      const filterTags = document.querySelectorAll('.filter-tag');
+      const posts = document.querySelectorAll('[data-category]');
+      filterTags.forEach(tag => {
+        tag.addEventListener('click', () => {
+          filterTags.forEach(t => t.classList.remove('active'));
+          tag.classList.add('active');
+          const filter = tag.dataset.filter;
+          posts.forEach(post => {
+            if (filter === 'all' || post.dataset.category === filter) {
+              post.style.display = '';
+            } else {
+              post.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // --- Live Search ---
+      // Filters posts by matching search query against each card's text content;
+      // resets active category tab when searching, restores "All Posts" when cleared
+      const searchInput = document.getElementById('blogSearch');
+      searchInput.addEventListener('input', () => {
+        const query = searchInput.value.toLowerCase();
+        posts.forEach(post => {
+          const text = post.textContent.toLowerCase();
+          post.style.display = text.includes(query) ? '' : 'none';
+        });
+        if (query.length > 0) {
+          filterTags.forEach(t => t.classList.remove('active'));
+        } else {
+          filterTags[0].classList.add('active');
+        }
+      });
+
+      // --- Scroll Progress Bar ---
+      // Updates the width of the progress bar based on scroll position
+      const scrollProgress = document.getElementById('scrollProgress');
+      window.addEventListener('scroll', () => {
+        const docH = document.documentElement.scrollHeight - window.innerHeight;
+        scrollProgress.style.width = docH > 0 ? (window.scrollY / docH * 100) + '%' : '0%';
+      });
+
+      // --- Canvas Mesh Animation ---
+      // Creates an animated particle network on the background <canvas> element.
+      // 60 floating nodes drift and bounce off edges; lines connect nearby nodes.
+      // Nodes near the mouse cursor are repelled for an interactive parallax effect.
+      // Uses requestAnimationFrame for a continuous 60fps render loop.
+      const canvas = document.getElementById('meshCanvas');
+      if (canvas) {
+        const ctx = canvas.getContext('2d');
+        let W, H, nodes = [], mouseX = -9999, mouseY = -9999;
+        const NODE_COUNT = 60, CONNECT_DIST = 160, MOUSE_RADIUS = 200;
+
+        function resize() {
+          W = canvas.width = window.innerWidth;
+          H = canvas.height = window.innerHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        for (let i = 0; i < NODE_COUNT; i++) {
+          nodes.push({
+            x: Math.random() * W,
+            y: Math.random() * H,
+            vx: (Math.random() - 0.5) * 0.4,
+            vy: (Math.random() - 0.5) * 0.4,
+            r: Math.random() * 1.8 + 0.6
+          });
+        }
+
+        document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
+        document.addEventListener('mouseleave', () => { mouseX = -9999; mouseY = -9999; });
+
+        function draw() {
+          ctx.clearRect(0, 0, W, H);
+          for (let i = 0; i < nodes.length; i++) {
+            const n = nodes[i];
+            n.x += n.vx; n.y += n.vy;
+            if (n.x < 0 || n.x > W) n.vx *= -1;
+            if (n.y < 0 || n.y > H) n.vy *= -1;
+
+            const dxM = n.x - mouseX, dyM = n.y - mouseY;
+            const distM = Math.sqrt(dxM * dxM + dyM * dyM);
+            if (distM < MOUSE_RADIUS) {
+              const force = (1 - distM / MOUSE_RADIUS) * 0.6;
+              n.x += dxM / distM * force;
+              n.y += dyM / distM * force;
+            }
+
+            for (let j = i + 1; j < nodes.length; j++) {
+              const m = nodes[j];
+              const dx = n.x - m.x, dy = n.y - m.y;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+              if (dist < CONNECT_DIST) {
+                const alpha = (1 - dist / CONNECT_DIST) * 0.18;
+                const nearMouse = distM < MOUSE_RADIUS * 1.2 ? 1.8 : 1;
+                ctx.beginPath();
+                ctx.moveTo(n.x, n.y);
+                ctx.lineTo(m.x, m.y);
+                ctx.strokeStyle = `rgba(196,90,26,${alpha * nearMouse})`;
+                ctx.lineWidth = 0.6;
+                ctx.stroke();
+              }
+            }
+
+            const grd = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r * 3);
+            grd.addColorStop(0, `rgba(196,90,26,0.5)`);
+            grd.addColorStop(1, `rgba(196,90,26,0)`);
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, n.r * 3, 0, Math.PI * 2);
+            ctx.fillStyle = grd;
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(196,90,26,0.6)`;
+            ctx.fill();
+          }
+          requestAnimationFrame(draw);
+        }
+        draw();
+      }
+    });
+  </script>
+</body>
+</html>
