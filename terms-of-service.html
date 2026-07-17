@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================================
+       META TAGS — charset, viewport, SEO description, keywords,
+       author, robots, canonical URL, favicon, and theme color
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>Terms of Service | MTT Consulting</title>
+  <meta name="description" content="Terms of Service for MTT Consulting. Read our terms governing the use of our website and IT consulting services including managed services, cybersecurity, and cloud solutions." />
+  <meta name="keywords" content="terms of service, terms and conditions, legal, MTT Consulting, IT consulting, managed services, cybersecurity" />
+  <meta name="author" content="MTT Consulting" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.callmtt.com/terms-of-service" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <meta name="theme-color" content="#0b0b0a" />
+
+  <!-- ============================================================
+       OPEN GRAPH TAGS — Facebook / LinkedIn share card
+       ============================================================ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Terms of Service | MTT Consulting" />
+  <meta property="og:description" content="Terms of Service governing the use of callmtt.com and MTT Consulting's IT consulting, managed services, cybersecurity, and cloud solutions." />
+  <meta property="og:url" content="https://www.callmtt.com/terms-of-service" />
+  <meta property="og:site_name" content="MTT Consulting" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://www.callmtt.com/og-image.png" />
+
+  <!-- ============================================================
+       TWITTER CARD — summary_large_image card
+       ============================================================ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Terms of Service | MTT Consulting" />
+  <meta name="twitter:description" content="Terms of Service governing the use of callmtt.com and MTT Consulting's IT consulting, managed services, cybersecurity, and cloud solutions." />
+  <meta name="twitter:image" content="https://www.callmtt.com/og-image.png" />
+
+  <!-- ============================================================
+       STRUCTURED DATA (JSON-LD) — BreadcrumbList
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.callmtt.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Terms of Service", "item": "https://www.callmtt.com/terms-of-service.html"}
+    ]
+  }
+  </script>
+
+  <!-- ============================================================
+       FONT LOADING — Google Fonts preconnect + Space Grotesk 400-700
+       ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" /></noscript>
+
+  <!-- ============================================================
+       EMBEDDED STYLES — All CSS for this page
+       ============================================================ -->
+  <style>
+    /* -- Design Tokens ----------------------------------------- */
+    :root {
+      --bg: #000000;
+      --bg-elevated: #0a0a0a;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f5f5f5;
+      --border: rgba(255,255,255,0.08);
+      --border-hover: rgba(196,90,26,0.35);
+      --text: #eae6df;
+      --text-secondary: #9c9890;
+      --text-dim: #625e58;
+      --card-text: #1a1a1a;
+      --card-text-secondary: #555555;
+      --card-text-dim: #888888;
+      --card-border: rgba(230,230,230,0.15);
+      --accent: #c45a1a;
+      --accent-light: #d96b2a;
+      --accent-dark: #a44a12;
+      --accent-glow: rgba(196,90,26,0.22);
+      --green: #5a8a72;
+      --blue: #4a7c9b;
+      --purple: #7c6cc0;
+      --white: #eae6df;
+      --shadow-lg: 0 24px 64px rgba(0,0,0,0.5);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.3);
+      --shadow-sm: 0 2px 12px rgba(0,0,0,0.2);
+      --shadow-glow: 0 0 30px rgba(196,90,26,0.08);
+      --max-w: 1200px;
+      --article-w: 820px;
+      --radius-lg: 14px;
+      --radius-md: 10px;
+      --radius-sm: 8px;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Space Grotesk', sans-serif;
+      --font-ui: 'Space Grotesk', sans-serif;
+      --transition: 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* -- Reset & Base ------------------------------------------ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.72;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    .container { width: min(var(--max-w), calc(100% - 40px)); margin: 0 auto; position: relative; z-index: 1; }
+
+    /* -- Scroll Reveal Animations ------------------------------ */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+
+    .highlight {
+      background: linear-gradient(135deg, #c45a1a, #d96b2a, #d96b2a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* -- Buttons ----------------------------------------------- */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px 26px; border-radius: var(--radius-sm); border: 1px solid transparent;
+      font-family: var(--font-display); font-weight: 700; font-size: 0.9rem;
+      cursor: pointer; transition: all var(--transition); white-space: nowrap;
+    }
+    .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 4px 20px rgba(196,90,26,0.25), 0 1px 4px rgba(196,90,26,0.15); }
+    .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(196,90,26,0.30), 0 2px 8px rgba(196,90,26,0.20); }
+    .btn-ghost { background: transparent; border-color: rgba(255,245,230,0.12); color: var(--text); }
+    .btn-ghost:hover { background: rgba(255,245,230,0.06); border-color: var(--border-hover); }
+    .btn-sm { padding: 10px 18px; font-size: 0.924rem; }
+
+    /* -- Header & Navigation ---------------------------------- */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(24px) saturate(1.6);
+      -webkit-backdrop-filter: blur(24px) saturate(1.6);
+      background: rgba(13,13,13,0.92);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 20px rgba(0,0,0,0.4);
+    }
+    .nav-bar { display: flex; align-items: center; justify-content: space-between; min-height: 68px; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-family: var(--font-display); font-weight: 800; font-size: 1.12rem; }
+    .brand-icon {
+      width: 42px; height: 42px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(196,90,26,0.20), rgba(196,90,26,0.08));
+      border: 1px solid rgba(196,90,26,0.25);
+      display: grid; place-items: center; flex-shrink: 0;
+      box-shadow: 0 0 16px rgba(196,90,26,0.10);
+    }
+    .brand-sub { display: block; font-size: 0.62rem; font-weight: 600; color: var(--text-dim); letter-spacing: 0.16em; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-links a { color: var(--text-secondary); font-size: 0.946rem; font-weight: 500; padding: 8px 14px; border-radius: var(--radius-sm); transition: color var(--transition), background var(--transition); }
+    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.04); }
+    .nav-links a.active { color: var(--accent-light); }
+    .nav-right { display: flex; align-items: center; gap: 14px; }
+    .nav-phone { color: var(--text-secondary); font-size: 0.946rem; font-weight: 600; font-family: var(--font-display); }
+    .hamburger { display: none; background: none; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 8px; cursor: pointer; color: var(--text); }
+    .hamburger svg { display: block; }
+    .mobile-menu { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(13,13,13,0.98); backdrop-filter: blur(24px); flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; color: var(--text); padding: 12px 24px; }
+    .mobile-close { position: absolute; top: 20px; right: 20px; background: none; border: none; color: var(--text); cursor: pointer; }
+
+    /* -- Scroll Progress Bar ----------------------------------- */
+    .scroll-progress {
+      position: fixed; top: 68px; left: 0; height: 3px; z-index: 99;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      width: 0%; transition: width 0.1s linear;
+    }
+
+    /* -- Page Hero --------------------------------------------- */
+    .article-hero {
+      padding: 72px 0 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .article-hero-inner {
+      max-width: var(--article-w);
+      margin: 0 auto;
+    }
+    .article-category {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.10em; padding: 5px 14px; border-radius: 999px;
+      background: rgba(229,168,48,0.12); color: var(--accent-light);
+      margin-bottom: 20px;
+    }
+    .article-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1.12;
+      margin-bottom: 24px;
+      text-shadow: 0 0 40px rgba(196,90,26,0.10);
+    }
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 640px;
+    }
+
+    /* -- Article Body ----------------------------------------- */
+    .article-section { padding: 48px 0 80px; }
+    .article-card {
+      max-width: var(--article-w);
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 56px 52px;
+      color: var(--card-text);
+      box-shadow: var(--shadow-lg);
+    }
+    .article-card h2 {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--card-text);
+      margin: 48px 0 18px;
+      line-height: 1.25;
+    }
+    .article-card h2:first-child { margin-top: 0; }
+    .article-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--card-text);
+      margin: 32px 0 12px;
+      line-height: 1.3;
+    }
+    .article-card p {
+      font-size: 1.02rem;
+      line-height: 1.8;
+      color: var(--card-text-secondary);
+      margin-bottom: 20px;
+    }
+    .article-card p:last-child { margin-bottom: 0; }
+    .article-card strong { color: var(--card-text); font-weight: 700; }
+    .article-card a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color var(--transition);
+    }
+    .article-card a:hover { color: var(--accent-light); }
+    .article-card ul, .article-card ol {
+      list-style: none;
+      margin: 0 0 24px 0;
+      padding: 0;
+    }
+    .article-card ul li, .article-card ol li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 12px;
+      font-size: 1.02rem;
+      line-height: 1.8;
+      color: var(--card-text-secondary);
+    }
+    .article-card ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 11px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .article-card ol { counter-reset: ol-counter; }
+    .article-card ol li { counter-increment: ol-counter; }
+    .article-card ol li::before {
+      content: counter(ol-counter) '.';
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .article-card blockquote {
+      border-left: 4px solid var(--accent);
+      margin: 32px 0;
+      padding: 20px 28px;
+      background: rgba(196,90,26,0.04);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .article-card blockquote p {
+      font-size: 1.08rem;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--card-text);
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+    .article-card .divider {
+      border: none;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      margin: 40px 0;
+    }
+
+    /* -- Footer ----------------------------------------------- */
+    .footer { padding: 32px 0; border-top: 1px solid var(--border); }
+    .footer-row {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 20px; flex-wrap: wrap; color: var(--text-dim); font-size: 0.924rem;
+    }
+    .footer-row a { color: var(--text-secondary); transition: color var(--transition); }
+    .footer-row a:hover { color: var(--accent-light); }
+
+    /* -- Back Link --------------------------------------------- */
+    .back-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.86rem; font-weight: 600; color: var(--text-secondary);
+      transition: color var(--transition); margin-bottom: 24px;
+    }
+    .back-link:hover { color: var(--accent-light); }
+
+    /* -- Responsive Breakpoints ------------------------------- */
+    @media (max-width: 1024px) {
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .nav-phone { display: none; }
+    }
+    @media (max-width: 768px) {
+      .article-card { padding: 36px 28px; }
+    }
+    @media (max-width: 640px) {
+      .article-card { padding: 28px 20px; }
+    }
+    #meshCanvas {
+      position: fixed; top: 0; right: 0; width: 60%; height: 100%;
+      z-index: 0; pointer-events: none; opacity: 0.4;
+    }
+    .brand-logo { height: 100px; width: auto; max-width: 380px; object-fit: contain; flex-shrink: 0; mix-blend-mode: screen; transition: opacity 0.25s ease; }
+    .brand-logo--footer { height: 132px; max-width: 460px; }
+      .brand-text { font-size: 1.485rem; font-weight: 800; color: var(--text-primary, #fff); letter-spacing: -0.01em; }
+    .brand-text-sub { font-size: 1.485rem; font-weight: 700; color: var(--accent, #c45a1a); letter-spacing: -0.01em; }
+    /* Scroll margin for fixed header */
+    section { scroll-margin-top: 80px; }
+    /* Accessibility & Performance */
+    ::selection { background: rgba(196,90,26,0.3); color: #F0EDE8; }
+    *:focus-visible { outline: 2px solid #C45A1A; outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       MOBILE MENU — Full-screen overlay nav for small viewports
+       ============================================================ -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')" aria-label="Close">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <a href="index.html">Home</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#solutions">Solutions</a>
+    <a href="index.html#industries">Industries</a>
+    <a href="index.html#why-mtt">Team</a>
+    <a href="blog/">Blog</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="tel:4696352155" class="btn btn-primary btn-sm" style="margin-top:12px">Call 469-635-2155</a>
+  </div>
+
+  <!-- ============================================================
+       HEADER & NAVIGATION — Sticky glassmorphism bar
+       ============================================================ -->
+  <header>
+    <div class="container nav-bar">
+      <a href="index.html" class="brand" aria-label="MTT Consulting home">
+        <span class="brand-text">MTT</span><span class="brand-text-sub">Consulting</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html#services">Services</a>
+        <a href="index.html#solutions">Solutions</a>
+        <a href="index.html#industries">Industries</a>
+        <a href="index.html#why-mtt">Team</a>
+        <a href="blog/">Blog</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <div class="nav-right">
+        <a href="tel:4696352155" class="nav-phone">469-635-2155</a>
+        <a class="btn btn-primary btn-sm" href="index.html#contact">Book a Consultation</a>
+        <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       SCROLL PROGRESS — Thin gold bar below header
+       ============================================================ -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <main>
+    <!-- ============================================================
+         PAGE HERO — Category pill, headline, subtitle
+         ============================================================ -->
+    <section class="article-hero">
+      <div class="container">
+        <div class="article-hero-inner">
+          <a href="index.html" class="back-link reveal">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Back to Home
+          </a>
+          <span class="article-category reveal reveal-d1">Legal</span>
+          <h1 class="reveal reveal-d1">Terms of Service</h1>
+          <p class="hero-subtitle reveal reveal-d2">Please read these terms carefully before using our website or engaging our services. By accessing callmtt.com you agree to be bound by these terms.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TERMS BODY — Main content card
+         ============================================================ -->
+    <section class="article-section">
+      <div class="container">
+        <article class="article-card reveal">
+
+          <p><strong>Effective Date: April 14, 2026</strong></p>
+
+          <p>These Terms of Service ("Terms") govern your access to and use of the website located at <a href="https://www.callmtt.com">https://www.callmtt.com</a> (the "Site"), owned and operated by MTT Consulting ("MTT," "we," "us," or "our"). By accessing or using the Site, you ("you" or "User") agree to be bound by these Terms. If you do not agree to these Terms, you must discontinue use of the Site immediately.</p>
+
+          <hr class="divider" />
+
+          <!-- 1. Acceptance of Terms -->
+          <h2>1. Acceptance of Terms</h2>
+
+          <p>By accessing, browsing, or using this Site in any manner, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service and our Privacy Policy. These Terms constitute a legally binding agreement between you and MTT Consulting. We reserve the right to update or modify these Terms at any time without prior notice. Your continued use of the Site following any changes constitutes acceptance of the revised Terms.</p>
+
+          <hr class="divider" />
+
+          <!-- 2. Description of Services -->
+          <h2>2. Description of Services</h2>
+
+          <p>MTT Consulting is a business-to-business (B2B) information technology consulting firm. The Site provides general information about our company and the services we offer, which include but are not limited to:</p>
+
+          <ul>
+            <li><strong>IT Consulting &amp; Strategy</strong> &mdash; Virtual CIO, CTO, and CISO advisory services, technology roadmapping, digital transformation consulting, and IT governance.</li>
+            <li><strong>Managed IT Services</strong> &mdash; Ongoing infrastructure management, help desk support, network monitoring, systems administration, and proactive maintenance.</li>
+            <li><strong>Cybersecurity Services</strong> &mdash; Risk assessments, vulnerability management, security operations, compliance consulting (HIPAA, PCI-DSS, SOC 2, CMMC), incident response planning, and security awareness training.</li>
+            <li><strong>Cloud Services</strong> &mdash; Cloud migration, architecture design, multi-cloud and hybrid-cloud management, Microsoft 365 and Azure administration, and cloud cost optimization.</li>
+          </ul>
+
+          <p>The information presented on the Site is for general informational purposes only and does not constitute professional advice. Specific service engagements are governed by separate written agreements between MTT Consulting and the client.</p>
+
+          <hr class="divider" />
+
+          <!-- 3. Use of Website -->
+          <h2>3. Use of Website</h2>
+
+          <h3>Permitted Use</h3>
+          <p>You may access and use the Site for lawful purposes consistent with these Terms. You are granted a limited, non-exclusive, non-transferable, revocable license to access and use the Site for your personal or internal business evaluation of MTT Consulting's services.</p>
+
+          <h3>Prohibited Activities</h3>
+          <p>You agree not to engage in any of the following activities:</p>
+
+          <ul>
+            <li>Using the Site for any unlawful purpose or in violation of any applicable local, state, national, or international law or regulation.</li>
+            <li>Attempting to gain unauthorized access to any portion of the Site, other accounts, computer systems, or networks connected to the Site.</li>
+            <li>Interfering with or disrupting the integrity or performance of the Site or the data contained therein.</li>
+            <li>Using any automated system, including bots, scrapers, or spiders, to access the Site for any purpose without our express written permission.</li>
+            <li>Transmitting any viruses, worms, malware, or other code of a destructive nature.</li>
+            <li>Impersonating any person or entity, or misrepresenting your affiliation with any person or entity.</li>
+            <li>Collecting or harvesting any personally identifiable information from the Site without authorization.</li>
+            <li>Reproducing, duplicating, copying, selling, or otherwise exploiting any portion of the Site for commercial purposes without our written consent.</li>
+          </ul>
+
+          <hr class="divider" />
+
+          <!-- 4. Intellectual Property -->
+          <h2>4. Intellectual Property</h2>
+
+          <p>All content on this Site, including but not limited to text, graphics, logos, icons, images, audio clips, digital downloads, data compilations, software, and the design, selection, and arrangement thereof, is the exclusive property of MTT Consulting or its content suppliers and is protected by United States and international copyright, trademark, and other intellectual property laws.</p>
+
+          <p>The MTT Consulting name, logo, and all related product and service names, design marks, and slogans are trademarks or service marks of MTT Consulting. You may not use any such marks without the prior written permission of MTT Consulting. All other trademarks not owned by MTT Consulting that appear on the Site are the property of their respective owners.</p>
+
+          <p>No right, title, or interest in any content or materials on the Site is transferred to you as a result of your use of the Site. Any unauthorized use of materials on the Site may violate copyright, trademark, and other applicable laws and could result in criminal or civil penalties.</p>
+
+          <hr class="divider" />
+
+          <!-- 5. Disclaimer of Warranties -->
+          <h2>5. Disclaimer of Warranties</h2>
+
+          <p>THE SITE AND ALL CONTENT, MATERIALS, INFORMATION, AND SERVICES PROVIDED ON THE SITE ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED. TO THE FULLEST EXTENT PERMISSIBLE UNDER APPLICABLE LAW, MTT CONSULTING DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT.</p>
+
+          <p>MTT Consulting does not warrant that the Site will be uninterrupted, error-free, secure, or free of viruses or other harmful components. The information provided on the Site is intended for general informational purposes and should not be relied upon as a substitute for professional IT consulting advice tailored to your specific circumstances.</p>
+
+          <hr class="divider" />
+
+          <!-- 6. Limitation of Liability -->
+          <h2>6. Limitation of Liability</h2>
+
+          <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL MTT CONSULTING, ITS OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, AFFILIATES, SUCCESSORS, OR ASSIGNS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES, ARISING OUT OF OR RELATED TO YOUR ACCESS TO OR USE OF (OR INABILITY TO ACCESS OR USE) THE SITE, WHETHER BASED ON WARRANTY, CONTRACT, TORT (INCLUDING NEGLIGENCE), STATUTE, OR ANY OTHER LEGAL THEORY, EVEN IF MTT CONSULTING HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+
+          <p>IN NO EVENT SHALL MTT CONSULTING'S TOTAL LIABILITY TO YOU FOR ALL CLAIMS ARISING OUT OF OR RELATED TO THE USE OF THE SITE EXCEED THE AMOUNT PAID BY YOU, IF ANY, TO MTT CONSULTING FOR ACCESSING THE SITE DURING THE TWELVE (12) MONTHS PRECEDING THE CLAIM.</p>
+
+          <hr class="divider" />
+
+          <!-- 7. Indemnification -->
+          <h2>7. Indemnification</h2>
+
+          <p>You agree to indemnify, defend, and hold harmless MTT Consulting, its officers, directors, employees, agents, affiliates, successors, and assigns from and against any and all claims, liabilities, damages, losses, costs, expenses, or fees (including reasonable attorneys' fees) arising from: (a) your use of the Site; (b) your violation of these Terms; (c) your violation of any rights of a third party; or (d) any content you submit or transmit through the Site.</p>
+
+          <p>MTT Consulting reserves the right, at its own expense, to assume the exclusive defense and control of any matter otherwise subject to indemnification by you, and in such case, you agree to cooperate with our defense of such claim.</p>
+
+          <hr class="divider" />
+
+          <!-- 8. Third-Party Links -->
+          <h2>8. Third-Party Links</h2>
+
+          <p>The Site may contain links to third-party websites, services, or resources that are not owned or controlled by MTT Consulting. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites or services. You acknowledge and agree that MTT Consulting shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with the use of or reliance on any such content, goods, or services available on or through any such third-party websites or services.</p>
+
+          <p>We strongly encourage you to review the terms and conditions and privacy policies of any third-party websites you visit from links on our Site.</p>
+
+          <hr class="divider" />
+
+          <!-- 9. Service Agreements -->
+          <h2>9. Service Agreements</h2>
+
+          <p>These Terms govern your use of the Site only. The actual delivery of IT consulting services, managed services, cybersecurity services, cloud services, or any other professional services by MTT Consulting is governed by separate, individually negotiated Master Service Agreements (MSAs), Statements of Work (SOWs), Service Level Agreements (SLAs), or other written contracts executed between MTT Consulting and the client.</p>
+
+          <p>In the event of a conflict between these Terms and the provisions of a signed service agreement, the signed service agreement shall prevail with respect to the services covered by that agreement. Nothing on this Site shall be construed as an offer to provide services or as a binding commitment to enter into any service agreement.</p>
+
+          <hr class="divider" />
+
+          <!-- 10. Governing Law -->
+          <h2>10. Governing Law</h2>
+
+          <p>These Terms shall be governed by and construed in accordance with the laws of the State of Texas, without regard to its conflict of law provisions. Any legal action or proceeding arising under or relating to these Terms shall be brought exclusively in the state or federal courts located in Collin County, Texas, and you irrevocably consent to the personal jurisdiction and venue of such courts.</p>
+
+          <hr class="divider" />
+
+          <!-- 11. Severability -->
+          <h2>11. Severability</h2>
+
+          <p>If any provision of these Terms is found to be unlawful, void, or unenforceable by a court of competent jurisdiction, that provision shall be deemed severable from these Terms and shall not affect the validity and enforceability of the remaining provisions. The unenforceable provision shall be replaced with a valid, enforceable provision that most closely approximates the intent and economic effect of the original provision.</p>
+
+          <hr class="divider" />
+
+          <!-- 12. Changes to Terms -->
+          <h2>12. Changes to Terms</h2>
+
+          <p>MTT Consulting reserves the right to modify, amend, or update these Terms at any time at our sole discretion. When we make changes, we will update the "Effective Date" at the top of this page. We encourage you to review these Terms periodically for any updates. Your continued use of the Site following the posting of revised Terms constitutes your acceptance of such changes. If you do not agree to the modified Terms, you must stop using the Site.</p>
+
+          <hr class="divider" />
+
+          <!-- 13. Contact Us -->
+          <h2>13. Contact Us</h2>
+
+          <p>If you have any questions about these Terms of Service, please contact us:</p>
+
+          <p>
+            <strong>MTT Consulting</strong><br />
+            Frisco, TX (Headquarters) &middot; Irvine, CA<br /><br />
+            Email: <a href="mailto:info@callmtt.com">info@callmtt.com</a><br />
+            Phone: <a href="tel:4696352155">469-635-2155</a><br />
+            Web: <a href="https://www.callmtt.com">https://www.callmtt.com</a>
+          </p>
+
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       FOOTER — Copyright line, office locations, email, and phone
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container footer-row">
+      <a href="index.html" class="brand" style="margin-bottom:8px">
+        <span class="brand-text">MTT</span><span class="brand-text-sub">Consulting</span>
+      </a>
+      <div>&copy; 2026 MTT Consulting. vCIO advisory, AI governance, cybersecurity, and managed IT services nationwide.</div>
+      <div>Offices in Collin County, TX &amp; Orange County, CA &middot; <a href="mailto:info@callmtt.com">info@callmtt.com</a> &middot; <a href="tel:4696352155">469-635-2155</a></div>
+      <div><a href="/privacy-policy.html">Privacy Policy</a> &middot; <a href="/terms-of-service.html">Terms of Service</a> &middot; <a href="/sitemap.xml">Sitemap</a></div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT — Scroll reveal, reading progress, canvas mesh
+       ============================================================ -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // --- Scroll Reveal Animation ---
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+      }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      // --- Scroll Progress Bar ---
+      const progressBar = document.getElementById('scrollProgress');
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        progressBar.style.width = progress + '%';
+      });
+    });
+  </script>
+
+  <!-- ============================================================
+       BACKGROUND CANVAS — Animated gold mesh particle network
+       ============================================================ -->
+  <canvas id="meshCanvas"></canvas>
+  <script>
+  (function(){
+    const c=document.getElementById('meshCanvas');if(!c)return;
+    const ctx=c.getContext('2d');
+    let w,h,pts=[];
+    function resize(){w=c.width=c.offsetWidth*devicePixelRatio;h=c.height=c.offsetHeight*devicePixelRatio;ctx.scale(devicePixelRatio,devicePixelRatio);}
+    resize();window.addEventListener('resize',resize);
+    for(let i=0;i<60;i++)pts.push({x:Math.random()*c.offsetWidth,y:Math.random()*c.offsetHeight,vx:(Math.random()-0.5)*0.3,vy:(Math.random()-0.5)*0.3});
+    function draw(){
+      ctx.clearRect(0,0,c.offsetWidth,c.offsetHeight);
+      pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>c.offsetWidth)p.vx*=-1;if(p.y<0||p.y>c.offsetHeight)p.vy*=-1;});
+      for(let i=0;i<pts.length;i++){
+        for(let j=i+1;j<pts.length;j++){
+          const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+          if(d<120){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle='rgba(196,90,26,'+(1-d/120)*0.15+')';ctx.stroke();}
+        }
+        ctx.beginPath();ctx.arc(pts[i].x,pts[i].y,1.5,0,Math.PI*2);ctx.fillStyle='rgba(196,90,26,0.3)';ctx.fill();
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+  </script>
+
+</body>
+</html>

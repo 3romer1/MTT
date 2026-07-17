@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /backup/
+Disallow: /docs/
+Disallow: /.headers
+Disallow: /_redirects
+
+# Crawl-delay (optional, respectful)
+Crawl-delay: 1
+
+Sitemap: https://www.callmtt.com/sitemap.xml

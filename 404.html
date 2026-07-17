@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Page Not Found | MTT Consulting</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#0A0A0F" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #0A0A0F;
+      color: #A8A4A0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 520px;
+    }
+
+    .error-code {
+      font-family: 'Space Grotesk', -apple-system, sans-serif;
+      font-weight: 700;
+      font-size: clamp(6rem, 18vw, 10rem);
+      line-height: 1;
+      color: #F0EDE8;
+      letter-spacing: -0.04em;
+      margin-bottom: 0.25rem;
+      background: linear-gradient(135deg, #F0EDE8 40%, #C45A1A);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', -apple-system, sans-serif;
+      font-weight: 600;
+      font-size: 1.5rem;
+      color: #F0EDE8;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #6B6860;
+      margin-bottom: 2.5rem;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn {
+      display: inline-block;
+      font-family: 'Space Grotesk', -apple-system, sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #fff;
+      background: #C45A1A;
+      padding: 0.85rem 2rem;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .btn:hover {
+      background: #D96B2A;
+      box-shadow: 0 0 40px rgba(196, 90, 26, 0.18);
+    }
+
+    .divider {
+      width: 48px;
+      height: 3px;
+      background: rgba(196, 90, 26, 0.25);
+      border-radius: 2px;
+      margin: 1.5rem auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="error-code">404</div>
+    <div class="divider"></div>
+    <h1>Page not found</h1>
+    <p>The page you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
+    <a href="/" class="btn">Return to Homepage</a>
+  </div>
+</body>
+</html>
