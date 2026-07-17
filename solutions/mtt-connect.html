@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================================
+       META TAGS — charset, viewport, SEO description, keywords,
+       robots, author, canonical URL, favicon, and theme color
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>MTT Connect — Enterprise Networking Solution Platform | MTT Consulting</title>
+  <meta name="description" content="MTT Connect is MTT Consulting's enterprise networking solution platform. SD-WAN, enterprise wireless, multisite network design, integrated security, and 24/7 NOC services — engineered for cloud-first, hybrid workforce organizations." />
+  <meta name="keywords" content="MTT Connect, enterprise networking, SD-WAN solution, enterprise wireless, multisite network, network security, Zero Trust, NOC services, Cisco Viptela, Meraki, Fortinet, Palo Alto Prisma, VeloCloud, Ruckus, Aruba, MTT Consulting" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="MTT Consulting" />
+  <link rel="canonical" href="https://www.callmtt.com/solutions/mtt-connect" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <meta name="theme-color" content="#000000" />
+
+  <!-- ============================================================
+       OPEN GRAPH TAGS — Facebook / LinkedIn share card
+       ============================================================ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="MTT Connect — Enterprise Networking Solution Platform | MTT Consulting" />
+  <meta property="og:description" content="Enterprise networking engineered for modern organizations. SD-WAN, wireless architecture, multisite design, integrated security, and 24/7 NOC services from MTT Consulting." />
+  <meta property="og:url" content="https://www.callmtt.com/solutions/mtt-connect" />
+  <meta property="og:site_name" content="MTT Consulting" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- ============================================================
+       TWITTER CARD — summary_large_image card
+       ============================================================ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MTT Connect — Enterprise Networking Solution Platform | MTT Consulting" />
+  <meta name="twitter:description" content="Enterprise networking engineered for modern organizations. SD-WAN, wireless architecture, multisite design, integrated security, and 24/7 NOC services." />
+
+  <!-- ============================================================
+       STRUCTURED DATA (JSON-LD) — Schema.org Service
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "MTT Connect",
+    "description": "Enterprise networking solution platform from MTT Consulting. SD-WAN, enterprise wireless architecture, multisite network design, integrated network security, and 24/7 NOC monitoring and optimization services for cloud-first, hybrid workforce organizations.",
+    "provider": {
+      "@type": "Organization",
+      "name": "MTT Consulting",
+      "url": "https://www.callmtt.com",
+      "telephone": "+14696352155",
+      "email": "info@callmtt.com",
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "addressRegion": "TX",
+          "addressLocality": "Collin County"
+        },
+        {
+          "@type": "PostalAddress",
+          "addressRegion": "CA",
+          "addressLocality": "Orange County"
+        }
+      ]
+    },
+    "serviceType": "IT Consulting",
+    "areaServed": "US",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "MTT Connect Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SD-WAN Design & Deployment" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Enterprise Wireless Architecture" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Multisite Network Design" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Network Security Architecture" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "NOC Monitoring & Optimization" } }
+      ]
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.callmtt.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://www.callmtt.com/#solutions"},
+      {"@type": "ListItem", "position": 3, "name": "MTT Connect", "item": "https://www.callmtt.com/solutions/mtt-connect.html"}
+    ]
+  }
+  </script>
+
+  <!-- ============================================================
+       FONT LOADING — Google Fonts preconnect + Space Grotesk 400-700
+       ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" /></noscript>
+
+  <!-- ============================================================
+       EMBEDDED STYLES — All CSS for this single-page solution guide
+       ============================================================ -->
+  <style>
+    /* ── Design Tokens ─────────────────────────────────────── */
+    :root {
+      --bg: #000000;
+      --bg-elevated: #0a0a0a;
+      --bg-card: #ffffff;
+      --border: rgba(255,255,255,0.08);
+      --border-hover: rgba(196,90,26,0.35);
+      --text: #eae6df;
+      --text-secondary: #9c9890;
+      --text-dim: #625e58;
+      --card-text: #1a1a1a;
+      --card-text-secondary: #555555;
+      --card-text-dim: #888888;
+      --accent: #c45a1a;
+      --accent-light: #d96b2a;
+      --accent-dark: #a44a12;
+      --accent-glow: rgba(196,90,26,0.22);
+      --connect-green: #5a8a72;
+      --connect-green-light: #6a9a82;
+      --white: #eae6df;
+      --shadow-lg: 0 24px 64px rgba(0,0,0,0.5);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.3);
+      --shadow-sm: 0 2px 12px rgba(0,0,0,0.2);
+      --shadow-glow: 0 0 30px rgba(196,90,26,0.08);
+      --max-w: 1200px;
+      --article-w: 820px;
+      --radius-lg: 14px;
+      --radius-md: 10px;
+      --radius-sm: 8px;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Space Grotesk', sans-serif;
+      --font-ui: 'Space Grotesk', sans-serif;
+      --transition: 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* ── Reset & Base ──────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.72;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    ul, ol { list-style: none; }
+    .container { width: min(var(--max-w), calc(100% - 40px)); margin: 0 auto; position: relative; z-index: 1; }
+    .article-container { width: min(var(--article-w), calc(100% - 40px)); margin: 0 auto; }
+
+    .highlight {
+      background: linear-gradient(135deg, #5a8a72, #6a9a82, #7aaa92);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── Buttons ───────────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px 26px; border-radius: var(--radius-sm); border: 1px solid transparent;
+      font-family: var(--font-display); font-weight: 700; font-size: 0.9rem;
+      cursor: pointer; transition: all var(--transition); white-space: nowrap;
+    }
+    .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 4px 20px rgba(196,90,26,0.25); }
+    .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(196,90,26,0.30); }
+    .btn-ghost { background: transparent; border-color: rgba(255,245,230,0.12); color: var(--text); }
+    .btn-ghost:hover { background: rgba(255,245,230,0.06); border-color: var(--border-hover); }
+
+    /* ── Header & Navigation ──────────────────────────────── */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(24px) saturate(1.6);
+      -webkit-backdrop-filter: blur(24px) saturate(1.6);
+      background: rgba(13,13,13,0.92);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 20px rgba(0,0,0,0.4);
+    }
+    .nav-bar { display: flex; align-items: center; justify-content: space-between; min-height: 68px; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-family: var(--font-display); font-weight: 800; font-size: 1.12rem; }
+    .brand-icon {
+      width: 42px; height: 42px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(196,90,26,0.20), rgba(196,90,26,0.08));
+      border: 1px solid rgba(196,90,26,0.25);
+      display: grid; place-items: center; flex-shrink: 0;
+      box-shadow: 0 0 16px rgba(196,90,26,0.10);
+    }
+    .brand-sub { display: block; font-size: 0.62rem; font-weight: 600; color: var(--text-dim); letter-spacing: 0.16em; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-links a { color: var(--text-secondary); font-size: 0.946rem; font-weight: 500; padding: 8px 14px; border-radius: var(--radius-sm); transition: color var(--transition), background var(--transition); }
+    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.04); }
+    .nav-links a.active { color: var(--accent-light); }
+    .nav-right { display: flex; align-items: center; gap: 14px; }
+    .nav-phone { color: var(--text-secondary); font-size: 0.946rem; font-weight: 600; font-family: var(--font-display); }
+    .hamburger { display: none; background: none; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 8px; cursor: pointer; color: var(--text); }
+    .hamburger svg { display: block; }
+    .mobile-menu { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(13,13,13,0.98); backdrop-filter: blur(24px); flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; color: var(--text); padding: 12px 24px; }
+    .mobile-close { position: absolute; top: 20px; right: 20px; background: none; border: none; color: var(--text); cursor: pointer; }
+
+    /* ── Scroll Progress Bar ────────────────────────────────── */
+    .scroll-progress {
+      position: fixed; top: 68px; left: 0; height: 3px; z-index: 99;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      width: 0%; transition: width 0.1s linear;
+    }
+
+    /* ── Service Hero ─────────────────────────────────────── */
+    .service-hero {
+      padding: 80px 0 56px;
+      border-bottom: 1px solid var(--border);
+    }
+    .service-hero-inner {
+      max-width: var(--article-w);
+      margin: 0 auto;
+    }
+    .hero-category {
+      display: inline-block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--connect-green-light); margin-bottom: 16px;
+      padding: 5px 14px; border-radius: 999px;
+      background: rgba(90,138,114,0.12); border: 1px solid rgba(90,138,114,0.20);
+    }
+    .service-hero h1 {
+      font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 900; letter-spacing: -0.04em; line-height: 1.15;
+      margin-bottom: 20px;
+      text-shadow: 0 0 40px rgba(90,138,114,0.12);
+    }
+    .service-hero .subtitle {
+      color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7;
+      max-width: 640px;
+    }
+
+    /* ── Service Body ─────────────────────────────────────── */
+    .service-body-wrapper {
+      padding: 60px 0 80px;
+    }
+    .service-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: clamp(28px, 5vw, 48px) clamp(24px, 5vw, 48px);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border);
+      max-width: var(--article-w);
+      margin: 0 auto;
+    }
+    .service-card h2 {
+      font-family: var(--font-display); font-size: 1.55rem; font-weight: 800;
+      color: var(--card-text); letter-spacing: -0.02em; margin: 44px 0 16px;
+      line-height: 1.25;
+    }
+    .service-card h2:first-child { margin-top: 0; }
+    .service-card h3 {
+      font-family: var(--font-display); font-size: 1.2rem; font-weight: 700;
+      color: var(--card-text); margin: 32px 0 12px; line-height: 1.3;
+    }
+    .service-card p {
+      color: var(--card-text-secondary); font-size: 1.02rem; line-height: 1.8;
+      margin-bottom: 18px;
+    }
+    .service-card p:last-child { margin-bottom: 0; }
+    .service-card strong { color: var(--card-text); font-weight: 700; }
+    .service-card a { color: var(--accent); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+    .service-card a:hover { color: var(--accent-light); }
+    .service-card ul, .service-card ol {
+      margin: 16px 0 20px 24px; color: var(--card-text-secondary);
+      font-size: 1.02rem; line-height: 1.8;
+    }
+    .service-card ul { list-style: disc; }
+    .service-card ol { list-style: decimal; }
+    .service-card li { margin-bottom: 8px; padding-left: 4px; }
+    .service-card li::marker { color: var(--accent); }
+
+    /* ── Section Divider ─────────────────────────────────── */
+    .section-divider {
+      border: none; border-top: 1px solid #e5e5e5;
+      margin: 40px 0;
+    }
+
+    /* ── Section Icon ─────────────────────────────────────── */
+    .section-icon {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 48px; height: 48px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(196,90,26,0.12), rgba(196,90,26,0.04));
+      border: 1px solid rgba(196,90,26,0.18);
+      margin-bottom: 16px;
+    }
+
+    /* ── Blockquote ──────────────────────────────────────── */
+    .service-card blockquote {
+      border-left: 4px solid var(--accent);
+      background: rgba(196,90,26,0.04);
+      padding: 20px 24px;
+      margin: 28px 0;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .service-card blockquote p {
+      color: var(--card-text); font-weight: 500; font-size: 1.05rem;
+      font-style: italic; margin-bottom: 0; line-height: 1.7;
+    }
+
+    /* ── CTA Section ─────────────────────────────────────── */
+    .service-cta {
+      background: linear-gradient(135deg, rgba(196,90,26,0.10), rgba(196,90,26,0.04));
+      border: 1px solid rgba(196,90,26,0.20);
+      border-radius: var(--radius-md);
+      padding: 36px;
+      margin: 48px 0 8px;
+      text-align: center;
+    }
+    .service-cta h3 {
+      color: var(--card-text); font-size: 1.3rem; font-weight: 800; margin: 0 0 10px;
+    }
+    .service-cta p {
+      color: var(--card-text-secondary); margin-bottom: 20px;
+    }
+
+    /* ── Scroll Reveal ──────────────────────────────────── */
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible {
+      opacity: 1; transform: translateY(0);
+    }
+
+    /* ── Footer ──────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 48px 0 32px;
+      background: var(--bg);
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-brand { font-family: var(--font-display); font-weight: 800; font-size: 1.21rem; margin-bottom: 10px; }
+    .footer-desc { color: var(--text-dim); font-size: 0.924rem; line-height: 1.7; max-width: 280px; }
+    .footer-col h5 { font-family: var(--font-display); font-weight: 700; font-size: 0.902rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-secondary); margin-bottom: 14px; }
+    .footer-col a { display: block; color: var(--text-dim); font-size: 0.946rem; padding: 4px 0; transition: color var(--transition); }
+    .footer-col a:hover { color: var(--accent-light); }
+    .footer-bottom {
+      border-top: 1px solid var(--border); padding-top: 24px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+      color: var(--text-dim); font-size: 0.858rem;
+    }
+
+    /* ── Responsive Breakpoints ───────────────────────────── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-phone { display: none; }
+      .hamburger { display: block; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+    }
+    @media (max-width: 600px) {
+      .service-hero h1 { font-size: 1.6rem; }
+      .service-hero .subtitle { font-size: 1rem; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    #meshCanvas {
+      position: fixed; top: 0; right: 0; width: 60%; height: 100%;
+      z-index: 0; pointer-events: none; opacity: 0.4;
+    }
+    .brand-logo { height: 100px; width: auto; max-width: 380px; object-fit: contain; flex-shrink: 0; mix-blend-mode: screen; transition: opacity 0.25s ease; }
+    .brand-logo--footer { height: 132px; max-width: 460px; }
+      .brand-text { font-size: 1.485rem; font-weight: 800; color: var(--text-primary, #fff); letter-spacing: -0.01em; }
+    .brand-text-sub { font-size: 1.485rem; font-weight: 700; color: var(--accent, #c45a1a); letter-spacing: -0.01em; }
+    /* Scroll margin for fixed header */
+    section { scroll-margin-top: 80px; }
+    /* Accessibility & Performance */
+    ::selection { background: rgba(196,90,26,0.3); color: #F0EDE8; }
+    *:focus-visible { outline: 2px solid #C45A1A; outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER & NAVIGATION — Sticky glassmorphism bar with brand
+       logo, desktop nav links, phone number, CTA, and hamburger
+       ============================================================ -->
+  <header>
+    <div class="container">
+      <nav class="nav-bar">
+        <a href="../index.html" class="brand" aria-label="MTT Consulting home">
+          <span class="brand-text">MTT</span><span class="brand-text-sub">Consulting</span>
+        </a>
+        <div class="nav-links">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#services">Services</a>
+          <a href="../index.html#solutions" class="active">Solutions</a>
+          <a href="../index.html#industries">Industries</a>
+          <a href="../index.html#why-mtt">Team</a>
+          <a href="../blog/">Blog</a>
+          <a href="../index.html#contact">Contact</a>
+        </div>
+        <div class="nav-right">
+          <a href="tel:+14696352155" class="nav-phone">469-635-2155</a>
+          <a href="../index.html#contact" class="btn btn-primary" style="padding:10px 20px;font-size:0.82rem;">Book a Consultation</a>
+          <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Open menu">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       MOBILE MENU — Full-screen overlay nav for small viewports
+       ============================================================ -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')" aria-label="Close menu">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <a href="../index.html">Home</a>
+    <a href="../index.html#services">Services</a>
+    <a href="../index.html#solutions">Solutions</a>
+    <a href="../index.html#industries">Industries</a>
+    <a href="../index.html#why-mtt">Team</a>
+    <a href="../blog/">Blog</a>
+    <a href="../index.html#contact">Contact</a>
+  </div>
+
+  <!-- ============================================================
+       SCROLL PROGRESS — Thin accent bar below header
+       ============================================================ -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ============================================================
+       SOLUTION HERO — Category pill, main headline, subtitle
+       ============================================================ -->
+  <section class="service-hero">
+    <div class="container">
+      <div class="service-hero-inner reveal">
+        <span class="hero-category">Solution Platform</span>
+        <h1>MTT <span class="highlight">Connect</span></h1>
+        <p class="subtitle">Enterprise networking engineered for the way modern organizations actually work — multi-site, hybrid workforce, cloud-first, and always on.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SOLUTION BODY — White article card with all solution sections
+       ============================================================ -->
+  <section class="service-body-wrapper">
+    <div class="article-container">
+      <article class="service-card">
+
+        <!-- Section 1: The Network Is the Business -->
+        <div class="reveal">
+          <div class="section-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c45a1a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h2>The Network Is the Business</h2>
+
+          <p>Today's enterprise network carries more weight than ever. Video conferencing, cloud applications, VoIP, IoT devices, and SaaS platforms have turned bandwidth into oxygen. Traditional hub-and-spoke MPLS architectures weren't designed for cloud-first workloads — they route traffic through data centers that no longer host the applications employees need. The result: latency, bottlenecks, user frustration, and IT teams trapped in a cycle of reactive troubleshooting.</p>
+
+          <p>MTT Connect was built to solve this. We design, deploy, and manage enterprise networks that are application-aware, resilient, secure, and built to scale. Whether your organization spans five locations or five hundred, MTT Connect delivers a unified networking strategy that aligns infrastructure with how your business actually operates.</p>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- Section 2: SD-WAN: Intelligent Connectivity -->
+        <div class="reveal">
+          <div class="section-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c45a1a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h2>SD-WAN: Intelligent Connectivity</h2>
+
+          <p>Software-defined wide area networking is the foundation of MTT Connect. We take a <strong>vendor-agnostic approach</strong>, designing and deploying the SD-WAN platform that best fits your environment rather than defaulting to a single vendor's ecosystem. Our engineering team holds deep expertise across the industry's leading platforms.</p>
+
+          <p><strong>Platform expertise includes:</strong></p>
+
+          <ul>
+            <li><strong>Cisco Viptela &amp; Meraki:</strong> Enterprise-grade orchestration with deep Cisco ecosystem integration, ideal for organizations with established Cisco infrastructure and campus environments</li>
+            <li><strong>Fortinet Secure SD-WAN:</strong> Converged networking and security with industry-leading next-generation firewall capabilities built directly into the SD-WAN fabric</li>
+            <li><strong>VMware VeloCloud:</strong> Cloud-first SD-WAN architecture with automated multi-path optimization and strong integration with VMware SASE and cloud workloads</li>
+            <li><strong>Palo Alto Prisma SD-WAN:</strong> Autonomous path selection with tight Prisma Access integration for comprehensive SASE deployments and cloud-native security</li>
+          </ul>
+
+          <p>Every deployment begins with analysis of your current circuit inventory, application traffic patterns, and performance requirements. We design <strong>application-aware routing policies</strong> that steer business-critical traffic — voice, video, ERP, and collaboration tools — over the optimal path in real time using dynamic path selection across broadband, LTE, and MPLS circuits.</p>
+
+          <p><strong>Centralized orchestration and policy management</strong> gives your team single-pane-of-glass visibility into the entire WAN fabric. Policy changes propagate to every site in minutes rather than weeks, and traffic engineering decisions are driven by real-time telemetry rather than static configurations.</p>
+
+          <blockquote>
+            <p>SD-WAN transforms network economics. Organizations that move from pure MPLS to an intelligently designed SD-WAN fabric typically see 40 to 60 percent cost reduction in WAN spend while gaining performance, agility, and resilience that MPLS alone could never deliver.</p>
+          </blockquote>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- Section 3: Enterprise Wireless Architecture -->
+        <div class="reveal">
+          <div class="section-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c45a1a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg>
+          </div>
+          <h2>Enterprise Wireless Architecture</h2>
+
+          <p>Wireless is the primary access layer for the modern workforce. A poorly designed wireless network creates productivity bottlenecks, helpdesk tickets, and security gaps that ripple across the entire organization. MTT Connect treats wireless as critical infrastructure, not an afterthought.</p>
+
+          <p><strong>Our wireless architecture capabilities include:</strong></p>
+
+          <ul>
+            <li><strong>Predictive RF modeling and site surveys:</strong> We use advanced RF simulation tools to model coverage, capacity, and interference before a single access point is mounted. For existing environments, on-site validation surveys identify dead zones and co-channel interference impacting performance</li>
+            <li><strong>High-density designs:</strong> Purpose-built wireless architectures for warehouses, open-plan offices, healthcare facilities, and hospitality environments that demand reliable connectivity under heavy concurrent device loads</li>
+            <li><strong>Platform expertise:</strong> Deep engineering experience across Ruckus, Aruba, Cisco Meraki, and Ubiquiti platforms allows us to recommend and deploy the right solution for your environment, scale, and management requirements</li>
+            <li><strong>Seamless roaming and load balancing:</strong> Intelligent client steering, band steering, and AP load balancing ensure consistent performance as users and devices move throughout the facility</li>
+            <li><strong>Guest and BYOD segmentation:</strong> Secure network segmentation with NAC integration that isolates guest devices, personal BYOD endpoints, and IoT devices from your corporate network while maintaining a seamless user experience</li>
+            <li><strong>Outdoor and industrial wireless:</strong> Ruggedized wireless solutions for campus environments, distribution yards, manufacturing floors, and outdoor facilities where enterprise-grade coverage extends beyond the four walls</li>
+          </ul>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- Section 4: Multisite Network Design -->
+        <div class="reveal">
+          <div class="section-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c45a1a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h2>Multisite Network Design</h2>
+
+          <p>Connecting branch offices, regional hubs, data centers, and cloud environments into a cohesive network requires thoughtful architecture that balances performance, cost, redundancy, and operational simplicity. MTT Connect delivers multisite designs that scale from five locations to five hundred without architectural overhaul.</p>
+
+          <p><strong>Our multisite design approach covers:</strong></p>
+
+          <ul>
+            <li><strong>Hub-and-spoke, partial mesh, and full mesh topologies:</strong> We evaluate traffic patterns, application dependencies, and business requirements to recommend the optimal topology — or a hybrid approach that combines centralized inspection with direct site-to-site connectivity for latency-sensitive applications</li>
+            <li><strong>Dual-ISP redundancy and automatic failover:</strong> Diverse carrier and transport technology strategies protect against single points of failure. Every site is designed with defined recovery time objectives and automated failover that keeps the business running when circuits go down</li>
+            <li><strong>DMVPN and IPSec tunnel architectures:</strong> Scalable overlay networks that enable secure site-to-site communication across any transport, with dynamic tunnel creation that eliminates the need for static point-to-point configurations at every location</li>
+            <li><strong>QoS policies for voice, video, and data prioritization:</strong> End-to-end quality of service frameworks that guarantee performance for real-time applications across every link in the network, from the branch edge to the data center and cloud</li>
+            <li><strong>Centralized management for 5 to 500+ locations:</strong> Single-pane orchestration platforms that give your operations team visibility and control across the entire network without requiring site-by-site configuration</li>
+            <li><strong>Zero-touch provisioning for rapid branch deployments:</strong> Standardized, repeatable branch templates that enable new site deployments in days rather than weeks. Ship hardware to the site, plug it in, and the configuration pulls automatically from the central controller</li>
+          </ul>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- Section 5: Network Security — Built In, Not Bolted On -->
+        <div class="reveal">
+          <div class="section-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c45a1a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h2>Network Security — Built In, Not Bolted On</h2>
+
+          <p>Security is not a layer you add after the network is deployed. It is an architectural principle woven into every design decision from day one. MTT Connect embeds security into the network fabric using defense-in-depth strategies and modern Zero Trust methodologies.</p>
+
+          <p><strong>Our integrated security architecture includes:</strong></p>
+
+          <ul>
+            <li><strong>Next-generation firewall integration:</strong> Purpose-built firewall architectures using Fortinet, Palo Alto, and Cisco platforms with application-layer inspection, intrusion prevention, SSL/TLS decryption, and advanced threat protection designed for high availability and throughput</li>
+            <li><strong>Microsegmentation and east-west traffic inspection:</strong> Granular segmentation policies that restrict lateral movement between workloads, users, and device classes. We implement microsegmentation at the network layer, within SD-WAN environments, and across cloud workloads</li>
+            <li><strong>NAC (Network Access Control) for device compliance:</strong> Automated device profiling, posture assessment, and policy-based network admission that ensures only authorized, compliant devices gain access to network resources</li>
+            <li><strong>Zero Trust network architecture principles:</strong> Identity-driven access policies that verify every user and device before granting access to any resource, regardless of network location. Integrated with your existing identity providers and access management systems</li>
+            <li><strong>Encrypted site-to-site and remote access VPN:</strong> Secure tunnel architectures for site interconnection and remote workforce access, with split-tunnel and full-tunnel policies aligned to your security posture and compliance requirements</li>
+            <li><strong>DNS-layer security and content filtering:</strong> Cloud-delivered DNS protection that blocks malicious domains, phishing attempts, and policy-violating content before connections are ever established</li>
+          </ul>
+
+          <blockquote>
+            <p>Every architectural decision — from VLAN design to routing policy to SD-WAN segmentation — has security implications. MTT Connect ensures those implications are addressed by design, not discovered after deployment.</p>
+          </blockquote>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- Section 6: Monitoring, Optimization & NOC Services -->
+        <div class="reveal">
+          <div class="section-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c45a1a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h2>Monitoring, Optimization &amp; NOC Services</h2>
+
+          <p>A well-designed network is only as reliable as your ability to observe, measure, and continuously improve its performance. MTT Connect includes comprehensive monitoring and management services delivered through our <strong>24/7 network operations center</strong>.</p>
+
+          <p><strong>Our NOC and optimization services include:</strong></p>
+
+          <ul>
+            <li><strong>SNMP, NetFlow, and syslog collection and analysis:</strong> Comprehensive telemetry collection that provides deep visibility into device health, traffic flows, and system events across every node in the network</li>
+            <li><strong>Automated alerting and escalation workflows:</strong> Intelligent alerting frameworks tuned to minimize noise while catching genuine issues early. Defined escalation paths ensure the right engineer responds to the right issue at the right time</li>
+            <li><strong>Quarterly performance reviews and capacity planning:</strong> Data-driven reviews that analyze performance trends, identify optimization opportunities, and forecast bandwidth and infrastructure requirements 12 to 24 months into the future</li>
+            <li><strong>SLA-backed uptime guarantees:</strong> Contractual uptime commitments backed by real-time monitoring, proactive maintenance, and defined remediation timelines that hold our team accountable for network reliability</li>
+            <li><strong>Proactive firmware and security patch management:</strong> Scheduled maintenance windows for firmware upgrades, security patches, and configuration updates that keep your network current without disrupting business operations</li>
+          </ul>
+
+          <p>Network traffic patterns evolve constantly as your organization adopts new applications, onboards new locations, and shifts workloads between on-premises and cloud environments. Our monitoring programs ensure your network continues to meet performance expectations as your business grows and changes.</p>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- Section 7: Why MTT Connect -->
+        <div class="reveal">
+          <div class="section-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c45a1a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h2>Why MTT Connect</h2>
+
+          <p>MTT Connect is not a product. It is a partnership. We serve as your dedicated network engineering team — designing, deploying, monitoring, and optimizing the infrastructure that keeps your organization running. Here is what sets us apart:</p>
+
+          <ul>
+            <li><strong>Vendor-neutral:</strong> We recommend what works, not what pays us. Our platform recommendations are driven by your requirements, environment, and budget — not by vendor incentives or reseller margins</li>
+            <li><strong>Certified engineers across Cisco, Fortinet, Aruba, Ruckus, and Palo Alto:</strong> Our team holds current certifications across the platforms we deploy, ensuring expert-level design and support for every technology in your stack</li>
+            <li><strong>Full lifecycle — design, deploy, monitor, optimize:</strong> We own the entire journey from initial assessment and architecture through deployment, day-two operations, and ongoing optimization. No handoffs, no gaps</li>
+            <li><strong>Scalable from single-office to 500+ sites:</strong> Our architectures and operational processes are built to scale. Whether you are a growing organization with five locations or an enterprise with hundreds, MTT Connect grows with you</li>
+            <li><strong>Documented runbooks and knowledge transfer:</strong> Every deployment includes comprehensive documentation, operational runbooks, and knowledge transfer sessions that empower your internal team to understand and manage the environment alongside us</li>
+            <li><strong>Single point of accountability for your entire network:</strong> One team, one contract, one throat to choke. MTT Connect eliminates the finger-pointing that comes with managing multiple vendors, carriers, and support contracts across a complex network</li>
+          </ul>
+        </div>
+
+        <!-- CTA -->
+        <div class="reveal">
+          <div class="service-cta">
+            <h3>Ready to Modernize Your Network?</h3>
+            <p>Let our network engineering team assess your current architecture and design a connectivity strategy built for how your organization works today and where it is headed tomorrow.</p>
+            <a href="../index.html#contact" class="btn btn-primary">Book a Consultation</a>
+          </div>
+        </div>
+
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER — 4-column grid with brand description, service links,
+       resources, contact info, and bottom copyright bar
+       ============================================================ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="../index.html" class="brand" style="margin-bottom:8px">
+            <span class="brand-text">MTT</span><span class="brand-text-sub">Consulting</span>
+          </a>
+          <p class="footer-desc">vCIO advisory, AI governance, cybersecurity, and managed IT services nationwide. Offices in Collin County, TX &amp; Orange County, CA.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Services</h5>
+          <a href="../index.html#services">vCIO / vCISO Advisory</a>
+          <a href="../index.html#services">Cybersecurity</a>
+          <a href="../index.html#services">Cloud &amp; Infrastructure</a>
+          <a href="../index.html#services">Managed IT</a>
+        </div>
+        <div class="footer-col">
+          <h5>Resources</h5>
+          <a href="../blog/">Blog</a>
+          <a href="../index.html#contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <a href="tel:+14696352155">469-635-2155</a>
+          <a href="mailto:info@callmtt.com">info@callmtt.com</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 MTT Consulting. vCIO advisory, AI governance, cybersecurity, and managed IT services nationwide. Offices in Collin County, TX &amp; Orange County, CA &middot; info@callmtt.com &middot; 469-635-2155</span>
+      </div>
+      <div><a href="/privacy-policy.html">Privacy Policy</a> &middot; <a href="/terms-of-service.html">Terms of Service</a> &middot; <a href="/sitemap.xml">Sitemap</a></div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT — Scroll progress bar, scroll reveal, canvas mesh
+       ============================================================ -->
+  <script>
+    // --- Scroll Progress Bar ---
+    window.addEventListener('scroll', () => {
+      const docH = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docH > 0 ? (window.scrollY / docH) * 100 : 0;
+      document.getElementById('scrollProgress').style.width = pct + '%';
+    });
+
+    // --- Scroll Reveal ---
+    (function(){
+      const els = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(el => observer.observe(el));
+    })();
+  </script>
+
+  <!-- ============================================================
+       BACKGROUND CANVAS — Animated accent mesh particle network
+       fixed to the right 60% of the viewport; decorative only
+       ============================================================ -->
+  <canvas id="meshCanvas"></canvas>
+  <script>
+  (function(){
+    const c = document.getElementById('meshCanvas');
+    if (!c) return;
+    const ctx = c.getContext('2d');
+    let w, h, pts = [];
+    function resize() {
+      w = c.width = c.offsetWidth * devicePixelRatio;
+      h = c.height = c.offsetHeight * devicePixelRatio;
+      ctx.scale(devicePixelRatio, devicePixelRatio);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+    for (let i = 0; i < 60; i++) {
+      pts.push({
+        x: Math.random() * c.offsetWidth,
+        y: Math.random() * c.offsetHeight,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3
+      });
+    }
+    function draw() {
+      ctx.clearRect(0, 0, c.offsetWidth, c.offsetHeight);
+      const ow = c.offsetWidth, oh = c.offsetHeight;
+      for (let i = 0; i < pts.length; i++) {
+        const p = pts[i];
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > ow) p.vx *= -1;
+        if (p.y < 0 || p.y > oh) p.vy *= -1;
+        for (let j = i + 1; j < pts.length; j++) {
+          const q = pts[j];
+          const dx = p.x - q.x, dy = p.y - q.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(q.x, q.y);
+            ctx.strokeStyle = 'rgba(196,90,26,' + (0.12 * (1 - dist / 120)) + ')';
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
+          }
+        }
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 1.5, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(196,90,26,0.25)';
+        ctx.fill();
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================================
+       META TAGS — Core document metadata, SEO, and browser config
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>MTT Security — Cybersecurity Operations Platform | MTT Consulting</title>
+  <meta name="description" content="MTT Security: comprehensive cybersecurity operations that protect your organization from modern threats. Firewall defense, threat detection, compliance, identity management, vCISO services, and incident response from MTT Consulting." />
+  <meta name="author" content="MTT Consulting" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.callmtt.com/solutions/mtt-security.html" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <meta name="theme-color" content="#0b0b0a" />
+
+  <!-- ============================================================
+       OPEN GRAPH TAGS — Social sharing metadata for Facebook, LinkedIn
+       ============================================================ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="MTT Security — Cybersecurity Operations Platform | MTT Consulting" />
+  <meta property="og:description" content="Comprehensive cybersecurity operations that protect your organization from modern threats while enabling the business to move faster. Firewall defense, EDR/XDR, compliance, IAM, vCISO, and incident response." />
+  <meta property="og:url" content="https://www.callmtt.com/solutions/mtt-security.html" />
+  <meta property="og:site_name" content="MTT Consulting" />
+
+  <!-- ============================================================
+       TWITTER CARD — Twitter/X sharing metadata
+       ============================================================ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MTT Security — Cybersecurity Operations Platform | MTT Consulting" />
+  <meta name="twitter:description" content="Comprehensive cybersecurity operations that protect your organization from modern threats. Firewall defense, threat detection, compliance, identity management, and incident response." />
+
+  <!-- ============================================================
+       FONT LOADING — Google Fonts preconnect and Space Grotesk
+       ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800;900&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" /></noscript>
+
+  <!-- ============================================================
+       EMBEDDED STYLES — All page styles inlined for performance
+       ============================================================ -->
+  <style>
+    /* ── Design Tokens ─────────────────────────────────────── */
+    :root {
+      --bg: #000000;
+      --bg-elevated: #0a0a0a;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f5f5f5;
+      --border: rgba(255,255,255,0.08);
+      --border-hover: rgba(196,90,26,0.35);
+      --text: #eae6df;
+      --text-secondary: #9c9890;
+      --text-dim: #625e58;
+      --card-text: #1a1a1a;
+      --card-text-secondary: #555555;
+      --card-text-dim: #888888;
+      --card-border: rgba(230,230,230,0.15);
+      --accent: #c45a1a;
+      --accent-light: #d96b2a;
+      --accent-dark: #a44a12;
+      --accent-glow: rgba(196,90,26,0.22);
+      --green: #5a8a72;
+      --blue: #4a7c9b;
+      --purple: #7c6cc0;
+      --red: #c0392b;
+      --amber: #d4740e;
+      --white: #eae6df;
+      --shadow-lg: 0 24px 64px rgba(0,0,0,0.5);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.3);
+      --shadow-sm: 0 2px 12px rgba(0,0,0,0.2);
+      --shadow-glow: 0 0 30px rgba(196,90,26,0.08);
+      --max-w: 1200px;
+      --radius-lg: 14px;
+      --radius-md: 10px;
+      --radius-sm: 8px;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Space Grotesk', sans-serif;
+      --font-ui: 'Space Grotesk', sans-serif;
+      --transition: 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* ── Reset & Base ──────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.72;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    .container { width: min(var(--max-w), calc(100% - 40px)); margin: 0 auto; position: relative; z-index: 1; }
+
+    /* ── Highlight Text Gradient ──────────────────────────── */
+    .highlight {
+      background: linear-gradient(135deg, #c0392b, #d4740e, #d96b2a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── Buttons ───────────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px 26px; border-radius: var(--radius-sm); border: 1px solid transparent;
+      font-family: var(--font-display); font-weight: 700; font-size: 0.9rem;
+      cursor: pointer; transition: all var(--transition); white-space: nowrap;
+    }
+    .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 4px 20px rgba(196,90,26,0.25), 0 1px 4px rgba(196,90,26,0.15); }
+    .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(196,90,26,0.30), 0 2px 8px rgba(196,90,26,0.20); }
+    .btn-ghost { background: transparent; border-color: rgba(255,245,230,0.12); color: var(--text); }
+    .btn-ghost:hover { background: rgba(255,245,230,0.06); border-color: var(--border-hover); }
+    .btn-sm { padding: 10px 18px; font-size: 0.924rem; }
+
+    /* ── Header & Navigation ──────────────────────────────── */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(24px) saturate(1.6);
+      -webkit-backdrop-filter: blur(24px) saturate(1.6);
+      background: rgba(13,13,13,0.92);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 20px rgba(0,0,0,0.4);
+    }
+    .nav-bar { display: flex; align-items: center; justify-content: space-between; min-height: 68px; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-family: var(--font-display); font-weight: 800; font-size: 1.12rem; }
+    .brand-icon {
+      width: 42px; height: 42px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(196,90,26,0.20), rgba(196,90,26,0.08));
+      border: 1px solid rgba(196,90,26,0.25);
+      display: grid; place-items: center; flex-shrink: 0;
+      box-shadow: 0 0 16px rgba(196,90,26,0.10);
+    }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-links a { color: var(--text-secondary); font-size: 0.946rem; font-weight: 500; padding: 8px 14px; border-radius: var(--radius-sm); transition: color var(--transition), background var(--transition); }
+    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.04); }
+    .nav-links a.active { color: var(--accent-light); }
+    .nav-right { display: flex; align-items: center; gap: 14px; }
+    .nav-phone { color: var(--text-secondary); font-size: 0.946rem; font-weight: 600; font-family: var(--font-display); }
+    .hamburger { display: none; background: none; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 8px; cursor: pointer; color: var(--text); }
+    .hamburger svg { display: block; }
+    .mobile-menu { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(13,13,13,0.98); backdrop-filter: blur(24px); flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; color: var(--text); padding: 12px 24px; }
+    .mobile-close { position: absolute; top: 20px; right: 20px; background: none; border: none; color: var(--text); cursor: pointer; }
+
+    /* ── Scroll Progress Bar ────────────────────────────────── */
+    .scroll-progress {
+      position: fixed; top: 0; left: 0; height: 3px; z-index: 999;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      width: 0%; transition: width 0.1s linear;
+    }
+
+    /* ── Breadcrumb Navigation ────────────────────────────── */
+    .breadcrumb {
+      padding: 20px 0;
+      font-size: 0.82rem;
+      color: var(--text-dim);
+    }
+    .breadcrumb a { color: var(--text-secondary); transition: color var(--transition); }
+    .breadcrumb a:hover { color: var(--accent-light); }
+    .breadcrumb span { margin: 0 8px; }
+
+    /* ── Service Hero ─────────────────────────────────────── */
+    .service-hero {
+      padding: 0 0 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .service-hero-inner {
+      max-width: 780px;
+    }
+    .service-category {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; padding: 5px 14px; border-radius: 999px;
+      background: rgba(192,57,43,0.12); color: var(--red);
+      margin-bottom: 20px;
+    }
+    .service-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      text-shadow: 0 0 40px rgba(196,90,26,0.08);
+    }
+    .service-hero .subtitle {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      line-height: 1.7;
+      max-width: 620px;
+    }
+
+    /* ── Article Body & Content ─────────────────────────────── */
+    .service-section { padding: 48px 0 80px; }
+    .service-container {
+      max-width: 820px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--card-border);
+      border-left: 4px solid var(--accent);
+      padding: 48px 56px;
+      box-shadow: var(--shadow-md);
+      color: var(--card-text);
+    }
+    .service-body { line-height: 1.8; font-size: 1.02rem; }
+    .service-body p {
+      margin-bottom: 1.4em;
+      color: var(--card-text-secondary);
+    }
+    .service-body p:first-child {
+      font-size: 1.12rem;
+      color: var(--card-text);
+      line-height: 1.75;
+    }
+    .service-body h2 {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--card-text);
+      margin: 2.2em 0 0.8em;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+    }
+    .service-body h2:first-of-type { margin-top: 1.6em; }
+    .service-body h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--card-text);
+      margin: 1.8em 0 0.6em;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+    .service-body ul, .service-body ol {
+      margin: 0 0 1.4em 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    .service-body ol {
+      counter-reset: ol-counter;
+    }
+    .service-body li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 0.6em;
+      color: var(--card-text-secondary);
+      line-height: 1.7;
+    }
+    .service-body ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .service-body ol li {
+      counter-increment: ol-counter;
+    }
+    .service-body ol li::before {
+      content: counter(ol-counter) ".";
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .service-body blockquote {
+      border-left: 4px solid var(--accent);
+      background: rgba(196,90,26,0.04);
+      padding: 20px 24px;
+      margin: 1.6em 0;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .service-body blockquote p {
+      margin-bottom: 0;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--card-text);
+      line-height: 1.7;
+    }
+    .service-body strong {
+      color: var(--card-text);
+      font-weight: 700;
+    }
+    .service-body a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-color: rgba(196,90,26,0.3);
+      text-underline-offset: 3px;
+      transition: text-decoration-color var(--transition);
+    }
+    .service-body a:hover {
+      text-decoration-color: var(--accent);
+    }
+    .phase-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: rgba(196,90,26,0.10);
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    /* ── Compliance Grid ───────────────────────────────────── */
+    .compliance-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 1em 0 1.6em;
+    }
+    .compliance-chip {
+      background: rgba(196,90,26,0.06);
+      border: 1px solid rgba(196,90,26,0.15);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--card-text);
+      transition: all var(--transition);
+    }
+    .compliance-chip:hover {
+      background: rgba(196,90,26,0.10);
+      border-color: rgba(196,90,26,0.30);
+    }
+    .compliance-chip small {
+      display: block;
+      font-weight: 400;
+      font-size: 0.74rem;
+      color: var(--card-text-dim);
+      margin-top: 4px;
+    }
+
+    /* ── Stat Callout ──────────────────────────────────────── */
+    .stat-callout {
+      background: rgba(192,57,43,0.06);
+      border: 1px solid rgba(192,57,43,0.18);
+      border-radius: var(--radius-sm);
+      padding: 20px 24px;
+      margin: 1.4em 0;
+      text-align: center;
+    }
+    .stat-callout .stat-number {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--red);
+      line-height: 1.2;
+    }
+    .stat-callout .stat-label {
+      font-size: 0.88rem;
+      color: var(--card-text-secondary);
+      margin-top: 4px;
+    }
+
+    /* ── Differentiator List ───────────────────────────────── */
+    .diff-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 1em 0 1.6em;
+    }
+    .diff-item {
+      background: rgba(196,90,26,0.04);
+      border: 1px solid rgba(196,90,26,0.12);
+      border-radius: var(--radius-sm);
+      padding: 16px 18px;
+      font-size: 0.92rem;
+      color: var(--card-text-secondary);
+      line-height: 1.6;
+      transition: all var(--transition);
+    }
+    .diff-item:hover {
+      background: rgba(196,90,26,0.08);
+      border-color: rgba(196,90,26,0.25);
+    }
+    .diff-item strong {
+      display: block;
+      color: var(--card-text);
+      font-size: 0.94rem;
+      margin-bottom: 4px;
+    }
+
+    /* ── CTA Banner ────────────────────────────────────────── */
+    .service-cta {
+      max-width: 820px;
+      margin: 32px auto 0;
+      background: linear-gradient(135deg, rgba(196,90,26,0.12), rgba(196,90,26,0.04));
+      border: 1px solid rgba(196,90,26,0.25);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      text-align: center;
+    }
+    .service-cta h3 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .service-cta p {
+      color: var(--text-secondary);
+      font-size: 0.94rem;
+      margin-bottom: 24px;
+      max-width: 50ch;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.65;
+    }
+
+    /* ── Footer ────────────────────────────────────────────── */
+    .footer { padding: 32px 0; border-top: 1px solid var(--border); }
+    .footer-row {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 20px; flex-wrap: wrap; color: var(--text-dim); font-size: 0.924rem;
+    }
+    .footer-row a { color: var(--text-secondary); transition: color var(--transition); }
+    .footer-row a:hover { color: var(--accent-light); }
+    .footer-info {
+      color: var(--text-dim);
+      font-size: 0.858rem;
+      line-height: 1.6;
+      margin-top: 8px;
+    }
+
+    /* ── Background Canvas ─────────────────────────────────── */
+    #meshCanvas {
+      position: fixed; top: 0; right: 0; width: 60%; height: 100%;
+      z-index: 0; pointer-events: none; opacity: 0.4;
+    }
+
+    /* ── Scroll Reveal Animation ───────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Responsive Breakpoints ────────────────────────────── */
+    @media (max-width: 1024px) {
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .nav-phone { display: none; }
+    }
+    @media (max-width: 768px) {
+      .service-container { padding: 32px 28px; }
+      .compliance-grid { grid-template-columns: repeat(2, 1fr); }
+      .diff-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .service-container { padding: 24px 20px; border-left-width: 3px; }
+      .service-cta { padding: 28px 20px; }
+      .compliance-grid { grid-template-columns: 1fr; }
+    }
+    .brand-logo { height: 100px; width: auto; max-width: 380px; object-fit: contain; flex-shrink: 0; mix-blend-mode: screen; transition: opacity 0.25s ease; }
+    .brand-logo--footer { height: 132px; max-width: 460px; }
+      .brand-text { font-size: 1.485rem; font-weight: 800; color: var(--text-primary, #fff); letter-spacing: -0.01em; }
+    .brand-text-sub { font-size: 1.485rem; font-weight: 700; color: var(--accent, #c45a1a); letter-spacing: -0.01em; }
+    /* Scroll margin for fixed header */
+    section { scroll-margin-top: 80px; }
+    /* Accessibility & Performance */
+    ::selection { background: rgba(196,90,26,0.3); color: #F0EDE8; }
+    *:focus-visible { outline: 2px solid #C45A1A; outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+
+  <!-- ============================================================
+       STRUCTURED DATA — JSON-LD schema.org Service markup
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "MTT Security",
+    "description": "Comprehensive cybersecurity operations platform that protects organizations from modern threats. Includes firewall defense, threat detection and response, security assessments, identity and access management, virtual CISO services, and incident response planning.",
+    "provider": {
+      "@type": "Organization",
+      "name": "MTT Consulting",
+      "url": "https://www.callmtt.com",
+      "telephone": "+1-469-635-2155",
+      "email": "info@callmtt.com",
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "addressRegion": "TX",
+          "addressLocality": "Collin County"
+        },
+        {
+          "@type": "PostalAddress",
+          "addressRegion": "CA",
+          "addressLocality": "Orange County"
+        }
+      ]
+    },
+    "serviceType": "Cybersecurity Operations Platform",
+    "areaServed": "US",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "MTT Security Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Firewall & Perimeter Defense" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Threat Detection & Response (EDR/XDR)" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Security Assessments & Compliance" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Identity & Access Management" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Virtual CISO Services" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Incident Response & Business Continuity" } }
+      ]
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.callmtt.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://www.callmtt.com/#solutions"},
+      {"@type": "ListItem", "position": 3, "name": "MTT Security", "item": "https://www.callmtt.com/solutions/mtt-security.html"}
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ============================================================
+       SCROLL PROGRESS BAR — Fixed top indicator showing reading progress
+       ============================================================ -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ============================================================
+       MOBILE MENU — Full-screen overlay navigation for small screens
+       ============================================================ -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')" aria-label="Close">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <a href="../index.html">Home</a>
+    <a href="../index.html#services">Services</a>
+    <a href="../index.html#solutions">Solutions</a>
+    <a href="../index.html#industries">Industries</a>
+    <a href="../index.html#why-mtt">Team</a>
+    <a href="../blog/">Blog</a>
+    <a href="../index.html#contact">Contact</a>
+    <a href="tel:4696352155" class="btn btn-primary btn-sm" style="margin-top:12px">Call 469-635-2155</a>
+  </div>
+
+  <!-- ============================================================
+       HEADER & NAVIGATION — Sticky top bar with glassmorphism effect
+       ============================================================ -->
+  <header>
+    <div class="container nav-bar">
+      <a href="../index.html" class="brand" aria-label="MTT Consulting home">
+        <span class="brand-text">MTT</span><span class="brand-text-sub">Consulting</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="../index.html#services">Services</a>
+        <a href="../index.html#solutions" class="active">Solutions</a>
+        <a href="../index.html#industries">Industries</a>
+        <a href="../index.html#why-mtt">Team</a>
+        <a href="../blog/">Blog</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <div class="nav-right">
+        <a href="tel:4696352155" class="nav-phone">469-635-2155</a>
+        <a class="btn btn-primary btn-sm" href="../index.html#contact">Book a Consultation</a>
+        <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============================================================
+         BREADCRUMB — Navigation trail: Home > Solutions > MTT Security
+         ============================================================ -->
+    <div class="container breadcrumb">
+      <a href="../index.html">Home</a>
+      <span>/</span>
+      <a href="../index.html#solutions">Solutions</a>
+      <span>/</span>
+      MTT Security
+    </div>
+
+    <!-- ============================================================
+         SERVICE HERO — Category badge, title, and subtitle
+         ============================================================ -->
+    <section class="service-hero reveal">
+      <div class="container">
+        <div class="service-hero-inner">
+          <span class="service-category">Solution Platform</span>
+          <h1>MTT <span class="highlight">Security</span></h1>
+          <p class="subtitle">Comprehensive cybersecurity operations that protect your organization from modern threats while enabling the business to move faster, not slower.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SERVICE CONTENT — Main body in a white card container
+         ============================================================ -->
+    <section class="service-section">
+      <div class="container">
+        <div class="service-container reveal">
+          <div class="service-body">
+
+            <p>The cybersecurity landscape has shifted fundamentally. Ransomware attacks have become industrialized. Phishing campaigns use AI-generated content that bypasses traditional filters. Supply chain compromises turn trusted software into attack vectors. And the attack surface expands every time an employee connects from a coffee shop, a contractor gets VPN access, or a new SaaS application goes live.</p>
+
+            <h2>Security Is Not a Product &mdash; It&rsquo;s an Outcome</h2>
+
+            <p>Most mid-market organizations are one well-crafted email away from a business-altering event. The tools exist to prevent it, but tools alone are not enough. Security is not a firewall you install or a checkbox you mark during an audit. It is an outcome that requires continuous effort across people, process, and technology.</p>
+
+            <p>MTT Security exists to change that equation. We build, manage, and continuously improve multi-layered security programs that treat cybersecurity as an ongoing discipline &mdash; not a one-time project. Every control we deploy, every policy we write, and every alert we investigate serves a single purpose: keeping your organization resilient against threats that evolve every day.</p>
+
+            <h2>Firewall &amp; Perimeter Defense</h2>
+
+            <p>Your network perimeter remains the first line of defense, and it demands more than default configurations and annual reviews. MTT Security designs, deploys, and manages next-generation firewall infrastructure that inspects traffic at every layer of the stack.</p>
+
+            <ul>
+              <li><strong>Next-generation firewall design and management</strong> across Fortinet FortiGate, Palo Alto PA-Series, and Cisco Firepower platforms</li>
+              <li><strong>Unified threat management (UTM)</strong> consolidating firewall, antivirus, content filtering, and intrusion prevention into a single policy framework</li>
+              <li><strong>IDS/IPS configuration and tuning</strong> to detect and block malicious traffic patterns without drowning your team in false positives</li>
+              <li><strong>Application-layer inspection and sandboxing</strong> to identify threats hiding inside legitimate application protocols</li>
+              <li><strong>SSL/TLS inspection</strong> for encrypted traffic that would otherwise pass through uninspected</li>
+              <li><strong>Policy optimization and rule-base cleanup</strong> to eliminate redundant, shadowed, and overly permissive rules that accumulate over time</li>
+            </ul>
+
+            <div class="stat-callout">
+              <div class="stat-number">60%</div>
+              <div class="stat-label">of breaches involve perimeter security failures &mdash; misconfigured firewalls, unpatched edge devices, and overly permissive access rules</div>
+            </div>
+
+            <p>A properly managed perimeter does not just block known threats. It creates visibility into what is entering and leaving your network, giving your security team the data they need to detect anomalies before they become incidents.</p>
+
+            <h2>Threat Detection &amp; Response</h2>
+
+            <p>Prevention is essential, but no defense is perfect. When a threat bypasses your perimeter, the speed and quality of your detection and response capabilities determine whether the event becomes a minor alert or a major breach.</p>
+
+            <ul>
+              <li><strong>EDR/XDR deployment and management</strong> across CrowdStrike, SentinelOne, and Microsoft Defender for Endpoint &mdash; covering every endpoint, server, and cloud workload in your environment</li>
+              <li><strong>SIEM integration and log correlation</strong> to aggregate security telemetry from firewalls, endpoints, identity systems, and cloud platforms into a single pane of glass</li>
+              <li><strong>24/7 SOC monitoring</strong> with a 15-minute SLA for critical alerts &mdash; because threats do not wait for business hours</li>
+              <li><strong>Threat intelligence feeds and IOC tracking</strong> that continuously update your defenses with indicators of compromise from global threat research</li>
+              <li><strong>Automated response playbooks</strong> that isolate compromised endpoints, block malicious IPs, and disable compromised accounts in seconds, not hours</li>
+              <li><strong>Threat hunting and proactive investigation</strong> conducted by experienced analysts who search for threats that automated tools miss</li>
+            </ul>
+
+            <p>Detection without response is just observation. Response without detection is just guessing. MTT Security delivers both in a unified, managed operation.</p>
+
+            <h2>Security Assessments &amp; Compliance</h2>
+
+            <p>You cannot defend what you do not understand. Our assessment and compliance services give you a clear, honest picture of your current security posture and a structured path to where you need to be.</p>
+
+            <ul>
+              <li><strong>Vulnerability assessments</strong> covering both internal and external attack surfaces, including network devices, servers, endpoints, and web applications</li>
+              <li><strong>Penetration testing</strong> across network, web application, and social engineering vectors &mdash; simulating real-world attack techniques to find weaknesses before adversaries do</li>
+              <li><strong>Risk assessments</strong> aligned to the NIST Cybersecurity Framework, translating technical findings into business risk language that leadership can act on</li>
+              <li><strong>Compliance readiness programs</strong> for the frameworks that matter to your industry and your customers</li>
+              <li><strong>Gap analysis and remediation roadmaps</strong> that prioritize fixes by risk severity and implementation effort</li>
+              <li><strong>Audit preparation and evidence collection support</strong> so your team is ready when auditors arrive, not scrambling to assemble documentation</li>
+            </ul>
+
+            <div class="compliance-grid">
+              <div class="compliance-chip">
+                HIPAA
+                <small>Healthcare</small>
+              </div>
+              <div class="compliance-chip">
+                SOC 2 Type II
+                <small>Service Organizations</small>
+              </div>
+              <div class="compliance-chip">
+                PCI DSS
+                <small>Payment Processing</small>
+              </div>
+              <div class="compliance-chip">
+                CMMC
+                <small>Defense Contractors</small>
+              </div>
+              <div class="compliance-chip">
+                NIST CSF
+                <small>Cross-Industry</small>
+              </div>
+              <div class="compliance-chip">
+                CIS Controls v8
+                <small>Foundational Security</small>
+              </div>
+            </div>
+
+            <p>Compliance is the floor, not the ceiling. We help you satisfy audit requirements while genuinely improving the security controls that protect your business.</p>
+
+            <h2>Identity &amp; Access Management</h2>
+
+            <p>Credentials are the single most exploited attack vector in modern breaches. Stolen passwords, over-provisioned service accounts, and stale access rights give attackers the keys to move laterally through your environment undetected. Identity and access management is no longer a convenience feature &mdash; it is a critical security control.</p>
+
+            <ul>
+              <li><strong>Azure AD / Entra ID hardening</strong> with security baselines, legacy authentication blocking, and tenant-level protections</li>
+              <li><strong>Conditional access policies and MFA enforcement</strong> that adapt authentication requirements based on user risk, device compliance, and network location</li>
+              <li><strong>Privileged access management (PAM)</strong> to vault, rotate, and audit administrative credentials across on-premises and cloud systems</li>
+              <li><strong>SSO integration</strong> across SaaS applications to reduce password sprawl and centralize access control</li>
+              <li><strong>Identity governance and lifecycle management</strong> ensuring access is provisioned at hire, adjusted at role change, and revoked at departure</li>
+              <li><strong>Zero-standing-privileges and just-in-time access</strong> that grant elevated rights only when needed and revoke them automatically when the task is complete</li>
+            </ul>
+
+            <blockquote>
+              <p>Identity is the new perimeter. In a world where users work from anywhere, on any device, through any network, the only consistent control point is the identity itself. Protect the identity, and you protect the organization.</p>
+            </blockquote>
+
+            <h2>Virtual CISO Services</h2>
+
+            <p>Every organization needs senior security leadership. Not every organization needs &mdash; or can afford &mdash; a full-time Chief Information Security Officer at $250K or more in total compensation. MTT Security&rsquo;s Virtual CISO service provides the strategic guidance, board-level communication, and program oversight that a full-time CISO delivers, at a fraction of the cost.</p>
+
+            <ul>
+              <li><strong>Board-level security reporting</strong> that translates technical risk into business impact language executives and board members can understand and act on</li>
+              <li><strong>Security program development and maturity assessment</strong> using established frameworks to measure where you are today and define where you need to be</li>
+              <li><strong>Policy and procedure documentation</strong> including acceptable use policies, incident response plans, business continuity and disaster recovery plans, and vendor risk management procedures</li>
+              <li><strong>Security awareness training programs</strong> that reduce human-factor risk through regular phishing simulations, role-based training, and measurable behavior change</li>
+              <li><strong>Regulatory liaison and audit support</strong> providing a credible security executive who can speak directly with auditors, regulators, and insurance underwriters</li>
+              <li><strong>Security architecture review and roadmap</strong> ensuring your technology investments align with your risk profile and business objectives</li>
+            </ul>
+
+            <p>Our Virtual CISOs are not junior analysts reading from a script. They are experienced security leaders who have built and run enterprise security programs. They attend your leadership meetings, own your security roadmap, and are accountable for measurable improvements in your security posture.</p>
+
+            <h2>Incident Response &amp; Business Continuity</h2>
+
+            <p>The time to build your incident response capability is before an incident occurs. The organizations that recover fastest from breaches are not the ones with the most expensive tools &mdash; they are the ones that practiced, documented, and rehearsed their response before it was needed.</p>
+
+            <ul>
+              <li><strong>Incident response plan development</strong> with clearly defined roles, escalation paths, and decision-making authority for every severity level</li>
+              <li><strong>Tabletop exercises and simulation drills</strong> that walk your leadership and technical teams through realistic breach scenarios to test decision-making under pressure</li>
+              <li><strong>Forensic investigation capabilities</strong> to determine the scope, root cause, and impact of a security event with evidence that supports legal and regulatory requirements</li>
+              <li><strong>Communication protocols</strong> covering internal notification chains, customer and partner communications, regulatory reporting obligations, and media response procedures</li>
+              <li><strong>Backup validation and disaster recovery testing</strong> to confirm that your backups actually work and your recovery procedures meet their stated objectives</li>
+              <li><strong>Business continuity planning</strong> with defined RTO and RPO targets for every critical system, ensuring your organization can continue operating through a disruptive event</li>
+            </ul>
+
+            <p>Organizations that practice their incident response regularly recover faster, suffer less data loss, and maintain stakeholder trust through transparent and coordinated action.</p>
+
+            <h2>Why MTT Security</h2>
+
+            <p>There is no shortage of cybersecurity vendors. What separates MTT Security is how we think about the problem and how we operate once engaged.</p>
+
+            <div class="diff-grid">
+              <div class="diff-item">
+                <strong>Defense-in-Depth Philosophy</strong>
+                No silver bullets. We layer controls so that the failure of any single defense does not result in a breach.
+              </div>
+              <div class="diff-item">
+                <strong>Vendor-Agnostic Tool Selection</strong>
+                We recommend the right tool for your environment, not the tool that pays us the highest margin.
+              </div>
+              <div class="diff-item">
+                <strong>Compliance Across 6+ Frameworks</strong>
+                Deep expertise in HIPAA, SOC 2, PCI DSS, CMMC, NIST CSF, and CIS Controls v8.
+              </div>
+              <div class="diff-item">
+                <strong>15-Minute Critical Alert SLA</strong>
+                When a critical alert fires, our SOC responds within 15 minutes. Every time.
+              </div>
+              <div class="diff-item">
+                <strong>Security That Enables Business</strong>
+                We build security programs that help the business move faster, not programs that block every request with red tape.
+              </div>
+              <div class="diff-item">
+                <strong>Transparent Reporting</strong>
+                You see what we see. No black boxes, no hidden findings, no surprises at renewal time.
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ============================================================
+             CTA BANNER — Call-to-action for security consultation
+             ============================================================ -->
+        <div class="service-cta reveal">
+          <h3>Ready to Strengthen Your Security Posture?</h3>
+          <p>Our cybersecurity team will assess your current environment and build a layered defense strategy tailored to your organization&rsquo;s size, industry, and risk profile.</p>
+          <a href="../index.html#contact" class="btn btn-primary">Book a Consultation</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       FOOTER — Copyright, description, nav links, and contact info
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <a href="../index.html" class="brand" style="margin-bottom:8px">
+        <span class="brand-text">MTT</span><span class="brand-text-sub">Consulting</span>
+      </a>
+      <div class="footer-row">
+        <span>&copy; 2026 MTT Consulting. All rights reserved.</span>
+        <div style="display:flex;gap:20px;">
+          <a href="../index.html#services">Services</a>
+          <a href="../index.html#contact">Contact</a>
+          <a href="tel:4696352155">469-635-2155</a>
+        </div>
+      </div>
+      <div class="footer-info">
+        vCIO advisory, AI governance, cybersecurity, and managed IT services nationwide. Offices in Collin County, TX &amp; Orange County, CA &middot; <a href="mailto:info@callmtt.com">info@callmtt.com</a> &middot; <a href="tel:4696352155">469-635-2155</a>
+      </div>
+      <div><a href="/privacy-policy.html">Privacy Policy</a> &middot; <a href="/terms-of-service.html">Terms of Service</a> &middot; <a href="/sitemap.xml">Sitemap</a></div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT — Scroll progress, scroll reveal, and canvas mesh
+       ============================================================ -->
+  <script>
+    // --- Scroll Progress Bar ---
+    window.addEventListener('scroll', () => {
+      const bar = document.getElementById('scrollProgress');
+      const scrolled = window.scrollY;
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      if (height > 0) {
+        bar.style.width = (scrolled / height * 100) + '%';
+      }
+    });
+
+    // --- Scroll Reveal ---
+    // Animates elements with class 'reveal' into view on scroll
+    (function() {
+      const els = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(el => observer.observe(el));
+    })();
+  </script>
+
+  <!-- ============================================================
+       BACKGROUND CANVAS — Animated particle mesh rendered via JS
+       ============================================================ -->
+  <canvas id="meshCanvas"></canvas>
+  <script>
+  // --- Canvas Mesh Animation ---
+  // Creates an animated particle network on the background <canvas> element.
+  // 60 floating nodes drift and bounce off edges; lines connect nearby nodes.
+  (function(){
+    const c=document.getElementById('meshCanvas');if(!c)return;
+    const ctx=c.getContext('2d');
+    let w,h,pts=[];
+    function resize(){w=c.width=c.offsetWidth*devicePixelRatio;h=c.height=c.offsetHeight*devicePixelRatio;ctx.scale(devicePixelRatio,devicePixelRatio);}
+    resize();window.addEventListener('resize',resize);
+    for(let i=0;i<60;i++)pts.push({x:Math.random()*c.offsetWidth,y:Math.random()*c.offsetHeight,vx:(Math.random()-0.5)*0.3,vy:(Math.random()-0.5)*0.3});
+    function draw(){
+      ctx.clearRect(0,0,c.offsetWidth,c.offsetHeight);
+      pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>c.offsetWidth)p.vx*=-1;if(p.y<0||p.y>c.offsetHeight)p.vy*=-1;});
+      for(let i=0;i<pts.length;i++){
+        for(let j=i+1;j<pts.length;j++){
+          const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+          if(d<120){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle='rgba(196,90,26,'+(1-d/120)*0.15+')';ctx.stroke();}
+        }
+        ctx.beginPath();ctx.arc(pts[i].x,pts[i].y,1.5,0,Math.PI*2);ctx.fillStyle='rgba(196,90,26,0.3)';ctx.fill();
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+  </script>
+
+</body>
+</html>
