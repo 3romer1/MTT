@@ -1011,6 +1011,36 @@ header {
   color: var(--text-dim);
   margin-top: 12px;
 }
+.form-feedback {
+  font-size: 0.86rem;
+  margin-top: 14px;
+  line-height: 1.6;
+}
+.form-feedback.is-error {
+  color: #E0654B;
+}
+.form-success {
+  text-align: center;
+  padding: 48px 16px;
+  color: var(--text-body);
+}
+.form-success svg {
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+.form-success h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+.form-success p {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  max-width: 38ch;
+  margin: 0 auto;
+}
 
 /* ── Footer ────────────────────────────────────────────────── */
 .footer {
